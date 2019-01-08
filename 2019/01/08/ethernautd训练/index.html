@@ -121,7 +121,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/01/08/ethernautd训练/16.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/01/08/ethernautd训练/17.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/01/08/ethernautd训练/18.jpg">
-<meta property="og:updated_time" content="2019-01-08T11:55:14.531Z">
+<meta property="og:updated_time" content="2019-01-08T11:57:20.352Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Ethernaut训练">
 <meta name="twitter:description" content="简介ethernaut包含有22道智能合约的训练题目，而最近有关智能合约的题也是在不断的出现，所以还是有必要了解一下的(顺便了解下这种题目怎么做) 题目链接 另外也放上大哥的writeup跟着学习一下链接">
@@ -458,7 +458,48 @@
 <h2 id="level-1-Fallback"><a href="#level-1-Fallback" class="headerlink" title="level 1 - Fallback"></a>level 1 - Fallback</h2><p><a href="https://ethernaut.zeppelin.solutions/level/0x234094aac85628444a82dae0396c680974260be7" target="_blank" rel="noopener">题目链接</a></p>
 <h3 id="胜利条件"><a href="#胜利条件" class="headerlink" title="胜利条件"></a>胜利条件</h3><p>1.获得合约的所有权<br>2.收回合约的所有余额</p>
 <h3 id="tips"><a href="#tips" class="headerlink" title="tips"></a>tips</h3><p>1.如何用ABI发送ether<br>2.如何用ABI以外的方法发送ether<br>3.查看help()会有帮助<br>4.Fallback方法</p>
-<h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^0.4.18;</span><br><span class="line"></span><br><span class="line">import <span class="string">'zeppelin-solidity/contracts/ownership/Ownable.sol'</span>;</span><br><span class="line"></span><br><span class="line">contract Fallback is Ownable &#123;</span><br><span class="line"></span><br><span class="line">  mapping(address =&gt; uint) public contributions;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">function</span> Fallback() public &#123; //构造函数，初始化owner的contributions为1000</span><br><span class="line">    contributions[msg.sender] = 1000 * (1 ether);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">function</span> contribute() public payable &#123; //将合约拥有权交给贡献1000ETH以上的人</span><br><span class="line">    require(msg.value &lt; 0.001 ether);</span><br><span class="line">    contributions[msg.sender] += msg.value;</span><br><span class="line">    <span class="keyword">if</span>(contributions[msg.sender] &gt; contributions[owner]) &#123; </span><br><span class="line">      owner = msg.sender;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">function</span> getContribution() public view returns (uint) &#123;</span><br><span class="line">    <span class="built_in">return</span> contributions[msg.sender];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">function</span> withdraw() public onlyOwner &#123; //owner收回合约的所有余额，只有owner可以调用</span><br><span class="line">    owner.transfer(this.balance);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">function</span>() payable public &#123; //fallback函数，当满足发送的value大于1发送者的contributions的值大于1时将owner变为消息发送者</span><br><span class="line">    require(msg.value &gt; 0 &amp;&amp; contributions[msg.sender] &gt; 0);</span><br><span class="line">    owner = msg.sender;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line">``` </span><br><span class="line"></span><br><span class="line"><span class="comment">### 解题思路</span></span><br><span class="line">最终目的是调用`withdraw()`方法将余额清零，也就是我们要成为`owner`</span><br><span class="line">contribute里面虽然有可能称为owner，但是代价太过昂贵（1000ETH且每次只能发送小于0.001的ETH）</span><br><span class="line">在`fallback`中只要满足`msg.value&gt;0`且`contributions[msg.sender]&gt;0`即可成为owner</span><br><span class="line">其中`msg.value`我们可以直接发送过去，而`contributions[msg.sender]`我们需要调用`contribute()`这个函数，也就是参数满足`value&lt;0.001`的条件就行</span><br><span class="line"></span><br><span class="line"><span class="comment">### 具体步骤</span></span><br><span class="line">1.调用`contribute`函数，传入参数`value=1`</span><br><span class="line">其中value的单位是wei</span><br><span class="line"></span><br><span class="line">``` bash</span><br><span class="line">1 eth = 1e9 Gwei = 1e18 wei</span><br></pre></td></tr></table></figure>
+<h3 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h3><pre><code>
+pragma solidity ^0.4.18;
+
+import 'zeppelin-solidity/contracts/ownership/Ownable.sol';
+
+contract Fallback is Ownable {
+
+  mapping(address => uint) public contributions;
+
+  function Fallback() public { //构造函数，初始化owner的contributions为1000
+    contributions[msg.sender] = 1000 * (1 ether);
+  }
+
+  function contribute() public payable { //将合约拥有权交给贡献1000ETH以上的人
+    require(msg.value < 0.001 ether);
+    contributions[msg.sender] += msg.value;
+    if(contributions[msg.sender] > contributions[owner]) { 
+      owner = msg.sender;
+    }
+  }
+
+  function getContribution() public view returns (uint) {
+    return contributions[msg.sender];
+  }
+
+  function withdraw() public onlyOwner { //owner收回合约的所有余额，只有owner可以调用
+    owner.transfer(this.balance);
+  }
+
+  function() payable public { //fallback函数，当满足发送的value大于1发送者的contributions的值大于1时将owner变为消息发送者
+    require(msg.value > 0 && contributions[msg.sender] > 0);
+    owner = msg.sender;
+  }
+}
+</code></pre>
+
+<h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>最终目的是调用<code>withdraw()</code>方法将余额清零，也就是我们要成为<code>owner</code><br>contribute里面虽然有可能称为owner，但是代价太过昂贵（1000ETH且每次只能发送小于0.001的ETH）<br>在<code>fallback</code>中只要满足<code>msg.value&gt;0</code>且<code>contributions[msg.sender]&gt;0</code>即可成为owner<br>其中<code>msg.value</code>我们可以直接发送过去，而<code>contributions[msg.sender]</code>我们需要调用<code>contribute()</code>这个函数，也就是参数满足<code>value&lt;0.001</code>的条件就行</p>
+<h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><p>1.调用<code>contribute</code>函数，传入参数<code>value=1</code><br>其中value的单位是wei</p>
+<pre><code>
+1 eth = 1e9 Gwei = 1e18 wei
+</code></pre>
+
 <div style="width: 500px; margin: auto"><img src="/2019/01/08/ethernautd训练/15.jpg" alt="15"></div>
 
 <p>2.调用<code>send</code>函数，传入参数1(也可以在钱包里直接打钱，不过听说打钱会有bug，就直接用send了，当然也可以用<code>contract.sendTransaction({value: 100})</code>)， 由于<code>send</code>函数会调用fallback函数，我们便成为了<code>owner</code></p>
@@ -650,7 +691,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#level-0-Hello-Ethernaut"><span class="nav-text">level 0 - Hello Ethernaut</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步"><span class="nav-text">第一步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步"><span class="nav-text">第二步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步"><span class="nav-text">第三步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四步"><span class="nav-text">第四步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五步"><span class="nav-text">第五步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第六步"><span class="nav-text">第六步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第七步"><span class="nav-text">第七步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第八步"><span class="nav-text">第八步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第九步"><span class="nav-text">第九步</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#level-1-Fallback"><span class="nav-text">level 1 - Fallback</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#胜利条件"><span class="nav-text">胜利条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tips"><span class="nav-text">tips</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#源码"><span class="nav-text">源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意事项"><span class="nav-text">注意事项</span></a></li></ol></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#level-0-Hello-Ethernaut"><span class="nav-text">level 0 - Hello Ethernaut</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#第一步"><span class="nav-text">第一步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第二步"><span class="nav-text">第二步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第三步"><span class="nav-text">第三步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第四步"><span class="nav-text">第四步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第五步"><span class="nav-text">第五步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第六步"><span class="nav-text">第六步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第七步"><span class="nav-text">第七步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第八步"><span class="nav-text">第八步</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#第九步"><span class="nav-text">第九步</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#level-1-Fallback"><span class="nav-text">level 1 - Fallback</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#胜利条件"><span class="nav-text">胜利条件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#tips"><span class="nav-text">tips</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#源码"><span class="nav-text">源码</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体步骤"><span class="nav-text">具体步骤</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#注意事项"><span class="nav-text">注意事项</span></a></li></ol></li></ol></li></ol></div>
             
 
           </div>
