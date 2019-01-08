@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-08T16:07:24.235Z</updated>
+  <updated>2019-01-08T16:11:22.419Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2019/01/08/ethernautd%E8%AE%AD%E7%BB%83/"/>
     <id>http://yoursite.com/2019/01/08/ethernautd训练/</id>
     <published>2019-01-08T08:26:39.461Z</published>
-    <updated>2019-01-08T16:07:24.235Z</updated>
+    <updated>2019-01-08T16:11:22.419Z</updated>
     
     <summary type="html">
     
@@ -45,7 +45,7 @@
     <link href="http://yoursite.com/2019/01/08/hello-world/"/>
     <id>http://yoursite.com/2019/01/08/hello-world/</id>
     <published>2019-01-08T07:02:21.370Z</published>
-    <updated>2019-01-08T15:52:32.576Z</updated>
+    <updated>2019-01-08T16:11:05.572Z</updated>
     
     <summary type="html">
     
@@ -53,10 +53,10 @@
     
     </summary>
     
-      <category term="CTF" scheme="http://yoursite.com/categories/CTF/"/>
+      <category term="其他" scheme="http://yoursite.com/categories/%E5%85%B6%E4%BB%96/"/>
     
     
-      <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
+      <category term="其他" scheme="http://yoursite.com/tags/%E5%85%B6%E4%BB%96/"/>
     
   </entry>
   
