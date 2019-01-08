@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Hello World]]></title>
     <url>%2F2019%2F01%2F08%2Fhello-world%2F</url>
-    <content type="text"><![CDATA[第一次搭博客，还真是有很多问题 Quick StartCreate a new post1$ hexo new "My New Post"]]></content>
+    <content type="text"><![CDATA[Start这个博客主要用来记录一些有关ctf的知识因为自己太健忘了，不记录下会出事的而且搭个博客以后AWD就不用再坐着发呆了，起码有点东西可以看本博客主要分为web和crypto两个方向，也是我现在负责的两个方向希望自己多多加油把！ 最后来个常规操作 1$ ehco "Hello world"]]></content>
       <categories>
         <category>CTF</category>
       </categories>
