@@ -408,33 +408,7 @@
         
           <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>ethernaut包含有15道智能合约的训练题目，而最近有关智能合约的题也是在不断的出现，所以还是有必要了解一下的(顺便了解下这种题目怎么做)</p>
 <p><a href="https://ethernaut.zeppelin.solutions/level/0x6545df87f57d21cb096a0bfcc53a70464d062512" target="_blank" rel="noopener">题目链接</a></p>
-<p>另外也放上大哥的writeup跟着学习一下<br><a href="http://ultramangaia.github.io/blog/2018/Ethernaut%E8%AE%AD%E7%BB%83writeup.html#more" target="_blank" rel="noopener">链接</a></p>
-<h2 id="level-0-Hello-Ethernaut"><a href="#level-0-Hello-Ethernaut" class="headerlink" title="level 0 - Hello Ethernaut"></a>level 0 - Hello Ethernaut</h2><p><a href="https://ethernaut.zeppelin.solutions/level/0xdf51a9e8ce57e7787e4a27dd19880fd7106b9a5c" target="_blank" rel="noopener">题目链接</a></p>
-<h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>首先是简单的教程，先下载MetaMask插件并且注册账号，然后设置钱包并使用Ropsten测试网络</p>
-<div style="width: 500px; margin: auto"><img src="/2019/01/08/ethernautd训练/1.jpg" alt="MetaMask和Ropsten测试网络"></div>
-
-<h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>打开控制台，然后会发现给了合约地址和help</p>
-<div style="width: 500px; margin: auto"><img src="/2019/01/08/ethernautd训练/2.jpg" alt="合约地址"></div><br><div style="width: 500px; margin: auto"><img src="/2019/01/08/ethernautd训练/3.jpg" alt="help"></div><br>其中level地址为 <code>0xdf51a9e8ce57e7787e4a27dd19880fd7106b9a5c</code><br><br>在Ropsten测试网络下还会有你的player地址和Ethernaut地址<br>使用player指令可以直接获得player地址<br><div style="width: 500px; margin: auto"><img src="/2019/01/08/ethernautd训练/4.jpg" alt="player地址和Ethernaut地址"></div>
-
-<h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>之后会让你使用getBalance函数获得你的以太坊的数量，并且让你使用help(),由于我们第二步使用过，就不再演示了<br>PS:由于在Ropsten测试网络中可以直接通过Ether Faucet获得测试以太坊，所以我的数额为7</p>
-<div style="width: 500px; margin: auto"><img src="/2019/01/08/ethernautd训练/5.jpg" alt="调用getBalance"></div>
-
-<h3 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h3><p>使用ethernaut指令可以直接输出当前合约的有关信息，其中的abi可以理解为合约中的<code>公共</code>方法列表，当然在下面可以看见例如<code>owner: f()</code>之类的东西就是方法的具体信息</p>
-<div style="width: 500px; margin: auto"><img src="/2019/01/08/ethernautd训练/6.jpg" alt="查看合约信息"></div>
-
-<h3 id="第五步"><a href="#第五步" class="headerlink" title="第五步"></a>第五步</h3><p>与ABI互动，也就是可以调用上一步说的方法列表里的方法，系统让我们调用<code>ethernaut.owner()</code>，返回的是智能合约的拥有者</p>
-<div style="width: 500px; margin: auto"><img src="/2019/01/08/ethernautd训练/7.jpg" alt="调用owner"></div>
-
-<h3 id="第六步"><a href="#第六步" class="headerlink" title="第六步"></a>第六步</h3><p>这一步就是让我们通过上面提到的Ether Faucet获得测试以太坊，可以将MetaMask调至<code>中文</code>，然后点击<code>存入</code>-<code>测试水管</code>，之后点击<code>request 1 ether from faucet</code>就行</p>
-<h3 id="第七步"><a href="#第七步" class="headerlink" title="第七步"></a>第七步</h3><p>生成合约实例，点击下面的蓝色按钮即可，需要等待一段时间</p>
-<div style="width: 500px; margin: auto"><img src="/2019/01/08/ethernautd训练/8.jpg" alt="获取实例按钮"></div><br>成功之后会显示下图<br><div style="width: 500px; margin: auto"><img src="/2019/01/08/ethernautd训练/9.jpg" alt="成功"></div>
-
-<h3 id="第八步"><a href="#第八步" class="headerlink" title="第八步"></a>第八步</h3><p>题目告诉你生成的合约实例可以调用合约的ABI，也可以自己试试，用<code>contract.方法</code>就行</p>
-<h3 id="第九步"><a href="#第九步" class="headerlink" title="第九步"></a>第九步</h3><p>从<code>contract.info()</code>入手跟着走下去就行</p>
-<div style="width: 500px; margin: auto"><img src="/2019/01/08/ethernautd训练/10.jpg" alt="10"></div><br><div style="width: 500px; margin: auto"><img src="/2019/01/08/ethernautd训练/11.jpg" alt="11"></div><br><div style="width: 500px; margin: auto"><img src="/2019/01/08/ethernautd训练/12.jpg" alt="12"></div>
-
-<p>之后点击<code>submit instance</code>即可过关。</p>
-<div style="width: 500px; margin: auto"><img src="/2019/01/08/ethernautd训练/14.jpg" alt="13"></div>
+<p>另外也放上大哥的writeup跟着学习一下<br><a href="http://ultramangaia.github.io/blog/2018/Ethernaut%E8%AE%AD%E7%BB%83writeup.html#more" target="_blank" rel="noopener">链接</a><br></p>
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2019/01/08/ethernautd训练/#more" rel="contents">
