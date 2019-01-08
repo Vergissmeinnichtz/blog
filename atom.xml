@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-08T08:19:10.083Z</updated>
+  <updated>2019-01-08T08:29:31.134Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Ethernaut训练</title>
+    <link href="http://yoursite.com/2019/01/08/ethernautd%E8%AE%AD%E7%BB%83/"/>
+    <id>http://yoursite.com/2019/01/08/ethernautd训练/</id>
+    <published>2019-01-08T08:26:39.461Z</published>
+    <updated>2019-01-08T08:29:31.134Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;ethernaut包含有15道智能合约的训练题目，而最近有关智能合约的题也是在不断的出现，所以还是有必要了解一下的(顺便了解下这种题目怎么做)&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;https://ethernaut.zeppelin.solutions/level/0x6545df87f57d21cb096a0bfcc53a70464d062512&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;题目链接&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;另外也放上大哥的writeup跟着学习一下&lt;a href=&quot;http://ultramangaia.github.io/blog/2018/Ethernaut%E8%AE%AD%E7%BB%83writeup.html#more&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;链接&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&quot;level-0&quot;&gt;&lt;a href=&quot;#level-0&quot; class=&quot;headerlink&quot; title=&quot;level 0&quot;&gt;&lt;/a&gt;level 0&lt;/h2&gt;&lt;p&gt;首先是简单的教程，先下载MetaMask插件并且注册账号，然后设置钱包并使用Ropsten测试网络&lt;br&gt;&lt;img src=&quot;/2019/01/08/ethernautd训练/2019/01/08/ethernautd训练/1.jpg&quot; title=&quot;MetaMask和测试网络&quot;&gt;&lt;/p&gt;
+&lt;p&gt;##第一步&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Crypto" scheme="http://yoursite.com/categories/Crypto/"/>
+    
+    
+      <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
+    
+      <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
+    
+  </entry>
   
   <entry>
     <title>Ethernaut训练</title>
