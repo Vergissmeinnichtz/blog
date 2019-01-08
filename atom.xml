@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-08T08:16:24.419Z</updated>
+  <updated>2019-01-08T08:17:27.275Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,12 +21,13 @@
     <link href="http://yoursite.com/2019/01/08/ethernaut-write-up/"/>
     <id>http://yoursite.com/2019/01/08/ethernaut-write-up/</id>
     <published>2019-01-08T08:12:15.386Z</published>
-    <updated>2019-01-08T08:16:24.419Z</updated>
+    <updated>2019-01-08T08:17:27.275Z</updated>
     
     <summary type="html">
     
       &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;ethernaut包含有15道智能合约的训练题目，而最近有关智能合约的题也是在不断的出现，所以还是有必要了解一下的(顺便了解下这种题目怎么做)&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://ethernaut.zeppelin.solutions/level/0x6545df87f57d21cb096a0bfcc53a70464d062512&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;题目链接&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&quot;http://ultramangaia.github.io/blog/2018/Ethernaut%E8%AE%AD%E7%BB%83writeup.html#more&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;另外也放上大哥的writeup跟着学习以下&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&quot;level-0&quot;&gt;&lt;a href=&quot;#level-0&quot; class=&quot;headerlink&quot; title=&quot;level 0&quot;&gt;&lt;/a&gt;level 0&lt;/h2&gt;
     
     </summary>
