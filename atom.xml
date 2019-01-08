@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-08T09:54:51.220Z</updated>
+  <updated>2019-01-08T09:56:25.038Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2019/01/08/ethernautd%E8%AE%AD%E7%BB%83/"/>
     <id>http://yoursite.com/2019/01/08/ethernautd训练/</id>
     <published>2019-01-08T08:26:39.461Z</published>
-    <updated>2019-01-08T09:54:51.220Z</updated>
+    <updated>2019-01-08T09:56:25.038Z</updated>
     
     <summary type="html">
     
@@ -38,10 +38,10 @@
 &lt;h3 id=&quot;第三步&quot;&gt;&lt;a href=&quot;#第三步&quot; class=&quot;headerlink&quot; title=&quot;第三步&quot;&gt;&lt;/a&gt;第三步&lt;/h3&gt;&lt;p&gt;之后会让你使用getBalance函数获得你的以太坊的数量，并且让你使用help(),由于我们第二步使用过，就不再演示了&lt;br&gt;PS:由于在Ropsten测试网络中可以直接通过Ether Faucet获得测试以太坊，所以我的数额为7&lt;/p&gt;
 &lt;div style=&quot;width: 500px; margin: auto&quot;&gt;&lt;img src=&quot;/2019/01/08/ethernautd训练/5.jpg&quot; alt=&quot;调用getBalance&quot;&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;第四步&quot;&gt;&lt;a href=&quot;#第四步&quot; class=&quot;headerlink&quot; title=&quot;第四步&quot;&gt;&lt;/a&gt;第四步&lt;/h3&gt;&lt;p&gt;使用ethernaut指令可以直接输出当前合约的有关信息，其中的abi可以理解为合约中的&lt;code&gt;公共&lt;/code&gt;方法列表，当然在下面可以看见例如&lt;code&gt;owner&lt;/code&gt;之类的东西就是方法的具体信息&lt;/p&gt;
+&lt;h3 id=&quot;第四步&quot;&gt;&lt;a href=&quot;#第四步&quot; class=&quot;headerlink&quot; title=&quot;第四步&quot;&gt;&lt;/a&gt;第四步&lt;/h3&gt;&lt;p&gt;使用ethernaut指令可以直接输出当前合约的有关信息，其中的abi可以理解为合约中的&lt;code&gt;公共&lt;/code&gt;方法列表，当然在下面可以看见例如&lt;code&gt;owner: f()&lt;/code&gt;之类的东西就是方法的具体信息&lt;/p&gt;
 &lt;div style=&quot;width: 500px; margin: auto&quot;&gt;&lt;img src=&quot;/2019/01/08/ethernautd训练/6.jpg&quot; alt=&quot;查看合约信息&quot;&gt;&lt;/div&gt;
 
-&lt;h3 id=&quot;第五步&quot;&gt;&lt;a href=&quot;#第五步&quot; class=&quot;headerlink&quot; title=&quot;第五步&quot;&gt;&lt;/a&gt;第五步&lt;/h3&gt;&lt;p&gt;与ABI互动，也就是可以调用上一步说的方法列表里的方法，系统让我们调用ethernaut.owner()，返回的是智能合约的拥有者&lt;/p&gt;
+&lt;h3 id=&quot;第五步&quot;&gt;&lt;a href=&quot;#第五步&quot; class=&quot;headerlink&quot; title=&quot;第五步&quot;&gt;&lt;/a&gt;第五步&lt;/h3&gt;&lt;p&gt;与ABI互动，也就是可以调用上一步说的方法列表里的方法，系统让我们调用&lt;code&gt;ethernaut.owner()&lt;/code&gt;，返回的是智能合约的拥有者&lt;/p&gt;
 &lt;div style=&quot;width: 500px; margin: auto&quot;&gt;&lt;img src=&quot;/2019/01/08/ethernautd训练/7.jpg&quot; alt=&quot;调用owner&quot;&gt;&lt;/div&gt;
 
 &lt;h3 id=&quot;第六步&quot;&gt;&lt;a href=&quot;#第六步&quot; class=&quot;headerlink&quot; title=&quot;第六步&quot;&gt;&lt;/a&gt;第六步&lt;/h3&gt;&lt;p&gt;这一步就是让我们通过上面提到的Ether Faucet获得测试以太坊，可以将MetaMask调至中文，然后点击存入-测试水管，之后点击request 1 ether from faucet就行&lt;/p&gt;
@@ -52,7 +52,7 @@
 &lt;h3 id=&quot;第九步&quot;&gt;&lt;a href=&quot;#第九步&quot; class=&quot;headerlink&quot; title=&quot;第九步&quot;&gt;&lt;/a&gt;第九步&lt;/h3&gt;&lt;p&gt;从contract.info()入手跟着走下去就行&lt;/p&gt;
 &lt;div style=&quot;width: 500px; margin: auto&quot;&gt;&lt;img src=&quot;/2019/01/08/ethernautd训练/9.jpg&quot; alt=&quot;9&quot;&gt;&lt;/div&gt;&lt;br&gt;&lt;div style=&quot;width: 500px; margin: auto&quot;&gt;&lt;img src=&quot;/2019/01/08/ethernautd训练/10.jpg&quot; alt=&quot;10&quot;&gt;&lt;/div&gt;&lt;br&gt;&lt;div style=&quot;width: 500px; margin: auto&quot;&gt;&lt;img src=&quot;/2019/01/08/ethernautd训练/11.jpg&quot; alt=&quot;11&quot;&gt;&lt;/div&gt;&lt;br&gt;&lt;div style=&quot;width: 500px; margin: auto&quot;&gt;&lt;img src=&quot;/2019/01/08/ethernautd训练/12.jpg&quot; alt=&quot;12&quot;&gt;&lt;/div&gt;&lt;br&gt;&lt;div style=&quot;width: 500px; margin: auto&quot;&gt;&lt;img src=&quot;/2019/01/08/ethernautd训练/13.jpg&quot; alt=&quot;13&quot;&gt;&lt;/div&gt;
 
-&lt;p&gt;之后点击submit instance即可过关。&lt;/p&gt;
+&lt;p&gt;之后点击&lt;code&gt;submit instance&lt;/code&gt;即可过关。&lt;/p&gt;
 &lt;div style=&quot;width: 500px; margin: auto&quot;&gt;&lt;img src=&quot;/2019/01/08/ethernautd训练/14.jpg&quot; alt=&quot;13&quot;&gt;&lt;/div&gt;
     
     </summary>
