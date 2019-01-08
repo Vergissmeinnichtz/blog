@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-08T09:49:52.269Z</updated>
+  <updated>2019-01-08T09:51:39.568Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,34 +21,34 @@
     <link href="http://yoursite.com/2019/01/08/ethernautd%E8%AE%AD%E7%BB%83/"/>
     <id>http://yoursite.com/2019/01/08/ethernautd训练/</id>
     <published>2019-01-08T08:26:39.461Z</published>
-    <updated>2019-01-08T09:49:52.269Z</updated>
+    <updated>2019-01-08T09:51:39.568Z</updated>
     
     <summary type="html">
     
       &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;ethernaut包含有15道智能合约的训练题目，而最近有关智能合约的题也是在不断的出现，所以还是有必要了解一下的(顺便了解下这种题目怎么做)&lt;/p&gt;
 &lt;p&gt;&lt;a href=&quot;https://ethernaut.zeppelin.solutions/level/0x6545df87f57d21cb096a0bfcc53a70464d062512&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;题目链接&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;另外也放上大哥的writeup跟着学习一下&lt;br&gt;&lt;a href=&quot;http://ultramangaia.github.io/blog/2018/Ethernaut%E8%AE%AD%E7%BB%83writeup.html#more&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;链接&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&quot;level-0&quot;&gt;&lt;a href=&quot;#level-0&quot; class=&quot;headerlink&quot; title=&quot;level 0&quot;&gt;&lt;/a&gt;level 0&lt;/h2&gt;&lt;p&gt;##第一步&lt;br&gt;首先是简单的教程，先下载MetaMask插件并且注册账号，然后设置钱包并使用Ropsten测试网络&lt;/p&gt;
+&lt;h2 id=&quot;level-0&quot;&gt;&lt;a href=&quot;#level-0&quot; class=&quot;headerlink&quot; title=&quot;level 0&quot;&gt;&lt;/a&gt;level 0&lt;/h2&gt;&lt;h2 id=&quot;第一步&quot;&gt;&lt;a href=&quot;#第一步&quot; class=&quot;headerlink&quot; title=&quot;第一步&quot;&gt;&lt;/a&gt;第一步&lt;/h2&gt;&lt;p&gt;首先是简单的教程，先下载MetaMask插件并且注册账号，然后设置钱包并使用Ropsten测试网络&lt;/p&gt;
 &lt;div style=&quot;width: 500px; margin: auto&quot;&gt;&lt;img src=&quot;/2019/01/08/ethernautd训练/1.jpg&quot; alt=&quot;MetaMask和Ropsten测试网络&quot;&gt;&lt;/div&gt;
 
-&lt;p&gt;##第二步&lt;br&gt;打开控制台，然后会发现给了合约地址和help&lt;/p&gt;
+&lt;h2 id=&quot;第二步&quot;&gt;&lt;a href=&quot;#第二步&quot; class=&quot;headerlink&quot; title=&quot;第二步&quot;&gt;&lt;/a&gt;第二步&lt;/h2&gt;&lt;p&gt;打开控制台，然后会发现给了合约地址和help&lt;/p&gt;
 &lt;div style=&quot;width: 500px; margin: auto&quot;&gt;&lt;img src=&quot;/2019/01/08/ethernautd训练/2.jpg&quot; alt=&quot;合约地址&quot;&gt;&lt;/div&gt;&lt;br&gt;&lt;div style=&quot;width: 500px; margin: auto&quot;&gt;&lt;img src=&quot;/2019/01/08/ethernautd训练/3.jpg&quot; alt=&quot;help&quot;&gt;&lt;/div&gt;&lt;br&gt;其中level地址为 &lt;code&gt;0xdf51a9e8ce57e7787e4a27dd19880fd7106b9a5c&lt;/code&gt;&lt;br&gt;&lt;br&gt;在Ropsten测试网络下还会有你的player地址和Ethernaut地址&lt;br&gt;使用player指令可以直接获得player地址&lt;br&gt;&lt;div style=&quot;width: 500px; margin: auto&quot;&gt;&lt;img src=&quot;/2019/01/08/ethernautd训练/4.jpg&quot; alt=&quot;player地址和Ethernaut地址&quot;&gt;&lt;/div&gt;
 
-&lt;p&gt;##第三步&lt;br&gt;之后会让你使用getBalance函数获得你的以太坊的数量，并且让你使用help(),由于我们第二步使用过，就不再演示了&lt;br&gt;PS:由于在Ropsten测试网络中可以直接通过Ether Faucet获得测试以太坊，所以我的数额为7&lt;/p&gt;
+&lt;h2 id=&quot;第三步&quot;&gt;&lt;a href=&quot;#第三步&quot; class=&quot;headerlink&quot; title=&quot;第三步&quot;&gt;&lt;/a&gt;第三步&lt;/h2&gt;&lt;p&gt;之后会让你使用getBalance函数获得你的以太坊的数量，并且让你使用help(),由于我们第二步使用过，就不再演示了&lt;br&gt;PS:由于在Ropsten测试网络中可以直接通过Ether Faucet获得测试以太坊，所以我的数额为7&lt;/p&gt;
 &lt;div style=&quot;width: 500px; margin: auto&quot;&gt;&lt;img src=&quot;/2019/01/08/ethernautd训练/5.jpg&quot; alt=&quot;调用getBalance&quot;&gt;&lt;/div&gt;
 
-&lt;p&gt;##第四步&lt;br&gt;使用ethernaut指令可以直接输出当前合约的有关信息，其中的abi可以理解为合约中的&lt;code&gt;公共&lt;/code&gt;方法列表，当然在下面可以看见例如&lt;code&gt;owner&lt;/code&gt;之类的东西就是方法的具体信息&lt;/p&gt;
+&lt;h2 id=&quot;第四步&quot;&gt;&lt;a href=&quot;#第四步&quot; class=&quot;headerlink&quot; title=&quot;第四步&quot;&gt;&lt;/a&gt;第四步&lt;/h2&gt;&lt;p&gt;使用ethernaut指令可以直接输出当前合约的有关信息，其中的abi可以理解为合约中的&lt;code&gt;公共&lt;/code&gt;方法列表，当然在下面可以看见例如&lt;code&gt;owner&lt;/code&gt;之类的东西就是方法的具体信息&lt;/p&gt;
 &lt;div style=&quot;width: 500px; margin: auto&quot;&gt;&lt;img src=&quot;/2019/01/08/ethernautd训练/6.jpg&quot; alt=&quot;查看合约信息&quot;&gt;&lt;/div&gt;
 
-&lt;p&gt;##第五步&lt;br&gt;与ABI互动，也就是可以调用上一步说的方法列表里的方法，系统让我们调用ethernaut.owner()，返回的是智能合约的拥有者&lt;/p&gt;
+&lt;h2 id=&quot;第五步&quot;&gt;&lt;a href=&quot;#第五步&quot; class=&quot;headerlink&quot; title=&quot;第五步&quot;&gt;&lt;/a&gt;第五步&lt;/h2&gt;&lt;p&gt;与ABI互动，也就是可以调用上一步说的方法列表里的方法，系统让我们调用ethernaut.owner()，返回的是智能合约的拥有者&lt;/p&gt;
 &lt;div style=&quot;width: 500px; margin: auto&quot;&gt;&lt;img src=&quot;/2019/01/08/ethernautd训练/7.jpg&quot; alt=&quot;调用owner&quot;&gt;&lt;/div&gt;
 
-&lt;p&gt;##第六步&lt;br&gt;这一步就是让我们通过上面提到的Ether Faucet获得测试以太坊，可以将MetaMask调至中文，然后点击存入-测试水管，之后点击request 1 ether from faucet就行&lt;/p&gt;
-&lt;p&gt;##第七步&lt;br&gt;生成合约实例，点击下面的蓝色按钮即可，需要等待一段时间&lt;/p&gt;
+&lt;h2 id=&quot;第六步&quot;&gt;&lt;a href=&quot;#第六步&quot; class=&quot;headerlink&quot; title=&quot;第六步&quot;&gt;&lt;/a&gt;第六步&lt;/h2&gt;&lt;p&gt;这一步就是让我们通过上面提到的Ether Faucet获得测试以太坊，可以将MetaMask调至中文，然后点击存入-测试水管，之后点击request 1 ether from faucet就行&lt;/p&gt;
+&lt;h2 id=&quot;第七步&quot;&gt;&lt;a href=&quot;#第七步&quot; class=&quot;headerlink&quot; title=&quot;第七步&quot;&gt;&lt;/a&gt;第七步&lt;/h2&gt;&lt;p&gt;生成合约实例，点击下面的蓝色按钮即可，需要等待一段时间&lt;/p&gt;
 &lt;div style=&quot;width: 500px; margin: auto&quot;&gt;&lt;img src=&quot;/2019/01/08/ethernautd训练/8.jpg&quot; alt=&quot;获取实例按钮&quot;&gt;&lt;/div&gt;&lt;br&gt;成功之后会显示下图&lt;br&gt;&lt;div style=&quot;width: 500px; margin: auto&quot;&gt;&lt;img src=&quot;/2019/01/08/ethernautd训练/8.jpg&quot; alt=&quot;成功&quot;&gt;&lt;/div&gt;
 
-&lt;p&gt;##第八步&lt;br&gt;生成的合约实例可以调用合约的ABI&lt;/p&gt;
-&lt;p&gt;##第九步&lt;br&gt;从contract.info()入手跟着走下去就行&lt;/p&gt;
+&lt;h2 id=&quot;第八步&quot;&gt;&lt;a href=&quot;#第八步&quot; class=&quot;headerlink&quot; title=&quot;第八步&quot;&gt;&lt;/a&gt;第八步&lt;/h2&gt;&lt;p&gt;生成的合约实例可以调用合约的ABI&lt;/p&gt;
+&lt;h2 id=&quot;第九步&quot;&gt;&lt;a href=&quot;#第九步&quot; class=&quot;headerlink&quot; title=&quot;第九步&quot;&gt;&lt;/a&gt;第九步&lt;/h2&gt;&lt;p&gt;从contract.info()入手跟着走下去就行&lt;/p&gt;
 &lt;div style=&quot;width: 500px; margin: auto&quot;&gt;&lt;img src=&quot;/2019/01/08/ethernautd训练/9.jpg&quot; alt=&quot;9&quot;&gt;&lt;/div&gt;&lt;br&gt;&lt;div style=&quot;width: 500px; margin: auto&quot;&gt;&lt;img src=&quot;/2019/01/08/ethernautd训练/10.jpg&quot; alt=&quot;10&quot;&gt;&lt;/div&gt;&lt;br&gt;&lt;div style=&quot;width: 500px; margin: auto&quot;&gt;&lt;img src=&quot;/2019/01/08/ethernautd训练/11.jpg&quot; alt=&quot;11&quot;&gt;&lt;/div&gt;&lt;br&gt;&lt;div style=&quot;width: 500px; margin: auto&quot;&gt;&lt;img src=&quot;/2019/01/08/ethernautd训练/12.jpg&quot; alt=&quot;12&quot;&gt;&lt;/div&gt;&lt;br&gt;&lt;div style=&quot;width: 500px; margin: auto&quot;&gt;&lt;img src=&quot;/2019/01/08/ethernautd训练/13.jpg&quot; alt=&quot;13&quot;&gt;&lt;/div&gt;
 
 &lt;p&gt;之后点击submit instance即可过关。&lt;/p&gt;
