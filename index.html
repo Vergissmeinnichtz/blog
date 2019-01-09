@@ -314,6 +314,150 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/09/RSA攻击综述/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Vergissmeinnicht">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ver">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/09/RSA攻击综述/" itemprop="url">RSA攻击综述</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-09T21:48:36+08:00">
+                2019-01-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Crypto/" itemprop="url" rel="index">
+                    <span itemprop="name">Crypto</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>RSA作为密码学中的代表，就和web中的php一样，被许多人不断研究，才有着今天这样广泛的使用程度。当然与此相对的也有许多的攻击方式被不断挖掘出来。这篇文章主要是对现阶段主流的RSA攻击方式进行总结，并配上exp脚本，以备以后的使用。</p>
+<h1 id="基本解法"><a href="#基本解法" class="headerlink" title="基本解法"></a>基本解法</h1><p>首先介绍的是RSA通常解法，也就是已知p,q,e,c的时候求d和plaintext</p>
+<p>脚本如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">"素数p："</span></span><br><span class="line">p = input ()</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">"素数q："</span></span><br><span class="line">q = input ()</span><br><span class="line"></span><br><span class="line">n = p*q</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">"公钥e："</span></span><br><span class="line">e = input ()</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">"密文c："</span></span><br><span class="line">c = input ()</span><br><span class="line"><span class="comment"># d=invert(e,φ(n))，可见invert()函数解决 ed ≡ 1 (mod φ(n)) 问题</span></span><br><span class="line">d=gmpy2.invert(e,(p<span class="number">-1</span>)*(q<span class="number">-1</span>))</span><br><span class="line"><span class="keyword">print</span> <span class="string">"私钥d："</span>,d</span><br><span class="line"></span><br><span class="line">c的时候求d和plaintext=pow(c, d, n)</span><br><span class="line"><span class="keyword">print</span> <span class="string">"明文："</span>,c的时候求d和plaintext</span><br></pre></td></tr></table></figure></p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/08/ethernautd训练/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
@@ -639,7 +783,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">2</span>
+                <span class="site-state-item-count">3</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
