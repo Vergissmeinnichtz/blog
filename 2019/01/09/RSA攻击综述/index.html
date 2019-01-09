@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Ver">
 <meta property="og:description" content="简介RSA作为密码学中的代表，就和web中的php一样，被许多人不断研究，才有着今天这样广泛的使用程度。当然与此相对的也有许多的攻击方式被不断挖掘出来。这篇文章主要是对现阶段主流的RSA攻击方式进行总结，并配上exp脚本，以备以后的使用。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-09T14:15:45.709Z">
+<meta property="og:updated_time" content="2019-01-09T14:19:24.369Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RSA攻击综述">
 <meta name="twitter:description" content="简介RSA作为密码学中的代表，就和web中的php一样，被许多人不断研究，才有着今天这样广泛的使用程度。当然与此相对的也有许多的攻击方式被不断挖掘出来。这篇文章主要是对现阶段主流的RSA攻击方式进行总结，并配上exp脚本，以备以后的使用。">
@@ -410,9 +410,12 @@
 <h1 id="基本解法"><a href="#基本解法" class="headerlink" title="基本解法"></a>基本解法</h1><p>首先介绍的是RSA通常解法，也就是已知p,q,e和ciphertext的时候求d和plaintext</p>
 <p>脚本如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">"素数p："</span></span><br><span class="line">p = input ()</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">"素数q："</span></span><br><span class="line">q = input ()</span><br><span class="line"></span><br><span class="line">n = p*q</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">"公钥e："</span></span><br><span class="line">e = input ()</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">"密文ciphertext："</span></span><br><span class="line">ciphertext = input ()</span><br><span class="line"><span class="comment"># d=invert(e,φ(n))，可见invert()函数解决 ed ≡ 1 (mod φ(n)) 问题</span></span><br><span class="line">d=gmpy2.invert(e,(p<span class="number">-1</span>)*(q<span class="number">-1</span>))</span><br><span class="line"><span class="keyword">print</span> <span class="string">"私钥d："</span>,d</span><br><span class="line"></span><br><span class="line">plaintext=pow(ciphertext, d, n)</span><br><span class="line"><span class="keyword">print</span> <span class="string">"明文："</span>,plaintext</span><br></pre></td></tr></table></figure></p>
 <hr>
-<h1 id="对模数n的因子分解"><a href="#对模数n的因子分解" class="headerlink" title="对模数n的因子分解"></a>对模数n的因子分解</h1><p>分解模数n是最直接的攻击方法，将n分解之后得到p,q，再通过p,q,e计算得到d，最后用d和n<br>分解模数n可以通过<a href="https://sourceforge.net/projects/yafu/" target="_blank" rel="noopener"><code>yafu</code></a>或者<a href="http://www.factordb.com" target="_blank" rel="noopener"><code>factordb网站</code></a>在线分解，之后使用常规解法求解即可</p>
+<h1 id="对模数n的因子分解"><a href="#对模数n的因子分解" class="headerlink" title="对模数n的因子分解"></a>对模数n的因子分解</h1><p>分解模数n是最直接的攻击方法，将n分解之后得到p,q，再通过p,q,e计算得到d，最后用d和n以及ciphertext求解plaintext<br>分解模数n可以通过<a href="https://sourceforge.net/projects/yafu/" target="_blank" rel="noopener"><code>yafu</code></a>或者<a href="http://www.factordb.com" target="_blank" rel="noopener"><code>factordb网站</code></a>在线分解，之后使用常规解法求解即可</p>
 <hr>
-<h1 id="公共模数攻击"><a href="#公共模数攻击" class="headerlink" title="公共模数攻击"></a>公共模数攻击</h1><p>我们假设m为信息明文，两个加密公钥分别为e1和e2，公共模数是n，则有<br>$C_1\equivm^e1mod(n)$</p>
+<h1 id="公共模数攻击"><a href="#公共模数攻击" class="headerlink" title="公共模数攻击"></a>公共模数攻击</h1><p>我们假设m为信息明文，两个加密公钥分别为e1和e2，公共模数是n，则有</p>
+<blockquote>
+<p>$$C_1\equivm^e1mod(n)$$</p>
+</blockquote>
 
       
     </div>
