@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Ver">
 <meta property="og:description" content="简介RSA作为密码学中的代表，就和web中的php一样，被许多人不断研究，才有着今天这样广泛的使用程度。当然与此相对的也有许多的攻击方式被不断挖掘出来。这篇文章主要是对现阶段主流的RSA攻击方式进行总结，并配上exp脚本，以备以后的使用。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-09T14:41:59.712Z">
+<meta property="og:updated_time" content="2019-01-09T14:47:07.012Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RSA攻击综述">
 <meta name="twitter:description" content="简介RSA作为密码学中的代表，就和web中的php一样，被许多人不断研究，才有着今天这样广泛的使用程度。当然与此相对的也有许多的攻击方式被不断挖掘出来。这篇文章主要是对现阶段主流的RSA攻击方式进行总结，并配上exp脚本，以备以后的使用。">
@@ -416,7 +416,27 @@
 <hr>
 <h1 id="公共模数攻击"><a href="#公共模数攻击" class="headerlink" title="公共模数攻击"></a>公共模数攻击</h1><p>公共模数就是指用相同的n加密同一段密文，这样做是十分危险的，因为我们可以利用数学推导绕过d直接得到明文。具体的推导如下：<br>我们假设m为信息明文，两个加密公钥分别为e1和e2，公共模数是n，则有</p>
 <blockquote>
-<p>$$C_1\equiv m^(e1) mod(n)$$<br>$$C_2\equiv m^(e2) mod(n)$$<br>因为e1与e2互质，故我们用欧几里得算法能够找到s1和s2满足下面的关系<br>$$e1^(s1)+e2^(s2)=1$$<br>式中的s1和s2皆为整数，但是一正一负。我们假设s1为正数，s2为负数<br>因为<br>$$C_1\equiv m^(e1) mod(n)$$<br>$$C_2\equiv m^(e2) mod(n)$$<br>所以<br>$$(C_1^(s1)<em>C_2^(s2) mod(n) = ((m^(e1) mod(n))^(s1)</em>(m^(e2) mod(n))^(s2)) mod(n)$$<br>根据模运算性质，可以化简为<br>$$(C_1^(s1)<em>C_2^(s2) mod(n) = ((m^(e1))^(s1)</em>(m^(e2))^(s2)) mod(n)$$<br>即<br>$$(C_1^(s1)*C_2^(s2) mod(n) = (m^(e1^(s1)+e2^(s2))) mod(n)$$</p>
+<p>$$C_1\equiv m^{e1} mod(n)$$<br>$$C_2\equiv m^{e2} mod(n)$$</p>
+</blockquote>
+<p>因为e1与e2互质，故我们用欧几里得算法能够找到s1和s2满足下面的关系</p>
+<blockquote>
+<p>$$e1^{s1}+e2^{s2}=1$$</p>
+</blockquote>
+<p>式中的s1和s2皆为整数，但是一正一负。我们假设s1为正数，s2为负数<br>因为</p>
+<blockquote>
+<p>$$C_1\equiv m^{e1} mod(n)$$<br>$$C_2\equiv m^{e2} mod(n)$$</p>
+</blockquote>
+<p>所以</p>
+<blockquote>
+<p>$$(C_1^{s1}<em>C_2^{s2} mod(n) = ((m^{e1} mod(n))^{s1}</em>(m^{e2} mod(n))^{s2}) mod(n)$$</p>
+</blockquote>
+<p>根据模运算性质，可以化简为</p>
+<blockquote>
+<p>$$(C_1^{s1}<em>C_2^{s2} mod(n) = ((m^{e1})^{s1}</em>(m^{e2})^{s2}) mod(n)$$</p>
+</blockquote>
+<p>即</p>
+<blockquote>
+<p>$$(C_1^{s1}*C_2^{s2} mod(n) = (m^{e1^{s1}+e2^{s2}}) mod(n)$$</p>
 </blockquote>
 
       
