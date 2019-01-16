@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[OpenSSL解RSA的基本操作]]></title>
     <url>%2F2019%2F01%2F16%2FOpenSSL%E8%A7%A3RSA%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%2F</url>
-    <content type="text"><![CDATA[简介本文主要是记录如何用OpenSSL解RSA的题目，我选取了一道XCTF训练营中的入门题目,这是一道来自于PCTF的题目。同时也附上题目下载地址 解题步骤1.从pubkey.pem中提取n和e openssl rsa -pubin -text -modulus -in warmup -in pubkey.pem结果如下: 得到n：C2636AE5C3D8E43FFB97AB09028F1AAC6C0BF6CD3D70EBCA281BFFE97FBE30DD，转为10进制为87924348264132406875276140514499937145050893665602592992418171647042491658461,同时有e:65537 2.将n分解得到p和q利用yafu或factordb网站将n进行分解，得到p:319576316814478949870590164193048041239,q:275127860351348928173285174381581152299 3.用rsatool生成私钥文件:private.pem python rsatool.py -o private.pem -e 65537 -p 275127860351348928173285174381581152299 -q 319576316814478949870590164193048041239 4.用private.pem解密flag.enc得到flag openssl rsautl -decrypt -in flag.enc -inkey private.pem]]></content>
+    <content type="text"><![CDATA[简介本文主要是记录如何用OpenSSL解RSA的题目，我选取了一道XCTF训练营中的入门题目,这是一道来自于PCTF的题目。同时也附上题目下载地址 解题步骤1.从pubkey.pem中提取n和e 1openssl rsa -pubin -text -modulus -in warmup -in pubkey.pem 结果如下: 得到n：C2636AE5C3D8E43FFB97AB09028F1AAC6C0BF6CD3D70EBCA281BFFE97FBE30DD，转为10进制为87924348264132406875276140514499937145050893665602592992418171647042491658461,同时有e:65537 2.将n分解得到p和q利用yafu或factordb网站将n进行分解，得到p:319576316814478949870590164193048041239,q:275127860351348928173285174381581152299 3.用rsatool生成私钥文件:private.pem 1python rsatool.py -o private.pem -e 65537 -p 275127860351348928173285174381581152299 -q 319576316814478949870590164193048041239 4.用private.pem解密flag.enc得到flag 1openssl rsautl -decrypt -in flag.enc -inkey private.pem]]></content>
       <categories>
         <category>Crypto</category>
       </categories>
