@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="CTF,Crypto,OpenSSL,">
 
 
 
@@ -96,13 +96,22 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Ver">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="简介本文主要是记录如何用OpenSSL解RSA的题目，我选取了一道XCTF训练营中的入门题目,这是一道来自于PCTF的题目。同时也附上题目下载地址  解题步骤1.从pubkey.pem中提取n和e openssl rsa -pubin -text -modulus -in warmup -in pubkey.pem结果如下:    得到n：C2636AE5C3D8E43FFB97AB09028F1">
+<meta name="keywords" content="CTF,Crypto,OpenSSL">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenSSL解RSA的基本操作">
+<meta property="og:url" content="http://yoursite.com/2019/01/16/OpenSSL解RSA的基本操作/index.html">
 <meta property="og:site_name" content="Ver">
+<meta property="og:description" content="简介本文主要是记录如何用OpenSSL解RSA的题目，我选取了一道XCTF训练营中的入门题目,这是一道来自于PCTF的题目。同时也附上题目下载地址  解题步骤1.从pubkey.pem中提取n和e openssl rsa -pubin -text -modulus -in warmup -in pubkey.pem结果如下:    得到n：C2636AE5C3D8E43FFB97AB09028F1">
 <meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2019/01/16/OpenSSL解RSA的基本操作/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/01/16/OpenSSL解RSA的基本操作/2.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/01/16/OpenSSL解RSA的基本操作/3.jpg">
+<meta property="og:updated_time" content="2019-01-16T03:06:10.807Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Ver">
+<meta name="twitter:title" content="OpenSSL解RSA的基本操作">
+<meta name="twitter:description" content="简介本文主要是记录如何用OpenSSL解RSA的题目，我选取了一道XCTF训练营中的入门题目,这是一道来自于PCTF的题目。同时也附上题目下载地址  解题步骤1.从pubkey.pem中提取n和e openssl rsa -pubin -text -modulus -in warmup -in pubkey.pem结果如下:    得到n：C2636AE5C3D8E43FFB97AB09028F1">
+<meta name="twitter:image" content="http://yoursite.com/2019/01/16/OpenSSL解RSA的基本操作/1.jpg">
 
 
 
@@ -131,13 +140,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/01/16/OpenSSL解RSA的基本操作/">
 
 
 
 
 
-  <title>Ver</title>
+  <title>OpenSSL解RSA的基本操作 | Ver</title>
   
 
 
@@ -162,9 +171,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -299,9 +306,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -331,9 +338,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/16/OpenSSL解RSA的基本操作/" itemprop="url">OpenSSL解RSA的基本操作</a></h1>
+          <h1 class="post-title" itemprop="name headline">OpenSSL解RSA的基本操作</h1>
         
 
         <div class="post-meta">
@@ -405,9 +410,7 @@
       
 
       
-        
-          
-            <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本文主要是记录如何用<code>OpenSSL</code>解RSA的题目，我选取了一道<code>XCTF训练营</code>中的<a href="https://adworld.xctf.org.cn/adw/answer/5115/?primary=crypto" target="_blank" rel="noopener">入门题目</a>,这是一道来自于<code>PCTF</code>的题目。同时也附上题目<a href="https://adworld.xctf.org.cn/adw/attachment/5115/1" target="_blank" rel="noopener">下载地址</a></p>
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本文主要是记录如何用<code>OpenSSL</code>解RSA的题目，我选取了一道<code>XCTF训练营</code>中的<a href="https://adworld.xctf.org.cn/adw/answer/5115/?primary=crypto" target="_blank" rel="noopener">入门题目</a>,这是一道来自于<code>PCTF</code>的题目。同时也附上题目<a href="https://adworld.xctf.org.cn/adw/attachment/5115/1" target="_blank" rel="noopener">下载地址</a></p>
 <hr>
 <h1 id="解题步骤"><a href="#解题步骤" class="headerlink" title="解题步骤"></a>解题步骤</h1><h2 id="1-从pubkey-pem中提取n和e"><a href="#1-从pubkey-pem中提取n和e" class="headerlink" title="1.从pubkey.pem中提取n和e"></a>1.从<code>pubkey.pem</code>中提取n和e</h2><blockquote>
 <p>openssl rsa -pubin -text -modulus -in warmup -in pubkey.pem<br>结果如下:</p>
@@ -425,8 +428,6 @@
 <p>openssl rsautl -decrypt -in flag.enc -inkey private.pem</p>
 </blockquote>
 <div style="width: 50%; margin: auto"><img src="/2019/01/16/OpenSSL解RSA的基本操作/3.jpg" alt="3"></div>
-          
-        
       
     </div>
     
@@ -441,308 +442,40 @@
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/12/XNUCA-baby-crypto/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vergissmeinnicht">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ver">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/12/XNUCA-baby-crypto/" itemprop="url">XNUCA-baby_crypto</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-12T22:16:09+08:00">
-                2019-01-12
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Crypto/" itemprop="url" rel="index">
-                    <span itemprop="name">Crypto</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
+            <a href="/tags/CTF/" rel="tag"># CTF</a>
           
-
+            <a href="/tags/Crypto/" rel="tag"># Crypto</a>
           
-            
+            <a href="/tags/OpenSSL/" rel="tag"># OpenSSL</a>
           
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <p><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script></p>
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>这道题是<a href="https://race.ichunqiu.com/xnuca18" target="_blank" rel="noopener">2018年XNUCA</a>的一道密码题，当时由于自己比较菜没做出来，期末考试考完之后看书提到了重合指数破解<code>Vigenere密码</code>的内容，就想起来了这道题并开始复现一下。过程比较艰辛(自己太菜了),自闭了两三天终于弄出来了，也算是很开心，并于现在记录下来以备以后查看。<br></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/12/XNUCA-baby-crypto/#more" rel="contents">
-              Read more &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/01/12/XNUCA-baby-crypto/" rel="next" title="XNUCA-baby_crypto">
+                <i class="fa fa-chevron-left"></i> XNUCA-baby_crypto
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
 
-    
+          <span class="post-nav-divider"></span>
 
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/09/RSA攻击综述/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vergissmeinnicht">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ver">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/09/RSA攻击综述/" itemprop="url">RSA攻击综述</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-09T21:48:36+08:00">
-                2019-01-09
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Crypto/" itemprop="url" rel="index">
-                    <span itemprop="name">Crypto</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script></p>
-<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>RSA作为密码学中的代表，就和web中的php一样，被许多人不断研究，才有着今天这样广泛的使用程度。当然与此相对的也有许多的攻击方式被不断挖掘出来。这篇文章主要是对现阶段主流的RSA攻击方式进行总结，并配上exp脚本，以备以后的使用。<br></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/09/RSA攻击综述/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -752,304 +485,11 @@
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/08/ethernautd训练/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vergissmeinnicht">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ver">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/08/ethernautd训练/" itemprop="url">Ethernaut训练</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-08T16:26:39+08:00">
-                2019-01-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Crypto/" itemprop="url" rel="index">
-                    <span itemprop="name">Crypto</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p>ethernaut包含有22道智能合约的训练题目，而最近有关智能合约的题也是在不断的出现，所以还是有必要了解一下的(顺便了解下这种题目怎么做)</p>
-<p><a href="https://ethernaut.zeppelin.solutions/level/0x6545df87f57d21cb096a0bfcc53a70464d062512" target="_blank" rel="noopener">题目链接</a></p>
-<p>另外也放上大哥的writeup跟着学习一下<br><a href="http://ultramangaia.github.io/blog/2018/Ethernaut%E8%AE%AD%E7%BB%83writeup.html#more" target="_blank" rel="noopener">链接</a><br></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/08/ethernautd训练/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/08/hello-world/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vergissmeinnicht">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ver">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/01/08/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-08T15:02:21+08:00">
-                2019-01-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/其他/" itemprop="url" rel="index">
-                    <span itemprop="name">其他</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h2 id="Start"><a href="#Start" class="headerlink" title="Start"></a>Start</h2><p>这个博客主要用来记录一些有关ctf的知识<br>因为自己太健忘了，不记录下会出事的<br>而且搭个博客以后AWD就不用再坐着发呆了，起码有点东西可以看<br>本博客主要分为web和crypto两个方向，也是我现在负责的两个方向<br>希望自己多多加油吧！<br></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2019/01/08/hello-world/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -1057,6 +497,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -1077,8 +521,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Vergissmeinnicht">
           <p class="site-author-name" itemprop="name">Vergissmeinnicht</p>
@@ -1145,6 +598,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解题步骤"><span class="nav-text">解题步骤</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-从pubkey-pem中提取n和e"><span class="nav-text">1.从pubkey.pem中提取n和e</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-将n分解得到p和q"><span class="nav-text">2.将n分解得到p和q</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-用rsatool生成私钥文件-private-pem"><span class="nav-text">3.用rsatool生成私钥文件:private.pem</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-用private-pem解密flag-enc得到flag"><span class="nav-text">4.用private.pem解密flag.enc得到flag</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1265,10 +734,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
 
-  
+
 
   
 
