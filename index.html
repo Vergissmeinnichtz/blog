@@ -406,26 +406,14 @@
 
       
         
-          
-            <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本文主要是记录如何用<code>OpenSSL</code>解RSA的题目，我选取了一道<code>XCTF训练营</code>中的<a href="https://adworld.xctf.org.cn/adw/answer/5115/?primary=crypto" target="_blank" rel="noopener">入门题目</a>,这是一道来自于<code>PCTF</code>的题目。同时也附上题目<a href="https://adworld.xctf.org.cn/adw/attachment/5115/1" target="_blank" rel="noopener">下载地址</a></p>
-<hr>
-<h1 id="解题步骤"><a href="#解题步骤" class="headerlink" title="解题步骤"></a>解题步骤</h1><h2 id="1-从pubkey-pem中提取n和e"><a href="#1-从pubkey-pem中提取n和e" class="headerlink" title="1.从pubkey.pem中提取n和e"></a>1.从<code>pubkey.pem</code>中提取n和e</h2><blockquote>
-<p>openssl rsa -pubin -text -modulus -in warmup -in pubkey.pem<br>结果如下:</p>
-</blockquote>
-<div style="width: 50%; margin: auto"><img src="/2019/01/16/OpenSSL解RSA的基本操作/1.jpg" alt="1"></div>
-
-<p>得到n：<code>C2636AE5C3D8E43FFB97AB09028F1AAC6C0BF6CD3D70EBCA281BFFE97FBE30DD</code>，转为10进制为<code>87924348264132406875276140514499937145050893665602592992418171647042491658461</code>,同时有e:<code>65537</code></p>
-<h2 id="2-将n分解得到p和q"><a href="#2-将n分解得到p和q" class="headerlink" title="2.将n分解得到p和q"></a>2.将n分解得到p和q</h2><p>利用<code>yafu</code>或<code>factordb网站</code>将n进行分解，得到p:<code>319576316814478949870590164193048041239</code>,q:<code>275127860351348928173285174381581152299</code></p>
-<h2 id="3-用rsatool生成私钥文件-private-pem"><a href="#3-用rsatool生成私钥文件-private-pem" class="headerlink" title="3.用rsatool生成私钥文件:private.pem"></a>3.用<a href="https://github.com/ius/rsatool" target="_blank" rel="noopener">rsatool</a>生成私钥文件:<code>private.pem</code></h2><blockquote>
-<p>python rsatool.py -o private.pem -e 65537 -p 275127860351348928173285174381581152299 -q 319576316814478949870590164193048041239</p>
-</blockquote>
-<div style="width: 50%; margin: auto"><img src="/2019/01/16/OpenSSL解RSA的基本操作/2.jpg" alt="2"></div>
-
-<h2 id="4-用private-pem解密flag-enc得到flag"><a href="#4-用private-pem解密flag-enc得到flag" class="headerlink" title="4.用private.pem解密flag.enc得到flag"></a>4.用<code>private.pem</code>解密<code>flag.enc</code>得到flag</h2><blockquote>
-<p>openssl rsautl -decrypt -in flag.enc -inkey private.pem</p>
-</blockquote>
-<div style="width: 50%; margin: auto"><img src="/2019/01/16/OpenSSL解RSA的基本操作/3.jpg" alt="3"></div>
-          
+          <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本文主要是记录如何用<code>OpenSSL</code>解RSA的题目，我选取了一道<code>XCTF训练营</code>中的<a href="https://adworld.xctf.org.cn/adw/answer/5115/?primary=crypto" target="_blank" rel="noopener">入门题目</a>,这是一道来自于<code>PCTF</code>的题目。同时也附上题目<a href="https://adworld.xctf.org.cn/adw/attachment/5115/1" target="_blank" rel="noopener">下载地址</a><br></p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/16/OpenSSL解RSA的基本操作/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
