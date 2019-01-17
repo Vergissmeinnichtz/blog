@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-16T11:56:03.626Z</updated>
+  <updated>2019-01-17T04:57:25.838Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,17 +21,11 @@
     <link href="http://yoursite.com/2019/01/16/2017-NJCTF-Guess/"/>
     <id>http://yoursite.com/2019/01/16/2017-NJCTF-Guess/</id>
     <published>2019-01-16T10:23:28.000Z</published>
-    <updated>2019-01-16T11:56:03.626Z</updated>
+    <updated>2019-01-17T04:57:25.838Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;这是一道2017年NJCTF的250分的Web题，刚好在XCTF的&lt;a
-        
-      
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;这是一道2017年NJCTF的250分的Web题，刚好在XCTF的&lt;a href=&quot;https://adworld.xctf.org.cn/adw/answer/4819/?type=web&amp;amp;level=1&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;题库&lt;/a&gt;里刷到了，便记录下来。&lt;/p&gt;
     
     </summary>
     

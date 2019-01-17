@@ -96,13 +96,13 @@
 
 
 
-<meta name="description" content="简介这是一道2017年NJCTF的250分的Web题，刚好在XCTF的题库里刷到了，便记录下来。  解题思路首先打开题目，看见是一个上传页面，只允许上传gif|jpg|jpeg|png，在上传了一张png图片后提示成功   但并没有什么有用信息，我便扫了一下目录，也没有什么有用的地方。之后查看url，发现是http://111.198.29.45:30139/?page=upload,是一个文件包">
+<meta name="description" content="简介这是一道2017年NJCTF的250分的Web题，刚好在XCTF的题库里刷到了，便记录下来。">
 <meta name="keywords" content="CTF,Web,Write up">
 <meta property="og:type" content="article">
 <meta property="og:title" content="2017 NJCTF-Guess">
 <meta property="og:url" content="http://yoursite.com/2019/01/16/2017-NJCTF-Guess/index.html">
 <meta property="og:site_name" content="Ver">
-<meta property="og:description" content="简介这是一道2017年NJCTF的250分的Web题，刚好在XCTF的题库里刷到了，便记录下来。  解题思路首先打开题目，看见是一个上传页面，只允许上传gif|jpg|jpeg|png，在上传了一张png图片后提示成功   但并没有什么有用信息，我便扫了一下目录，也没有什么有用的地方。之后查看url，发现是http://111.198.29.45:30139/?page=upload,是一个文件包">
+<meta property="og:description" content="简介这是一道2017年NJCTF的250分的Web题，刚好在XCTF的题库里刷到了，便记录下来。">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/01/16/2017-NJCTF-Guess/1.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/01/16/2017-NJCTF-Guess/2.jpg">
@@ -110,10 +110,10 @@
 <meta property="og:image" content="http://yoursite.com/2019/01/16/2017-NJCTF-Guess/4.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/01/16/2017-NJCTF-Guess/5.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/01/16/2017-NJCTF-Guess/6.jpg">
-<meta property="og:updated_time" content="2019-01-16T11:56:03.626Z">
+<meta property="og:updated_time" content="2019-01-17T04:57:25.838Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="2017 NJCTF-Guess">
-<meta name="twitter:description" content="简介这是一道2017年NJCTF的250分的Web题，刚好在XCTF的题库里刷到了，便记录下来。  解题思路首先打开题目，看见是一个上传页面，只允许上传gif|jpg|jpeg|png，在上传了一张png图片后提示成功   但并没有什么有用信息，我便扫了一下目录，也没有什么有用的地方。之后查看url，发现是http://111.198.29.45:30139/?page=upload,是一个文件包">
+<meta name="twitter:description" content="简介这是一道2017年NJCTF的250分的Web题，刚好在XCTF的题库里刷到了，便记录下来。">
 <meta name="twitter:image" content="http://yoursite.com/2019/01/16/2017-NJCTF-Guess/1.jpg">
 
 
@@ -414,6 +414,7 @@
 
       
         <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>这是一道2017年NJCTF的250分的Web题，刚好在XCTF的<a href="https://adworld.xctf.org.cn/adw/answer/4819/?type=web&amp;level=1" target="_blank" rel="noopener">题库</a>里刷到了，便记录下来。</p>
+<a id="more"></a>
 <hr>
 <h1 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h1><p>首先打开题目，看见是一个上传页面，只允许上传<code>gif|jpg|jpeg|png</code>，在上传了一张png图片后提示成功</p>
 <div style="width: 80%; margin: auto"><img src="/2019/01/16/2017-NJCTF-Guess/1.jpg" alt="1"></div>
@@ -432,6 +433,7 @@
 <p>接下来构造<code>http://111.198.29.45:30139/?page=phar://uP1O4Ds/QxhcViJacOp5AZFFM1sG2hj4htW8cF7N_0.png/0</code>,post的参数为<code>ver=system(&#39;ls&#39;);</code>,发现<code>flag-Edi98vJF8hnIp.txt</code></p>
 <div style="width: 80%; margin: auto"><img src="/2019/01/16/2017-NJCTF-Guess/5.jpg" alt="5"></div>
 
+<p>其中<code>page=phar://uP1O4Ds/QxhcViJacOp5AZFFM1sG2hj4htW8cF7N_0.png/0</code>会被index.php中的<code>include($page.&#39;.php&#39;)</code>解析为<code>include(&#39;phar://uP1O4Ds/QxhcViJacOp5AZFFM1sG2hj4htW8cF7N_0.png/0.php&#39;)</code>,也就会触发我们写进去的一句话</p>
 <p>最后post的参数设为<code>ver=system(&#39;cat flag-Edi98vJF8hnIp.txt&#39;);</code>便可得到flag</p>
 <div style="width: 80%; margin: auto"><img src="/2019/01/16/2017-NJCTF-Guess/6.jpg" alt="6"></div>
 
