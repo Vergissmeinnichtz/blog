@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Ver">
 <meta property="og:description" content="简介RSA作为密码学中的代表，就和web中的php一样，被许多人不断研究，才有着今天这样广泛的使用程度。当然与此相对的也有许多的攻击方式被不断挖掘出来。这篇文章主要是对现阶段主流的RSA攻击方式进行总结，并配上exp脚本，以备以后的使用。">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-01-22T10:56:09.939Z">
+<meta property="og:updated_time" content="2019-01-22T10:57:28.464Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RSA攻击综述">
 <meta name="twitter:description" content="简介RSA作为密码学中的代表，就和web中的php一样，被许多人不断研究，才有着今天这样广泛的使用程度。当然与此相对的也有许多的攻击方式被不断挖掘出来。这篇文章主要是对现阶段主流的RSA攻击方式进行总结，并配上exp脚本，以备以后的使用。">
@@ -451,6 +451,7 @@
 <h2 id="1-Wiener攻击"><a href="#1-Wiener攻击" class="headerlink" title="1.Wiener攻击"></a>1.Wiener攻击</h2><p>在RSA系统中，如果以下条件满足：<br>$$q &lt; p &lt; 2q$$<br>且<br>$$d &lt; n^{1/4}$$<br>那么我们就可以利用连分数的渐进分数攻击得到d</p>
 <h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>从 {\ displaystyle ed = 1 {\ bmod {\ varphi}}（N）} ed = 1 {\ bmod \ varphi}（N），有一个 {\ displaystyle {\ mathit {k}}} {\ mathit {k}} 蛮子 {\ displaystyle ed-k \ varphi（N）= 1} ed-k \ varphi（N）= 1。因此</p>
 <p>{\ displaystyle \ left | {\ frac {e} {\ varphi（N）}} - {\ frac {k} {d}} \ right \ vert = {\ frac {1} {d \ varphi（N）} }} \ left | {\ frac {e} {\ varphi（N）}}  -  {\ frac {k} {d}} \ right \ vert = {\ frac {1} {d \ varphi（N）}}。</p>
+<p>因此， {\ displaystyle {\ frac {k} {d}}} {\ frac {k} {d}} 和 {\ displaystyle {\ frac {e} {\ varphi（N）}}} {\ frac {e} {\ varphi（N）}}是近似值。虽然攻击者不知道 {\ displaystyle \ varphi（N）} \ varphi（N），但攻击者可能会用 {\ displaystyle N} ñ 近似它。</p>
 
       
     </div>
