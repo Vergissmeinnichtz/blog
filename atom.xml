@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-19T07:03:11.282Z</updated>
+  <updated>2019-01-22T05:22:56.472Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,32 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>2017 AlexCTF-CR2 Many time secrets</title>
+    <link href="http://yoursite.com/2019/01/22/2017-AlexCTF-CR2-Many-time-secrets/"/>
+    <id>http://yoursite.com/2019/01/22/2017-AlexCTF-CR2-Many-time-secrets/</id>
+    <published>2019-01-22T05:12:31.000Z</published>
+    <updated>2019-01-22T05:22:56.472Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;This time Fady learned from his old mistake and decided to use onetime pad as his encryption technique, but he never knew why people call it one time pad!&lt;br&gt;&lt;a href=&quot;https://github.com/R3dCr3sc3nt/AlexCTF/blob/master/CR2-Many_time_secrets/msg&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;msg&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Crypto" scheme="http://yoursite.com/categories/Crypto/"/>
+    
+    
+      <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
+    
+      <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
+    
+      <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
+    
+  </entry>
   
   <entry>
     <title>RCTF-2015 Decode The File</title>
@@ -34,9 +60,9 @@
     
       <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
     
-      <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
-    
       <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
+    
+      <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
     
   </entry>
   
@@ -80,9 +106,9 @@
     
       <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
     
-      <category term="Web" scheme="http://yoursite.com/tags/Web/"/>
-    
       <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
+    
+      <category term="Web" scheme="http://yoursite.com/tags/Web/"/>
     
   </entry>
   
@@ -129,9 +155,9 @@
     
       <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
     
-      <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
-    
       <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
+    
+      <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
     
   </entry>
   

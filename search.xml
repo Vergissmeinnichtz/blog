@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[2017 AlexCTF-CR2 Many time secrets]]></title>
+    <url>%2F2019%2F01%2F22%2F2017-AlexCTF-CR2-Many-time-secrets%2F</url>
+    <content type="text"><![CDATA[简介 This time Fady learned from his old mistake and decided to use onetime pad as his encryption technique, but he never knew why people call it one time pad!msg 解题思路这是一个OTP加密的问题。在题目中给了十几个用同一一次密码本加密的内容，所以我们可以使用many time pad attack (aka crib drag)进行攻击。 具体过程1.参考这篇WP,用cribdrag进行猜测 123456789$ python xorstrings.py 0529242a631234122d2b36697f13272c207f2021283a6b0c7908 2f28202a302029142c653f3c7f2a2636273e3f2d653e252179082a01040053321d06014e09550039011a07411f0c4d044e2d0000$ python cribdrag.py 2a01040053321d06014e09550039011a07411f0c4d044e2d0000Your message is currently:0 __________________________Your key is currently:0 __________________________Please enter your crib: 在进行了一系列猜测后得到： 12345Your message is currently:0 Dear Friend, This time I uYour key is currently:0 nderstood my mistake and uPlease enter your crib: 最后通过xorstrings.py稍加修改进行解密123456s1 = &quot;0529242a631234122d2b36697f13272c207f2021283a6b0c7908&quot;.decode(&apos;hex&apos;)s2 = &quot;Dear Friend, This time I u&quot;s3 = sxor(s1, s2)print s3 得到flag：ALEXCTF {HERE_GOES_THE_KEY} 2.使用脚本进行猜测 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697071727374757677787980818283848586#!/usr/bin/python## OTP - Recovering the private key from a set of messages that were encrypted w/ the same private key (Many time pad attack) - crypto100-many_time_secret @ alexctf 2017# @author intrd - http://dann.com.br/ # Original code by jwomers: https://github.com/Jwomers/many-time-pad-attack/blob/master/attack.py)import stringimport collectionsimport sets, sys# 11 unknown ciphertexts (in hex format), all encrpyted with the same keyc1 = "0529242a631234122d2b36697f13272c207f2021283a6b0c7908"c2 = "2f28202a302029142c653f3c7f2a2636273e3f2d653e25217908"c3 = "322921780c3a235b3c2c3f207f372e21733a3a2b37263b313012"c4 = "2f6c363b2b312b1e64651b6537222e37377f2020242b6b2c2d5d"c5 = "283f652c2b31661426292b653a292c372a2f20212a316b283c09"c6 = "29232178373c270f682c216532263b2d3632353c2c3c2a293504"c7 = "613c37373531285b3c2a72273a67212a277f373a243c20203d5d"c8 = "243a202a633d205b3c2d3765342236653a2c7423202f3f652a18"c9 = "2239373d6f740a1e3c651f207f2c212a247f3d2e65262430791c"c10 = "263e203d63232f0f20653f207f332065262c3168313722367918"c11 = "2f2f372133202f142665212637222220733e383f2426386b"ciphers = [c1, c2, c3, c4, c5, c6, c7, c8, c9, c10, c11]# The target ciphertext we want to cracktarget_cipher = "2239373d6f740a1e3c651f207f2c212a247f3d2e65262430791c"# XORs two stringdef strxor(a, b): # xor two strings (trims the longer input) return "".join([chr(ord(x) ^ ord(y)) for (x, y) in zip(a, b)])# To store the final keyfinal_key = [None]*150# To store the positions we know are brokenknown_key_positions = set()# For each ciphertextfor current_index, ciphertext in enumerate(ciphers): counter = collections.Counter() # for each other ciphertext for index, ciphertext2 in enumerate(ciphers): if current_index != index: # don't xor a ciphertext with itself for indexOfChar, char in enumerate(strxor(ciphertext.decode('hex'), ciphertext2.decode('hex'))): # Xor the two ciphertexts # If a character in the xored result is a alphanumeric character, it means there was probably a space character in one of the plaintexts (we don't know which one) if char in string.printable and char.isalpha(): counter[indexOfChar] += 1 # Increment the counter at this index knownSpaceIndexes = [] # Loop through all positions where a space character was possible in the current_index cipher for ind, val in counter.items(): # If a space was found at least 7 times at this index out of the 9 possible XORS, then the space character was likely from the current_index cipher! if val &gt;= 7: knownSpaceIndexes.append(ind) #print knownSpaceIndexes # Shows all the positions where we now know the key! # Now Xor the current_index with spaces, and at the knownSpaceIndexes positions we get the key back! xor_with_spaces = strxor(ciphertext.decode('hex'),' '*150) for index in knownSpaceIndexes: # Store the key's value at the correct position final_key[index] = xor_with_spaces[index].encode('hex') # Record that we known the key at this position known_key_positions.add(index)# Construct a hex key from the currently known key, adding in '00' hex chars where we do not know (to make a complete hex string)final_key_hex = ''.join([val if val is not None else '00' for val in final_key])# Xor the currently known key with the target cipheroutput = strxor(target_cipher.decode('hex'),final_key_hex.decode('hex'))print "Fix this sentence:"print ''.join([char if index in known_key_positions else '*' for index, char in enumerate(output)])+"\n"# WAIT.. MANUAL STEP HERE # This output are printing a * if that character is not known yet# fix the missing characters like this: "Let*M**k*ow if *o&#123;*a" = "cure, Let Me know if you a"# if is too hard, change the target_cipher to another one and try again# and we have our key to fix the entire text!#sys.exit(0) #comment and continue if u got a good keytarget_plaintext = "cure, Let Me know if you a"print "Fixed:"print target_plaintext+"\n"key = strxor(target_cipher.decode('hex'),target_plaintext)print "Decrypted msg:"for cipher in ciphers: print strxor(cipher.decode('hex'),key)print "\nPrivate key recovered: "+key+"\n" 总结一次密码本如果使用不当还是会有不安全的部分，除此之外还可以使用中间人攻击等方法进行攻击。]]></content>
+      <categories>
+        <category>Crypto</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+        <tag>Crypto</tag>
+        <tag>Write up</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[RCTF-2015 Decode The File]]></title>
     <url>%2F2019%2F01%2F19%2FRCTF-2015-Decode-The-File%2F</url>
     <content type="text"><![CDATA[简介这道题是2015-RCTF的一道密码题，考点有点秀，就记下来了。 题目描述题目给了个cip文件,里面是一行一行的base64加密过的代码，逐行解码之后会得到一个DES加密的python代码。当时我看了很久都没弄懂解码出来的代码有啥用，后来去看了别人的wp才发现还有这种操作。具体就是每行base64加密过的代码解码之后再加密会发现末尾的字母会有变化，而经我测试下来也是如此 其中第一行是原本的明文，第二行是加密之后的base64密文，第三行我将末尾的w改成了y，第四行可以发现我们任然可以解码出原本的明文 而这道题的末尾都经过了这种隐写，最后通过脚本可以直接接出来123456789101112131415161718192021222324252627282930def get_base64_diff_value(s1, s2): base64chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/' res = 0 for i in xrange(len(s1)): if s1[i] != s2[i]: return abs(base64chars.index(s1[i]) - base64chars.index(s2[i])) return resdef solve_stego(): with open('cip', 'rb') as f: file_lines = f.readlines() bin_str = '' for line in file_lines: steg_line = line.replace('\n', '') norm_line = line.replace('\n', '').decode('base64').encode('base64').replace('\n', '') diff = get_base64_diff_value(steg_line, norm_line) pads_num = steg_line.count('=') if diff: bin_str += bin(diff)[2:].zfill(pads_num * 2) else: bin_str += '0' * pads_num * 2 res_str = '' for i in xrange(0, len(bin_str), 8): res_str += chr(int(bin_str[i:i+8], 2)) print res_strsolve_stego() 总结与其说是crypto不如说是stega，太秀了，而且这种隐写方式也出现在国际赛事上许多次，所以还是记录下来好好学习学习。]]></content>
@@ -9,8 +22,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
       </tags>
   </entry>
   <entry>
@@ -34,8 +47,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Web</tag>
         <tag>Write up</tag>
+        <tag>Web</tag>
       </tags>
   </entry>
   <entry>
@@ -60,8 +73,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
       </tags>
   </entry>
   <entry>
