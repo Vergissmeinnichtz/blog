@@ -106,7 +106,7 @@
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/01/09/RSA攻击综述/1.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/01/09/RSA攻击综述/2.jpg">
-<meta property="og:updated_time" content="2019-01-23T05:34:15.253Z">
+<meta property="og:updated_time" content="2019-01-23T05:44:49.371Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RSA攻击综述">
 <meta name="twitter:description" content="简介RSA作为密码学中的代表，就和web中的php一样，被许多人不断研究，才有着今天这样广泛的使用程度。当然与此相对的也有许多的攻击方式被不断挖掘出来。这篇文章主要是对现阶段主流的RSA攻击方式进行总结，并配上exp脚本，以备以后的使用。">
@@ -468,7 +468,8 @@
 <blockquote>
 <p>如果返回的是（偶，偶），那么有P &lt; N/4<br>如果返回的是（偶，奇），那么有N/4 &lt; P &lt; N/2<br>如果返回的是（奇，偶），那么有N/2 &lt; P &lt; N/4<br>如果返回的是（奇，奇），那么有3N/4 &lt; P &lt; N<br>可以发现规律：P的所在空间回不断的缩小，我们可以通过这种方法得到P</p>
 </blockquote>
-<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>$$ C^’ = (2^e mod(N))*C $$<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (Oracle(C<span class="string">') == even)</span></span><br><span class="line"><span class="string">    UB = (UB + LB)/2;</span></span><br><span class="line"><span class="string">else</span></span><br><span class="line"><span class="string">    LB = (UB + LB)/2;</span></span><br></pre></td></tr></table></figure></p>
+<h3 id="方法"><a href="#方法" class="headerlink" title="方法"></a>方法</h3><p>$$ C’ = (2^e mod(N))*C $$</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">if</span> (Oracle(C<span class="string">') == even)</span></span><br><span class="line"><span class="string">    UB = (UB + LB)/2;</span></span><br><span class="line"><span class="string">else</span></span><br><span class="line"><span class="string">    LB = (UB + LB)/2;</span></span><br></pre></td></tr></table></figure>
 <h3 id="例题-XCTF-4th-QCTF-2018-babyrsa"><a href="#例题-XCTF-4th-QCTF-2018-babyrsa" class="headerlink" title="例题:XCTF 4th-QCTF-2018 babyrsa"></a>例题:XCTF 4th-QCTF-2018 babyrsa</h3>
       
     </div>
