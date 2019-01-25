@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-25T15:14:21.776Z</updated>
+  <updated>2019-01-25T15:19:37.932Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,13 +21,13 @@
     <link href="http://yoursite.com/2019/01/25/HITCON-Quals-2017-Secret-Server/"/>
     <id>http://yoursite.com/2019/01/25/HITCON-Quals-2017-Secret-Server/</id>
     <published>2019-01-25T14:15:48.000Z</published>
-    <updated>2019-01-25T15:14:21.776Z</updated>
+    <updated>2019-01-25T15:19:37.932Z</updated>
     
     <summary type="html">
     
       &lt;p&gt;该WP是对此&lt;a href=&quot;https://toh.necst.it/hitconquals2017/crypto/Secret_Server/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;WP&lt;/a&gt;的学习和补充，也顺便搬运一下&lt;/p&gt;
 &lt;h1 id=&quot;题目信息&quot;&gt;&lt;a href=&quot;#题目信息&quot; class=&quot;headerlink&quot; title=&quot;题目信息&quot;&gt;&lt;/a&gt;题目信息&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;AES is unbreakable. Right?&lt;br&gt;We are given &lt;a href=&quot;(http://toh.necst.it/writeups_files/secretserver/secretserver.py&quot;&gt;this&lt;/a&gt;) python script.&lt;/p&gt;
+&lt;p&gt;AES is unbreakable. Right?&lt;br&gt;We are given &lt;a href=&quot;(http://toh.necst.it/writeups_files/secretserver/secretserver.py&quot;&gt;this&lt;/a&gt; python script.&lt;/p&gt;
 &lt;/blockquote&gt;
     
     </summary>
