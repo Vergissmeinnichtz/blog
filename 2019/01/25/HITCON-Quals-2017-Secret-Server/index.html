@@ -105,7 +105,7 @@
 <meta property="og:description" content="该WP是对此WP的学习和补充，也顺便搬运一下 题目信息 AES is unbreakable. Right?We are given this python script.">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/01/25/HITCON-Quals-2017-Secret-Server/1.png">
-<meta property="og:updated_time" content="2019-01-25T15:20:19.173Z">
+<meta property="og:updated_time" content="2019-01-25T15:23:16.701Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HITCON Quals 2017 - Secret Server">
 <meta name="twitter:description" content="该WP是对此WP的学习和补充，也顺便搬运一下 题目信息 AES is unbreakable. Right?We are given this python script.">
@@ -435,8 +435,9 @@
 <p>我们得到了解密后的flag，但是这显然是不够的，我们需要获得解密后的flag</p>
 <p>现在回过头看看我们知道的东西，我们知道flag是以<code>hitcon{</code>开头的。那么如果我们用上一步的方法，将<code>hitcon{</code>换为相同长度的<code>get-md5</code>，会发生什么呢？</p>
 <blockquote>
-<p>command: get-md5XXX<br>其中XXX为除去<code>hitcon{</code>开头的flag，也就是得到剩下的flag的md5加密之后的结果再进行AES加密的结果</p>
+<p>command: get-md5XXX</p>
 </blockquote>
+<p>其中XXX为除去<code>hitcon{</code>开头的flag，也就是得到剩下的flag的md5加密之后的结果再进行AES加密的结果</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">flag_dec = base64.b64decode(flag)</span><br><span class="line">flagblocks = blockify(flag_dec, <span class="number">16</span>)</span><br><span class="line">flaglen = len(flag_dec) - <span class="number">16</span></span><br><span class="line">payload = flipiv(<span class="string">'hitcon&#123;'</span>.ljust(<span class="number">16</span>, <span class="string">'\x00'</span>), <span class="string">'get-md5'</span>.ljust(<span class="number">16</span>,<span class="string">'\x00'</span>), flagblocks[<span class="number">0</span>])</span><br><span class="line">payload += <span class="string">''</span>.join(flagblocks[<span class="number">1</span>:])</span><br><span class="line">other_flag_md5 = p.sendline(base64.b64encode(payload))</span><br><span class="line"><span class="keyword">print</span> <span class="string">'Other_Flag_MD5:'</span>, other_flag_md5</span><br></pre></td></tr></table></figure>
 <p>并且由于<code>unpad</code>的不安全性，我们或许可以将flag截取出来前面的几位，这取决于我们想要它的前几位</p>
 <p>现在我们需要解决的问题变为了两个:<br>1.如何通过<code>unpad</code>方法截取flag<br>2.截取的flag被md5加密以及AES加密之后我们怎么验证它是多少</p>
