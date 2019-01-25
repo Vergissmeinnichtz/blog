@@ -111,7 +111,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/01/09/RSA攻击综述/4.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/01/09/RSA攻击综述/5.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/01/09/RSA攻击综述/6.jpg">
-<meta property="og:updated_time" content="2019-01-25T09:59:12.880Z">
+<meta property="og:updated_time" content="2019-01-25T10:00:49.758Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="RSA攻击综述">
 <meta name="twitter:description" content="简介RSA作为密码学中的代表，就和web中的php一样，被许多人不断研究，才有着今天这样广泛的使用程度。当然与此相对的也有许多的攻击方式被不断挖掘出来。这篇文章主要是对现阶段主流的RSA攻击方式进行总结，并配上exp脚本，以备以后的使用。">
@@ -514,8 +514,8 @@
 
 <p>密文为<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">014b05e1a09668c83e13fda8be28d148568a2342aed833e0ad646bd45461da2decf9d538c2d3ab245b272873beb112586bb7b17dc4b30f0c5408d8b03cfbc8388b2bd579fb419a1cac38798da1c3da75dc9a74a90d98c8f986fd8ab8b2dc539768beb339cadc13383c62b5223a50e050cb9c6b759072962c2b2cf21b4421ca73394d9e12cfbc958fc5f6b596da368923121e55a3c6a7b12fdca127ecc0e8470463f6e04f27cd4bb3de30555b6c701f524c8c032fa51d719901e7c75cc72764ac00976ac6427a1f483779f61cee455ed319ee9071abefae4473e7c637760b4b3131f25e5eb9950dd9d37666e129640c82a4b01b8bdc1a78b007f8ec71e7bad48046</span><br></pre></td></tr></table></figure></p>
 <p>由于网站只给出了一条能量迹，所以可以断定这是 Simple channel analysis（SPA）攻击。那么我们可以直接通过观察能量迹的高低电平来获得 RSA 解密过程的密钥 d。 RSA 可被 SPA 攻击的理论基础来自于 RSA 中包含的快速幂取余算法。</p>
-<p>快速幂算法如下<br>1.b为偶数时:<br>$$ a^b mod(c) = (a^{2^{b/2}} mod(c) $$</p>
-<p>2.b为奇数时：<br>$$ a^b mod(c) = (a^{2^{b/2} \times a} mod(c) $$</p>
+<p>快速幂算法如下<br>1.b为偶数时:<br>$$ a^b mod(c) = a^{2^{b/2}} mod(c) $$</p>
+<p>2.b为奇数时：<br>$$ a^b mod(c) = a^{2^{b/2}} \times a mod(c) $$</p>
 <p>相应的C代码实现为:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">int PowerMod(int a, int b, int c)</span><br><span class="line">&#123;</span><br><span class="line">    int ans = <span class="number">1</span>;</span><br><span class="line">    a = a % c;</span><br><span class="line">    <span class="keyword">while</span>(b&gt;<span class="number">0</span>) &#123;</span><br><span class="line">        <span class="keyword">if</span>(b % <span class="number">2</span> == <span class="number">1</span>) // 当b为奇数时会多执行下面的指令</span><br><span class="line">            ans = (ans * a) % c;</span><br><span class="line">        b = b/<span class="number">2</span>;</span><br><span class="line">        a = (a * a) % c;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">return</span> ans;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>由于快速幂的计算过程中会逐位判断指数的取值，并会采取不同的操作，所以可从能量迹中还原出 d 的取值（从上面可知，直接得到的值是 d 的二进制取值的<code>逆序</code>）</p>
 <p>注意：</p>
