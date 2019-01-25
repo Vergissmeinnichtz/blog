@@ -78,7 +78,7 @@
 <link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
 
 
-  <meta name="keywords" content="CTF,Write up,Crypto,AES,">
+  <meta name="keywords" content="CTF,Crypto,Write up,AES,">
 
 
 
@@ -97,7 +97,7 @@
 
 
 <meta name="description" content="该WP是对此WP的学习和补充，也顺便搬运一下 题目信息 AES is unbreakable. Right?We are given this python script.">
-<meta name="keywords" content="CTF,Write up,Crypto,AES">
+<meta name="keywords" content="CTF,Crypto,Write up,AES">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HITCON Quals 2017 - Secret Server">
 <meta property="og:url" content="http://yoursite.com/2019/01/25/HITCON-Quals-2017-Secret-Server/index.html">
@@ -105,7 +105,7 @@
 <meta property="og:description" content="该WP是对此WP的学习和补充，也顺便搬运一下 题目信息 AES is unbreakable. Right?We are given this python script.">
 <meta property="og:locale" content="default">
 <meta property="og:image" content="http://yoursite.com/2019/01/25/HITCON-Quals-2017-Secret-Server/1.png">
-<meta property="og:updated_time" content="2019-01-25T15:19:37.932Z">
+<meta property="og:updated_time" content="2019-01-25T15:20:19.173Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="HITCON Quals 2017 - Secret Server">
 <meta name="twitter:description" content="该WP是对此WP的学习和补充，也顺便搬运一下 题目信息 AES is unbreakable. Right?We are given this python script.">
@@ -423,8 +423,13 @@
 
 <p>我们来分析以下左边的第一个块，即开头的块。<br>假设密文C0经过key解密之后的中间值为X0，X0异或IV之后的结果为P0，则我们可以得到：</p>
 <blockquote>
-<p>X0 ^ IV = P0<br>如果我们需要将解密之后的结果改为P1，我们可以这么做<br>X0 ^ IV ^ P0 = 1<br>X0 ^ IV ^ P0 ^ P1 = P1<br>X0 ^ (IV ^ P0 ^ P1) = P1<br>也就是将IV异或P0再异或P1就可以了</p>
+<p>X0 ^ IV = P0</p>
 </blockquote>
+<p>如果我们需要将解密之后的结果改为P1，我们可以这么做</p>
+<blockquote>
+<p>X0 ^ IV ^ P0 = 1<br>X0 ^ IV ^ P0 ^ P1 = P1<br>X0 ^ (IV ^ P0 ^ P1) = P1</p>
+</blockquote>
+<p>也就是将IV异或P0再异或P1就可以了</p>
 <p>我们可以将此方法抽象出来供后面使用:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">xor_str</span><span class="params">(s1, s2)</span>:</span></span><br><span class="line">  <span class="string">'''XOR between two strings. The longer one is truncated.'''</span></span><br><span class="line">  <span class="keyword">return</span> <span class="string">''</span>.join(chr(ord(x) ^ ord(y)) <span class="keyword">for</span> x, y <span class="keyword">in</span> zip(s1, s2))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">flipiv</span><span class="params">(oldplain, newplain, iv)</span>:</span></span><br><span class="line">  <span class="string">'''Modifies an IV to produce the desired new plaintext in the following block'''</span></span><br><span class="line">  flipmask = xor_str(oldplain, newplain)</span><br><span class="line">  <span class="keyword">return</span> xor_str(iv, flipmask)</span><br></pre></td></tr></table></figure></p>
 <p>在这道题中我们的P0对应<code>Welcome!!</code>，P1我们可以设为<code>get-flag</code>，则我们可以先获取<code>get-flag</code>命令的返回值<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">HOST = <span class="string">'52.193.157.19'</span></span><br><span class="line">PORT = <span class="number">9999</span></span><br><span class="line">welcomeplain = pad(<span class="string">'Welcome!!'</span>)</span><br><span class="line"></span><br><span class="line">p = remote(HOST, PORT)</span><br><span class="line">solve_proof(p)</span><br><span class="line"></span><br><span class="line"><span class="comment"># get welcome</span></span><br><span class="line">welcome = p.recvline(keepends=<span class="keyword">False</span>)</span><br><span class="line"><span class="keyword">print</span> <span class="string">'Welcome:'</span>, welcome</span><br><span class="line">welcome_dec = base64.b64decode(welcome)</span><br><span class="line">welcomeblocks = blockify(welcome_dec, <span class="number">16</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># get encrypted flag</span></span><br><span class="line">payload = flipiv(welcomeplain, <span class="string">'get-flag'</span>.ljust(<span class="number">16</span>, <span class="string">'\x01'</span>), welcomeblocks[<span class="number">0</span>])</span><br><span class="line">payload += welcomeblocks[<span class="number">1</span>]</span><br><span class="line">p.sendline(base64.b64encode(payload))</span><br><span class="line">flag = p.recvline(keepends=<span class="keyword">False</span>)</span><br><span class="line"><span class="keyword">print</span> <span class="string">'Flag:'</span>, flag</span><br></pre></td></tr></table></figure></p>
 <p>我们得到了解密后的flag，但是这显然是不够的，我们需要获得解密后的flag</p>
@@ -461,9 +466,9 @@
           
             <a href="/tags/CTF/" rel="tag"># CTF</a>
           
-            <a href="/tags/Write-up/" rel="tag"># Write up</a>
-          
             <a href="/tags/Crypto/" rel="tag"># Crypto</a>
+          
+            <a href="/tags/Write-up/" rel="tag"># Write up</a>
           
             <a href="/tags/AES/" rel="tag"># AES</a>
           
