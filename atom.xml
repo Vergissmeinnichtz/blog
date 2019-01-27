@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-01-25T15:23:16.701Z</updated>
+  <updated>2019-01-27T03:16:17.376Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,35 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Server-Side Includes (SSI) Injection</title>
+    <link href="http://yoursite.com/2019/01/27/Server-Side-Includes-SSI-Injection/"/>
+    <id>http://yoursite.com/2019/01/27/Server-Side-Includes-SSI-Injection/</id>
+    <published>2019-01-27T03:04:19.000Z</published>
+    <updated>2019-01-27T03:16:17.376Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;SSI是英文”Server Side Includes”的缩写，翻译成中文就是服务器端包含的意思。SSI是用于向HTML页面提供动态内容的Web应用程序上的指令。 它们与CGI类似，不同之处在于SSI用于在加载当前页面之前或在页面可视化时执行某些操作。 为此，Web服务器在将页面提供给用户之前分析SSI。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;可在SHTML文件中使用SSI指令引用其他的html文件（#include），此时服务器会将SHTML中包含的SSI指令解释，再传送给客户端，此时的HTML中就不再有SSI指令了。Server-Side Includes攻击允许通过在HTML页面中注入脚本或远程执行任意代码来利用Web应用程序。 一种对于这类漏洞的挖掘方式即是查看.stm，.shtm和.shtml的页面是否存在，但是缺少这些类型的页面并不意味着不存在SSI攻击。&lt;/p&gt;
+&lt;/blockquote&gt;
+    
+    </summary>
+    
+      <category term="Web" scheme="http://yoursite.com/categories/Web/"/>
+    
+    
+      <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
+    
+      <category term="Web" scheme="http://yoursite.com/tags/Web/"/>
+    
+      <category term="SSI" scheme="http://yoursite.com/tags/SSI/"/>
+    
+  </entry>
   
   <entry>
     <title>HITCON Quals 2017 - Secret Server</title>
@@ -37,9 +66,9 @@
     
       <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
     
-      <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
-    
       <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
+    
+      <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
     
       <category term="AES" scheme="http://yoursite.com/tags/AES/"/>
     
@@ -65,9 +94,9 @@
     
       <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
     
-      <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
-    
       <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
+    
+      <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
     
   </entry>
   
@@ -89,9 +118,9 @@
     
       <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
     
-      <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
-    
       <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
+    
+      <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
     
   </entry>
   
@@ -100,7 +129,7 @@
     <link href="http://yoursite.com/2019/01/17/SSTI%E7%9A%84%E4%B8%80%E4%BA%9B%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/"/>
     <id>http://yoursite.com/2019/01/17/SSTI的一些基本操作/</id>
     <published>2019-01-17T05:48:52.000Z</published>
-    <updated>2019-01-17T06:06:03.185Z</updated>
+    <updated>2019-01-27T03:05:13.560Z</updated>
     
     <summary type="html">
     
@@ -114,6 +143,8 @@
       <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
     
       <category term="Web" scheme="http://yoursite.com/tags/Web/"/>
+    
+      <category term="SSTI" scheme="http://yoursite.com/tags/SSTI/"/>
     
   </entry>
   
@@ -135,9 +166,9 @@
     
       <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
     
-      <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
-    
       <category term="Web" scheme="http://yoursite.com/tags/Web/"/>
+    
+      <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
     
   </entry>
   
@@ -184,9 +215,9 @@
     
       <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
     
-      <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
-    
       <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
+    
+      <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
     
   </entry>
   
