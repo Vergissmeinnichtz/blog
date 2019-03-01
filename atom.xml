@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-01T03:06:11.345Z</updated>
+  <updated>2019-03-01T03:08:32.229Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,17 +21,11 @@
     <link href="http://yoursite.com/2019/03/01/2019-TAMUCTF-Crypto/"/>
     <id>http://yoursite.com/2019/03/01/2019-TAMUCTF-Crypto/</id>
     <published>2019-03-01T02:36:56.000Z</published>
-    <updated>2019-03-01T03:06:11.345Z</updated>
+    <updated>2019-03-01T03:08:32.229Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;2019的TAMUCTF总体来说比较适合入门CTF，题目难度不算太高，不过密码的这两道题也算是我没有怎么接触过的加密，分别是背包加密和ECDH。&lt;/p&gt;
     
     </summary>
     
@@ -40,9 +34,9 @@
     
       <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
     
-      <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
-    
       <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
+    
+      <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
     
       <category term="ECC" scheme="http://yoursite.com/tags/ECC/"/>
     
@@ -100,9 +94,9 @@
     
       <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
     
-      <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
-    
       <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
+    
+      <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
     
       <category term="AES" scheme="http://yoursite.com/tags/AES/"/>
     
@@ -128,9 +122,9 @@
     
       <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
     
-      <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
-    
       <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
+    
+      <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
     
   </entry>
   
@@ -152,9 +146,9 @@
     
       <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
     
-      <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
-    
       <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
+    
+      <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
     
   </entry>
   
@@ -200,9 +194,9 @@
     
       <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
     
-      <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
-    
       <category term="Web" scheme="http://yoursite.com/tags/Web/"/>
+    
+      <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
     
   </entry>
   
@@ -249,9 +243,9 @@
     
       <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
     
-      <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
-    
       <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
+    
+      <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
     
   </entry>
   
