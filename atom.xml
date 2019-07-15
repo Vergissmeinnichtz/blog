@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-01T03:15:56.624Z</updated>
+  <updated>2019-07-15T03:12:14.245Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,28 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Pwn的基本操作</title>
+    <link href="http://yoursite.com/2019/07/15/Pwn%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C/"/>
+    <id>http://yoursite.com/2019/07/15/Pwn的基本操作/</id>
+    <published>2019-07-15T02:50:57.000Z</published>
+    <updated>2019-07-15T03:12:14.245Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;本文主要是记录一些Pwn的基本操作的命令&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Pwn" scheme="http://yoursite.com/categories/Pwn/"/>
+    
+    
+      <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
+    
+      <category term="Pwn" scheme="http://yoursite.com/tags/Pwn/"/>
+    
+  </entry>
   
   <entry>
     <title>2019 TAMUCTF Crypto</title>
