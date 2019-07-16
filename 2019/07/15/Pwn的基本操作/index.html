@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Ver">
 <meta property="og:description" content="简介本文主要是记录一些Pwn的基本操作的命令">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-16T12:57:49.734Z">
+<meta property="og:updated_time" content="2019-07-16T14:17:43.545Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pwn的基本操作">
 <meta name="twitter:description" content="简介本文主要是记录一些Pwn的基本操作的命令">
@@ -434,6 +434,8 @@
 <p>vmmap查看地址是否可读可写可执行<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vmmap</span><br></pre></td></tr></table></figure></p>
 <hr>
 <p>one_gadget使用<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">one_gadget /lib/x86_64-linux-gnu/libc.so.6</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>gdb attach<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwnlib <span class="keyword">import</span> *</span><br><span class="line">context.terminal = [<span class="string">'gnome-terminal'</span>,<span class="string">'-x'</span>,<span class="string">'sh'</span>,<span class="string">'-c'</span>]</span><br><span class="line">gdb.attach(p)</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
