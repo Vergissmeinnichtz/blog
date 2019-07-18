@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Ver">
 <meta property="og:description" content="简介本文主要是记录一些Pwn的基本操作的命令">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2019-07-18T03:31:50.642Z">
+<meta property="og:updated_time" content="2019-07-18T08:10:07.827Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pwn的基本操作">
 <meta name="twitter:description" content="简介本文主要是记录一些Pwn的基本操作的命令">
@@ -442,6 +442,8 @@
 <p>fmtstr_payload的使用<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">payload = fmtstr_payload(offset, &#123;puts_got: system_addr&#125;)</span><br></pre></td></tr></table></figure></p>
 <hr>
 <p>x64和x86函数调用参数规则<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">在x64下通常参数从左到右依次放在rdi, rsi, rdx, rcx, r8, r9，多出来的参数才会入栈.</span><br><span class="line">在x86下其参数从右往左入栈</span><br></pre></td></tr></table></figure></p>
+<hr>
+<p>readelf查看libc版本<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">readelf -a xxx</span><br></pre></td></tr></table></figure></p>
 
       
     </div>

@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Pwn的基本操作]]></title>
     <url>%2F2019%2F07%2F15%2FPwn%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%2F</url>
-    <content type="text"><![CDATA[简介本文主要是记录一些Pwn的基本操作的命令 基本内容查找gadgets和string123ROPgadget --binary xxx --only 'pop|ret' | grep 'xxx'ROPgadget --binary xxx --string '/bin/sh' ROPgadget --binary xxx --only 'int' execve(“/bin/sh”,NULL,NULL) 的shellcode 123456789shellcode = asm('\n'.join([ 'push %d' % u32('/sh\0'), 'push %d' % u32('/bin'), 'xor edx, edx', 'xor ecx, ecx', 'mov ebx, esp', 'mov eax, 0xb', 'int 0x80',])) 关闭ASLR 1sudo sh -c "echo 0 &gt; /proc/sys/kernel/randomize_va_space" gdb下寻找偏移 123pattern create 100pattern offset xxxxxxpattern search ldd 1ldd xxx objdump读取plt表和got表 12objdump -d -j .plt xxxobjdump -R xxx gdb中的print和x 1234567print $esp:打印esp的值x/10x $esp：打印出10个从esp开始的值x/10x $esp-4：打印出10个从偏移4开始的值x/10gx $esp：以64位格式打印 readelf查看段地址 1readelf -S xxx vmmap查看地址是否可读可写可执行1vmmap one_gadget使用1one_gadget /lib/x86_64-linux-gnu/libc.so.6 gdb attach123from pwnlib import *context.terminal = ['gnome-terminal','-x','sh','-c']gdb.attach(p) gdb中算fmt的偏移x(“%x-1$s”)1fmtarg 0x00007fffffffdb28 fmtstr_payload的使用1payload = fmtstr_payload(offset, &#123;puts_got: system_addr&#125;) x64和x86函数调用参数规则12在x64下通常参数从左到右依次放在rdi, rsi, rdx, rcx, r8, r9，多出来的参数才会入栈.在x86下其参数从右往左入栈]]></content>
+    <content type="text"><![CDATA[简介本文主要是记录一些Pwn的基本操作的命令 基本内容查找gadgets和string123ROPgadget --binary xxx --only 'pop|ret' | grep 'xxx'ROPgadget --binary xxx --string '/bin/sh' ROPgadget --binary xxx --only 'int' execve(“/bin/sh”,NULL,NULL) 的shellcode 123456789shellcode = asm('\n'.join([ 'push %d' % u32('/sh\0'), 'push %d' % u32('/bin'), 'xor edx, edx', 'xor ecx, ecx', 'mov ebx, esp', 'mov eax, 0xb', 'int 0x80',])) 关闭ASLR 1sudo sh -c "echo 0 &gt; /proc/sys/kernel/randomize_va_space" gdb下寻找偏移 123pattern create 100pattern offset xxxxxxpattern search ldd 1ldd xxx objdump读取plt表和got表 12objdump -d -j .plt xxxobjdump -R xxx gdb中的print和x 1234567print $esp:打印esp的值x/10x $esp：打印出10个从esp开始的值x/10x $esp-4：打印出10个从偏移4开始的值x/10gx $esp：以64位格式打印 readelf查看段地址 1readelf -S xxx vmmap查看地址是否可读可写可执行1vmmap one_gadget使用1one_gadget /lib/x86_64-linux-gnu/libc.so.6 gdb attach123from pwnlib import *context.terminal = ['gnome-terminal','-x','sh','-c']gdb.attach(p) gdb中算fmt的偏移x(“%x-1$s”)1fmtarg 0x00007fffffffdb28 fmtstr_payload的使用1payload = fmtstr_payload(offset, &#123;puts_got: system_addr&#125;) x64和x86函数调用参数规则12在x64下通常参数从左到右依次放在rdi, rsi, rdx, rcx, r8, r9，多出来的参数才会入栈.在x86下其参数从右往左入栈 readelf查看libc版本1readelf -a xxx]]></content>
       <categories>
         <category>Pwn</category>
       </categories>
@@ -21,8 +21,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
         <tag>ECC</tag>
         <tag>Knapsack</tag>
       </tags>
@@ -49,8 +49,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
         <tag>AES</tag>
       </tags>
   </entry>
@@ -63,8 +63,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
       </tags>
   </entry>
   <entry>
@@ -76,8 +76,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
       </tags>
   </entry>
   <entry>
@@ -102,8 +102,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Web</tag>
         <tag>Write up</tag>
+        <tag>Web</tag>
       </tags>
   </entry>
   <entry>
@@ -128,8 +128,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
       </tags>
   </entry>
   <entry>
