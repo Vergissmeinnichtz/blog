@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-08-19T12:34:40.597Z</updated>
+  <updated>2019-08-19T12:54:52.934Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,17 +21,11 @@
     <link href="http://yoursite.com/2019/08/19/Random-attack/"/>
     <id>http://yoursite.com/2019/08/19/Random-attack/</id>
     <published>2019-08-19T12:28:07.000Z</published>
-    <updated>2019-08-19T12:34:40.597Z</updated>
+    <updated>2019-08-19T12:54:52.934Z</updated>
     
     <summary type="html">
     
-      
-      
-        
-        
-          &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot;
-        
-      
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;今天有幸拜读了bibi大佬在xman上讲的密码学的ppt，感觉收获很多。在序列密码这一章里学到了很多有关随机数的攻击方法，今天抽空记录一下。另外发现了一篇大佬写的不错的&lt;a href=&quot;https://www.cnblogs.com/kagari/p/11304319.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;blog&lt;/a&gt;，也一并摘抄整合一下。(如有不妥请联系我进行删除,谢谢！&lt;a href=&quot;mailto:verhan@163.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;verhan@163.com&lt;/a&gt;)&lt;/p&gt;
     
     </summary>
     
@@ -84,9 +78,9 @@
     
       <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
     
-      <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
-    
       <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
+    
+      <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
     
       <category term="ECC" scheme="http://yoursite.com/tags/ECC/"/>
     
@@ -144,9 +138,9 @@
     
       <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
     
-      <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
-    
       <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
+    
+      <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
     
       <category term="AES" scheme="http://yoursite.com/tags/AES/"/>
     
@@ -172,9 +166,9 @@
     
       <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
     
-      <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
-    
       <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
+    
+      <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
     
   </entry>
   
@@ -196,9 +190,9 @@
     
       <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
     
-      <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
-    
       <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
+    
+      <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
     
   </entry>
   
@@ -244,9 +238,9 @@
     
       <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
     
-      <category term="Web" scheme="http://yoursite.com/tags/Web/"/>
-    
       <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
+    
+      <category term="Web" scheme="http://yoursite.com/tags/Web/"/>
     
   </entry>
   
@@ -293,9 +287,9 @@
     
       <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
     
-      <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
-    
       <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
+    
+      <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
     
   </entry>
   
