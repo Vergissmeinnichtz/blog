@@ -146,9 +146,9 @@
 <meta property="og:image" content="http://yoursite.com/2019/09/13/Pwn-tw-刷题记录/silver_bullet0.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/09/13/Pwn-tw-刷题记录/silver_bullet1.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/09/13/Pwn-tw-刷题记录/silver_bullet2.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/09/13/Pwn-tw-刷题记录/silver_bullet3.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/09/13/Pwn-tw-刷题记录/silver_bullet4.jpg">
-<meta property="og:updated_time" content="2020-01-19T13:17:33.313Z">
+<meta property="og:image" content="http://yoursite.com/2019/09/13/Pwn-tw-刷题记录/silver_bullet5.jpg">
+<meta property="og:updated_time" content="2020-01-19T13:19:29.720Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pwn tw 刷题记录">
 <meta name="twitter:description" content="简介最近因为保研的事情弄得自己心急气躁的，学习效率几乎为0。决定还是写篇博客找找学习的感觉，也自己立下个flag，争取每天都在pwntw刷一道题，好好学习下pwn。 摸了好久，从Xman刚回来，继续ing">
@@ -701,10 +701,10 @@
 <div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/silver_bullet2.jpg" alt="silver_bullet2"></div>
 
 <p>选项2是power_up，其中的strncat中存在漏洞，因为它会将字符串拼接在源字符串之后，然后再加一个<code>\x00</code>，从而修改了长度，使得我们可以再次调用选项2劫持返回地址</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/silver_bullet3.jpg" alt="silver_bullet3"></div>
+<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/silver_bullet4.jpg" alt="silver_bullet3"></div>
 
 <p>选项3是beat，也就是当数据长度大于一定值的时候，程序便会退出</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/silver_bullet4.jpg" alt="silver_bullet4"></div>
+<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/silver_bullet5.jpg" alt="silver_bullet4"></div>
 
 <h2 id="解题思路-6"><a href="#解题思路-6" class="headerlink" title="解题思路"></a>解题思路</h2><p>首先create长度位0x2f的数据，然后power_up一个字节，这样下一次便可以覆盖返回地址</p>
 <p>先将返回地址改为puts的plt表，传入参数puts的got表的地址便可泄露libc</p>
