@@ -158,7 +158,7 @@
 <meta property="og:image" content="http://yoursite.com/2019/09/13/Pwn-tw-刷题记录/applestore7.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/09/13/Pwn-tw-刷题记录/applestore8.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/09/13/Pwn-tw-刷题记录/applestore9.jpg">
-<meta property="og:updated_time" content="2020-01-20T08:29:07.173Z">
+<meta property="og:updated_time" content="2020-01-20T15:32:38.607Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pwn tw 刷题记录">
 <meta name="twitter:description" content="简介最近因为保研的事情弄得自己心急气躁的，学习效率几乎为0。决定还是写篇博客找找学习的感觉，也自己立下个flag，争取每天都在pwntw刷一道题，好好学习下pwn。 摸了好久，从Xman刚回来，继续ing">
@@ -750,7 +750,7 @@
 <p>2.libc中有一个东西叫<code>environ</code>，是栈上的一个地址，debug出来是一开始的ebp</p>
 <div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/applestore9.jpg" alt="applestore9"></div>
 
-<p>3.栈劫持可以控制程序溜</p>
+<p>3.栈劫持可以控制程序流</p>
 <p>解题思路如下：</p>
 <p>1.add出6个iPhone 6和20个iPhone 6 plus，调用checkout将iPhone 8加入myCart</p>
 <p>2.利用atoi覆盖iPhone 8结构体，使得name指向puts的got表处，fd置0，bk指向一个可写区域，这样就可以通过delete泄露libc，然后让unlink失效，即我们的myCard链表尾还是该结构体</p>
