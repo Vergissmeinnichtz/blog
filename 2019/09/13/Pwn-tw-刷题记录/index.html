@@ -164,8 +164,8 @@
 <meta property="og:image" content="http://yoursite.com/2019/09/13/Pwn-tw-刷题记录/tcache_tear6.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/09/13/Pwn-tw-刷题记录/tcache_tear3.jpg">
 <meta property="og:image" content="http://yoursite.com/2019/09/13/Pwn-tw-刷题记录/tcache_tear4.jpg">
-<meta property="og:image" content="http://yoursite.com/2019/09/13/Pwn-tw-刷题记录/tcache_tear4.jpg">
-<meta property="og:updated_time" content="2020-01-21T06:23:36.543Z">
+<meta property="og:image" content="http://yoursite.com/2019/09/13/Pwn-tw-刷题记录/tcache_tear5.jpg">
+<meta property="og:updated_time" content="2020-01-21T06:25:40.157Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pwn tw 刷题记录">
 <meta name="twitter:description" content="简介最近因为保研的事情弄得自己心急气躁的，学习效率几乎为0。决定还是写篇博客找找学习的感觉，也自己立下个flag，争取每天都在pwntw刷一道题，好好学习下pwn。 摸了好久，从Xman刚回来，继续ing">
@@ -783,7 +783,7 @@
 <div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/tcache_tear4.jpg" alt="tcache_tear4"></div>
 
 <p>可以看到bss段上name和ptr挨在一起</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/tcache_tear4.jpg" alt="tcache_tear4"></div>
+<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/tcache_tear5.jpg" alt="tcache_tear5"></div>
 
 <h2 id="解题思路-8"><a href="#解题思路-8" class="headerlink" title="解题思路"></a>解题思路</h2><p>1.tcache的double free任意写到bss段上<code>name-0x10+0x600</code>处，构造伪造的chunk</p>
 <p>2.再double free一次任意写到<code>name-0x10</code>处伪造<code>0x600</code>的chunk，并且修改<code>ptr</code>，使得下次free可以free到我们伪造在name的chunk</p>
