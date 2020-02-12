@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="Ver">
 <meta property="og:description" content="简介本文主要是记录一些Pwn的基本操作的命令">
 <meta property="og:locale" content="default">
-<meta property="og:updated_time" content="2020-01-20T08:32:10.401Z">
+<meta property="og:updated_time" content="2020-01-28T07:00:09.775Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Pwn的基本操作">
 <meta name="twitter:description" content="简介本文主要是记录一些Pwn的基本操作的命令">
@@ -426,7 +426,7 @@
 <hr>
 <h2 id="one-gadget使用"><a href="#one-gadget使用" class="headerlink" title="one_gadget使用"></a>one_gadget使用</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">one_gadget /lib/x86_64-linux-gnu/libc.so.6</span><br></pre></td></tr></table></figure>
 <hr>
-<h2 id="gdb-attach"><a href="#gdb-attach" class="headerlink" title="gdb attach"></a>gdb attach</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwnlib <span class="keyword">import</span> *</span><br><span class="line">context.terminal = [<span class="string">'gnome-terminal'</span>,<span class="string">'-x'</span>,<span class="string">'sh'</span>,<span class="string">'-c'</span>]</span><br><span class="line">gdb.attach(p)</span><br></pre></td></tr></table></figure>
+<h2 id="gdb-attach"><a href="#gdb-attach" class="headerlink" title="gdb attach"></a>gdb attach</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwnlib <span class="keyword">import</span> *</span><br><span class="line">context.terminal = [<span class="string">'gnome-terminal'</span>,<span class="string">'-x'</span>,<span class="string">'sh'</span>,<span class="string">'-c'</span>]</span><br><span class="line">context.terminal = [<span class="string">'tmux'</span>, <span class="string">'splitw'</span>, <span class="string">'-h'</span>]</span><br><span class="line">context.terminal = [<span class="string">'tmux'</span>, <span class="string">'splitw'</span>, <span class="string">'-v'</span>]</span><br><span class="line"></span><br><span class="line">gdb.attach(p)</span><br></pre></td></tr></table></figure>
 <hr>
 <h2 id="gdb中算fmt的偏移x-“-x-1-s”"><a href="#gdb中算fmt的偏移x-“-x-1-s”" class="headerlink" title="gdb中算fmt的偏移x(“%x-1$s”)"></a>gdb中算fmt的偏移x(“%x-1$s”)</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fmtarg 0x00007fffffffdb28</span><br></pre></td></tr></table></figure>
 <hr>
@@ -565,7 +565,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-count">17</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>

