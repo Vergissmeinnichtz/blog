@@ -1,0 +1,1112 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next gemini use-motion" lang="">
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform">
+<meta http-equiv="Cache-Control" content="no-siteapp">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
+
+<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
+
+
+  <meta name="keywords" content="CTF,Crypto,Write up,">
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="Ver" type="application/atom+xml">
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
+
+
+
+
+
+
+<meta name="description" content="简介2020年Pwnhub的密码学公开赛，做出两题，还有一题实在想不明白做法，等以后再研究研究。官方WP">
+<meta name="keywords" content="CTF,Crypto,Write up">
+<meta property="og:type" content="article">
+<meta property="og:title" content="2020-Pwnhub-密码学公开赛">
+<meta property="og:url" content="http://yoursite.com/2020/02/19/2020-Pwnhub-密码学公开赛/index.html">
+<meta property="og:site_name" content="Ver">
+<meta property="og:description" content="简介2020年Pwnhub的密码学公开赛，做出两题，还有一题实在想不明白做法，等以后再研究研究。官方WP">
+<meta property="og:locale" content="default">
+<meta property="og:updated_time" content="2020-02-19T13:35:47.931Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="2020-Pwnhub-密码学公开赛">
+<meta name="twitter:description" content="简介2020年Pwnhub的密码学公开赛，做出两题，还有一题实在想不明白做法，等以后再研究研究。官方WP">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Gemini',
+    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2020/02/19/2020-Pwnhub-密码学公开赛/">
+
+
+
+
+
+  <title>2020-Pwnhub-密码学公开赛 | Ver</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Ver</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle"></p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            Categories
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
+            
+            About
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
+            
+            Search
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup search-popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/02/19/2020-Pwnhub-密码学公开赛/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Vergissmeinnicht">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Ver">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">2020-Pwnhub-密码学公开赛</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2020-02-19T21:21:00+08:00">
+                2020-02-19
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
+                  <a href="/categories/Crypto/" itemprop="url" rel="index">
+                    <span itemprop="name">Crypto</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>2020年Pwnhub的密码学公开赛，做出两题，还有一题实在想不明白做法，等以后再研究研究。<br><a href="https://mp.weixin.qq.com/s/eAJWraah9OOgJfZOhm4Sqg" target="_blank" rel="noopener">官方WP</a><br><a id="more"></a></p>
+<hr>
+<h1 id="CoinFlip"><a href="#CoinFlip" class="headerlink" title="CoinFlip"></a>CoinFlip</h1><h2 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env -S python3 -u</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> ElGamal</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> bytes_to_long</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> SystemRandom</span><br><span class="line"></span><br><span class="line">p = <span class="number">89920298975143503603355071360939700550591407922242065556365328438507076180282197398213967403539918537000377407790675854125523262308319440885103050337161403840595981245921027345947546766650416109898337569343929638168518588430581320837700405309991316179363097700641403649662339768706999696604355253457738087899</span></span><br><span class="line">g = <span class="number">5358175241224239681565352971614746319736919712851129402704021727006019580687455412863202343296662997105683370217761714672465916153210980406968620857248411694823855379754410695436318773571983868728108087797564875927297450936497475989604850544360508691110717233911580291458859569251675184514545939506977655392</span></span><br><span class="line">y = <span class="number">9809883570049661508542126992393631918478221058616711897991871691848938615969469850516400742359680117878925758558830882425065054538428874262872130246351690279644236117955427717541894427111091263023680843960566066759500258363679404255239381504858494323208732973715063480188373952015070184694506814650003760582</span></span><br><span class="line"></span><br><span class="line">rnd = SystemRandom()</span><br><span class="line">pubkey = ElGamal.construct((p, g, y))</span><br><span class="line">msg1 = bytes_to_long(<span class="string">b"Head"</span> + os.urandom(<span class="number">124</span>))</span><br><span class="line">msg2 = bytes_to_long(<span class="string">b"Tail"</span> + os.urandom(<span class="number">124</span>))</span><br><span class="line"></span><br><span class="line">count = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    print(<span class="string">"Progress: %s/50"</span> % count)</span><br><span class="line">    coin = rnd.randrange(<span class="number">2</span>)</span><br><span class="line">    print(pubkey.encrypt([msg1, msg2][coin], rnd.randrange(<span class="number">1</span>, p - <span class="number">1</span>)))</span><br><span class="line">    <span class="keyword">break</span></span><br><span class="line">    <span class="keyword">if</span> int(input(<span class="string">"Your guess (0/1): "</span>)) == coin:</span><br><span class="line">        print(<span class="string">"Correct!"</span>)</span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> count == <span class="number">50</span>:</span><br><span class="line">            print(open(<span class="string">"flag"</span>).read())</span><br><span class="line">            exit()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"Wrong!"</span>)</span><br><span class="line">        exit()</span><br></pre></td></tr></table></figure>
+<h2 id="解题方法"><a href="#解题方法" class="headerlink" title="解题方法"></a>解题方法</h2><p>用雅可比符号做约束判断两个msg是否为同一开头，官方WP是这么说的</p>
+<blockquote>
+<p>ElGamal 算法的 Semantic security 只有它所使用的群 G 满足 Decisional Diffie–Hellman assumption 才行（可以参见维基百科的 ElGamal encryption 词条），但是 pycrypto 的实现中，群 G 只是 mod 整数的乘法群，所以不满足。这样，我们可以用通过计算勒让德符号来分辨密文对应哪一条明文<br>可能我想到这个方法，但是不知道G不满足<code>Decisional Diffie–Hellman assumption</code>，所以也算瞎猫碰上死耗子吧hhh</p>
+</blockquote>
+<h2 id="解题脚本"><a href="#解题脚本" class="headerlink" title="解题脚本"></a>解题脚本</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line">p = <span class="number">89920298975143503603355071360939700550591407922242065556365328438507076180282197398213967403539918537000377407790675854125523262308319440885103050337161403840595981245921027345947546766650416109898337569343929638168518588430581320837700405309991316179363097700641403649662339768706999696604355253457738087899</span></span><br><span class="line">g = <span class="number">5358175241224239681565352971614746319736919712851129402704021727006019580687455412863202343296662997105683370217761714672465916153210980406968620857248411694823855379754410695436318773571983868728108087797564875927297450936497475989604850544360508691110717233911580291458859569251675184514545939506977655392</span></span><br><span class="line">y = <span class="number">9809883570049661508542126992393631918478221058616711897991871691848938615969469850516400742359680117878925758558830882425065054538428874262872130246351690279644236117955427717541894427111091263023680843960566066759500258363679404255239381504858494323208732973715063480188373952015070184694506814650003760582</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">guess</span><span class="params">(idx)</span>:</span></span><br><span class="line">	r.recvuntil(<span class="string">'('</span>)</span><br><span class="line">	a = int(r.recvuntil(<span class="string">','</span>,drop = <span class="keyword">True</span>))</span><br><span class="line">	b = int(r.recvuntil(<span class="string">')'</span>,drop = <span class="keyword">True</span>))</span><br><span class="line"></span><br><span class="line">	r.recvuntil(<span class="string">'): '</span>)</span><br><span class="line">	r.sendline(str(idx))</span><br><span class="line">	res = r.recvuntil(<span class="string">'!'</span>)</span><br><span class="line">	<span class="keyword">return</span> a,b</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">guess2</span><span class="params">(a1,a2,b1,b2)</span>:</span></span><br><span class="line">	r.recvuntil(<span class="string">'('</span>)</span><br><span class="line">	idx = <span class="number">1</span></span><br><span class="line">	a = int(r.recvuntil(<span class="string">','</span>,drop = <span class="keyword">True</span>))</span><br><span class="line">	b = int(r.recvuntil(<span class="string">')'</span>,drop = <span class="keyword">True</span>))</span><br><span class="line">	ja1 = gmpy2.jacobi(a1*gmpy2.invert(a,p),p)</span><br><span class="line">	ja2 = gmpy2.jacobi(a2*gmpy2.invert(a,p),p)</span><br><span class="line"></span><br><span class="line">	jb1 = gmpy2.jacobi(b1*gmpy2.invert(b,p),p)</span><br><span class="line">	jb2 = gmpy2.jacobi(b2*gmpy2.invert(b,p),p)</span><br><span class="line"></span><br><span class="line">	<span class="keyword">print</span> ja1,ja2,jb1,jb2 </span><br><span class="line">    <span class="comment"># success if jb1==ja1 and ja2==jb2 and ja1==-ja2</span></span><br><span class="line">	<span class="keyword">if</span> (jb1==ja1 <span class="keyword">and</span> ja2==jb2 <span class="keyword">and</span> ja1==-ja2):</span><br><span class="line">		idx=<span class="number">0</span></span><br><span class="line"></span><br><span class="line">	r.recvuntil(<span class="string">'): '</span>)</span><br><span class="line">	r.sendline(str(idx))</span><br><span class="line">	res = r.recvuntil(<span class="string">'!'</span>)</span><br><span class="line">	<span class="comment">#pause()</span></span><br><span class="line"></span><br><span class="line">r = remote(<span class="string">'39.107.33.72'</span>,<span class="number">10003</span>)</span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line"></span><br><span class="line">	<span class="keyword">try</span>:</span><br><span class="line">		a1,b1 = guess(<span class="number">0</span>)</span><br><span class="line">		a2,b2 = guess(<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">		<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">50</span><span class="number">-2</span>):</span><br><span class="line">			guess2(a1,a2,b1,b2)</span><br><span class="line">		r.interactive()</span><br><span class="line">		pause()</span><br><span class="line">	<span class="keyword">except</span>:</span><br><span class="line">		r.close()</span><br><span class="line">		r = remote(<span class="string">'39.107.33.72'</span>,<span class="number">10003</span>)</span><br><span class="line"></span><br><span class="line">r.interactive()</span><br></pre></td></tr></table></figure>
+<hr>
+<h1 id="CoinFlip2"><a href="#CoinFlip2" class="headerlink" title="CoinFlip2"></a>CoinFlip2</h1><h2 id="题目-1"><a href="#题目-1" class="headerlink" title="题目"></a>题目</h2><blockquote>
+<p>hint1：MT19937 随机数预测<br>hint2：Mersenne Twister 算法的输出与内部状态成线性关系，求解线性方程组可以恢复内部状态<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env -S python3 -u</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"></span><br><span class="line">count = <span class="number">0</span></span><br><span class="line"><span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">    print(<span class="string">"Progress: %s/50"</span> % count)</span><br><span class="line">    coin = random.getrandbits(<span class="number">1</span>)</span><br><span class="line">    <span class="keyword">if</span> int(input(<span class="string">"Your guess: "</span>)) == coin:</span><br><span class="line">        print(<span class="string">"Correct!"</span>)</span><br><span class="line">        count += <span class="number">1</span></span><br><span class="line">        <span class="keyword">if</span> count == <span class="number">50</span>:</span><br><span class="line">            print(open(<span class="string">"flag"</span>).read())</span><br><span class="line">            exit()</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        print(<span class="string">"Wrong!"</span>)</span><br><span class="line">        count = <span class="number">0</span></span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="解题方法-1"><a href="#解题方法-1" class="headerlink" title="解题方法"></a>解题方法</h2><p>待补充<br>PS:我拿到这题就想不明白，每次state只能转换为1bit，而每个state都有32bits，这个感觉是不可能完成的任务。但是hint却说就是这样的，我真的没想明白，等我去再研究一下再回来看看吧</p>
+<h2 id="解题脚本-1"><a href="#解题脚本-1" class="headerlink" title="解题脚本"></a>解题脚本</h2><p>待补充</p>
+<hr>
+<h1 id="babyOT"><a href="#babyOT" class="headerlink" title="babyOT"></a>babyOT</h1><h2 id="题目-2"><a href="#题目-2" class="headerlink" title="题目"></a>题目</h2><blockquote>
+<p>hint1：Oblivious transfer<br>hint2：1-2 Oblivious transfer 中 RSA key 重复使用、msg 分布不均匀、不是论文题<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#!/usr/bin/env -S python3 -u</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"><span class="keyword">from</span> Crypto.PublicKey <span class="keyword">import</span> RSA</span><br><span class="line"><span class="keyword">from</span> Crypto.Util.number <span class="keyword">import</span> bytes_to_long</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> SystemRandom</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getkey</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">if</span> os.path.isfile(<span class="string">"key.pem"</span>):</span><br><span class="line">        <span class="keyword">with</span> open(<span class="string">"key.pem"</span>, <span class="string">"rb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">            key = RSA.importKey(f.read())</span><br><span class="line">    <span class="keyword">else</span>:</span><br><span class="line">        key = RSA.generate(<span class="number">2048</span>)</span><br><span class="line">        <span class="keyword">with</span> open(<span class="string">"key.pem"</span>, <span class="string">"wb"</span>) <span class="keyword">as</span> f:</span><br><span class="line">            f.write(key.exportKey(<span class="string">"PEM"</span>))</span><br><span class="line">    <span class="keyword">return</span> key</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">random_str</span><span class="params">(n)</span>:</span></span><br><span class="line">    <span class="keyword">return</span> <span class="string">""</span>.join([random.choice(string.ascii_letters) <span class="keyword">for</span> _ <span class="keyword">in</span> range(n)])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    random = SystemRandom()</span><br><span class="line"></span><br><span class="line">    key = getkey()</span><br><span class="line"></span><br><span class="line">    print(key.n)</span><br><span class="line">    print(key.e)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        msg0 = bytes_to_long(random_str(<span class="number">2048</span> // <span class="number">8</span> - <span class="number">1</span>).encode())</span><br><span class="line">        msg1 = bytes_to_long(random_str(<span class="number">2048</span> // <span class="number">8</span> - <span class="number">1</span>).encode())</span><br><span class="line"></span><br><span class="line">        x0 = random.randrange(key.n)</span><br><span class="line">        x1 = random.randrange(key.n)</span><br><span class="line"></span><br><span class="line">        print(x0)</span><br><span class="line">        print(x1)</span><br><span class="line"></span><br><span class="line">        v = int(input())</span><br><span class="line">        print((msg0 + pow(v - x0, key.d, key.n)) % key.n)</span><br><span class="line">        print((msg1 + pow(v - x1, key.d, key.n)) % key.n)</span><br><span class="line"></span><br><span class="line">        guess0 = int(input())</span><br><span class="line">        guess1 = int(input())</span><br><span class="line">        <span class="keyword">if</span> guess0 == msg0:</span><br><span class="line">            print(<span class="string">"You are on the half way of success, work harder!"</span>)</span><br><span class="line">            <span class="keyword">if</span> guess1 == msg1:</span><br><span class="line">                print(open(<span class="string">'flag'</span>).read())</span><br><span class="line">                exit()</span><br></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="解题方法-2"><a href="#解题方法-2" class="headerlink" title="解题方法"></a>解题方法</h2><p>一开始以为是随机数预测，后来给了hint2立马就知道怎么做了。先开一个进程传入接收到的x0，然后设<code>delta = x0 - x1</code>，则<code>pow(delta,d,n)</code>在RSA key重复使用的情况下一直是一个数字，那么再开一个进程去打一组<code>msg1 + pow(delta,d,n)</code>出来，这里面只有msg1不同，所以相减就是<code>msg1 - msg1&#39;</code>，msg的范围很小，可以从后往前一个字节一个字节爆破出来</p>
+<h2 id="解题脚本-2"><a href="#解题脚本-2" class="headerlink" title="解题脚本"></a>解题脚本</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># flag&#123;026c9c5ec0e6495a97f518f459e7769b&#125;</span></span><br><span class="line"><span class="keyword">import</span> random</span><br><span class="line"><span class="keyword">import</span> string</span><br><span class="line"><span class="keyword">import</span> math</span><br><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"><span class="comment">#context.log_level = 'debug'</span></span><br><span class="line">dic = string.ascii_letters</span><br><span class="line">HOST = <span class="string">'39.107.33.72'</span></span><br><span class="line">PORT = <span class="number">10001</span></span><br><span class="line"></span><br><span class="line">n = <span class="number">29146525423102691639401650421066991207058945760578993274156106725628677659505967244678776864682546586246819809499537242360444325679433797730883356242909006578313863815598476321651691335584143947426865069270228508099452594013811720423833330403292759453038581071508324785022338407274104850847420759588368943421382073063592072845634359059763704065355508719554080581515441797500290040589816371312351351764881756150899413858590443268024058208849074306307901379348104212696375506807093769931896375130646532207961195389761538876600387808250572768672541587584935543975504019963314911796567222467219710684595858249563427217689</span></span><br><span class="line">e = <span class="number">65537</span></span><br><span class="line"></span><br><span class="line">r = remote(HOST,PORT)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">getdata</span><span class="params">(delta)</span>:</span></span><br><span class="line">	rr = remote(HOST,PORT)</span><br><span class="line">	rr.recvuntil(<span class="string">'\n'</span>)</span><br><span class="line">	rr.recvuntil(<span class="string">'\n'</span>)</span><br><span class="line">	x0 = int(rr.recvuntil(<span class="string">'\n'</span>,drop=<span class="keyword">True</span>))</span><br><span class="line">	x1 = int(rr.recvuntil(<span class="string">'\n'</span>,drop=<span class="keyword">True</span>))</span><br><span class="line">	<span class="comment"># v - x0</span></span><br><span class="line">	x = (x1+delta)%n</span><br><span class="line">	rr.sendline(str(x))</span><br><span class="line">	int(rr.recvuntil(<span class="string">'\n'</span>,drop=<span class="keyword">True</span>))</span><br><span class="line">	res = int(rr.recvuntil(<span class="string">'\n'</span>,drop=<span class="keyword">True</span>))</span><br><span class="line">	rr.close()</span><br><span class="line">	<span class="keyword">return</span> res</span><br><span class="line">	</span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">arr_copy</span><span class="params">(a1)</span>:</span></span><br><span class="line">	tmp_arr = []</span><br><span class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> a1:</span><br><span class="line">		tmp_arr.append(i)</span><br><span class="line">	<span class="keyword">return</span> tmp_arr</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">r.recvuntil(<span class="string">'\n'</span>)</span><br><span class="line">r.recvuntil(<span class="string">'\n'</span>)</span><br><span class="line">x0 = int(r.recvuntil(<span class="string">'\n'</span>,drop=<span class="keyword">True</span>))</span><br><span class="line">x1 = int(r.recvuntil(<span class="string">'\n'</span>,drop=<span class="keyword">True</span>))</span><br><span class="line">delta = (x0-x1)%n</span><br><span class="line">r.sendline(str(x0))</span><br><span class="line">msg0 = int(r.recvuntil(<span class="string">'\n'</span>,drop=<span class="keyword">True</span>))</span><br><span class="line"><span class="comment">#msg0 = hex(msg0)[2:].decode('hex')</span></span><br><span class="line"><span class="comment"># msg1 + (delta*d)%n</span></span><br><span class="line">tmp = int(r.recvuntil(<span class="string">'\n'</span>,drop=<span class="keyword">True</span>))</span><br><span class="line">res = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">300</span>):</span><br><span class="line">	res.append(getdata(delta))</span><br><span class="line"></span><br><span class="line">delta_arr = []</span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> res:</span><br><span class="line">	delta_arr.append(i - tmp)</span><br><span class="line"></span><br><span class="line">msg1 = <span class="string">''</span></span><br><span class="line"><span class="keyword">for</span> count <span class="keyword">in</span> range(<span class="number">255</span>):</span><br><span class="line">	<span class="keyword">for</span> c <span class="keyword">in</span> dic:</span><br><span class="line">		flag = <span class="number">1</span></span><br><span class="line">		<span class="keyword">for</span> d <span class="keyword">in</span> delta_arr:</span><br><span class="line">			data = (d + ord(c))&amp;<span class="number">0xff</span></span><br><span class="line">			<span class="keyword">if</span> data&gt;<span class="number">122</span> <span class="keyword">or</span> data&lt;<span class="number">65</span> <span class="keyword">or</span> <span class="number">90</span>&lt;data&lt;<span class="number">97</span>:</span><br><span class="line">				flag = <span class="number">0</span></span><br><span class="line">				<span class="keyword">break</span></span><br><span class="line">		<span class="keyword">if</span> flag==<span class="number">1</span>:</span><br><span class="line">			msg1 = c + msg1</span><br><span class="line">			tmp_arr = []</span><br><span class="line">			<span class="keyword">for</span> i <span class="keyword">in</span> delta_arr:</span><br><span class="line">				tmp_arr.append((i+ord(c))&gt;&gt;<span class="number">8</span>)</span><br><span class="line">			delta_arr = arr_copy(tmp_arr)</span><br><span class="line">			<span class="keyword">break</span></span><br><span class="line"><span class="keyword">print</span> delta_arr</span><br><span class="line"><span class="keyword">assert</span>(len(msg1)==<span class="number">255</span>)</span><br><span class="line">msg1 = int(msg1.encode(<span class="string">'hex'</span>),<span class="number">16</span>)</span><br><span class="line"></span><br><span class="line">r.sendline(str(msg0))</span><br><span class="line">r.sendline(str(msg1))</span><br><span class="line">r.interactive()</span><br></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><p>做出来的两道都挺简单的，但是没做出来的那道从理论上来说就难多了，而且自己也不擅长这种类型的题，可能等以后有时间好好研究下吧。<br>PS：拿了两个邀请码挺爽的hhhh</p>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/CTF/" rel="tag"># CTF</a>
+          
+            <a href="/tags/Crypto/" rel="tag"># Crypto</a>
+          
+            <a href="/tags/Write-up/" rel="tag"># Write up</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2020/02/12/一些有关Crypto的脚本/" rel="next" title="一些有关Crypto的脚本">
+                <i class="fa fa-chevron-left"></i> 一些有关Crypto的脚本
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Vergissmeinnicht">
+          <p class="site-author-name" itemprop="name">Vergissmeinnicht</p>
+           
+              <p class="site-description motion-element" itemprop="description">Kap0k/De1ta/Crypto</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              <a href="/categories/index.html">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">categories</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CoinFlip"><span class="nav-text">CoinFlip</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目"><span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题方法"><span class="nav-text">解题方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题脚本"><span class="nav-text">解题脚本</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#CoinFlip2"><span class="nav-text">CoinFlip2</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目-1"><span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题方法-1"><span class="nav-text">解题方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题脚本-1"><span class="nav-text">解题脚本</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#babyOT"><span class="nav-text">babyOT</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#题目-2"><span class="nav-text">题目</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题方法-2"><span class="nav-text">解题方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#解题脚本-2"><span class="nav-text">解题脚本</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#总结"><span class="nav-text">总结</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2020</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Vergissmeinnicht</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Gemini
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    var isXml = true;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length === 0) {
+      search_path = "search.xml";
+    } else if (/json$/i.test(search_path)) {
+      isXml = false;
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    var onPopupClose = function (e) {
+      $('.popup').hide();
+      $('#local-search-input').val('');
+      $('.search-result-list').remove();
+      $('#no-result').remove();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    }
+
+    function proceedsearch() {
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
+        .css('overflow', 'hidden');
+      $('.search-popup-overlay').click(onPopupClose);
+      $('.popup').toggle();
+      var $localSearchInput = $('#local-search-input');
+      $localSearchInput.attr("autocapitalize", "none");
+      $localSearchInput.attr("autocorrect", "off");
+      $localSearchInput.focus();
+    }
+
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+
+      // start loading animation
+      $("body")
+        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
+          '<div id="search-loading-icon">' +
+          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
+          '</div>' +
+          '</div>')
+        .css('overflow', 'hidden');
+      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
+
+      $.ajax({
+        url: path,
+        dataType: isXml ? "xml" : "json",
+        async: true,
+        success: function(res) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = isXml ? $("entry", res).map(function() {
+            return {
+              title: $("title", this).text(),
+              content: $("content",this).text(),
+              url: $("url" , this).text()
+            };
+          }).get() : res;
+          var input = document.getElementById(search_id);
+          var resultContent = document.getElementById(content_id);
+          var inputEventFunction = function() {
+            var searchText = input.value.trim().toLowerCase();
+            var keywords = searchText.split(/[\s\-]+/);
+            if (keywords.length > 1) {
+              keywords.push(searchText);
+            }
+            var resultItems = [];
+            if (searchText.length > 0) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var hitCount = 0;
+                var searchTextCount = 0;
+                var title = data.title.trim();
+                var titleInLowerCase = title.toLowerCase();
+                var content = data.content.trim().replace(/<[^>]+>/g,"");
+                var contentInLowerCase = content.toLowerCase();
+                var articleUrl = decodeURIComponent(data.url);
+                var indexOfTitle = [];
+                var indexOfContent = [];
+                // only match articles with not empty titles
+                if(title != '') {
+                  keywords.forEach(function(keyword) {
+                    function getIndexByWord(word, text, caseSensitive) {
+                      var wordLen = word.length;
+                      if (wordLen === 0) {
+                        return [];
+                      }
+                      var startPosition = 0, position = [], index = [];
+                      if (!caseSensitive) {
+                        text = text.toLowerCase();
+                        word = word.toLowerCase();
+                      }
+                      while ((position = text.indexOf(word, startPosition)) > -1) {
+                        index.push({position: position, word: word});
+                        startPosition = position + wordLen;
+                      }
+                      return index;
+                    }
+
+                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
+                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
+                  });
+                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
+                    isMatch = true;
+                    hitCount = indexOfTitle.length + indexOfContent.length;
+                  }
+                }
+
+                // show search results
+
+                if (isMatch) {
+                  // sort index by position of keyword
+
+                  [indexOfTitle, indexOfContent].forEach(function (index) {
+                    index.sort(function (itemLeft, itemRight) {
+                      if (itemRight.position !== itemLeft.position) {
+                        return itemRight.position - itemLeft.position;
+                      } else {
+                        return itemLeft.word.length - itemRight.word.length;
+                      }
+                    });
+                  });
+
+                  // merge hits into slices
+
+                  function mergeIntoSlice(text, start, end, index) {
+                    var item = index[index.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    var hits = [];
+                    var searchTextCountInSlice = 0;
+                    while (position + word.length <= end && index.length != 0) {
+                      if (word === searchText) {
+                        searchTextCountInSlice++;
+                      }
+                      hits.push({position: position, length: word.length});
+                      var wordEnd = position + word.length;
+
+                      // move to next position of hit
+
+                      index.pop();
+                      while (index.length != 0) {
+                        item = index[index.length - 1];
+                        position = item.position;
+                        word = item.word;
+                        if (wordEnd > position) {
+                          index.pop();
+                        } else {
+                          break;
+                        }
+                      }
+                    }
+                    searchTextCount += searchTextCountInSlice;
+                    return {
+                      hits: hits,
+                      start: start,
+                      end: end,
+                      searchTextCount: searchTextCountInSlice
+                    };
+                  }
+
+                  var slicesOfTitle = [];
+                  if (indexOfTitle.length != 0) {
+                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
+                  }
+
+                  var slicesOfContent = [];
+                  while (indexOfContent.length != 0) {
+                    var item = indexOfContent[indexOfContent.length - 1];
+                    var position = item.position;
+                    var word = item.word;
+                    // cut out 100 characters
+                    var start = position - 20;
+                    var end = position + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if (end < position + word.length) {
+                      end = position + word.length;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
+                  }
+
+                  // sort slices in content by search text's count and hits' count
+
+                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
+                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
+                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
+                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
+                      return sliceRight.hits.length - sliceLeft.hits.length;
+                    } else {
+                      return sliceLeft.start - sliceRight.start;
+                    }
+                  });
+
+                  // select top N slices in content
+
+                  var upperBound = parseInt('1');
+                  if (upperBound >= 0) {
+                    slicesOfContent = slicesOfContent.slice(0, upperBound);
+                  }
+
+                  // highlight title and content
+
+                  function highlightKeyword(text, slice) {
+                    var result = '';
+                    var prevEnd = slice.start;
+                    slice.hits.forEach(function (hit) {
+                      result += text.substring(prevEnd, hit.position);
+                      var end = hit.position + hit.length;
+                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
+                      prevEnd = end;
+                    });
+                    result += text.substring(prevEnd, slice.end);
+                    return result;
+                  }
+
+                  var resultItem = '';
+
+                  if (slicesOfTitle.length != 0) {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
+                  } else {
+                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
+                  }
+
+                  slicesOfContent.forEach(function (slice) {
+                    resultItem += "<a href='" + articleUrl + "'>" +
+                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
+                      "...</p>" + "</a>";
+                  });
+
+                  resultItem += "</li>";
+                  resultItems.push({
+                    item: resultItem,
+                    searchTextCount: searchTextCount,
+                    hitCount: hitCount,
+                    id: resultItems.length
+                  });
+                }
+              })
+            };
+            if (keywords.length === 1 && keywords[0] === "") {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
+            } else if (resultItems.length === 0) {
+              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
+            } else {
+              resultItems.sort(function (resultLeft, resultRight) {
+                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
+                  return resultRight.searchTextCount - resultLeft.searchTextCount;
+                } else if (resultLeft.hitCount !== resultRight.hitCount) {
+                  return resultRight.hitCount - resultLeft.hitCount;
+                } else {
+                  return resultRight.id - resultLeft.id;
+                }
+              });
+              var searchResultList = '<ul class=\"search-result-list\">';
+              resultItems.forEach(function (result) {
+                searchResultList += result.item;
+              })
+              searchResultList += "</ul>";
+              resultContent.innerHTML = searchResultList;
+            }
+          }
+
+          if ('auto' === 'auto') {
+            input.addEventListener('input', inputEventFunction);
+          } else {
+            $('.search-icon').click(inputEventFunction);
+            input.addEventListener('keypress', function (event) {
+              if (event.keyCode === 13) {
+                inputEventFunction();
+              }
+            });
+          }
+
+          // remove loading animation
+          $(".local-search-pop-overlay").remove();
+          $('body').css('overflow', '');
+
+          proceedsearch();
+        }
+      });
+    }
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched === false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(onPopupClose);
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+    $(document).on('keyup', function (event) {
+      var shouldDismissSearchPopup = event.which === 27 &&
+        $('.search-popup').is(':visible');
+      if (shouldDismissSearchPopup) {
+        onPopupClose();
+      }
+    });
+  </script>
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
