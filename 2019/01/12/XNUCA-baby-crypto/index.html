@@ -1,102 +1,27 @@
 <!DOCTYPE html>
-
-
-
-  
-
-
-<html class="theme-next gemini use-motion" lang="">
+<html>
 <head><meta name="generator" content="Hexo 3.8.0">
-  <meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="theme-color" content="#222">
+    
+
+    
+
+    
 
 
 
-
-
-
-
-
-
-<meta http-equiv="Cache-Control" content="no-transform">
-<meta http-equiv="Cache-Control" content="no-siteapp">
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  
-  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css">
-
-
-
-
-  
-  
-  
-  
-
-  
+    <meta charset="utf-8">
     
     
-  
-
-  
-
-  
-
-  
-
-  
-
-  
     
     
-    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
-  
-
-
-
-
-
-
-<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css">
-
-<link href="/css/main.css?v=5.1.2" rel="stylesheet" type="text/css">
-
-
-  <meta name="keywords" content="CTF,Crypto,Write up,">
-
-
-
-
-
-  <link rel="alternate" href="/atom.xml" title="Ver" type="application/atom+xml">
-
-
-
-
-  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.2">
-
-
-
-
-
-
-<meta name="description" content="简介这道题是2018年XNUCA的一道密码题，当时由于自己比较菜没做出来，期末考试考完之后看书提到了重合指数破解Vigenere密码的内容，就想起来了这道题并开始复现一下。过程比较艰辛(自己太菜了),自闭了两三天终于弄出来了，也算是很开心，并于现在记录下来以备以后查看。">
+    <title>XNUCA-baby_crypto | Ver</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="CTF,Crypto,Write up">
+    <meta name="description" content="简介这道题是2018年XNUCA的一道密码题，当时由于自己比较菜没做出来，期末考试考完之后看书提到了重合指数破解Vigenere密码的内容，就想起来了这道题并开始复现一下。过程比较艰辛(自己太菜了),自闭了两三天终于弄出来了，也算是很开心，并于现在记录下来以备以后查看。">
 <meta name="keywords" content="CTF,Crypto,Write up">
 <meta property="og:type" content="article">
 <meta property="og:title" content="XNUCA-baby_crypto">
@@ -110,305 +35,173 @@
 <meta name="twitter:title" content="XNUCA-baby_crypto">
 <meta name="twitter:description" content="简介这道题是2018年XNUCA的一道密码题，当时由于自己比较菜没做出来，期末考试考完之后看书提到了重合指数破解Vigenere密码的内容，就想起来了这道题并开始复现一下。过程比较艰辛(自己太菜了),自闭了两三天终于弄出来了，也算是很开心，并于现在记录下来以备以后查看。">
 <meta name="twitter:image" content="http://yoursite.com/2019/01/12/XNUCA-baby-crypto/flag.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="Ver" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
 
-
-
-<script type="text/javascript" id="hexo.configurations">
-  var NexT = window.NexT || {};
-  var CONFIG = {
-    root: '/',
-    scheme: 'Gemini',
-    sidebar: {"position":"left","display":"always","offset":12,"offset_float":12,"b2t":false,"scrollpercent":false,"onmobile":false},
-    fancybox: true,
-    tabs: true,
-    motion: true,
-    duoshuo: {
-      userId: '0',
-      author: 'Author'
-    },
-    algolia: {
-      applicationID: '',
-      apiKey: '',
-      indexName: '',
-      hits: {"per_page":10},
-      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
-    }
-  };
-</script>
-
-
-
-  <link rel="canonical" href="http://yoursite.com/2019/01/12/XNUCA-baby-crypto/">
-
-
-
-
-
-  <title>XNUCA-baby_crypto | Ver</title>
-  
-
-
-
-
-
-
-
-
-
-
-
-
-
+    <!-- custom head -->
+    
 
 </head>
 
-<body itemscope="" itemtype="http://schema.org/WebPage" lang="default">
+<body>
+    <div id="loading" class="active"></div>
 
-  
-  
-    
-  
-
-  <div class="container sidebar-position-left page-post-detail ">
-    <div class="headband"></div>
-
-    <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
-      <div class="header-inner"><div class="site-brand-wrapper">
-  <div class="site-meta ">
-    
-
-    <div class="custom-logo-site-title">
-      <a href="/" class="brand" rel="start">
-        <span class="logo-line-before"><i></i></span>
-        <span class="site-title">Ver</span>
-        <span class="logo-line-after"><i></i></span>
-      </a>
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Vergissmeinnicht</h5>
+          <a href="mailto:634206017@qq.com" title="634206017@qq.com" class="mail">634206017@qq.com</a>
+        </hgroup>
+      </div>
     </div>
-      
-        <p class="site-subtitle"></p>
-      
-  </div>
-
-  <div class="site-nav-toggle">
-    <button>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-      <span class="btn-bar"></span>
-    </button>
-  </div>
-</div>
-
-<nav class="site-nav">
-  
-
-  
-    <ul id="menu" class="menu">
-      
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
         
-        <li class="menu-item menu-item-home">
-          <a href="/" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-home"></i> <br>
-            
-            Home
-          </a>
-        </li>
-      
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
         
-        <li class="menu-item menu-item-archives">
-          <a href="/archives" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br>
-            
-            Archives
-          </a>
-        </li>
-      
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
         
-        <li class="menu-item menu-item-categories">
-          <a href="/categories" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
-            
-            Categories
-          </a>
-        </li>
-      
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
         
-        <li class="menu-item menu-item-tags">
-          <a href="/tags" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
-            
-            Tags
-          </a>
-        </li>
-      
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
         
-        <li class="menu-item menu-item-about">
-          <a href="/about" rel="section">
-            
-              <i class="menu-item-icon fa fa-fw fa-user"></i> <br>
-            
-            About
-          </a>
-        </li>
-      
-
-      
-        <li class="menu-item menu-item-search">
-          
-            <a href="javascript:;" class="popup-trigger">
-          
-            
-              <i class="menu-item-icon fa fa-search fa-fw"></i> <br>
-            
-            Search
-          </a>
-        </li>
-      
-    </ul>
-  
-
-  
-    <div class="site-search">
-      
-  <div class="popup search-popup local-search-popup">
-  <div class="local-search-header clearfix">
-    <span class="search-icon">
-      <i class="fa fa-search"></i>
-    </span>
-    <span class="popup-btn-close">
-      <i class="fa fa-times-circle"></i>
-    </span>
-    <div class="local-search-input-wrapper">
-      <input autocomplete="off" placeholder="Searching..." spellcheck="false" type="text" id="local-search-input">
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/yscoder" target="_blank">
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/ysweb" target="_blank">
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom">
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
     </div>
   </div>
-  <div id="local-search-result"></div>
-</div>
+</aside>
 
-
-
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">XNUCA-baby_crypto</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
     </div>
-  
-</nav>
+</header>
+<header class="content-header post-header">
 
-
-
- </div>
-    </header>
-
-    <main id="main" class="main">
-      <div class="main-inner">
-        <div class="content-wrap">
-          <div id="content" class="content">
+    <div class="container fade-scale">
+        <h1 class="title">XNUCA-baby_crypto</h1>
+        <h5 class="subtitle">
             
+                <time datetime="2019-01-12T14:16:09.000Z" itemprop="datePublished" class="page-time">
+  2019-01-12
+</time>
 
-  <div id="posts" class="posts-expand">
-    
 
-  
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Crypto/">Crypto</a></li></ul>
 
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/12/XNUCA-baby-crypto/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Vergissmeinnicht">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Ver">
-    </span>
+            
+        </h5>
+    </div>
 
     
-      <header class="post-header">
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">XNUCA-baby_crypto</h1>
-        
 
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#题目描述"><span class="post-toc-number">2.</span> <span class="post-toc-text">题目描述</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#基本概念"><span class="post-toc-number">3.</span> <span class="post-toc-text">基本概念</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#解题思路"><span class="post-toc-number">4.</span> <span class="post-toc-text">解题思路</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#最终代码"><span class="post-toc-number">5.</span> <span class="post-toc-text">最终代码</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#后记"><span class="post-toc-number">6.</span> <span class="post-toc-text">后记</span></a></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-XNUCA-baby-crypto" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">XNUCA-baby_crypto</h1>
         <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2019-01-12T22:16:09+08:00">
-                2019-01-12
-              </time>
-            
+            <time class="post-time" title="2019-01-12 22:16:09" datetime="2019-01-12T14:16:09.000Z" itemprop="datePublished">2019-01-12</time>
 
             
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Crypto/">Crypto</a></li></ul>
+
+
 
             
-          </span>
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing">
-                  <a href="/categories/Crypto/" itemprop="url" rel="index">
-                    <span itemprop="name">Crypto</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
 
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        <p><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script></p>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <p><script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default"></script></p>
 <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>这道题是<a href="https://race.ichunqiu.com/xnuca18" target="_blank" rel="noopener">2018年XNUCA</a>的一道密码题，当时由于自己比较菜没做出来，期末考试考完之后看书提到了重合指数破解<code>Vigenere密码</code>的内容，就想起来了这道题并开始复现一下。过程比较艰辛(自己太菜了),自闭了两三天终于弄出来了，也算是很开心，并于现在记录下来以备以后查看。<br><a id="more"></a></p>
 <hr>
 <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>题目给的描述如下：</p>
@@ -432,7 +225,13 @@
 <p>其中<code>inv(x)</code>表示<code>x的逆元</code></p>
 <p>我们接下来要对<code>key_a</code>和<code>key_k</code>进行爆破。其中两个数组都分别有6项，每一项的取值范围都在(0,25)之间，如果直接爆破，时间复杂度是特别大的<br>但是由于<code>key_a</code>数组需要求<code>逆元</code>，所以我们便可以对<code>key_a</code>的取值范围进行缩小来减小复杂度。最终我们确定下来<code>key_a</code>的取值在<code>(1,3,5,7,9,11,15,17,19,21,23,25)</code>之中<br>之后我们通过上面的公式将<code>key_k</code>算出来(其中通过我们频率统计中统计出的e的位置确定<code>c[i]</code>的取值),并通过a和t的位置验证<code>key_k</code>的取值是否成立，如果成立则根据此时的<code>key_a</code>和<code>key_k</code>数组解密密文,我们便可以寻找有意义的答案，从而得到flag<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#通过字频进行爆破</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">brute</span><span class="params">(Ciphertext)</span>:</span></span><br><span class="line">    <span class="comment">#初始化key_a和key_ks</span></span><br><span class="line">    key_a=[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">    key_k=[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#逆元数组</span></span><br><span class="line">    <span class="comment">#inv = [1,9,21,15,3,19,7,23,11,5,17,25]</span></span><br><span class="line">    inv = [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#由于key_a需要求逆元，所以挑选出了可求逆元的数</span></span><br><span class="line">    a = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">11</span>,<span class="number">15</span>,<span class="number">17</span>,<span class="number">19</span>,<span class="number">21</span>,<span class="number">23</span>,<span class="number">25</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#爆破key_a数组</span></span><br><span class="line">    <span class="keyword">for</span> a1 <span class="keyword">in</span> a:</span><br><span class="line">        <span class="keyword">for</span> a2 <span class="keyword">in</span> a:</span><br><span class="line">            <span class="keyword">for</span> a3 <span class="keyword">in</span> a:</span><br><span class="line">                <span class="keyword">for</span> a4 <span class="keyword">in</span> a:</span><br><span class="line">                    <span class="keyword">for</span> a5 <span class="keyword">in</span> a:</span><br><span class="line">                        <span class="keyword">for</span> a6 <span class="keyword">in</span> a:</span><br><span class="line">                            key_a[<span class="number">0</span>]=a1</span><br><span class="line">                            key_a[<span class="number">1</span>]=a2</span><br><span class="line">                            key_a[<span class="number">2</span>]=a3</span><br><span class="line">                            key_a[<span class="number">3</span>]=a4</span><br><span class="line">                            key_a[<span class="number">4</span>]=a5</span><br><span class="line">                            key_a[<span class="number">5</span>]=a6</span><br><span class="line"></span><br><span class="line">                            <span class="comment">#算出每个位置上的key_k(根据e的频率)</span></span><br><span class="line">                            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">6</span>):</span><br><span class="line">                                key_k[i]=(e[i]-(<span class="number">4</span>*key_a[i]))%<span class="number">26</span></span><br><span class="line">                            flag = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">                            <span class="comment">#算出每个位置上的key_k(根据a和t的频率)</span></span><br><span class="line">                            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">6</span>):</span><br><span class="line">                                temp1 = (aORt1[i]-(<span class="number">19</span>*key_a[i]))%<span class="number">26</span></span><br><span class="line">                                temp2 = (aORt2[i]-(<span class="number">19</span>*key_a[i]))%<span class="number">26</span></span><br><span class="line">                                </span><br><span class="line">                                <span class="comment">#判断算出的结果是否都满足e,a,t的频率分布，如果不满足则寻找下一个</span></span><br><span class="line">                                <span class="keyword">if</span> temp1!=key_k[i] <span class="keyword">and</span> temp2!=key_k[i]:</span><br><span class="line">                                    flag=<span class="number">1</span></span><br><span class="line">                                    <span class="keyword">break</span></span><br><span class="line">                            <span class="comment">#寻找下一个</span></span><br><span class="line">                            <span class="keyword">if</span> flag==<span class="number">1</span>:</span><br><span class="line">                                <span class="keyword">continue</span></span><br><span class="line">                            </span><br><span class="line">                            <span class="comment">#求逆元</span></span><br><span class="line">                            inv[<span class="number">0</span>]=gmpy2.invert(a1,<span class="number">26</span>)</span><br><span class="line">                            inv[<span class="number">1</span>]=gmpy2.invert(a2,<span class="number">26</span>)</span><br><span class="line">                            inv[<span class="number">2</span>]=gmpy2.invert(a3,<span class="number">26</span>)</span><br><span class="line">                            inv[<span class="number">3</span>]=gmpy2.invert(a4,<span class="number">26</span>)</span><br><span class="line">                            inv[<span class="number">4</span>]=gmpy2.invert(a5,<span class="number">26</span>)</span><br><span class="line">                            inv[<span class="number">5</span>]=gmpy2.invert(a6,<span class="number">26</span>)</span><br><span class="line"></span><br><span class="line">                            <span class="comment">#计数，每6个位一循环进行解密</span></span><br><span class="line">                            count=<span class="number">0</span></span><br><span class="line">                            res=<span class="string">""</span></span><br><span class="line">                            <span class="keyword">for</span> text <span class="keyword">in</span> Ciphertext:</span><br><span class="line">                                t = ord(text)<span class="number">-65</span></span><br><span class="line">                                r = ((t-key_k[count])*(inv[count]))%<span class="number">26</span></span><br><span class="line">                                res+=chr(r+<span class="number">97</span>)</span><br><span class="line">                                <span class="keyword">if</span> count==<span class="number">5</span>:</span><br><span class="line">                                    count=<span class="number">0</span></span><br><span class="line">                                <span class="keyword">else</span>:</span><br><span class="line">                                    count+=<span class="number">1</span></span><br><span class="line">                            print(<span class="string">"找到了可能的值！"</span>)</span><br><span class="line">                            print(<span class="string">"key_a数组为:"</span>,key_a)</span><br><span class="line">                            print(<span class="string">"key_k数组为:"</span>,key_k)</span><br><span class="line">                            <span class="keyword">print</span> (<span class="string">"最后结果为："</span>,res)</span><br></pre></td></tr></table></figure></p>
 <p>最终我们得到了flag</p>
-<div style="width: 80%; margin: auto"><img src="/2019/01/12/XNUCA-baby-crypto/flag.jpg" alt="flag"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/01/12/XNUCA-baby-crypto/flag.jpg" alt="flag" title="">
+                </div>
+                <div class="image-caption">flag</div>
+            </figure></div>
 
 <hr>
 <h1 id="最终代码"><a href="#最终代码" class="headerlink" title="最终代码"></a>最终代码</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># -*- coding: utf-8 -*-</span></span><br><span class="line"><span class="comment"># !/usr/bin/env python</span></span><br><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"></span><br><span class="line">e=[<span class="number">8</span>,<span class="number">11</span>,<span class="number">17</span>,<span class="number">22</span>,<span class="number">16</span>,<span class="number">3</span>] <span class="comment">#e的位置</span></span><br><span class="line">aORt1=[<span class="number">7</span>,<span class="number">3</span>,<span class="number">13</span>,<span class="number">4</span>,<span class="number">8</span>,<span class="number">10</span>] <span class="comment">#t或a的位置1</span></span><br><span class="line">aORt2=[<span class="number">10</span>,<span class="number">12</span>,<span class="number">24</span>,<span class="number">21</span>,<span class="number">17</span>,<span class="number">25</span>] <span class="comment">#t或a的位置2</span></span><br><span class="line"></span><br><span class="line"><span class="comment">#使用拟重合指数法确定秘钥长度：拟重合指数大于0.6为标志</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">length</span><span class="params">(Ciphertext)</span>:</span></span><br><span class="line">    ListCiphertext=list(Ciphertext)</span><br><span class="line">    Keylength=<span class="number">1</span></span><br><span class="line"> </span><br><span class="line">    <span class="keyword">while</span> <span class="keyword">True</span>:</span><br><span class="line">        <span class="comment">#指数初始化为０</span></span><br><span class="line">        CoincidenceIndex = <span class="number">0</span></span><br><span class="line"> </span><br><span class="line">        <span class="comment">#使用切片分组</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(Keylength):</span><br><span class="line">            Numerator = <span class="number">0</span></span><br><span class="line">            PresentCipherList = ListCiphertext[i::Keylength] </span><br><span class="line">            <span class="comment">#使用集合去重，计算每一子密文组的拟重合指数</span></span><br><span class="line">            <span class="keyword">for</span> Letter <span class="keyword">in</span> set(PresentCipherList):</span><br><span class="line">                Numerator += PresentCipherList.count(Letter) * (PresentCipherList.count(Letter)<span class="number">-1</span>)</span><br><span class="line">            CoincidenceIndex += Numerator/(len(PresentCipherList) * (len(PresentCipherList)<span class="number">-1</span>))</span><br><span class="line"> </span><br><span class="line">        <span class="comment">#求各子密文组的拟重合指数的平均值</span></span><br><span class="line">        Average=CoincidenceIndex / Keylength</span><br><span class="line">        Keylength += <span class="number">1</span></span><br><span class="line"> </span><br><span class="line">        <span class="comment">#均值＞0.6即可退出循环</span></span><br><span class="line">        <span class="keyword">if</span> Average &gt; <span class="number">0.06</span>:</span><br><span class="line">            <span class="keyword">break</span></span><br><span class="line"> </span><br><span class="line">    Keylength -= <span class="number">1</span></span><br><span class="line">    <span class="keyword">return</span> Keylength</span><br><span class="line"></span><br><span class="line"><span class="comment">#确定每个分组的字频</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">frequency</span><span class="params">(Ciphertext,keylength)</span>:</span></span><br><span class="line">    ListCiphertext = list(Ciphertext)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(keylength):</span><br><span class="line">        <span class="comment"># 使用切片分组</span></span><br><span class="line">        PresentCipherList = ListCiphertext[i::keylength]</span><br><span class="line">        print(<span class="string">"第"</span>,i+<span class="number">1</span>,<span class="string">"组"</span>)</span><br><span class="line">        <span class="comment">#遍历移动的位数</span></span><br><span class="line">        <span class="keyword">for</span> m <span class="keyword">in</span> range(<span class="number">26</span>):</span><br><span class="line">            <span class="comment">#从a到z的字母</span></span><br><span class="line">            Letter = chr(<span class="number">65</span>+m)</span><br><span class="line">            <span class="comment">#统计字母频率</span></span><br><span class="line">            LetterFrequency = round(PresentCipherList.count(Letter)/ len(PresentCipherList),<span class="number">8</span>)</span><br><span class="line">            <span class="comment">#输出结果</span></span><br><span class="line">            print(<span class="string">"字母"</span>,Letter,<span class="string">"的频率是"</span>,LetterFrequency)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment">#通过字频进行爆破</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">brute</span><span class="params">(Ciphertext)</span>:</span></span><br><span class="line">    <span class="comment">#初始化key_a和key_ks</span></span><br><span class="line">    key_a=[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">    key_k=[<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#逆元数组</span></span><br><span class="line">    <span class="comment">#inv = [1,9,21,15,3,19,7,23,11,5,17,25]</span></span><br><span class="line">    inv = [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#由于key_a需要求逆元，所以挑选出了可求逆元的数</span></span><br><span class="line">    a = [<span class="number">1</span>,<span class="number">3</span>,<span class="number">5</span>,<span class="number">7</span>,<span class="number">9</span>,<span class="number">11</span>,<span class="number">15</span>,<span class="number">17</span>,<span class="number">19</span>,<span class="number">21</span>,<span class="number">23</span>,<span class="number">25</span>]</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#爆破key_a数组</span></span><br><span class="line">    <span class="keyword">for</span> a1 <span class="keyword">in</span> a:</span><br><span class="line">        <span class="keyword">for</span> a2 <span class="keyword">in</span> a:</span><br><span class="line">            <span class="keyword">for</span> a3 <span class="keyword">in</span> a:</span><br><span class="line">                <span class="keyword">for</span> a4 <span class="keyword">in</span> a:</span><br><span class="line">                    <span class="keyword">for</span> a5 <span class="keyword">in</span> a:</span><br><span class="line">                        <span class="keyword">for</span> a6 <span class="keyword">in</span> a:</span><br><span class="line">                            key_a[<span class="number">0</span>]=a1</span><br><span class="line">                            key_a[<span class="number">1</span>]=a2</span><br><span class="line">                            key_a[<span class="number">2</span>]=a3</span><br><span class="line">                            key_a[<span class="number">3</span>]=a4</span><br><span class="line">                            key_a[<span class="number">4</span>]=a5</span><br><span class="line">                            key_a[<span class="number">5</span>]=a6</span><br><span class="line"></span><br><span class="line">                            <span class="comment">#算出每个位置上的key_k(根据e的频率)</span></span><br><span class="line">                            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">6</span>):</span><br><span class="line">                                key_k[i]=(e[i]-(<span class="number">4</span>*key_a[i]))%<span class="number">26</span></span><br><span class="line">                            flag = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">                            <span class="comment">#算出每个位置上的key_k(根据a和t的频率)</span></span><br><span class="line">                            <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">6</span>):</span><br><span class="line">                                temp1 = (aORt1[i]-(<span class="number">19</span>*key_a[i]))%<span class="number">26</span></span><br><span class="line">                                temp2 = (aORt2[i]-(<span class="number">19</span>*key_a[i]))%<span class="number">26</span></span><br><span class="line">                                </span><br><span class="line">                                <span class="comment">#判断算出的结果是否都满足e,a,t的频率分布，如果不满足则寻找下一个</span></span><br><span class="line">                                <span class="keyword">if</span> temp1!=key_k[i] <span class="keyword">and</span> temp2!=key_k[i]:</span><br><span class="line">                                    flag=<span class="number">1</span></span><br><span class="line">                                    <span class="keyword">break</span></span><br><span class="line">                            <span class="comment">#寻找下一个</span></span><br><span class="line">                            <span class="keyword">if</span> flag==<span class="number">1</span>:</span><br><span class="line">                                <span class="keyword">continue</span></span><br><span class="line">                            </span><br><span class="line">                            <span class="comment">#求逆元</span></span><br><span class="line">                            inv[<span class="number">0</span>]=gmpy2.invert(a1,<span class="number">26</span>)</span><br><span class="line">                            inv[<span class="number">1</span>]=gmpy2.invert(a2,<span class="number">26</span>)</span><br><span class="line">                            inv[<span class="number">2</span>]=gmpy2.invert(a3,<span class="number">26</span>)</span><br><span class="line">                            inv[<span class="number">3</span>]=gmpy2.invert(a4,<span class="number">26</span>)</span><br><span class="line">                            inv[<span class="number">4</span>]=gmpy2.invert(a5,<span class="number">26</span>)</span><br><span class="line">                            inv[<span class="number">5</span>]=gmpy2.invert(a6,<span class="number">26</span>)</span><br><span class="line"></span><br><span class="line">                            <span class="comment">#计数，每6个位一循环进行解密</span></span><br><span class="line">                            count=<span class="number">0</span></span><br><span class="line">                            res=<span class="string">""</span></span><br><span class="line">                            <span class="keyword">for</span> text <span class="keyword">in</span> Ciphertext:</span><br><span class="line">                                t = ord(text)<span class="number">-65</span></span><br><span class="line">                                r = ((t-key_k[count])*(inv[count]))%<span class="number">26</span></span><br><span class="line">                                res+=chr(r+<span class="number">97</span>)</span><br><span class="line">                                <span class="keyword">if</span> count==<span class="number">5</span>:</span><br><span class="line">                                    count=<span class="number">0</span></span><br><span class="line">                                <span class="keyword">else</span>:</span><br><span class="line">                                    count+=<span class="number">1</span></span><br><span class="line">                            print(<span class="string">"找到了可能的值！"</span>)</span><br><span class="line">                            print(<span class="string">"key_a数组为:"</span>,key_a)</span><br><span class="line">                            print(<span class="string">"key_k数组为:"</span>,key_k)</span><br><span class="line">                            <span class="keyword">print</span> (<span class="string">"最后结果为："</span>,res)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    <span class="comment">#这里输入的值不能完全读入，需要分两批读入并解密</span></span><br><span class="line">    Ciphertext = input(<span class="string">"输入密文："</span>).upper()</span><br><span class="line">    Keylength = length(Ciphertext)</span><br><span class="line">    print(<span class="string">"密文的重合长度是"</span>,Keylength)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#确定字频</span></span><br><span class="line">    frequency(Ciphertext,keylength)</span><br><span class="line">    </span><br><span class="line">    <span class="comment">#爆破</span></span><br><span class="line">    brute(Ciphertext)</span><br></pre></td></tr></table></figure>
@@ -440,689 +239,307 @@
 <hr>
 <h1 id="后记"><a href="#后记" class="headerlink" title="后记"></a>后记</h1><p>XNUCA的题目质量还是很高的，密码这边除了一道RSA公模攻击(签到题)之外还有一道有关量子密码通信的<a href="https://www.zhihu.com/question/20919153/answer/117252546" target="_blank" rel="noopener">BB84协议</a>题目，但是当我看到别人的write up并了解完BB84协议之后题目环境已经没了，对我来说还是比较可惜的。希望以后密码这边我能少自闭点，争取做出更多的题。</p>
 
-      
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    最終更新：<time datetime="2019-01-12T15:36:57.538Z" itemprop="dateUpdated">2019-01-12 23:36:57</time>
+</span><br>
+
+
+        
+        这里可以写作者留言，标签和 hexo 中所有变量及辅助函数等均可调用，示例：<a href="/2019/01/12/XNUCA-baby-crypto/" target="_blank" rel="external">http://yoursite.com/2019/01/12/XNUCA-baby-crypto/</a>
+        
     </div>
     
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-        <div class="post-tags">
-          
-            <a href="/tags/CTF/" rel="tag"># CTF</a>
-          
-            <a href="/tags/Crypto/" rel="tag"># Crypto</a>
-          
-            <a href="/tags/Write-up/" rel="tag"># Write up</a>
-          
-        </div>
-      
-
-      
-      
-      
-
-      
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2019/01/09/RSA攻击综述/" rel="next" title="RSA攻击综述">
-                <i class="fa fa-chevron-left"></i> RSA攻击综述
-              </a>
-            
-          </div>
-
-          <span class="post-nav-divider"></span>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/01/16/OpenSSL解RSA的基本操作/" rel="prev" title="OpenSSL解RSA的基本操作">
-                OpenSSL解RSA的基本操作 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
-      
-
-      
-      
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.jpg" alt="Vergissmeinnicht">
+            Vergissmeinnicht
+        </a>
     </footer>
-  </div>
-  
-  
-  
-  </article>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
 
 
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CTF/">CTF</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Crypto/">Crypto</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Write-up/">Write up</a></li></ul>
 
 
-          </div>
-          
-
-
-          
-  <div class="comments" id="comments">
+            
+<div class="page-share-wrap">
     
-  </div>
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/01/12/XNUCA-baby-crypto/&title=《XNUCA-baby_crypto》 — Ver&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/01/12/XNUCA-baby-crypto/&title=《XNUCA-baby_crypto》 — Ver&source=
+简介这道题是2018年XNUCA的一道密码题，当时由于自己比较菜没做出来，期末考试考完之后看书提到了重合指数破解Vigenere密码的内容，就想起来了这..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/01/12/XNUCA-baby-crypto/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《XNUCA-baby_crypto》 — Ver&url=http://yoursite.com/2019/01/12/XNUCA-baby-crypto/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/01/12/XNUCA-baby-crypto/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
 
 
         </div>
-        
-          
-  
-  <div class="sidebar-toggle">
-    <div class="sidebar-toggle-line-wrap">
-      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
-      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
     </div>
-  </div>
 
-  <aside id="sidebar" class="sidebar">
     
-    <div class="sidebar-inner">
-
-      
-
-      
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Overview
-          </li>
-        </ul>
-      
-
-      <section class="site-overview sidebar-panel">
-        <div class="site-author motion-element" itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-          <img class="site-author-image" itemprop="image" src="/images/avatar.gif" alt="Vergissmeinnicht">
-          <p class="site-author-name" itemprop="name">Vergissmeinnicht</p>
-           
-              <p class="site-description motion-element" itemprop="description">希望可以天天摸鱼.jpg</p>
-          
-        </div>
-        <nav class="site-state motion-element">
-
-          
-            <div class="site-state-item site-state-posts">
-              <a href="/archives">
-                <span class="site-state-item-count">19</span>
-                <span class="site-state-item-name">posts</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-categories">
-              <a href="/categories/index.html">
-                <span class="site-state-item-count">4</span>
-                <span class="site-state-item-name">categories</span>
-              </a>
-            </div>
-          
-
-          
-            
-            
-            <div class="site-state-item site-state-tags">
-              <a href="/tags/index.html">
-                <span class="site-state-item-count">13</span>
-                <span class="site-state-item-name">tags</span>
-              </a>
-            </div>
-          
-
-        </nav>
-
-        
-          <div class="feed-link motion-element">
-            <a href="/atom.xml" rel="alternate">
-              <i class="fa fa-rss"></i>
-              RSS
-            </a>
-          </div>
-        
-
-        <div class="links-of-author motion-element">
-          
-        </div>
-
-        
-        
-
-        
-        
-
-        
-
-
-      </section>
-
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#简介"><span class="nav-text">简介</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#题目描述"><span class="nav-text">题目描述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#基本概念"><span class="nav-text">基本概念</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#解题思路"><span class="nav-text">解题思路</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#最终代码"><span class="nav-text">最终代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后记"><span class="nav-text">后记</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
-      
-
-      
-
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2019/01/16/OpenSSL解RSA的基本操作/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">OpenSSL解RSA的基本操作</h4>
+      </a>
     </div>
-  </aside>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2019/01/09/RSA攻击综述/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">RSA攻击综述</h4>
+      </a>
+    </div>
+  
+</nav>
 
 
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <div class="reward-content">
         
-      </div>
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/wechat.jpg" alt="打赏二维码">
+        </div>
+        
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check" data-wechat="/img/wechat.jpg" data-alipay="/img/alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
+        
+    </div>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Vergissmeinnicht &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
     </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
 
-    <footer id="footer" class="footer">
-      <div class="footer-inner">
-        <div class="copyright">
-  
-  &copy; 
-  <span itemprop="copyrightYear">2020</span>
-  <span class="with-love">
-    <i class="fa fa-heart"></i>
-  </span>
-  <span class="author" itemprop="copyrightHolder">Vergissmeinnicht</span>
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=http://yoursite.com/2019/01/12/XNUCA-baby-crypto/&title=《XNUCA-baby_crypto》 — Ver&pic=http://yoursite.com/img/avatar.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=http://yoursite.com/2019/01/12/XNUCA-baby-crypto/&title=《XNUCA-baby_crypto》 — Ver&source=
+简介这道题是2018年XNUCA的一道密码题，当时由于自己比较菜没做出来，期末考试考完之后看书提到了重合指数破解Vigenere密码的内容，就想起来了这..." data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=http://yoursite.com/2019/01/12/XNUCA-baby-crypto/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《XNUCA-baby_crypto》 — Ver&url=http://yoursite.com/2019/01/12/XNUCA-baby-crypto/&via=http://yoursite.com" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=http://yoursite.com/2019/01/12/XNUCA-baby-crypto/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="//api.qrserver.com/v1/create-qr-code/?data=http://yoursite.com/2019/01/12/XNUCA-baby-crypto/" alt="微信分享二维码">
 </div>
 
 
-<div class="powered-by">
-  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
 </div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
 
-<div class="theme-info">
-  Theme -
-  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
-    NexT.Gemini
-  </a>
-</div>
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
-        
 
-        
-      </div>
-    </footer>
 
-    
-      <div class="back-to-top">
-        <i class="fa fa-arrow-up"></i>
-        
-      </div>
-    
 
-  </div>
 
-  
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
-<script type="text/javascript">
-  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
-    window.Promise = null;
-  }
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
 </script>
 
 
-
-
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
-
-
-
-  
-  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
-
-  
-  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
-
-  
-  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
-
-  
-  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/utils.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/motion.js?v=5.1.2"></script>
-
-
-
-  
-  
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.2"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.2"></script>
-
-
-
-  
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.2"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.1.2"></script>
-
-
-
-  
-
-
-  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.2"></script>
-
-
-
-  
-
-
-  
-
-
-
-
-	
-
-
-
-
-
-  
-
-
-
-
-
-  
-
-
-
-
-
-
-  
-
-  <script type="text/javascript">
-    // Popup Window;
-    var isfetched = false;
-    var isXml = true;
-    // Search DB path;
-    var search_path = "search.xml";
-    if (search_path.length === 0) {
-      search_path = "search.xml";
-    } else if (/json$/i.test(search_path)) {
-      isXml = false;
-    }
-    var path = "/" + search_path;
-    // monitor main search box;
-
-    var onPopupClose = function (e) {
-      $('.popup').hide();
-      $('#local-search-input').val('');
-      $('.search-result-list').remove();
-      $('#no-result').remove();
-      $(".local-search-pop-overlay").remove();
-      $('body').css('overflow', '');
-    }
-
-    function proceedsearch() {
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay"></div>')
-        .css('overflow', 'hidden');
-      $('.search-popup-overlay').click(onPopupClose);
-      $('.popup').toggle();
-      var $localSearchInput = $('#local-search-input');
-      $localSearchInput.attr("autocapitalize", "none");
-      $localSearchInput.attr("autocorrect", "off");
-      $localSearchInput.focus();
-    }
-
-    // search function;
-    var searchFunc = function(path, search_id, content_id) {
-      'use strict';
-
-      // start loading animation
-      $("body")
-        .append('<div class="search-popup-overlay local-search-pop-overlay">' +
-          '<div id="search-loading-icon">' +
-          '<i class="fa fa-spinner fa-pulse fa-5x fa-fw"></i>' +
-          '</div>' +
-          '</div>')
-        .css('overflow', 'hidden');
-      $("#search-loading-icon").css('margin', '20% auto 0 auto').css('text-align', 'center');
-
-      $.ajax({
-        url: path,
-        dataType: isXml ? "xml" : "json",
-        async: true,
-        success: function(res) {
-          // get the contents from search data
-          isfetched = true;
-          $('.popup').detach().appendTo('.header-inner');
-          var datas = isXml ? $("entry", res).map(function() {
-            return {
-              title: $("title", this).text(),
-              content: $("content",this).text(),
-              url: $("url" , this).text()
-            };
-          }).get() : res;
-          var input = document.getElementById(search_id);
-          var resultContent = document.getElementById(content_id);
-          var inputEventFunction = function() {
-            var searchText = input.value.trim().toLowerCase();
-            var keywords = searchText.split(/[\s\-]+/);
-            if (keywords.length > 1) {
-              keywords.push(searchText);
-            }
-            var resultItems = [];
-            if (searchText.length > 0) {
-              // perform local searching
-              datas.forEach(function(data) {
-                var isMatch = false;
-                var hitCount = 0;
-                var searchTextCount = 0;
-                var title = data.title.trim();
-                var titleInLowerCase = title.toLowerCase();
-                var content = data.content.trim().replace(/<[^>]+>/g,"");
-                var contentInLowerCase = content.toLowerCase();
-                var articleUrl = decodeURIComponent(data.url);
-                var indexOfTitle = [];
-                var indexOfContent = [];
-                // only match articles with not empty titles
-                if(title != '') {
-                  keywords.forEach(function(keyword) {
-                    function getIndexByWord(word, text, caseSensitive) {
-                      var wordLen = word.length;
-                      if (wordLen === 0) {
-                        return [];
-                      }
-                      var startPosition = 0, position = [], index = [];
-                      if (!caseSensitive) {
-                        text = text.toLowerCase();
-                        word = word.toLowerCase();
-                      }
-                      while ((position = text.indexOf(word, startPosition)) > -1) {
-                        index.push({position: position, word: word});
-                        startPosition = position + wordLen;
-                      }
-                      return index;
-                    }
-
-                    indexOfTitle = indexOfTitle.concat(getIndexByWord(keyword, titleInLowerCase, false));
-                    indexOfContent = indexOfContent.concat(getIndexByWord(keyword, contentInLowerCase, false));
-                  });
-                  if (indexOfTitle.length > 0 || indexOfContent.length > 0) {
-                    isMatch = true;
-                    hitCount = indexOfTitle.length + indexOfContent.length;
-                  }
-                }
-
-                // show search results
-
-                if (isMatch) {
-                  // sort index by position of keyword
-
-                  [indexOfTitle, indexOfContent].forEach(function (index) {
-                    index.sort(function (itemLeft, itemRight) {
-                      if (itemRight.position !== itemLeft.position) {
-                        return itemRight.position - itemLeft.position;
-                      } else {
-                        return itemLeft.word.length - itemRight.word.length;
-                      }
-                    });
-                  });
-
-                  // merge hits into slices
-
-                  function mergeIntoSlice(text, start, end, index) {
-                    var item = index[index.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    var hits = [];
-                    var searchTextCountInSlice = 0;
-                    while (position + word.length <= end && index.length != 0) {
-                      if (word === searchText) {
-                        searchTextCountInSlice++;
-                      }
-                      hits.push({position: position, length: word.length});
-                      var wordEnd = position + word.length;
-
-                      // move to next position of hit
-
-                      index.pop();
-                      while (index.length != 0) {
-                        item = index[index.length - 1];
-                        position = item.position;
-                        word = item.word;
-                        if (wordEnd > position) {
-                          index.pop();
-                        } else {
-                          break;
-                        }
-                      }
-                    }
-                    searchTextCount += searchTextCountInSlice;
-                    return {
-                      hits: hits,
-                      start: start,
-                      end: end,
-                      searchTextCount: searchTextCountInSlice
-                    };
-                  }
-
-                  var slicesOfTitle = [];
-                  if (indexOfTitle.length != 0) {
-                    slicesOfTitle.push(mergeIntoSlice(title, 0, title.length, indexOfTitle));
-                  }
-
-                  var slicesOfContent = [];
-                  while (indexOfContent.length != 0) {
-                    var item = indexOfContent[indexOfContent.length - 1];
-                    var position = item.position;
-                    var word = item.word;
-                    // cut out 100 characters
-                    var start = position - 20;
-                    var end = position + 80;
-                    if(start < 0){
-                      start = 0;
-                    }
-                    if (end < position + word.length) {
-                      end = position + word.length;
-                    }
-                    if(end > content.length){
-                      end = content.length;
-                    }
-                    slicesOfContent.push(mergeIntoSlice(content, start, end, indexOfContent));
-                  }
-
-                  // sort slices in content by search text's count and hits' count
-
-                  slicesOfContent.sort(function (sliceLeft, sliceRight) {
-                    if (sliceLeft.searchTextCount !== sliceRight.searchTextCount) {
-                      return sliceRight.searchTextCount - sliceLeft.searchTextCount;
-                    } else if (sliceLeft.hits.length !== sliceRight.hits.length) {
-                      return sliceRight.hits.length - sliceLeft.hits.length;
-                    } else {
-                      return sliceLeft.start - sliceRight.start;
-                    }
-                  });
-
-                  // select top N slices in content
-
-                  var upperBound = parseInt('1');
-                  if (upperBound >= 0) {
-                    slicesOfContent = slicesOfContent.slice(0, upperBound);
-                  }
-
-                  // highlight title and content
-
-                  function highlightKeyword(text, slice) {
-                    var result = '';
-                    var prevEnd = slice.start;
-                    slice.hits.forEach(function (hit) {
-                      result += text.substring(prevEnd, hit.position);
-                      var end = hit.position + hit.length;
-                      result += '<b class="search-keyword">' + text.substring(hit.position, end) + '</b>';
-                      prevEnd = end;
-                    });
-                    result += text.substring(prevEnd, slice.end);
-                    return result;
-                  }
-
-                  var resultItem = '';
-
-                  if (slicesOfTitle.length != 0) {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + highlightKeyword(title, slicesOfTitle[0]) + "</a>";
-                  } else {
-                    resultItem += "<li><a href='" + articleUrl + "' class='search-result-title'>" + title + "</a>";
-                  }
-
-                  slicesOfContent.forEach(function (slice) {
-                    resultItem += "<a href='" + articleUrl + "'>" +
-                      "<p class=\"search-result\">" + highlightKeyword(content, slice) +
-                      "...</p>" + "</a>";
-                  });
-
-                  resultItem += "</li>";
-                  resultItems.push({
-                    item: resultItem,
-                    searchTextCount: searchTextCount,
-                    hitCount: hitCount,
-                    id: resultItems.length
-                  });
-                }
-              })
-            };
-            if (keywords.length === 1 && keywords[0] === "") {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>'
-            } else if (resultItems.length === 0) {
-              resultContent.innerHTML = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>'
-            } else {
-              resultItems.sort(function (resultLeft, resultRight) {
-                if (resultLeft.searchTextCount !== resultRight.searchTextCount) {
-                  return resultRight.searchTextCount - resultLeft.searchTextCount;
-                } else if (resultLeft.hitCount !== resultRight.hitCount) {
-                  return resultRight.hitCount - resultLeft.hitCount;
-                } else {
-                  return resultRight.id - resultLeft.id;
-                }
-              });
-              var searchResultList = '<ul class=\"search-result-list\">';
-              resultItems.forEach(function (result) {
-                searchResultList += result.item;
-              })
-              searchResultList += "</ul>";
-              resultContent.innerHTML = searchResultList;
-            }
-          }
-
-          if ('auto' === 'auto') {
-            input.addEventListener('input', inputEventFunction);
-          } else {
-            $('.search-icon').click(inputEventFunction);
-            input.addEventListener('keypress', function (event) {
-              if (event.keyCode === 13) {
-                inputEventFunction();
-              }
-            });
-          }
-
-          // remove loading animation
-          $(".local-search-pop-overlay").remove();
-          $('body').css('overflow', '');
-
-          proceedsearch();
-        }
-      });
-    }
-
-    // handle and trigger popup window;
-    $('.popup-trigger').click(function(e) {
-      e.stopPropagation();
-      if (isfetched === false) {
-        searchFunc(path, 'local-search-input', 'local-search-result');
-      } else {
-        proceedsearch();
-      };
-    });
-
-    $('.popup-btn-close').click(onPopupClose);
-    $('.popup').click(function(e){
-      e.stopPropagation();
-    });
-    $(document).on('keyup', function (event) {
-      var shouldDismissSearchPopup = event.which === 27 &&
-        $('.search-popup').is(':visible');
-      if (shouldDismissSearchPopup) {
-        onPopupClose();
-      }
-    });
-  </script>
-
-
-
-
-
-  
-
-  
-
-  
-
-  
-
-  
-
-  
 
 </body>
 </html>
