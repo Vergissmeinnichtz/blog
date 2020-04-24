@@ -104,6 +104,13 @@
               </a>
             </li>
         
+            <li class="waves-block waves-effect">
+              <a href="/friends">
+                <i class="icon icon-lg icon-address-book"></i>
+                Friends
+              </a>
+            </li>
+        
       </ul>
     </div>
   </div>
@@ -194,13 +201,7 @@
 <p>当然服务器并没有给我们AES加密的key，并且我们发送给服务器的命令是需要在AES解密之后才能执行的。执行条件也就是用明文头匹配功能1中的功能，如果是<code>get-md5</code>,<code>get-sha1</code>等命令会把明文的剩下部分当作参数进行操作。</p>
 <p>我们也可以从源码中获取几点有用的信息：<br>1.flag以<code>hitcon{</code>开头，以<code>}</code>结尾<br>2.我们知道一开始给的加密的<code>Welcome!!</code>的<code>IV</code>以及加密后的结果<br>3.<code>unpad</code>方法只是单纯的截取字符，并没有进行检查。我们可以控制截取字符<br>4.AES加密的形式是<code>CBC</code></p>
 <p>AES CBC解密原理如下图</p>
-<div style="width: 80%; margin: auto"><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2019/01/25/HITCON-Quals-2017-Secret-Server/1.png" alt="1" title="">
-                </div>
-                <div class="image-caption">1</div>
-            </figure></div>
+<div style="width: 80%; margin: auto"><img src="/2019/01/25/HITCON-Quals-2017-Secret-Server/1.png" alt="1"></div>
 
 <p>我们来分析以下左边的第一个块，即开头的块。<br>假设密文C0经过key解密之后的中间值为X0，X0异或IV之后的结果为P0，则我们可以得到：</p>
 <blockquote>
