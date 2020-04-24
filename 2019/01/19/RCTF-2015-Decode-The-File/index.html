@@ -128,7 +128,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -193,7 +193,13 @@
             <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>这道题是2015-RCTF的一道密码题，考点有点秀，就记下来了。<br><a id="more"></a></p>
 <hr>
 <h1 id="题目描述"><a href="#题目描述" class="headerlink" title="题目描述"></a>题目描述</h1><p>题目给了个<a href="https://pan.baidu.com/s/1WJSCsuQZjL6fsyQbDWjALg" target="_blank" rel="noopener">cip文件</a>,里面是一行一行的base64加密过的代码，逐行解码之后会得到一个DES加密的python代码。当时我看了很久都没弄懂解码出来的代码有啥用，后来去看了别人的wp才发现还有这种操作。<br>具体就是每行base64加密过的代码<code>解码之后再加密</code>会发现末尾的字母会有变化，而经我测试下来也是如此</p>
-<div style="width: 80%; margin: auto"><img src="/2019/01/19/RCTF-2015-Decode-The-File/1.jpg" alt="1"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/01/19/RCTF-2015-Decode-The-File/1.jpg" alt="1" title="">
+                </div>
+                <div class="image-caption">1</div>
+            </figure></div>
 
 <p>其中第一行是原本的明文，第二行是加密之后的base64密文，第三行我将末尾的w改成了y，第四行可以发现我们任然可以解码出原本的明文</p>
 <p>而这道题的末尾都经过了这种隐写，最后通过脚本可以直接接出来<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_base64_diff_value</span><span class="params">(s1, s2)</span>:</span></span><br><span class="line">    base64chars = <span class="string">'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/'</span></span><br><span class="line">    res = <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(len(s1)):</span><br><span class="line">        <span class="keyword">if</span> s1[i] != s2[i]:</span><br><span class="line">            <span class="keyword">return</span> abs(base64chars.index(s1[i]) - base64chars.index(s2[i]))</span><br><span class="line">    <span class="keyword">return</span> res</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">solve_stego</span><span class="params">()</span>:</span></span><br><span class="line">    <span class="keyword">with</span> open(<span class="string">'cip'</span>, <span class="string">'rb'</span>) <span class="keyword">as</span> f:</span><br><span class="line">        file_lines = f.readlines()</span><br><span class="line"></span><br><span class="line">    bin_str = <span class="string">''</span></span><br><span class="line">    <span class="keyword">for</span> line <span class="keyword">in</span> file_lines:</span><br><span class="line">        steg_line = line.replace(<span class="string">'\n'</span>, <span class="string">''</span>)</span><br><span class="line">        norm_line = line.replace(<span class="string">'\n'</span>, <span class="string">''</span>).decode(<span class="string">'base64'</span>).encode(<span class="string">'base64'</span>).replace(<span class="string">'\n'</span>, <span class="string">''</span>)</span><br><span class="line"></span><br><span class="line">        diff = get_base64_diff_value(steg_line, norm_line)</span><br><span class="line">        pads_num = steg_line.count(<span class="string">'='</span>)</span><br><span class="line">        <span class="keyword">if</span> diff:</span><br><span class="line">            bin_str += bin(diff)[<span class="number">2</span>:].zfill(pads_num * <span class="number">2</span>)</span><br><span class="line">        <span class="keyword">else</span>:</span><br><span class="line">            bin_str += <span class="string">'0'</span> * pads_num * <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    res_str = <span class="string">''</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> xrange(<span class="number">0</span>, len(bin_str), <span class="number">8</span>):</span><br><span class="line">        res_str += chr(int(bin_str[i:i+<span class="number">8</span>], <span class="number">2</span>))</span><br><span class="line">    <span class="keyword">print</span> res_str</span><br><span class="line"></span><br><span class="line">solve_stego()</span><br></pre></td></tr></table></figure></p>
@@ -207,7 +213,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-01-19T07:03:11.282Z" itemprop="dateUpdated">2019-01-19 15:03:11</time>
+    最后更新时间：<time datetime="2019-01-19T07:03:11.282Z" itemprop="dateUpdated">2019-01-19 15:03:11</time>
 </span><br>
 
 
@@ -303,7 +309,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">

