@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[2020-De1CTF-Crypto 出题记录]]></title>
-    <url>%2F2020%2F05%2F04%2F2020-De1CTF-Crypto-%E5%87%BA%E9%A2%98%E8%AE%B0%E5%BD%95%2F</url>
-    <content type="text"><![CDATA[简介本文主要用于谢罪以及分析出题的时候我在想什么（x 引言今年De1CTF我因为忙毕设的原因，大约是4月过一点开始出题。出题期间没有反复检查，导致出现了许多bug（丢人）。出的题目都挺简单的，也被大佬吐槽了。其中ECDH、easyRSA以及Homomorphic为签到题，我出题加写exp之类的差不多每道题花了两三小时不到；Mini Purε Plus和OV为需要看一点论文的一般题，不过好像也没花多久就弄出来了。 你问我其他的时间干啥去了？基本上都在弄毕设和毕业论文。针对题目的话花的时间大部分用于调整代码写法和结构，不过还是写得太烂了。其中需要重点指出的是easyRSA和D^3CTF中的common题目的论文撞了，由于当时D^3CTF我只是顺路做了一道区块链，没有看密码学，所以完全不知道。除了向Lurkrul师傅加好友道歉，我也在write up上写明了这个问题，在此还想说一句，不好意思，真的不好意思，我不是故意的（希望师傅可以原谅我QAQ）。 说完了引言，下面针对每道题说点出题的想法吧，write up之后队伍也会统一发的。 ECDH这是一道Invalid curve attack的题目，其实一开始向出椭圆曲线的时候，我去找了很多攻击方式，然后发现大部分内容CTF都有类似的题目，所以挑了可能这个还没出过的攻击。其内容也很简单，ECDH服务器没有check所交换的key是否在椭圆曲线，导致我们可以构造不在椭圆曲线上的点，其中这个点在另外的曲线上，有较低的阶，那么我们交换key了之后实际上我们就可以得到服务器那边所生成的secret​模这个较低的阶的结果，然后当我们用足够的数据反复进行该过程就能收集到一堆类似的数据，进而可以用CRT求出secret​。 其中我是通过这篇文章了解的该攻击方式，看着也挺直观的。所以这道题就给大家签到了，希望大家了解一下这个攻击方式。不过由于我是一开始现在github上找的这个工具，想要出别的椭圆曲线题目，最后选了这个攻击方式，刚好工具也有直接生成Invalid curve的功能，就直接用了，如果要写代码实现这个算法可以考虑看看这个或者找找别的论文（我才不会说我看的那篇论文我找不到了.jpg）。 最后总结下这题目，应该是这次我出的题目里没有bug的题目（太不容易了）。 easyRSA这是一道Common modules attack的RSA题目，至于为什么出它，也只是因为刚好那天晚上顺手在我保存的一本有关RSA攻击的书翻到了它。然后上了题目之后发现当时出题的代码没删干净，出了点小错。最后在填问卷的时候，群里的师傅才告诉我原来和D^3CTF的题目撞车了。然后去看了看官方write up发现解题思路一模一样，顿时觉得要好好谢罪了。 其实Lurkrul师傅也是我一直想认识的师傅，因为之前做过该师傅出的一些题目，感觉都很有意思，能学到挺多东西（比我出的垃圾题目好多了）。这次撞车也是不应该，希望师傅能够原谅我QAQ。 Homomorphic这是一道BFV的CCA attack的题目，因为出题那天刚好在彭博士的github瞎逛，看到了代码之后觉得有点意思就去找了paper 和 speech，然后就改了改弄了这个题目。但是最后由于check​写得有问题，导致可以花式绕过，只能说我还是太年轻了。不过以后估计也不会出这种题目了，因为数据量太大，导致服务器太难受，这样对大家都不好（不过非预期有效地降低了服务器的压力）。再也不想接触同态加密了（不是）。 Mini Purε Plus这题其实就是去年的改版，我加了加密轮数，导致用插值攻击很麻烦。那么该怎么办呢？其实去年的插值攻击我只写了一部分，还有一种改进的方法便是通过多项式的次高项获取k0​,此外还可以通过中间相遇的理念再改进，不过最终我想的就是直接考多项式的系数和keys的关系。这道题考的是用高阶积分攻击进行攻击，不过我只要求找两个key，即k0,k1，主要原因还是因为​k2在我自己推的时候发现我推的和实际不太一样，虽然写了magma程序验证了我推的东西没有问题，但就是不太行，我也不知道是不是因为我只能用在线的magma导致我要缩小加密的复杂度导致的。不过这个攻击需要的data很多，所以我最终只选择了n=24,m=16​，如果再加复杂度可能这题就是几十G了。另外我看去年做出Mini Purε的队伍的write up的时候发现他们都有关注多项式，所以觉得对他们来说应该很简单；对于没有做出来的师傅来说可能就需要理解一下了。 OV这道题是一道平衡油醋加密，最初我知道这东西还是因为在图书馆边打工边看彭博士论文才看到的。后来发现唐老板手下的博士好像近几年写的都是UOV相关的论文，所以才想着去出的。其实平衡油醋很菜，早就被Kipnis和Shamir攻破了，之后大家就着重于UOV、Rainbow之类的研究去了。综上所述我考了这个比较简单的攻击，不过我看原始论文的时候有点头大（因为我的线性代数差点挂科），所以我找了个2017年的PQCrypto Summer School的讲义帮助我理解，之后去找了点唐老板手下博士师兄的论文帮助我完成了攻击脚本。最后又和Mystiz交流了一下，他告诉了我非预期解（并让我兑现我所立下的”再有非预期解就吃代码”的flag）的同时帮我改进了攻击脚本的实现，最终结果便是攻击脚本差不多只需要十几秒便可以攻击完成。 总结这次出的题目一是太简单，二是有很多不应该犯的错误，对于我来说是需要吸取教训的。我在这里也对做我出的垃圾题目的师傅们表示深刻的歉意，下次如果还是我出题，我一定弄点更难更有意思的题目，同时我也尽量保证不再出bug。]]></content>
-      <tags>
-        <tag>CTF</tag>
-        <tag>Crypto</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[Vue+Django-rest-framework的项目搭建]]></title>
     <url>%2F2020%2F03%2F29%2FVue-Django-rest-framework%E7%9A%84%E9%A1%B9%E7%9B%AE%E6%90%AD%E5%BB%BA%2F</url>
     <content type="text"><![CDATA[简介毕设做的是安卓+Vue+Django的项目，在这里先记录一下服务器端的搭建问题。 内容Centos添加新用户 12useradd usernamepasswd username Python3.6-dev1yum install -y python3-devel.x86_64 Nginx使用Yum安装 1yum -y install nginx 操作命令 123service nginx start #启动service nginx stop #停止systemctl restart nginx 设置/etc/nginx/nginx.conf 123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960user nginx;worker_processes 1;error_log /var/log/nginx/error.log warn;pid /var/run/nginx.pid;events &#123; worker_connections 1024;&#125;http &#123; include /etc/nginx/mime.types; default_type application/octet-stream; log_format main '$remote_addr - $remote_user [$time_local] "$request" ' '$status $body_bytes_sent "$http_referer" ' '"$http_user_agent" "$http_x_forwarded_for"'; access_log /var/log/nginx/access.log main; sendfile on; #tcp_nopush on; keepalive_timeout 65; #gzip on; include /etc/nginx/conf.d/*.conf; #新加入的部分 upstream django &#123; server 127.0.0.1:8080; #端口8001必须和uwsgi配置文件中的socket端口一样 &#125; server &#123; listen 80 default_server;# listen [::]:80 default_server; server_name www.your_domain.com your_domain.com your_ip_addr; root /root/Learning-Python3/cmdb; #项目路径 # Load configuration files for the default server block. include /etc/nginx/default.d/*.conf; location / &#123; include uwsgi_params; uwsgi_pass django; &#125; &#125; #一直到这里&#125; uWSGI使用pip3安装 1pip3 install uwsgi uwsgi.ini配置文件 1234567891011121314[uwsgi]socket = 127.0.0.1:8080stats = 127.0.0.1:9090workers = 4# 项目根目录chdir = DJANGO_DIRtouch-reload = DJANGO_DIRpy-auto-reload = 1# 在项目跟目录和项目同名的文件夹里面的一个文件module= DJANGO_NAME.wsgipidfile = /var/run/inner_manager.piddaemonize = /data/uwsgi9090.log# If you plan to receive big requests with lots of headers you can increase this value up to 64k (65535).buffer-size=65535 其中一些配置的含义 chdir—-应用加载前chdir到指定目录，一般设置为django的工程根目录 touch-reload—-如果修改/碰了指定的文件，那么重载uWSGI module—-加载一个WSGI模块的路径，如果django的话就指向对应的wsgi文件模块 buffer-size—-设置请求的最大大小 (排除request-body)，这一般映射到请求头的大小。默认情况下，它是4k。如果你接收到了一个更大的请求 (例如，带有大cookies或者查询字符串)，那么你也许需要增加它。它也是一个安全度量，所以调整为你的应用需要，而不是最大输出。该值如果太小会报错 常用命令 123uwsgi --ini uwsgi.ini # 启动uwsgi --reload uwsgi.ini # 重启uwsgi --stop uwsgi.ini # 关闭 Mysql123456789101112wget http://repo.mysql.com/mysql-community-release-el6-5.noarch.rpmrpm -ivh mysql-community-release-el6-5.noarch.rpmyum repolist all | grep mysqlyum install mysql-community-server -y#设置开机启动chkconfig --list | grep mysqldchkconfig mysqld on#启动并设置基础信息service mysqld startmysql_secure_installation 修改/etc/my.cnf 123456789sql_mode=STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION[mysql]default-character-set = utf8[mysql.server]default-character-set = utf8[mysqld_safe]default-character-set = utf8[client]default-character-set = utf8 重启mysql 1service mysqld restart Django安装Django rest framework 123pip3 install djangopip3 install djangorestframeworkpip3 install django-cors-headers 安装mysqlcilent 1234wget http://repo.mysql.com/mysql57-community-release-el7-8.noarch.rpmyum install gcc mariadb-develyum install mysql-develpip3 install mysqlclient 安装jwt 1pip3 install djangorestframework-jwt 运行 1python3 manage.py runserver 0.0.0.0:8000 Vue.js安装npm和nodejs 1yum install -y nodejs nodejs-npm 将config中的index.js改写 1assetsPublicPath: './' 修改prod.env.js 12345'use strict'module.exports = &#123; NODE_ENV: '"production"', API_HOST: '"http://localhost:8080"'&#125; 修改utils.js 12345678910if (options.extract) &#123; return ExtractTextPlugin.extract(&#123; use: loaders, fallback: 'vue-style-loader', publicPath:'../../' &#125;) &#125; else &#123; return ['vue-style-loader'].concat(loaders) &#125; &#125; 打包 1npm rum build]]></content>
@@ -23,8 +14,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
         <tag>BlockChain</tag>
       </tags>
   </entry>
@@ -37,8 +28,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
       </tags>
   </entry>
   <entry>
@@ -103,8 +94,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
         <tag>ECC</tag>
         <tag>Knapsack</tag>
       </tags>
@@ -131,8 +122,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
         <tag>AES</tag>
       </tags>
   </entry>
@@ -145,8 +136,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
       </tags>
   </entry>
   <entry>
@@ -158,8 +149,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
       </tags>
   </entry>
   <entry>
@@ -184,8 +175,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Web</tag>
         <tag>Write up</tag>
+        <tag>Web</tag>
       </tags>
   </entry>
   <entry>
@@ -210,8 +201,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
       </tags>
   </entry>
   <entry>
