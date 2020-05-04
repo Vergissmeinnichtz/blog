@@ -385,9 +385,9 @@
     
       <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
     
-      <category term="Web" scheme="http://yoursite.com/tags/Web/"/>
-    
       <category term="Write up" scheme="http://yoursite.com/tags/Write-up/"/>
+    
+      <category term="Web" scheme="http://yoursite.com/tags/Web/"/>
     
   </entry>
   
