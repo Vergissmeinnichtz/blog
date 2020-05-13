@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[An Introduction to Mathematical Cryptography 笔记]]></title>
     <url>%2F2020%2F05%2F12%2FAn-Introduction-to-Mathematical-Cryptography-%E7%AC%94%E8%AE%B0%2F</url>
-    <content type="text"><![CDATA[简介“An Introduction to Mathematical Cryptography” 这本书的一点笔记。来自于Soreat_u师傅推荐。 Chapter 1: An Introduction to CryptographyCryptanalysis of Simple Substitution CiphersFrequency Of Letters In English Text Divisibility and Greatest Common DivisorsThe Euclidean Algorithm Extended Euclidean Algorithm Modular ArithmeticZ/MZ units Euler’s Phi Function Modular Arithmetic and Shift CiphersThe Fast Powering Algorithm A Low-storage Variant Of The Square-and-multiply Algorithm Prime Numbers, Unique Factorization, and Finite FieldsField and Finite Field Powers and Primitive Roots in Finite FieldsFermat’s Little Theorem Primitive Root Theorem Chapter 2: Discrete Logarithms and Diffie-HellmanThe Discrete Logarithm ProblemDiscrete Logarithm Problem Diﬃe–Hellman Key ExchangeDiffie-Hellman Key Exchange Diffie-Hellman Problem The Elgamal Public Key CryptosystemElgamal Public Key Cryptosystem An Overview of the Theory of GroupsCommutative Group Group order Lagrange’s Theorem How Hard Is the Discrete Logarithm Problem?Order Notation A Collision Algorithm for the DLPTrivial Bound for DLP Shanks’s Babystep–Giantstep Algorithm The Chinese Remainder TheoremChinese Remainder Theorem Solving Congruences with Composite Moduli The Pohlig–Hellman AlgorithmPohlig–Hellman Algorithm Example Rings, Quotient Rings, Polynomial Rings, and Finite FieldsAn Overview of the Theory of Rings Divisibility and Quotient RingsUnit Congruent modulo Quotient Ring Polynomial Rings and the Euclidean AlgorithmMonic polynomial Euclidean algorithm Common divisor Extended Euclidean algorithm Quotients of Polynomial Rings and Finite Fields of Prime Power Order]]></content>
+    <content type="text"><![CDATA[简介“An Introduction to Mathematical Cryptography” 这本书的一点笔记，主要是方便我日后查看，所以可能只有我觉得比较重要的截图。本书来自于Soreat_u师傅推荐。 Chapter 1: An Introduction to CryptographyCryptanalysis of Simple Substitution CiphersFrequency Of Letters In English Text Divisibility and Greatest Common DivisorsThe Euclidean Algorithm Extended Euclidean Algorithm Modular ArithmeticZ/MZ units Euler’s Phi Function Modular Arithmetic and Shift CiphersThe Fast Powering Algorithm A Low-storage Variant Of The Square-and-multiply Algorithm Prime Numbers, Unique Factorization, and Finite FieldsField and Finite Field Powers and Primitive Roots in Finite FieldsFermat’s Little Theorem Primitive Root Theorem Chapter 2: Discrete Logarithms and Diffie-HellmanThe Discrete Logarithm ProblemDiscrete Logarithm Problem Diﬃe–Hellman Key ExchangeDiffie-Hellman Key Exchange Diffie-Hellman Problem The Elgamal Public Key CryptosystemElgamal Public Key Cryptosystem An Overview of the Theory of GroupsCommutative Group Group order Lagrange’s Theorem How Hard Is the Discrete Logarithm Problem?Order Notation A Collision Algorithm for the DLPTrivial Bound for DLP Shanks’s Babystep–Giantstep Algorithm The Chinese Remainder TheoremChinese Remainder Theorem Solving Congruences with Composite Moduli The Pohlig–Hellman AlgorithmPohlig–Hellman Algorithm Example Rings, Quotient Rings, Polynomial Rings, and Finite FieldsAn Overview of the Theory of Rings Divisibility and Quotient RingsUnit Congruent modulo Quotient Ring Polynomial Rings and the Euclidean AlgorithmMonic polynomial Euclidean algorithm Common divisor Extended Euclidean algorithm Quotients of Polynomial Rings and Finite Fields of Prime Power Order Chapter 3: Integer Factorization and RSAEuler’s Formula and Roots Modulo pqEuler’s Formula for pq The RSA Public Key CryptosystemRSA Public Key Cryptosystem Encryption and Decryption Exponent Implementation and Security IssuesMan-in-the-Middle Attack Common Module Attack Primality TestingFermat’s Little Theorem, Version 2 Witness Carmichael numbers Miller–Rabin test Miller–Rabin witness The Distribution of the Set of PrimesThe Prime Number Theorem Primality Proofs Versus Probabilistic TestsAKS Primality Test Pollard’s p−1 Factorization AlgorithmPollard’s p−1 factorization algorithm Factorization via Diﬀerence of SquaresExample Tips A three step factorization procedureGeneral More Smooth Numbers, Sieves, and Building Relations for FactorizationB-smooth Canﬁeld, Erdos, Pomerance Order Notation Grow exponentially and grow polynomially The growth of L(x) Running time of three step factorization procedure The Quadratic Sieve The Number Field Sieve The Index Calculus Method for Computing Discrete Logarithms in FpIndex Calculus Example Quadratic Residues and Quadratic ReciprocityQuadratic residue modulo and Quadratic nonresidue modulo Legendre symbol Quadratic Reciprocity Jacobi symbol Quadratic Reciprocity: Version II An application of quadratic reciprocity to the discrete logarithm problem Quadratic Reciprocity: Final Probabilistic Encryption and the Goldwasser–Micali CryptosystemGoldwasser–Micali probabilistic public key cryptosystem]]></content>
       <categories>
         <category>Crypto</category>
       </categories>
@@ -26,8 +26,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Crypto</tag>
         <tag>Write up</tag>
+        <tag>Crypto</tag>
         <tag>BlockChain</tag>
       </tags>
   </entry>
@@ -40,8 +40,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Crypto</tag>
         <tag>Write up</tag>
+        <tag>Crypto</tag>
       </tags>
   </entry>
   <entry>
@@ -106,8 +106,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Crypto</tag>
         <tag>Write up</tag>
+        <tag>Crypto</tag>
         <tag>ECC</tag>
         <tag>Knapsack</tag>
       </tags>
@@ -134,8 +134,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Crypto</tag>
         <tag>Write up</tag>
+        <tag>Crypto</tag>
         <tag>AES</tag>
       </tags>
   </entry>
@@ -148,8 +148,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Crypto</tag>
         <tag>Write up</tag>
+        <tag>Crypto</tag>
       </tags>
   </entry>
   <entry>
@@ -161,8 +161,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Crypto</tag>
         <tag>Write up</tag>
+        <tag>Crypto</tag>
       </tags>
   </entry>
   <entry>
@@ -187,8 +187,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Web</tag>
+        <tag>Write up</tag>
       </tags>
   </entry>
   <entry>
@@ -213,8 +213,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Crypto</tag>
         <tag>Write up</tag>
+        <tag>Crypto</tag>
       </tags>
   </entry>
   <entry>
