@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-13T05:33:05.236Z</updated>
+  <updated>2020-05-13T05:37:26.820Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,24 +17,24 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
-    <title></title>
+    <title>An Introduction to Mathematical Cryptography 笔记</title>
     <link href="http://yoursite.com/2020/05/12/An-Introduction-to-Mathematical-Cryptography-%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2020/05/12/An-Introduction-to-Mathematical-Cryptography-笔记/</id>
-    <published>2020-05-12T05:51:20.972Z</published>
-    <updated>2020-05-13T05:33:05.236Z</updated>
+    <published>2020-05-12T05:51:20.000Z</published>
+    <updated>2020-05-13T05:37:26.820Z</updated>
     
     <summary type="html">
     
-      &lt;pre&gt;&lt;code&gt;title: An Introduction to Mathematical Cryptography 笔记
-date: 2020-05-12 13:51:20
-categories: Crypto
-tags:
-       - Crypto
-    - Note
-&lt;/code&gt;&lt;/pre&gt;&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;“An Introduction to Mathematical Cryptography” 这本书的一点笔记。来自于&lt;a href=&quot;http://www.soreatu.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Soreat_u&lt;/a&gt;师傅推荐。&lt;/p&gt;
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;“An Introduction to Mathematical Cryptography” 这本书的一点笔记。来自于&lt;a href=&quot;http://www.soreatu.com/&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;Soreat_u&lt;/a&gt;师傅推荐。&lt;/p&gt;
     
     </summary>
     
+      <category term="Crypto" scheme="http://yoursite.com/categories/Crypto/"/>
+    
+    
+      <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
+    
+      <category term="Note" scheme="http://yoursite.com/tags/Note/"/>
     
   </entry>
   
