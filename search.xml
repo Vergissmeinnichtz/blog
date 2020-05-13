@@ -3,7 +3,7 @@
   <entry>
     <title></title>
     <url>%2F2020%2F05%2F12%2FAn-Introduction-to-Mathematical-Cryptography-%E7%AC%94%E8%AE%B0%2F</url>
-    <content type="text"><![CDATA[title: An Introduction to Mathematical Cryptography 笔记 date: 2020-05-12 13:51:20 tags: - Crypto - Note 简介“An Introduction to Mathematical Cryptography” 这本书的一点笔记。来自于Soreat_u师傅推荐。 Chapter 1: An Introduction to CryptographyCryptanalysis of Simple Substitution CiphersFrequency Of Letters In English Text Divisibility and Greatest Common DivisorsThe Euclidean Algorithm Extended Euclidean Algorithm Modular ArithmeticZ/MZ units Euler’s Phi Function Modular Arithmetic and Shift CiphersThe Fast Powering Algorithm A Low-storage Variant Of The Square-and-multiply Algorithm Prime Numbers, Unique Factorization, and Finite FieldsField and Finite Field Powers and Primitive Roots in Finite FieldsFermat’s Little Theorem Primitive Root Theorem Chapter 2: Discrete Logarithms and Diffie-HellmanThe Discrete Logarithm ProblemDiscrete Logarithm Problem Diﬃe–Hellman Key ExchangeDiffie-Hellman Key Exchange Diffie-Hellman Problem The Elgamal Public Key CryptosystemElgamal Public Key Cryptosystem An Overview of the Theory of GroupsCommutative Group Group order Lagrange’s Theorem How Hard Is the Discrete Logarithm Problem?Order Notation A Collision Algorithm for the DLPTrivial Bound for DLP Shanks’s Babystep–Giantstep Algorithm The Chinese Remainder TheoremChinese Remainder Theorem Solving Congruences with Composite Moduli The Pohlig–Hellman AlgorithmPohlig–Hellman Algorithm Example Rings, Quotient Rings, Polynomial Rings, and Finite FieldsAn Overview of the Theory of Rings Divisibility and Quotient RingsUnit Congruent modulo Quotient Ring Polynomial Rings and the Euclidean AlgorithmMonic polynomial Euclidean algorithm Common divisor Extended Euclidean algorithm Quotients of Polynomial Rings and Finite Fields of Prime Power Order]]></content>
+    <content type="text"><![CDATA[title: An Introduction to Mathematical Cryptography 笔记 date: 2020-05-12 13:51:20 categories: Crypto tags: - Crypto - Note 简介“An Introduction to Mathematical Cryptography” 这本书的一点笔记。来自于Soreat_u师傅推荐。 Chapter 1: An Introduction to CryptographyCryptanalysis of Simple Substitution CiphersFrequency Of Letters In English Text Divisibility and Greatest Common DivisorsThe Euclidean Algorithm Extended Euclidean Algorithm Modular ArithmeticZ/MZ units Euler’s Phi Function Modular Arithmetic and Shift CiphersThe Fast Powering Algorithm A Low-storage Variant Of The Square-and-multiply Algorithm Prime Numbers, Unique Factorization, and Finite FieldsField and Finite Field Powers and Primitive Roots in Finite FieldsFermat’s Little Theorem Primitive Root Theorem Chapter 2: Discrete Logarithms and Diffie-HellmanThe Discrete Logarithm ProblemDiscrete Logarithm Problem Diﬃe–Hellman Key ExchangeDiffie-Hellman Key Exchange Diffie-Hellman Problem The Elgamal Public Key CryptosystemElgamal Public Key Cryptosystem An Overview of the Theory of GroupsCommutative Group Group order Lagrange’s Theorem How Hard Is the Discrete Logarithm Problem?Order Notation A Collision Algorithm for the DLPTrivial Bound for DLP Shanks’s Babystep–Giantstep Algorithm The Chinese Remainder TheoremChinese Remainder Theorem Solving Congruences with Composite Moduli The Pohlig–Hellman AlgorithmPohlig–Hellman Algorithm Example Rings, Quotient Rings, Polynomial Rings, and Finite FieldsAn Overview of the Theory of Rings Divisibility and Quotient RingsUnit Congruent modulo Quotient Ring Polynomial Rings and the Euclidean AlgorithmMonic polynomial Euclidean algorithm Common divisor Extended Euclidean algorithm Quotients of Polynomial Rings and Finite Fields of Prime Power Order]]></content>
   </entry>
   <entry>
     <title><![CDATA[Vue+Django-rest-framework的项目搭建]]></title>
@@ -19,8 +19,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Crypto</tag>
         <tag>Write up</tag>
+        <tag>Crypto</tag>
         <tag>BlockChain</tag>
       </tags>
   </entry>
@@ -33,8 +33,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Crypto</tag>
         <tag>Write up</tag>
+        <tag>Crypto</tag>
       </tags>
   </entry>
   <entry>
@@ -99,8 +99,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Crypto</tag>
         <tag>Write up</tag>
+        <tag>Crypto</tag>
         <tag>ECC</tag>
         <tag>Knapsack</tag>
       </tags>
@@ -127,8 +127,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Crypto</tag>
         <tag>Write up</tag>
+        <tag>Crypto</tag>
         <tag>AES</tag>
       </tags>
   </entry>
@@ -141,8 +141,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Crypto</tag>
         <tag>Write up</tag>
+        <tag>Crypto</tag>
       </tags>
   </entry>
   <entry>
@@ -154,8 +154,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Crypto</tag>
         <tag>Write up</tag>
+        <tag>Crypto</tag>
       </tags>
   </entry>
   <entry>
@@ -180,8 +180,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Web</tag>
+        <tag>Write up</tag>
       </tags>
   </entry>
   <entry>
@@ -206,8 +206,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Crypto</tag>
         <tag>Write up</tag>
+        <tag>Crypto</tag>
       </tags>
   </entry>
   <entry>
