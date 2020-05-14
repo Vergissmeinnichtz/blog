@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    
+    
+    <title>抽象代数笔记 | Vergissmeinnicht</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="Math,Note">
+    <meta name="description" content="简介密码学必修课抽象代数的笔记，看心情学习2333。内容来自南开大学邓少强老师的公开课。">
+<meta name="keywords" content="Math,Note">
+<meta property="og:type" content="article">
+<meta property="og:title" content="抽象代数笔记">
+<meta property="og:url" content="http://yoursite.com/2020/05/14/抽象代数笔记/index.html">
+<meta property="og:site_name" content="Vergissmeinnicht">
+<meta property="og:description" content="简介密码学必修课抽象代数的笔记，看心情学习2333。内容来自南开大学邓少强老师的公开课。">
+<meta property="og:locale" content="default">
+<meta property="og:image" content="http://yoursite.com/2020/05/14/抽象代数笔记/1.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/05/14/抽象代数笔记/2.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/05/14/抽象代数笔记/3.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/05/14/抽象代数笔记/4.jpg">
+<meta property="og:updated_time" content="2020-05-14T14:53:14.028Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="抽象代数笔记">
+<meta name="twitter:description" content="简介密码学必修课抽象代数的笔记，看心情学习2333。内容来自南开大学邓少强老师的公开课。">
+<meta name="twitter:image" content="http://yoursite.com/2020/05/14/抽象代数笔记/1.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="Vergissmeinnicht" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide">
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/avatar.png">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">Ver</h5>
+          <a href="mailto:verhan@163.com" title="verhan@163.com" class="mail">verhan@163.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/">
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives">
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags">
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories">
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/about">
+                <i class="icon icon-lg icon-address-card"></i>
+                About
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">抽象代数笔记</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">抽象代数笔记</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2020-05-14T11:19:54.000Z" itemprop="datePublished" class="page-time">
+  2020-05-14
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Math/">Math</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#抽象代数历史"><span class="post-toc-number">2.</span> <span class="post-toc-text">抽象代数历史</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#第一章-群"><span class="post-toc-number">3.</span> <span class="post-toc-text">第一章 群</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#运算及其关系"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">运算及其关系</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代数体系"><span class="post-toc-number">3.1.1.</span> <span class="post-toc-text">代数体系</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#集合"><span class="post-toc-number">3.1.2.</span> <span class="post-toc-text">集合</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#嵌入映射（定义1-1-1）"><span class="post-toc-number">3.1.3.</span> <span class="post-toc-text">嵌入映射（定义1.1.1）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#开拓和限制（定义1-1-2）"><span class="post-toc-number">3.1.4.</span> <span class="post-toc-text">开拓和限制（定义1.1.2）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#交换图"><span class="post-toc-number">3.1.5.</span> <span class="post-toc-text">交换图</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#例子：将开拓和限制转化为交换图"><span class="post-toc-number">3.1.5.1.</span> <span class="post-toc-text">例子：将开拓和限制转化为交换图</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#直积（定义1-1-3）"><span class="post-toc-number">3.1.6.</span> <span class="post-toc-text">直积（定义1.1.3）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#运算"><span class="post-toc-number">3.1.7.</span> <span class="post-toc-text">运算</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#代数运算（定义1-1-4）"><span class="post-toc-number">3.1.8.</span> <span class="post-toc-text">代数运算（定义1.1.4）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#例子"><span class="post-toc-number">3.1.8.1.</span> <span class="post-toc-text">例子</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#二元运算"><span class="post-toc-number">3.1.9.</span> <span class="post-toc-text">二元运算</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#交换律（定义1-1-5）"><span class="post-toc-number">3.1.10.</span> <span class="post-toc-text">交换律（定义1.1.5）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#结合律（定义1-1-6）"><span class="post-toc-number">3.1.11.</span> <span class="post-toc-text">结合律（定义1.1.6）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#分配律（定义1-1-7）"><span class="post-toc-number">3.1.12.</span> <span class="post-toc-text">分配律（定义1.1.7）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#运算表"><span class="post-toc-number">3.1.13.</span> <span class="post-toc-text">运算表</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#构造新集合的方法——关系"><span class="post-toc-number">3.1.14.</span> <span class="post-toc-text">构造新集合的方法——关系</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#关系（定义1-1-9）"><span class="post-toc-number">3.1.15.</span> <span class="post-toc-text">关系（定义1.1.9）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#例子-1"><span class="post-toc-number">3.1.15.1.</span> <span class="post-toc-text">例子</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#等价关系（定义1-1-10）"><span class="post-toc-number">3.1.16.</span> <span class="post-toc-text">等价关系（定义1.1.10）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#例子-2"><span class="post-toc-number">3.1.16.1.</span> <span class="post-toc-text">例子</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#划分（分类）（定义1-1-11）"><span class="post-toc-number">3.1.17.</span> <span class="post-toc-text">划分（分类）（定义1.1.11）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#定理1-1-1"><span class="post-toc-number">3.1.18.</span> <span class="post-toc-text">定理1.1.1</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#证明"><span class="post-toc-number">3.1.18.1.</span> <span class="post-toc-text">证明</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#等价类（定义1-1-12）"><span class="post-toc-number">3.1.19.</span> <span class="post-toc-text">等价类（定义1.1.12）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#商集合（定义1-1-13）"><span class="post-toc-number">3.1.20.</span> <span class="post-toc-text">商集合（定义1.1.13）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#自然映射（定义1-1-14）"><span class="post-toc-number">3.1.21.</span> <span class="post-toc-text">自然映射（定义1.1.14）</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#定理1-1-2"><span class="post-toc-number">3.1.22.</span> <span class="post-toc-text">定理1.1.2</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#证明-1"><span class="post-toc-number">3.1.22.1.</span> <span class="post-toc-text">证明</span></a></li></ol></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#等价关系和分类相同"><span class="post-toc-number">3.1.23.</span> <span class="post-toc-text">等价关系和分类相同</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#同余关系（定义1-1-15）"><span class="post-toc-number">3.1.24.</span> <span class="post-toc-text">同余关系（定义1.1.15）</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-4"><a class="post-toc-link" href="#例子-3"><span class="post-toc-number">3.1.24.1.</span> <span class="post-toc-text">例子</span></a></li></ol></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+
+
+<article id="post-抽象代数笔记" class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">抽象代数笔记</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2020-05-14 19:19:54" datetime="2020-05-14T11:19:54.000Z" itemprop="datePublished">2020-05-14</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Math/">Math</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style="display:none">
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>密码学必修课抽象代数的笔记，看心情学习2333。内容来自南开大学邓少强老师的公开课。</p>
+<a id="more"></a>
+<h1 id="抽象代数历史"><a href="#抽象代数历史" class="headerlink" title="抽象代数历史"></a>抽象代数历史</h1><p>抽象代数来自于代数方程的解，比如：</p>
+<ol>
+<li>一次代数方程：$ax+b=0$</li>
+<li>二次代数方程：$ax^2+bx+c=0$，古巴比伦时期便可解，有解且为根式解</li>
+<li>三次四次代数方程：$ax^3+bx^2+cx+d=0$ 或 $ax^4+bx^3++cx^2+dx+e=0$，十七世纪才发现存在根式解</li>
+</ol>
+<p>五次及以上代数方程，是否存在根式解？这个问题被许多数学家研究过，比如：</p>
+<pre><code>1. L. Euler 1707-1783
+ 2. J. L. Lagrange 1736-1813，他是第一个假设根为集合，观察集合的变化来做的
+ 3. C. F. Gauss 1777-1855
+</code></pre><p>以上三人认为五次及以上的代数方程不存在根式解</p>
+<p>之后的数学家N. H. Abei (1802-1829)，不仅仅证明了某些代数方程不存在根式解，而且找出了一类特殊的方程可以用根式解</p>
+<p>最后，数学家E. Galois (1811-1832)，他在19岁的时候解决了该问题，并创立了Galois理论，该理论给出了五次及以上的代数方程有根式解的充分必要条件。可惜的是，该理论1846年才被发表，之后Jordan把该理论介绍给了大家，该理论才得以发展。</p>
+<h1 id="第一章-群"><a href="#第一章-群" class="headerlink" title="第一章 群"></a>第一章 群</h1><h2 id="运算及其关系"><a href="#运算及其关系" class="headerlink" title="运算及其关系"></a>运算及其关系</h2><h3 id="代数体系"><a href="#代数体系" class="headerlink" title="代数体系"></a>代数体系</h3><p>代数体系粗略地讲便是<strong>集合+运算</strong>（不考虑空集）</p>
+<h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><p>集合不给出具体的定义，如果给出定义则会出现<strong>悖论</strong></p>
+<h3 id="嵌入映射（定义1-1-1）"><a href="#嵌入映射（定义1-1-1）" class="headerlink" title="嵌入映射（定义1.1.1）"></a>嵌入映射（定义1.1.1）</h3><p>设$A_0$为$A$的子集，定义$A_0$到$A$的映射<br>$$<br>f: A_0 \rightarrow A, f(x) = x, x \in A_0<br>$$<br>则称$f$为$A_0$到$A$的<strong>嵌入映射</strong></p>
+<h3 id="开拓和限制（定义1-1-2）"><a href="#开拓和限制（定义1-1-2）" class="headerlink" title="开拓和限制（定义1.1.2）"></a>开拓和限制（定义1.1.2）</h3><p>设$A_0$为$A$的子集，$f$为$A$到$B$的映射，$g$为$A_0$到$B$的映射，如果$f(x)=g(x),\forall x \in A_0$，则称$f$为$g$的<strong>开拓</strong>，$g$为$f$（在$A_0$上）的<strong>限制</strong>，记为$g=f\mid_{A_0}$</p>
+<h3 id="交换图"><a href="#交换图" class="headerlink" title="交换图"></a>交换图</h3><p>$$<br>f_1:A_1 \rightarrow A_2,f_2:A_2 \rightarrow A_3,f_3:A_3 \rightarrow C<br>$$</p>
+<p>$$<br>f_1f_2f_3:A_1 \rightarrow C<br>$$</p>
+<p>且<br>$$<br>g_1:A_1 \rightarrow B,g_2:B \rightarrow C<br>$$</p>
+<p>$$<br>G_1G_2:A_1 \rightarrow C<br>$$</p>
+<p>则<br>$$<br>f_1f_2f_3=g_1g_2<br>$$<br>有<strong>交换图</strong></p>
+<div style="width: 100%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/05/14/抽象代数笔记/1.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></div>
+
+<h4 id="例子：将开拓和限制转化为交换图"><a href="#例子：将开拓和限制转化为交换图" class="headerlink" title="例子：将开拓和限制转化为交换图"></a>例子：将开拓和限制转化为交换图</h4><p>设$A_0,A,B$如定义1.1.1和1.1.2，$f$为$g$的开拓，则有交换图</p>
+<div style="width: 100%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/05/14/抽象代数笔记/2.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></div>
+
+<h3 id="直积（定义1-1-3）"><a href="#直积（定义1-1-3）" class="headerlink" title="直积（定义1.1.3）"></a>直积（定义1.1.3）</h3><p>设$A_1,A_2$为两个集合，令<br>$$<br>A_1 \times A_2 = { (a,b)\mid a \in A_1, b \in B_2 }<br>$$<br>集合$A_1 \times A_2$ 称为$A_1$与$A_2$的<strong>直积</strong></p>
+<h3 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h3><p>运算的本质：两个元素按照一定的运算法则（加减乘除）得到一个元素</p>
+<h3 id="代数运算（定义1-1-4）"><a href="#代数运算（定义1-1-4）" class="headerlink" title="代数运算（定义1.1.4）"></a>代数运算（定义1.1.4）</h3><p>设$A,B,D$为三个非空集合，则映射$f:A \times B \rightarrow D$称为一个$A$与$B$到$D$的<strong>代数运算</strong></p>
+<h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p>设$V$为线性空间，数域为$P$，则</p>
+<p>$V$的加法：$V \times V \rightarrow  V$</p>
+<p>$P$与$V$的数乘：$P \times V \rightarrow  V$</p>
+<h3 id="二元运算"><a href="#二元运算" class="headerlink" title="二元运算"></a>二元运算</h3><p>若定义1.1.4中的$A,B,D$都相同，则称$f$为$A$上的<strong>二元运算</strong>，其记号表示为$a \circ b$或$ab$</p>
+<h3 id="交换律（定义1-1-5）"><a href="#交换律（定义1-1-5）" class="headerlink" title="交换律（定义1.1.5）"></a>交换律（定义1.1.5）</h3><p>设$A$上定义了二元运算，满足<br>$$<br>ab=ba,\forall a,b \in A<br>$$<br>则称（二元）运算满足<strong>交换律</strong>，并且交换律可以使得$a^n,a \in A,n \in \mathbb N$有意义</p>
+<h3 id="结合律（定义1-1-6）"><a href="#结合律（定义1-1-6）" class="headerlink" title="结合律（定义1.1.6）"></a>结合律（定义1.1.6）</h3><p>设$A$上定义了运算，满足<br>$$<br>a(bc)=(ab)c,\forall a,b,c \in A<br>$$<br>则称运算满足<strong>结合律</strong>，并且结合律可以使得$(ab)^n=a^nb^n,a,b \in A,n \in \mathbb N$有意义</p>
+<h3 id="分配律（定义1-1-7）"><a href="#分配律（定义1-1-7）" class="headerlink" title="分配律（定义1.1.7）"></a>分配律（定义1.1.7）</h3><p>设A上定义了两种运算$\circ,+$，满足<br>$$<br>a \circ (b+c) = a \circ b + a \circ c , \forall a,b,c \in A<br>$$<br>则称运算满足$\circ$对$+$的<strong>左分配律</strong>，反过来便是<strong>右分配律</strong>，统称<strong>分配律</strong></p>
+<h3 id="运算表"><a href="#运算表" class="headerlink" title="运算表"></a>运算表</h3><p>设<br>$$<br>f:A \times B \rightarrow D,|A|&lt;\infty,|B|&lt;\infty<br>$$</p>
+<p>$$<br>A={a_1,a_2,…,a_n},B={b_1,b_2,…,b_n}<br>$$</p>
+<p>且运算为$\circ $，则<strong>运算表</strong>为</p>
+<div style="width: 100%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/05/14/抽象代数笔记/3.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></div>
+
+<p>如果$A=B$且结果关于对角线对称，则该运算满足交换律</p>
+<h3 id="构造新集合的方法——关系"><a href="#构造新集合的方法——关系" class="headerlink" title="构造新集合的方法——关系"></a>构造新集合的方法——关系</h3><p><strong>关系</strong>：非空集合$A$中一种对两个元素而言的一种性质，使$A$中任何两个元素，或有这种性质，或没有这种性质，二者必居其一。</p>
+<p>$a$与$b$有关系$R$，将有关系的元素对构成$A \times A$的子集，则$R={(a,b) \mid aRb}$</p>
+<p>反之，$A \times A$中有一个子集$R$，则可以定义关系$R$使得$aRb \rightleftharpoons (a,b) \in R$</p>
+<h3 id="关系（定义1-1-9）"><a href="#关系（定义1-1-9）" class="headerlink" title="关系（定义1.1.9）"></a>关系（定义1.1.9）</h3><p>设$A$为非空集合，$A$中的一个<strong>关系</strong>为$A \times A$的一个子集$R$</p>
+<h4 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h4><p>设$A=\mathbb R$，则关系$\leq$和$=$为</p>
+<div style="width: 100%; margin: auto"><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2020/05/14/抽象代数笔记/4.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></div>
+
+<h3 id="等价关系（定义1-1-10）"><a href="#等价关系（定义1-1-10）" class="headerlink" title="等价关系（定义1.1.10）"></a>等价关系（定义1.1.10）</h3><p>设$A$为非空集合中定义了一个关系$R$，若$R$满足条件</p>
+<ol>
+<li>反身性：$\forall a \in A,aRa$</li>
+<li>对称性：$aRa \Rightarrow bRa$</li>
+<li>传递性：$aRb,bRc \Rightarrow aRc$</li>
+</ol>
+<p>则称$R$为<strong>等价关系</strong></p>
+<h4 id="例子-2"><a href="#例子-2" class="headerlink" title="例子"></a>例子</h4><p>“$&lt;$”不是$\mathbb R$中的等价关系</p>
+<p>$\mathbb P^{n \times n}$中的“相似”为等价关系</p>
+<h3 id="划分（分类）（定义1-1-11）"><a href="#划分（分类）（定义1-1-11）" class="headerlink" title="划分（分类）（定义1.1.11）"></a>划分（分类）（定义1.1.11）</h3><p>设$A$为非空集合，$A$ 的<strong>划分（分类）</strong>是指$A$中一些子集合的集合，满足$\forall a \in A$，$a$包含而且只包含在一个子集合中</p>
+<h3 id="定理1-1-1"><a href="#定理1-1-1" class="headerlink" title="定理1.1.1"></a>定理1.1.1</h3><p>$A$的一个分类决定$A$中一个等价关系</p>
+<h4 id="证明"><a href="#证明" class="headerlink" title="证明"></a>证明</h4><p>设$A= \bigcup_{i \in I}A_i,A_i \neq \emptyset,A_i \bigcap A_j = \emptyset, i \neq j$定义关系$R$，则$aRb \rightleftharpoons \exists i$，使得$a,b \in A_i$（$a$与$b$在同一个类中，等价关系的三个条件：</p>
+<ol>
+<li>反身性：一定成立</li>
+<li>对称性：一定成立</li>
+<li>传递性：$aRb,\exist i,a,b \in A_i$且$bRc,\exists j,b,c \in A_j$，则由于$A_i \bigcap A_j=\emptyset$，故$i=j$，即$aRc$，成立</li>
+</ol>
+<p>证毕</p>
+<h3 id="等价类（定义1-1-12）"><a href="#等价类（定义1-1-12）" class="headerlink" title="等价类（定义1.1.12）"></a>等价类（定义1.1.12）</h3><p>设$A$为非空集合，$A$中有一个等价关系$R$，$a \in A$，定义$a$的<strong>等价类</strong>$\overline{a}={b \in A \mid aRb}$（或称为$a$所在的等价类）</p>
+<h3 id="商集合（定义1-1-13）"><a href="#商集合（定义1-1-13）" class="headerlink" title="商集合（定义1.1.13）"></a>商集合（定义1.1.13）</h3><p>设$A$为非空集合，$A$中定义了等价关系$R$，定义集合$A/R={\overline{a} \mid a \in A}$ （重复的只取一个），称为$A$对$R$的<strong>商集合</strong></p>
+<h3 id="自然映射（定义1-1-14）"><a href="#自然映射（定义1-1-14）" class="headerlink" title="自然映射（定义1.1.14）"></a>自然映射（定义1.1.14）</h3><p>映射$\pi : A \rightarrow A/R，\pi(a) = \overline{a}$称为$A$到$A/R$的<strong>自然映射</strong></p>
+<h3 id="定理1-1-2"><a href="#定理1-1-2" class="headerlink" title="定理1.1.2"></a>定理1.1.2</h3><p>$A$中一个等价关系决定$A$的一个分类</p>
+<h4 id="证明-1"><a href="#证明-1" class="headerlink" title="证明"></a>证明</h4><p>$A/R$就是$A$的一个分类</p>
+<p>$\forall \overline{a} \in A/R,\overline{a} \subseteq A,\overline{a} \neq \emptyset,A = \bigcup_{a \in A}\overline{a}$（重复的只取一个），设$\overline{a} \neq \overline{b}$，若$\overline{a} \bigcap \overline{b} \neq \emptyset $，取$c \in \overline{a} \bigcap \overline{b}$，当$c \in \overline{a}$，可推出$aRc$；当$c \in \overline{b}$，可推出$bRc$，由对称性可将$aRc$划为$cRa$，再由传递性得$bRa$，故$ \overline{a} =  \overline{b}$，矛盾；则当$ \overline{a} \neq \overline{b}$，$\overline{a} \bigcap \overline{b} = \emptyset$，故$A / R$为$A$的分类</p>
+<p>证毕</p>
+<h3 id="等价关系和分类相同"><a href="#等价关系和分类相同" class="headerlink" title="等价关系和分类相同"></a>等价关系和分类相同</h3><p>由定理1.1.1和定理1.1.2可知</p>
+<h3 id="同余关系（定义1-1-15）"><a href="#同余关系（定义1-1-15）" class="headerlink" title="同余关系（定义1.1.15）"></a>同余关系（定义1.1.15）</h3><p>设$A$为非空集合，$A$中定义了一个二元运算$\circ$，又定义了等价关系$R$，如果$R$与$\circ$满足条件<br>$$<br>a_1Rb_1,a_2Rb_2 \Rightarrow  (a_1 \circ a_2) \ R \ (b_1 \circ b_2)<br>$$<br>则称$R$为$\circ$的<strong>同余关系</strong>，新的二元运算为$\overline{\circ}$</p>
+<h4 id="例子-3"><a href="#例子-3" class="headerlink" title="例子"></a>例子</h4><p>设$\Z$中取$m&gt;0$，定义关系<br>$$<br>aRb \rightleftharpoons m \mid b - a<br>$$<br>$\Z$中的关系$R$为等价关系，称为模$m$的同余关系，$aRb$记为$a \equiv b \ (mod \ n)$，$\Z$中有$+,\times$，$\R$为$+,\times$的同余关系</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    
+    <div class="content">
+        
+<span class="post-time">
+    Last updated: <time datetime="2020-05-14T14:53:14.028Z" itemprop="dateUpdated">2020-05-14 22:53:14</time>
+</span><br>
+
+
+        
+    </div>
+    
+    <footer>
+        <a href="http://yoursite.com">
+            <img src="/img/avatar.png" alt="Ver">
+            Ver
+        </a>
+    </footer>
+</blockquote>
+
+        
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Math/">Math</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Note/">Note</a></li></ul>
+
+
+            
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between flex-row-reverse">
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2020/05/12/An-Introduction-to-Mathematical-Cryptography-笔记/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">An Introduction to Mathematical Cryptography 笔记</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</article>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style="display:none">
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style="display:none">
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p><span>Ver &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
+
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+</body>
+</html>

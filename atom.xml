@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2020-05-13T14:07:46.135Z</updated>
+  <updated>2020-05-14T14:53:14.028Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,33 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>抽象代数笔记</title>
+    <link href="http://yoursite.com/2020/05/14/%E6%8A%BD%E8%B1%A1%E4%BB%A3%E6%95%B0%E7%AC%94%E8%AE%B0/"/>
+    <id>http://yoursite.com/2020/05/14/抽象代数笔记/</id>
+    <published>2020-05-14T11:19:54.000Z</published>
+    <updated>2020-05-14T14:53:14.028Z</updated>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;密码学必修课抽象代数的笔记，看心情学习2333。内容来自南开大学邓少强老师的公开课。&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Math" scheme="http://yoursite.com/categories/Math/"/>
+    
+    
+      <category term="Math" scheme="http://yoursite.com/tags/Math/"/>
+    
+      <category term="Note" scheme="http://yoursite.com/tags/Note/"/>
+    
+  </entry>
+  
+  <entry>
     <title>An Introduction to Mathematical Cryptography 笔记</title>
     <link href="http://yoursite.com/2020/05/12/An-Introduction-to-Mathematical-Cryptography-%E7%AC%94%E8%AE%B0/"/>
     <id>http://yoursite.com/2020/05/12/An-Introduction-to-Mathematical-Cryptography-笔记/</id>
     <published>2020-05-12T05:51:20.000Z</published>
-    <updated>2020-05-13T14:07:46.135Z</updated>
+    <updated>2020-05-14T12:17:01.438Z</updated>
     
     <summary type="html">
     
@@ -453,30 +475,6 @@
     
       &lt;p&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&quot;&gt;&lt;/script&gt;&lt;/p&gt;
 &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;RSA作为密码学中的代表，就和web中的php一样，被许多人不断研究，才有着今天这样广泛的使用程度。当然与此相对的也有许多的攻击方式被不断挖掘出来。这篇文章主要是对现阶段主流的RSA攻击方式进行总结，并配上exp脚本，以备以后的使用。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Crypto" scheme="http://yoursite.com/categories/Crypto/"/>
-    
-    
-      <category term="CTF" scheme="http://yoursite.com/tags/CTF/"/>
-    
-      <category term="Crypto" scheme="http://yoursite.com/tags/Crypto/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Ethernaut训练</title>
-    <link href="http://yoursite.com/2019/01/08/ethernautd%E8%AE%AD%E7%BB%83/"/>
-    <id>http://yoursite.com/2019/01/08/ethernautd训练/</id>
-    <published>2019-01-08T08:26:39.461Z</published>
-    <updated>2019-02-23T02:49:22.643Z</updated>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h2&gt;&lt;p&gt;ethernaut包含有22道智能合约的训练题目，而最近有关智能合约的题也是在不断的出现，所以还是有必要了解一下的(顺便了解下这种题目怎么做)&lt;/p&gt;
-&lt;p&gt;&lt;a href=&quot;https://ethernaut.zeppelin.solutions/level/0x6545df87f57d21cb096a0bfcc53a70464d062512&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;题目链接&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;另外也放上大哥的writeup跟着学习一下&lt;br&gt;&lt;a href=&quot;http://ultramangaia.github.io/blog/2018/Ethernaut%E8%AE%AD%E7%BB%83writeup.html#more&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;链接&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
     
     </summary>
     
