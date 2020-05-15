@@ -9,7 +9,7 @@
 
 
 
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
     
     
@@ -39,13 +39,13 @@
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
     <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
+    <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </head>
 
 <body>
-    <div id="loading" class="active"></div>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
 
     <aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
@@ -185,14 +185,14 @@
 <p>malloc_hook写one_gadget不行可以写relloc_hook然后写one_gadget</p>
 <p>没有设置stdin缓冲区的时候，使用scanf、getchar获取内容时，如果输入字符串比较长会调用 malloc 来分配内存，所以可以把fastbin放入smallbin</p>
 <h1 id="kernel"><a href="#kernel" class="headerlink" title="kernel"></a>kernel</h1><p>cpio -idmv &lt; <em>.cpio<br>find . | cpio -o -H newc &gt; </em>.cpio</p>
-<p>find . | cpio -o –format=newc &gt; ../rootfs.img</p>
+<p>find . | cpio -o —format=newc &gt; ../rootfs.img</p>
 <p>etc/init/rcS</p>
 <p>/proc/kallsyms 记录了所有函数地址</p>
 <p>32位：pushl iret<br>64位：pushq iretq<br>编译用-no-pie<br>调试加/dev/null -s</p>
 <p>./extract-vmlinux ./bzImage &gt; vmlinux</p>
 <p>swapgs</p>
 <p>qemu-system-i386 -hda ./rootfs.img -kernel linux/arch/x86/boot/bzImage -append ‘console=ttyS0 root=/dev/sda rw nokaslr quiet’ -m 128M -nographic -s -monitor /dev/null</p>
-<p>set architecture i386:x64-32<br>gdb ./vmlinux<br>target remote:1234<br>b net/sctp/socket.c:1846<br>gcc exp.c -o exp -pthread -lsctp –static</p>
+<p>set architecture i386:x64-32<br>gdb ./vmlinux<br>target remote:1234<br>b net/sctp/socket.c:1846<br>gcc exp.c -o exp -pthread -lsctp —static</p>
 <p>lsmod获取基地址<br>ida改基地址 edit-&gt;segements-&gt;rebase<br>set architecture i386:x86-64<br>add-symbol-file ./baby.ko 0xFFFFFFFFC0002000</p>
 <p>ida鼠标移动到要的地方 按tab</p>
 <p>cat /proc/kallsyms | grep commit_creds<br>cat /proc/kallsyms | grep prepare_kernel_cred </p>
@@ -387,7 +387,7 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
 
 
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 

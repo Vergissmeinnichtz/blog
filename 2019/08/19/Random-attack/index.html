@@ -9,7 +9,7 @@
 
 
 
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
     
     
@@ -40,13 +40,13 @@
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
     <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
+    <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </head>
 
 <body>
-    <div id="loading" class="active"></div>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
 
     <aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
@@ -181,12 +181,12 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>今天有幸拜读了bibi大佬在xman上讲的密码学的ppt，感觉收获很多。在序列密码这一章里学到了很多有关随机数的攻击方法，今天抽空记录一下。另外发现了一篇大佬写的不错的<a href="https://www.cnblogs.com/kagari/p/11304319.html" target="_blank" rel="noopener">blog</a>，也一并摘抄整合一下。(如有不妥请联系我进行删除,谢谢！<a href="mailto:verhan@163.com" target="_blank" rel="noopener">verhan@163.com</a>)</p>
+            <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>今天有幸拜读了bibi大佬在xman上讲的密码学的ppt，感觉收获很多。在序列密码这一章里学到了很多有关随机数的攻击方法，今天抽空记录一下。另外发现了一篇大佬写的不错的<a href="https://www.cnblogs.com/kagari/p/11304319.html" target="_blank" rel="noopener">blog</a>，也一并摘抄整合一下。(如有不妥请联系我进行删除,谢谢！verhan@163.com)</p>
 <a id="more"></a>
 <h1 id="Level-1-Linear-Congruential-PRNG"><a href="#Level-1-Linear-Congruential-PRNG" class="headerlink" title="Level 1: Linear Congruential PRNG"></a>Level 1: Linear Congruential PRNG</h1><h2 id="Basic-knowledge"><a href="#Basic-knowledge" class="headerlink" title="Basic knowledge"></a>Basic knowledge</h2><blockquote>
 <p>java.util.Random, elder c’s rand(), some of platform’s php’s rand()<br>48 bits seed as internal initial state<br>Linear: next_state = (state * multiplier + addend) mod (2 ^ precision)</p>
 <blockquote>
-<p>  multiplier = 25214903917<br>  addend = 11<br>  Precision = 48<br>State -&gt; output: bitshifted to the right by 16 bits<br>nextInt(), nextLong(), …… – 32 bits or multiple</p>
+<p>  multiplier = 25214903917<br>  addend = 11<br>  Precision = 48<br>State -&gt; output: bitshifted to the right by 16 bits<br>nextInt(), nextLong(), …… — 32 bits or multiple</p>
 </blockquote>
 </blockquote>
 <h2 id="Attack"><a href="#Attack" class="headerlink" title="Attack"></a>Attack</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">Random random = <span class="keyword">new</span> Random();</span><br><span class="line"><span class="keyword">long</span> v1 = random.nextInt();</span><br><span class="line"><span class="keyword">long</span> v2 = random.nextInt();</span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">65536</span>; i++) &#123;</span><br><span class="line">    <span class="keyword">long</span> state = v1 * <span class="number">65536</span> + i;</span><br><span class="line">    <span class="keyword">if</span> (((state * multiplier + addend) &amp; mask) &gt;&gt;&gt; <span class="number">16</span>) == v2) &#123;</span><br><span class="line">        System.out.println(<span class="string">"Seed found: "</span> + state);</span><br><span class="line">        <span class="keyword">break</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
@@ -361,7 +361,7 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
 
 
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 

@@ -9,7 +9,7 @@
 
 
 
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
     
     
@@ -45,13 +45,13 @@
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
     <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
+    <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </head>
 
 <body>
-    <div id="loading" class="active"></div>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
 
     <aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
@@ -197,7 +197,7 @@
 <p>五次及以上代数方程，是否存在根式解？这个问题被许多数学家研究过，比如：</p>
 <ol>
 <li><p>L. Euler 1707-1783</p>
-<ol start="2">
+<ol>
 <li>J. L. Lagrange 1736-1813，他是第一个假设根为集合，观察集合的变化来做的</li>
 <li>C. F. Gauss 1777-1855</li>
 </ol>
@@ -208,13 +208,18 @@
 <p>最后，数学家E. Galois (1811-1832)，他在19岁的时候解决了该问题，并创立了Galois理论，该理论给出了五次及以上的代数方程有根式解的充分必要条件。可惜的是，该理论1846年才被发表，之后Jordan把该理论介绍给了大家，该理论才得以发展。</p>
 <h1 id="第一章-群"><a href="#第一章-群" class="headerlink" title="第一章 群"></a>第一章 群</h1><h2 id="第一节-运算及其关系"><a href="#第一节-运算及其关系" class="headerlink" title="第一节 运算及其关系"></a>第一节 运算及其关系</h2><h3 id="代数体系"><a href="#代数体系" class="headerlink" title="代数体系"></a>代数体系</h3><p>代数体系粗略地讲便是<strong>集合+运算</strong>（不考虑空集）</p>
 <h3 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h3><p>集合不给出具体的定义，如果给出定义则会出现<strong>悖论</strong></p>
-<h3 id="嵌入映射（定义1-1-1）"><a href="#嵌入映射（定义1-1-1）" class="headerlink" title="嵌入映射（定义1.1.1）"></a>嵌入映射（定义1.1.1）</h3><p>设$A_0$为$A$的子集，定义$A_0$到$A$的映射<br>$$<br>f: A_0 \rightarrow A, f(x) = x, x \in A_0<br>$$<br>则称$f$为$A_0$到$A$的<strong>嵌入映射</strong></p>
+<h3 id="嵌入映射（定义1-1-1）"><a href="#嵌入映射（定义1-1-1）" class="headerlink" title="嵌入映射（定义1.1.1）"></a>嵌入映射（定义1.1.1）</h3><p>设$A_0$为$A$的子集，定义$A_0$到$A$的映射</p>
+<script type="math/tex; mode=display">
+f: A_0 \rightarrow A, f(x) = x, x \in A_0</script><p>则称$f$为$A_0$到$A$的<strong>嵌入映射</strong></p>
 <h3 id="开拓和限制（定义1-1-2）"><a href="#开拓和限制（定义1-1-2）" class="headerlink" title="开拓和限制（定义1.1.2）"></a>开拓和限制（定义1.1.2）</h3><p>设$A_0$为$A$的子集，$f$为$A$到$B$的映射，$g$为$A_0$到$B$的映射，如果$f(x)=g(x),\forall x \in A_0$，则称$f$为$g$的<strong>开拓</strong>，$g$为$f$（在$A_0$上）的<strong>限制</strong>，记为$g=f\mid_{A_0}$</p>
-<h3 id="交换图"><a href="#交换图" class="headerlink" title="交换图"></a>交换图</h3><p>$$<br>f_1:A_1 \rightarrow A_2,f_2:A_2 \rightarrow A_3,f_3:A_3 \rightarrow C<br>$$</p>
-<p>$$<br>f_1f_2f_3:A_1 \rightarrow C<br>$$</p>
-<p>且<br>$$<br>g_1:A_1 \rightarrow B,g_2:B \rightarrow C<br>$$</p>
-<p>$$<br>G_1G_2:A_1 \rightarrow C<br>$$</p>
-<p>则<br>$$<br>f_1f_2f_3=g_1g_2<br>$$<br>有<strong>交换图</strong></p>
+<h3 id="交换图"><a href="#交换图" class="headerlink" title="交换图"></a>交换图</h3><script type="math/tex; mode=display">
+f_1:A_1 \rightarrow A_2,f_2:A_2 \rightarrow A_3,f_3:A_3 \rightarrow C</script><script type="math/tex; mode=display">
+f_1f_2f_3:A_1 \rightarrow C</script><p>且</p>
+<script type="math/tex; mode=display">
+g_1:A_1 \rightarrow B,g_2:B \rightarrow C</script><script type="math/tex; mode=display">
+G_1G_2:A_1 \rightarrow C</script><p>则</p>
+<script type="math/tex; mode=display">
+f_1f_2f_3=g_1g_2</script><p>有<strong>交换图</strong></p>
 <div style="width: 100%; margin: auto"><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -232,19 +237,28 @@
                 <div class="image-caption"></div>
             </figure></div>
 
-<h3 id="直积（定义1-1-3）"><a href="#直积（定义1-1-3）" class="headerlink" title="直积（定义1.1.3）"></a>直积（定义1.1.3）</h3><p>设$A_1,A_2$为两个集合，令<br>$$<br>A_1 \times A_2 = { (a,b)\mid a \in A_1, b \in B_2 }<br>$$<br>集合$A_1 \times A_2$ 称为$A_1$与$A_2$的<strong>直积</strong></p>
+<h3 id="直积（定义1-1-3）"><a href="#直积（定义1-1-3）" class="headerlink" title="直积（定义1.1.3）"></a>直积（定义1.1.3）</h3><p>设$A_1,A_2$为两个集合，令</p>
+<script type="math/tex; mode=display">
+A_1 \times A_2 = \{ (a,b)\mid a \in A_1, b \in B_2 \}</script><p>集合$A_1 \times A_2$ 称为$A_1$与$A_2$的<strong>直积</strong></p>
 <h3 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h3><p>运算的本质：两个元素按照一定的运算法则（加减乘除）得到一个元素</p>
 <h3 id="代数运算（定义1-1-4）"><a href="#代数运算（定义1-1-4）" class="headerlink" title="代数运算（定义1.1.4）"></a>代数运算（定义1.1.4）</h3><p>设$A,B,D$为三个非空集合，则映射$f:A \times B \rightarrow D$称为一个$A$与$B$到$D$的<strong>代数运算</strong></p>
 <h4 id="例子"><a href="#例子" class="headerlink" title="例子"></a>例子</h4><p>设$V$为线性空间，数域为$P$，则</p>
 <p>$V$的加法：$V \times V \rightarrow  V$</p>
 <p>$P$与$V$的数乘：$P \times V \rightarrow  V$</p>
 <h3 id="二元运算"><a href="#二元运算" class="headerlink" title="二元运算"></a>二元运算</h3><p>若定义1.1.4中的$A,B,D$都相同，则称$f$为$A$上的<strong>二元运算</strong>，其记号表示为$a \circ b$或$ab$</p>
-<h3 id="交换律（定义1-1-5）"><a href="#交换律（定义1-1-5）" class="headerlink" title="交换律（定义1.1.5）"></a>交换律（定义1.1.5）</h3><p>设$A$上定义了二元运算，满足<br>$$<br>ab=ba,\forall a,b \in A<br>$$<br>则称（二元）运算满足<strong>交换律</strong>，并且交换律可以使得$a^n,a \in A,n \in \mathbb N$有意义</p>
-<h3 id="结合律（定义1-1-6）"><a href="#结合律（定义1-1-6）" class="headerlink" title="结合律（定义1.1.6）"></a>结合律（定义1.1.6）</h3><p>设$A$上定义了运算，满足<br>$$<br>a(bc)=(ab)c,\forall a,b,c \in A<br>$$<br>则称运算满足<strong>结合律</strong>，并且结合律可以使得$(ab)^n=a^nb^n,a,b \in A,n \in \mathbb N$有意义</p>
-<h3 id="分配律（定义1-1-7）"><a href="#分配律（定义1-1-7）" class="headerlink" title="分配律（定义1.1.7）"></a>分配律（定义1.1.7）</h3><p>设A上定义了两种运算$\circ,+$，满足<br>$$<br>a \circ (b+c) = a \circ b + a \circ c , \forall a,b,c \in A<br>$$<br>则称运算满足$\circ$对$+$的<strong>左分配律</strong>，反过来便是<strong>右分配律</strong>，统称<strong>分配律</strong></p>
-<h3 id="运算表"><a href="#运算表" class="headerlink" title="运算表"></a>运算表</h3><p>设<br>$$<br>f:A \times B \rightarrow D,|A|&lt;\infty,|B|&lt;\infty<br>$$</p>
-<p>$$<br>A={a_1,a_2,…,a_n},B={b_1,b_2,…,b_n}<br>$$</p>
-<p>且运算为$\circ $，则<strong>运算表</strong>为</p>
+<h3 id="交换律（定义1-1-5）"><a href="#交换律（定义1-1-5）" class="headerlink" title="交换律（定义1.1.5）"></a>交换律（定义1.1.5）</h3><p>设$A$上定义了二元运算，满足</p>
+<script type="math/tex; mode=display">
+ab=ba,\forall a,b \in A</script><p>则称（二元）运算满足<strong>交换律</strong>，并且交换律可以使得$a^n,a \in A,n \in \mathbb N$有意义</p>
+<h3 id="结合律（定义1-1-6）"><a href="#结合律（定义1-1-6）" class="headerlink" title="结合律（定义1.1.6）"></a>结合律（定义1.1.6）</h3><p>设$A$上定义了运算，满足</p>
+<script type="math/tex; mode=display">
+a(bc)=(ab)c,\forall a,b,c \in A</script><p>则称运算满足<strong>结合律</strong>，并且结合律可以使得$(ab)^n=a^nb^n,a,b \in A,n \in \mathbb N$有意义</p>
+<h3 id="分配律（定义1-1-7）"><a href="#分配律（定义1-1-7）" class="headerlink" title="分配律（定义1.1.7）"></a>分配律（定义1.1.7）</h3><p>设A上定义了两种运算$\circ,+$，满足</p>
+<script type="math/tex; mode=display">
+a \circ (b+c) = a \circ b + a \circ c , \forall a,b,c \in A</script><p>则称运算满足$\circ$对$+$的<strong>左分配律</strong>，反过来便是<strong>右分配律</strong>，统称<strong>分配律</strong></p>
+<h3 id="运算表"><a href="#运算表" class="headerlink" title="运算表"></a>运算表</h3><p>设</p>
+<script type="math/tex; mode=display">
+f:A \times B \rightarrow D,|A|<\infty,|B|<\infty</script><script type="math/tex; mode=display">
+A=\{a_1,a_2,...,a_n\},B=\{b_1,b_2,...,b_n\}</script><p>且运算为$\circ $，则<strong>运算表</strong>为</p>
 <div style="width: 100%; margin: auto"><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -255,7 +269,7 @@
 
 <p>如果$A=B$且结果关于对角线对称，则该运算满足交换律</p>
 <h3 id="构造新集合的方法——关系"><a href="#构造新集合的方法——关系" class="headerlink" title="构造新集合的方法——关系"></a>构造新集合的方法——关系</h3><p><strong>关系</strong>：非空集合$A$中一种对两个元素而言的一种性质，使$A$中任何两个元素，或有这种性质，或没有这种性质，二者必居其一。</p>
-<p>$a$与$b$有关系$R$，将有关系的元素对构成$A \times A$的子集，则$R={(a,b) \mid aRb}$</p>
+<p>$a$与$b$有关系$R$，将有关系的元素对构成$A \times A$的子集，则$R=\{(a,b) \mid aRb\}$</p>
 <p>反之，$A \times A$中有一个子集$R$，则可以定义关系$R$使得$aRb \rightleftharpoons (a,b) \in R$</p>
 <h3 id="关系（定义1-1-9）"><a href="#关系（定义1-1-9）" class="headerlink" title="关系（定义1.1.9）"></a>关系（定义1.1.9）</h3><p>设$A$为非空集合，$A$中的一个<strong>关系</strong>为$A \times A$的一个子集$R$</p>
 <h4 id="例子-1"><a href="#例子-1" class="headerlink" title="例子"></a>例子</h4><p>设$A=\mathbb R$，则关系$\leq$为</p>
@@ -285,34 +299,38 @@
 <li>传递性：$aRb,\exist i,a,b \in A_i$且$bRc,\exists j,b,c \in A_j$，则由于$A_i \bigcap A_j=\emptyset$，故$i=j$，即$aRc$，成立</li>
 </ol>
 <p>证毕</p>
-<h3 id="等价类（定义1-1-12）"><a href="#等价类（定义1-1-12）" class="headerlink" title="等价类（定义1.1.12）"></a>等价类（定义1.1.12）</h3><p>设$A$为非空集合，$A$中有一个等价关系$R$，$a \in A$，定义$a$的<strong>等价类</strong>$\overline{a}={b \in A \mid aRb}$（或称为$a$所在的等价类）</p>
-<h3 id="商集合（定义1-1-13）"><a href="#商集合（定义1-1-13）" class="headerlink" title="商集合（定义1.1.13）"></a>商集合（定义1.1.13）</h3><p>设$A$为非空集合，$A$中定义了等价关系$R$，定义集合$A/R={\overline{a} \mid a \in A}$ （重复的只取一个），称为$A$对$R$的<strong>商集合</strong></p>
+<h3 id="等价类（定义1-1-12）"><a href="#等价类（定义1-1-12）" class="headerlink" title="等价类（定义1.1.12）"></a>等价类（定义1.1.12）</h3><p>设$A$为非空集合，$A$中有一个等价关系$R$，$a \in A$，定义$a$的<strong>等价类</strong>$\overline{a}=\{b \in A \mid aRb\}$（或称为$a$所在的等价类）</p>
+<h3 id="商集合（定义1-1-13）"><a href="#商集合（定义1-1-13）" class="headerlink" title="商集合（定义1.1.13）"></a>商集合（定义1.1.13）</h3><p>设$A$为非空集合，$A$中定义了等价关系$R$，定义集合$A/R=\{\overline{a} \mid a \in A\}$ （重复的只取一个），称为$A$对$R$的<strong>商集合</strong></p>
 <h3 id="自然映射（定义1-1-14）"><a href="#自然映射（定义1-1-14）" class="headerlink" title="自然映射（定义1.1.14）"></a>自然映射（定义1.1.14）</h3><p>映射$\pi : A \rightarrow A/R，\pi(a) = \overline{a}$称为$A$到$A/R$的<strong>自然映射</strong></p>
 <h3 id="定理1-1-2"><a href="#定理1-1-2" class="headerlink" title="定理1.1.2"></a>定理1.1.2</h3><p>$A$中一个等价关系决定$A$的一个分类</p>
 <h4 id="证明-1"><a href="#证明-1" class="headerlink" title="证明"></a>证明</h4><p>$A/R$就是$A$的一个分类</p>
 <p>$\forall \overline{a} \in A/R,\overline{a} \subseteq A,\overline{a} \neq \emptyset,A = \bigcup_{a \in A}\overline{a}$（重复的只取一个），设$\overline{a} \neq \overline{b}$，若$\overline{a} \bigcap \overline{b} \neq \emptyset $，取$c \in \overline{a} \bigcap \overline{b}$，当$c \in \overline{a}$，可推出$aRc$；当$c \in \overline{b}$，可推出$bRc$，由对称性可将$aRc$划为$cRa$，再由传递性得$bRa$，故$ \overline{a} =  \overline{b}$，矛盾；则当$ \overline{a} \neq \overline{b}$，$\overline{a} \bigcap \overline{b} = \emptyset$，故$A / R$为$A$的分类</p>
 <p>证毕</p>
 <h3 id="等价关系和分类相同"><a href="#等价关系和分类相同" class="headerlink" title="等价关系和分类相同"></a>等价关系和分类相同</h3><p>由定理1.1.1和定理1.1.2可知</p>
-<h3 id="同余关系（定义1-1-15）"><a href="#同余关系（定义1-1-15）" class="headerlink" title="同余关系（定义1.1.15）"></a>同余关系（定义1.1.15）</h3><p>设$A$为非空集合，$A$中定义了一个二元运算$\circ$，又定义了等价关系$R$，如果$R$与$\circ$满足条件<br>$$<br>a_1Rb_1,a_2Rb_2 \Rightarrow  (a_1 \circ a_2) \ R \ (b_1 \circ b_2)<br>$$<br>则称$R$为$\circ$的<strong>同余关系</strong>，新的二元运算为$\overline{\circ}$</p>
-<h4 id="例子-3"><a href="#例子-3" class="headerlink" title="例子"></a>例子</h4><p>设$\Z$中取$m&gt;0$，定义关系<br>$$<br>aRb \rightleftharpoons m \mid b - a<br>$$<br>$\Z$中的关系$R$为等价关系，称为模$m$的同余关系，$aRb$记为$a \equiv b \ (mod \ n)$，$\Z$中有$+,\times$，$\R$为$+,\times$的同余关系</p>
+<h3 id="同余关系（定义1-1-15）"><a href="#同余关系（定义1-1-15）" class="headerlink" title="同余关系（定义1.1.15）"></a>同余关系（定义1.1.15）</h3><p>设$A$为非空集合，$A$中定义了一个二元运算$\circ$，又定义了等价关系$R$，如果$R$与$\circ$满足条件</p>
+<script type="math/tex; mode=display">
+a_1Rb_1,a_2Rb_2 \Rightarrow  (a_1 \circ a_2) \ R \ (b_1 \circ b_2)</script><p>则称$R$为$\circ$的<strong>同余关系</strong>，新的二元运算为$\overline{\circ}$</p>
+<h4 id="例子-3"><a href="#例子-3" class="headerlink" title="例子"></a>例子</h4><p>设$\Z$中取$m&gt;0$，定义关系</p>
+<script type="math/tex; mode=display">
+aRb \rightleftharpoons m \mid b - a</script><p>$\Z$中的关系$R$为等价关系，称为模$m$的同余关系，$aRb$记为$a \equiv b \ (mod \ n)$，$\Z$中有$+,\times$，$\R$为$+,\times$的同余关系</p>
 <h2 id="第二节-半群与群"><a href="#第二节-半群与群" class="headerlink" title="第二节 半群与群"></a>第二节 半群与群</h2><h3 id="群"><a href="#群" class="headerlink" title="群"></a>群</h3><p>粗略地说，<strong>群</strong> = 非空集合 + 二元运算 + 性质</p>
-<h3 id="半群（定义1-2-1）"><a href="#半群（定义1-2-1）" class="headerlink" title="半群（定义1.2.1）"></a>半群（定义1.2.1）</h3><p>设$G$为一个非空集合，$G$上有一个二元运算$\circ$，满足结合律，则称${ G ;\circ }$（或$G$）为一个<strong>半群</strong></p>
+<h3 id="半群（定义1-2-1）"><a href="#半群（定义1-2-1）" class="headerlink" title="半群（定义1.2.1）"></a>半群（定义1.2.1）</h3><p>设$G$为一个非空集合，$G$上有一个二元运算$\circ$，满足结合律，则称$\{ G ;\circ \}$（或$G$）为一个<strong>半群</strong></p>
 <h4 id="例子-4"><a href="#例子-4" class="headerlink" title="例子"></a>例子</h4><ol>
-<li><p>$\N$为自然数集合（$0 \notin \N$），${ \N ; + }$为一个半群（无幺元），${ \N ; \times }$也为一个半群</p>
+<li><p>$\N$为自然数集合（$0 \notin \N$），$\{ \N ; + \}$为一个半群（无幺元），$\{ \N ; \times \}$也为一个半群</p>
 </li>
-<li><p>设$A$为非空集合，$M(A)$为$A$中所有变换（$A \rightarrow A$的映射）的集合，${ M(A); \circ }$为一个半群</p>
+<li><p>设$A$为非空集合，$M(A)$为$A$中所有变换（$A \rightarrow A$的映射）的集合，$\{ M(A); \circ \}$为一个半群</p>
 </li>
-<li>设$A$为非空集合，$P(A)$为$A$的幂集（即$A$的所有子集的集合，也包括空集），${ P(A); \bigcup}$为一个半群</li>
+<li>设$A$为非空集合，$P(A)$为$A$的幂集（即$A$的所有子集的集合，也包括空集），$\{ P(A); \bigcup\}$为一个半群</li>
 </ol>
-<h3 id="幺元和幺半群（定义1-2-2）"><a href="#幺元和幺半群（定义1-2-2）" class="headerlink" title="幺元和幺半群（定义1.2.2）"></a>幺元和幺半群（定义1.2.2）</h3><p>设${ G ; \circ}$为半群，若元素$e_1 \in G$，满足$\forall a \in G,e_1 \circ a = a$，称$e_1$为$G$的<strong>左幺元</strong>；若元素$e_2 \in G$，满足$\forall a \in G,a \circ e_2 = a$，称$e_2$为$G$的<strong>右幺元</strong>；若$e \in G$即是左幺元又是右幺元，则称$e$为$G$的<strong>幺元</strong>，也称<strong>单位元</strong>，有幺元的半群称为<strong>幺半群</strong></p>
+<h3 id="幺元和幺半群（定义1-2-2）"><a href="#幺元和幺半群（定义1-2-2）" class="headerlink" title="幺元和幺半群（定义1.2.2）"></a>幺元和幺半群（定义1.2.2）</h3><p>设$\{ G ; \circ\}$为半群，若元素$e_1 \in G$，满足$\forall a \in G,e_1 \circ a = a$，称$e_1$为$G$的<strong>左幺元</strong>；若元素$e_2 \in G$，满足$\forall a \in G,a \circ e_2 = a$，称$e_2$为$G$的<strong>右幺元</strong>；若$e \in G$即是左幺元又是右幺元，则称$e$为$G$的<strong>幺元</strong>，也称<strong>单位元</strong>，有幺元的半群称为<strong>幺半群</strong></p>
 <h3 id="命题1-2-1"><a href="#命题1-2-1" class="headerlink" title="命题1.2.1"></a>命题1.2.1</h3><p>幺半群中的幺元唯一</p>
 <h4 id="证明-2"><a href="#证明-2" class="headerlink" title="证明"></a>证明</h4><p>设$e,e’$为半群$G$的幺元，则$e=ee’=e’$，即幺半群中的幺元唯一</p>
 <p>证毕</p>
-<h3 id="逆元和可逆元（定义1-2-3）"><a href="#逆元和可逆元（定义1-2-3）" class="headerlink" title="逆元和可逆元（定义1.2.3）"></a>逆元和可逆元（定义1.2.3）</h3><p>设${ G ; \circ}$为幺半群，$e$为幺元，$a \in G$，若元素$a’$满足$a’ \circ a = e$，则称$a’$为$a$的<strong>左逆元</strong>；若元素$a’’$满足$a \circ a’’ = e$，则称$a’’$为$a$的<strong>右逆元</strong>；若$b \in G$即是$a$的左逆元，又是$a$的右逆元，则称$b$为$a$的<strong>逆元</strong>，记为$b=a^{-1}$，称$a$为<strong>可逆元</strong></p>
+<h3 id="逆元和可逆元（定义1-2-3）"><a href="#逆元和可逆元（定义1-2-3）" class="headerlink" title="逆元和可逆元（定义1.2.3）"></a>逆元和可逆元（定义1.2.3）</h3><p>设$\{ G ; \circ\}$为幺半群，$e$为幺元，$a \in G$，若元素$a’$满足$a’ \circ a = e$，则称$a’$为$a$的<strong>左逆元</strong>；若元素$a’’$满足$a \circ a’’ = e$，则称$a’’$为$a$的<strong>右逆元</strong>；若$b \in G$即是$a$的左逆元，又是$a$的右逆元，则称$b$为$a$的<strong>逆元</strong>，记为$b=a^{-1}$，称$a$为<strong>可逆元</strong></p>
 <h3 id="命题1-2-2"><a href="#命题1-2-2" class="headerlink" title="命题1.2.2"></a>命题1.2.2</h3><p>设$G$为群，则$G$中任一元的逆元唯一</p>
 <h4 id="证明-3"><a href="#证明-3" class="headerlink" title="证明"></a>证明</h4><p>设$a \in G$，$a_1,a_2$均为$a$的逆元，则$(a_1a)a_2=ea_2=a_2,a_1(aa_2)=a_1e=a1$，由因为半群满足结合律，故$a_1=a_2$，即任一元的逆元唯一</p>
 <p>证毕</p>
-<h3 id="群和交换群（Abel群）（定义1-2-4）"><a href="#群和交换群（Abel群）（定义1-2-4）" class="headerlink" title="群和交换群（Abel群）（定义1.2.4）"></a>群和交换群（Abel群）（定义1.2.4）</h3><p>设${ G ; \circ}$为幺半群，如果每一个元都是可逆元，则称$G$为<strong>群</strong>；若运算$\circ$还满足交换律，则称$G$为<strong>交换群</strong>，或<strong>阿贝尔（Abel）群</strong></p>
+<h3 id="群和交换群（Abel群）（定义1-2-4）"><a href="#群和交换群（Abel群）（定义1-2-4）" class="headerlink" title="群和交换群（Abel群）（定义1.2.4）"></a>群和交换群（Abel群）（定义1.2.4）</h3><p>设$\{ G ; \circ\}$为幺半群，如果每一个元都是可逆元，则称$G$为<strong>群</strong>；若运算$\circ$还满足交换律，则称$G$为<strong>交换群</strong>，或<strong>阿贝尔（Abel）群</strong></p>
 <h4 id="从集合的观点定义群"><a href="#从集合的观点定义群" class="headerlink" title="从集合的观点定义群"></a>从集合的观点定义群</h4><p>设$G \neq \emptyset$，定义了二元运算$\circ$，则</p>
 <ol>
 <li>$G$对$\circ$封闭</li>
@@ -332,8 +350,14 @@
 </li>
 <li><p>任何一个数域$\mathbb  P$对数的乘法为幺半群，不为群（因为有0）</p>
 </li>
-<li><p>${ 1,-1}$对数的乘法构成群（Abel群），群表如下：<br>$$<br>\begin{array}{c|lll}<br>{}&amp;{\ \ \ 1}&amp;{-1}\<br>\hline<br>{\ \ \ 1}&amp;{\ \ \ 1}&amp;{-1}\<br>{-1}&amp;{-1}&amp;{\ \ \ 1}\<br>\end{array}<br>$$</p>
-</li>
+<li><p>$\{ 1,-1\}$对数的乘法构成群（Abel群），群表如下：</p>
+<script type="math/tex; mode=display">
+\begin{array}{c|lll}
+{}&{\ \ \ 1}&{-1}\\
+\hline
+{\ \ \ 1}&{\ \ \ 1}&{-1}\\
+{-1}&{-1}&{\ \ \ 1}\\
+\end{array}</script></li>
 <li><p>设$A \neq \emptyset $，$S(A)$为$M(A)$中所有可逆变换，对$\circ$成一个群，称为$A$的<strong>全变换群</strong></p>
 </li>
 </ol>
@@ -351,16 +375,18 @@
 <p>1257成立，则$G$为群</p>
 <p>证毕</p>
 <h3 id="命题1-2-6"><a href="#命题1-2-6" class="headerlink" title="命题1.2.6"></a>命题1.2.6</h3><p><strong>有限半群</strong>$G$若满足左右消去律，则$G$为群</p>
-<h4 id="证明-7"><a href="#证明-7" class="headerlink" title="证明"></a>证明</h4><p>$|G|$为$G$中元素的个数，$|G|&lt; \infty$，设$G={a_1,a_2,…,a_n}$，考虑方程$a_ix=a_j$，元素$a_ia_1,a_ia_2,…,a_ia_n$都不重复（可用左消去律证明），必有一个为$a_j$，则$a_ix=a_j$有解；类似可证方程$xa_i=a_j$有解，则有命题1.2.5可得$G$为群</p>
+<h4 id="证明-7"><a href="#证明-7" class="headerlink" title="证明"></a>证明</h4><p>$|G|$为$G$中元素的个数，$|G|&lt; \infty$，设$G=\{a_1,a_2,…,a_n\}$，考虑方程$a_ix=a_j$，元素$a_ia_1,a_ia_2,…,a_ia_n$都不重复（可用左消去律证明），必有一个为$a_j$，则$a_ix=a_j$有解；类似可证方程$xa_i=a_j$有解，则有命题1.2.5可得$G$为群</p>
 <h4 id="备注"><a href="#备注" class="headerlink" title="备注"></a>备注</h4><p>若$G$是无限半群，则有反例：$\N$对乘法，不是群</p>
 <h3 id="加法群和乘法群中的一些运算"><a href="#加法群和乘法群中的一些运算" class="headerlink" title="加法群和乘法群中的一些运算"></a>加法群和乘法群中的一些运算</h3><h4 id="加法群"><a href="#加法群" class="headerlink" title="加法群"></a>加法群</h4><p>$a \in G,n \in \N,na = \overbrace{a+ … + a}^{n}$，$a$的逆为$-a$，$0a=0$（等式左边的为数字0，右边的为$G$的幺元，记为零元）</p>
 <h4 id="乘法群"><a href="#乘法群" class="headerlink" title="乘法群"></a>乘法群</h4><p>$a \in G,n \in \N,a^n = \overbrace{a…a}^{n}$，$a$的逆为$a^{-1}$，$a^{-n} = \overbrace{a^{-1}…a^{-1}}^{n}$，$a^ma^n=a^{m+n}$</p>
 <h3 id="群与对称"><a href="#群与对称" class="headerlink" title="群与对称"></a>群与对称</h3><p>欧几里得空间：刚体运动成群；保持平面图形整体不变的刚体运动成群</p>
 <h3 id="阶、有限群和无限群（定义1-2-5）"><a href="#阶、有限群和无限群（定义1-2-5）" class="headerlink" title="阶、有限群和无限群（定义1.2.5）"></a>阶、有限群和无限群（定义1.2.5）</h3><p>设$G$为群，$G$的<strong>阶</strong>指$G$中元素的个数，记号为$|G|$，若$|G|$有限，则称$G$为<strong>有限群</strong>；若$G$无限，则称$G$为<strong>无限群</strong></p>
-<h3 id="阶的定义（定义1-2-6）"><a href="#阶的定义（定义1-2-6）" class="headerlink" title="阶的定义（定义1.2.6）"></a>阶的定义（定义1.2.6）</h3><p>设$G$为群，$a \in G$，若对任何$n \in \N$，$a^n \neq e$，则称$a$的阶为无穷；若至少存在一个$m \in \N$，$a^m=e$，则定义a的阶为$min{k \in \N,a^k=e}$</p>
+<h3 id="阶的定义（定义1-2-6）"><a href="#阶的定义（定义1-2-6）" class="headerlink" title="阶的定义（定义1.2.6）"></a>阶的定义（定义1.2.6）</h3><p>设$G$为群，$a \in G$，若对任何$n \in \N$，$a^n \neq e$，则称$a$的阶为无穷；若至少存在一个$m \in \N$，$a^m=e$，则定义a的阶为$min\{k \in \N,a^k=e\}$</p>
 <h4 id="特殊元素的阶"><a href="#特殊元素的阶" class="headerlink" title="特殊元素的阶"></a>特殊元素的阶</h4><p>$|e|=1$</p>
 <p>$|a|=|a^{-1}|$</p>
-<h3 id="命题1-2-7"><a href="#命题1-2-7" class="headerlink" title="命题1.2.7"></a>命题1.2.7</h3><p>设$G$为群，$a \in G$，则$a$的阶为无穷的充分必要条件为下列序列不出现重复<br>$$<br>…,a^{-n},…,a^{-1},e,a,a^2,…,a^n,…<br>$$<br>即$a^m \neq a^n,\forall m,n \in \Z,m \neq n$</p>
+<h3 id="命题1-2-7"><a href="#命题1-2-7" class="headerlink" title="命题1.2.7"></a>命题1.2.7</h3><p>设$G$为群，$a \in G$，则$a$的阶为无穷的充分必要条件为下列序列不出现重复</p>
+<script type="math/tex; mode=display">
+...,a^{-n},...,a^{-1},e,a,a^2,...,a^n,...</script><p>即$a^m \neq a^n,\forall m,n \in \Z,m \neq n$</p>
 <h4 id="证明-8"><a href="#证明-8" class="headerlink" title="证明"></a>证明</h4><p>若$a$的阶无穷，反设$\exist m \neq n$，使$a^m=a^n$，设$m&gt;n$，则$a^{m-n}=e$，矛盾，故$a^m \neq a^n,\forall m,n \in \Z,m \neq n$</p>
 <p>反之，若$a^m \neq a^n,\forall m,n \in \Z,m \neq n$，则设$n=0,\forall m \in \N,a^m \neq a^0 = e$，故$a$的阶为无穷</p>
 <h3 id="命题1-2-8"><a href="#命题1-2-8" class="headerlink" title="命题1.2.8"></a>命题1.2.8</h3><p>设$G$为群，$a \in G$，$a$的阶为$d$，则</p>
@@ -536,7 +562,24 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
 
 
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

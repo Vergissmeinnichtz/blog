@@ -9,7 +9,7 @@
 
 
 
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
     
     
@@ -39,13 +39,13 @@
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
     <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
+    <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </head>
 
 <body>
-    <div id="loading" class="active"></div>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
 
     <aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
@@ -194,10 +194,10 @@
 <p>其中一些配置的含义</p>
 <blockquote>
 <ol>
-<li>chdir—-应用加载前chdir到指定目录，一般设置为django的工程根目录</li>
-<li>touch-reload—-如果修改/碰了指定的文件，那么重载uWSGI</li>
-<li>module—-加载一个WSGI模块的路径，如果django的话就指向对应的wsgi文件模块</li>
-<li>buffer-size—-设置请求的最大大小 (排除request-body)，这一般映射到请求头的大小。默认情况下，它是4k。如果你接收到了一个更大的请求 (例如，带有大cookies或者查询字符串)，那么你也许需要增加它。它也是一个安全度量，所以调整为你的应用需要，而不是最大输出。该值如果太小会报错</li>
+<li>chdir——应用加载前chdir到指定目录，一般设置为django的工程根目录</li>
+<li>touch-reload——如果修改/碰了指定的文件，那么重载uWSGI</li>
+<li>module——加载一个WSGI模块的路径，如果django的话就指向对应的wsgi文件模块</li>
+<li>buffer-size——设置请求的最大大小 (排除request-body)，这一般映射到请求头的大小。默认情况下，它是4k。如果你接收到了一个更大的请求 (例如，带有大cookies或者查询字符串)，那么你也许需要增加它。它也是一个安全度量，所以调整为你的应用需要，而不是最大输出。该值如果太小会报错</li>
 </ol>
 </blockquote>
 <p>常用命令</p>
@@ -379,7 +379,24 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
 
 
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 

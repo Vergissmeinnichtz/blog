@@ -9,7 +9,7 @@
 
 
 
-    <meta charset="utf-8">
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="utf-8">
     
     
     
@@ -21,18 +21,18 @@
     
     
     <meta name="keywords" content="CTF,Web,SSI">
-    <meta name="description" content="简介 SSI是英文”Server Side Includes”的缩写，翻译成中文就是服务器端包含的意思。SSI是用于向HTML页面提供动态内容的Web应用程序上的指令。 它们与CGI类似，不同之处在于SSI用于在加载当前页面之前或在页面可视化时执行某些操作。 为此，Web服务器在将页面提供给用户之前分析SSI。   可在SHTML文件中使用SSI指令引用其他的html文件（#include），此时">
+    <meta name="description" content="简介 SSI是英文”Server Side Includes”的缩写，翻译成中文就是服务器端包含的意思。SSI是用于向HTML页面提供动态内容的Web应用程序上的指令。 它们与CGI类似，不同之处在于SSI用于在加载当前页面之前或在页面可视化时执行某些操作。 为此，Web服务器在将页面提供给用户之前分析SSI。 可在SHTML文件中使用SSI指令引用其他的html文件（#include），此时服务">
 <meta name="keywords" content="CTF,Web,SSI">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Server-Side Includes (SSI) Injection">
 <meta property="og:url" content="http://yoursite.com/2019/01/27/Server-Side-Includes-SSI-Injection/index.html">
 <meta property="og:site_name" content="Vergissmeinnicht">
-<meta property="og:description" content="简介 SSI是英文”Server Side Includes”的缩写，翻译成中文就是服务器端包含的意思。SSI是用于向HTML页面提供动态内容的Web应用程序上的指令。 它们与CGI类似，不同之处在于SSI用于在加载当前页面之前或在页面可视化时执行某些操作。 为此，Web服务器在将页面提供给用户之前分析SSI。   可在SHTML文件中使用SSI指令引用其他的html文件（#include），此时">
+<meta property="og:description" content="简介 SSI是英文”Server Side Includes”的缩写，翻译成中文就是服务器端包含的意思。SSI是用于向HTML页面提供动态内容的Web应用程序上的指令。 它们与CGI类似，不同之处在于SSI用于在加载当前页面之前或在页面可视化时执行某些操作。 为此，Web服务器在将页面提供给用户之前分析SSI。 可在SHTML文件中使用SSI指令引用其他的html文件（#include），此时服务">
 <meta property="og:locale" content="default">
 <meta property="og:updated_time" content="2019-01-27T03:17:05.088Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Server-Side Includes (SSI) Injection">
-<meta name="twitter:description" content="简介 SSI是英文”Server Side Includes”的缩写，翻译成中文就是服务器端包含的意思。SSI是用于向HTML页面提供动态内容的Web应用程序上的指令。 它们与CGI类似，不同之处在于SSI用于在加载当前页面之前或在页面可视化时执行某些操作。 为此，Web服务器在将页面提供给用户之前分析SSI。   可在SHTML文件中使用SSI指令引用其他的html文件（#include），此时">
+<meta name="twitter:description" content="简介 SSI是英文”Server Side Includes”的缩写，翻译成中文就是服务器端包含的意思。SSI是用于向HTML页面提供动态内容的Web应用程序上的指令。 它们与CGI类似，不同之处在于SSI用于在加载当前页面之前或在页面可视化时执行某些操作。 为此，Web服务器在将页面提供给用户之前分析SSI。 可在SHTML文件中使用SSI指令引用其他的html文件（#include），此时服务">
     
         <link rel="alternate" type="application/atom+xml" title="Vergissmeinnicht" href="/atom.xml">
     
@@ -40,13 +40,13 @@
     <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
     <script>window.lazyScripts=[]</script>
 
-    <!-- custom head -->
+    <!-- custom head --><!-- hexo-inject:begin --><!-- hexo-inject:end -->
     
 
 </head>
 
 <body>
-    <div id="loading" class="active"></div>
+    <!-- hexo-inject:begin --><!-- hexo-inject:end --><div id="loading" class="active"></div>
 
     <aside id="menu" class="hide">
   <div class="inner flex-row-vertical">
@@ -183,8 +183,6 @@
         <div class="post-content" id="post-content" itemprop="postContent">
             <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><blockquote>
 <p>SSI是英文”Server Side Includes”的缩写，翻译成中文就是服务器端包含的意思。SSI是用于向HTML页面提供动态内容的Web应用程序上的指令。 它们与CGI类似，不同之处在于SSI用于在加载当前页面之前或在页面可视化时执行某些操作。 为此，Web服务器在将页面提供给用户之前分析SSI。</p>
-</blockquote>
-<blockquote>
 <p>可在SHTML文件中使用SSI指令引用其他的html文件（#include），此时服务器会将SHTML中包含的SSI指令解释，再传送给客户端，此时的HTML中就不再有SSI指令了。Server-Side Includes攻击允许通过在HTML页面中注入脚本或远程执行任意代码来利用Web应用程序。 一种对于这类漏洞的挖掘方式即是查看.stm，.shtm和.shtml的页面是否存在，但是缺少这些类型的页面并不意味着不存在SSI攻击。</p>
 </blockquote>
 <a id="more"></a>
@@ -193,7 +191,7 @@
 <h1 id="基本格式"><a href="#基本格式" class="headerlink" title="基本格式"></a>基本格式</h1><p>&lt;!-– 指令名称=”指令参数”&gt;<br>比如：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--#exec cmd="cat /etc/passwd"--&gt;</span></span><br><span class="line"><span class="comment">&lt;!--#include file="included.html" --&gt;</span></span><br><span class="line"><span class="comment">&lt;!--#echo reqheader="referer"  --&gt;</span></span><br></pre></td></tr></table></figure></p>
 <p>说明:<br>1．<!-- -->是HTML语法中表示注释，当WEB服务器不支持SSI时，会忽略这些信息。<br>2．#exec 为SSI指令之一。<br>3．cmd 为exec的参数, cat /etc/passwd为参数值，在本指令中指将要执行的命令。</p>
 <p>注意:</p>
-<p>1．&lt;!–与#号间无空格，只有SSI指令与参数间存在空格。<br>2．上面的标点=””，一个也不能少。<br>3．SSI指令是大小写敏感的，因此参数必须是小写才会起作用。</p>
+<p>1．&lt;!—与#号间无空格，只有SSI指令与参数间存在空格。<br>2．上面的标点=””，一个也不能少。<br>3．SSI指令是大小写敏感的，因此参数必须是小写才会起作用。</p>
 <p>因此，如果网站存在SSI漏洞的时候就会能够执行该命令来查看系统口令。</p>
 <h1 id="使用环境"><a href="#使用环境" class="headerlink" title="使用环境"></a>使用环境</h1><p>什么情况下服务器可以解析shtml文件呢？<br>以Apache Httpd为例，开启SSI需要支持include这个module：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">LoadModule include_module /usr/lib/apache2/modules/mod_include.so1</span><br></pre></td></tr></table></figure></p>
 <p>同时，在配置Web目录的时候，还要使用 <code>+Includes</code> 指令开启这个功能<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;Directory /var/www/&gt;    </span><br><span class="line">    Options -Indexes +Includes    </span><br><span class="line">    AllowOverride All </span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure></p>
@@ -356,7 +354,7 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
 
 
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
 
 
 
