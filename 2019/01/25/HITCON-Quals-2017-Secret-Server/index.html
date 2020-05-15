@@ -20,9 +20,9 @@
     <meta name="theme-color" content="#3F51B5">
     
     
-    <meta name="keywords" content="CTF,Crypto,Write up,AES">
+    <meta name="keywords" content="CTF,Write up,Crypto,AES">
     <meta name="description" content="该WP是对此WP的学习和补充，也顺便搬运一下 题目信息 AES is unbreakable. Right?We are given this python script.">
-<meta name="keywords" content="CTF,Crypto,Write up,AES">
+<meta name="keywords" content="CTF,Write up,Crypto,AES">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HITCON Quals 2017 - Secret Server">
 <meta property="og:url" content="http://yoursite.com/2019/01/25/HITCON-Quals-2017-Secret-Server/index.html">
@@ -402,7 +402,7 @@ var BLOG = { ROOT: '/', SHARE: false, REWARD: false };
 <script type="text/x-mathjax-config">
 MathJax.Hub.Config({
     tex2jax: {
-        inlineMath: [["\\(","\\)"]  ],
+        inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
         processEscapes: true,
         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
     }
@@ -421,7 +421,24 @@ MathJax.Hub.Queue(function() {
 
 
 
-<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
 
 
 
