@@ -85,7 +85,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;这次跟着De1ta打的，最终第二名，没啥密码学的题，基本摸鱼23333&lt;br&gt;&lt;/p&gt;
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;这次跟着De1ta打的，最终第二名，没啥密码学的题，基本摸鱼23333&lt;/p&gt;
     
     </summary>
     
@@ -111,7 +111,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;2020年Pwnhub的密码学公开赛，做出两题，还有一题实在想不明白做法，等以后再研究研究。&lt;br&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/eAJWraah9OOgJfZOhm4Sqg&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;官方WP&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;2020年Pwnhub的密码学公开赛，做出两题，还有一题实在想不明白做法，等以后再研究研究。&lt;br&gt;&lt;a href=&quot;https://mp.weixin.qq.com/s/eAJWraah9OOgJfZOhm4Sqg&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;官方WP&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
@@ -157,7 +157,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;在Xman随便记的一点东西&lt;br&gt;&lt;/p&gt;
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;在Xman随便记的一点东西&lt;/p&gt;
     
     </summary>
     
@@ -196,7 +196,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;今天有幸拜读了bibi大佬在xman上讲的密码学的ppt，感觉收获很多。在序列密码这一章里学到了很多有关随机数的攻击方法，今天抽空记录一下。另外发现了一篇大佬写的不错的&lt;a href=&quot;https://www.cnblogs.com/kagari/p/11304319.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;blog&lt;/a&gt;，也一并摘抄整合一下。(如有不妥请联系我进行删除,谢谢！verhan@163.com)&lt;/p&gt;
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;今天有幸拜读了bibi大佬在xman上讲的密码学的ppt，感觉收获很多。在序列密码这一章里学到了很多有关随机数的攻击方法，今天抽空记录一下。另外发现了一篇大佬写的不错的&lt;a href=&quot;https://www.cnblogs.com/kagari/p/11304319.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;blog&lt;/a&gt;，也一并摘抄整合一下。(如有不妥请联系我进行删除,谢谢！&lt;a href=&quot;mailto:verhan@163.com&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;verhan@163.com&lt;/a&gt;)&lt;/p&gt;
     
     </summary>
     
@@ -218,7 +218,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;本文主要是记录一些Pwn的基本操作的命令&lt;br&gt;&lt;/p&gt;
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;本文主要是记录一些Pwn的基本操作的命令&lt;/p&gt;
     
     </summary>
     
@@ -270,6 +270,8 @@
     
       &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;SSI是英文”Server Side Includes”的缩写，翻译成中文就是服务器端包含的意思。SSI是用于向HTML页面提供动态内容的Web应用程序上的指令。 它们与CGI类似，不同之处在于SSI用于在加载当前页面之前或在页面可视化时执行某些操作。 为此，Web服务器在将页面提供给用户之前分析SSI。&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
 &lt;p&gt;可在SHTML文件中使用SSI指令引用其他的html文件（#include），此时服务器会将SHTML中包含的SSI指令解释，再传送给客户端，此时的HTML中就不再有SSI指令了。Server-Side Includes攻击允许通过在HTML页面中注入脚本或远程执行任意代码来利用Web应用程序。 一种对于这类漏洞的挖掘方式即是查看.stm，.shtm和.shtml的页面是否存在，但是缺少这些类型的页面并不意味着不存在SSI攻击。&lt;/p&gt;
 &lt;/blockquote&gt;
     
@@ -350,7 +352,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;这道题是2015-RCTF的一道密码题，考点有点秀，就记下来了。&lt;br&gt;&lt;/p&gt;
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;这道题是2015-RCTF的一道密码题，考点有点秀，就记下来了。&lt;/p&gt;
     
     </summary>
     
@@ -374,7 +376,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;记录一下SSTI的一些基本操作，方便以后使用。主要内容转载自&lt;a href=&quot;http://www.cnblogs.com/tyomcat/p/5440488.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;该博客&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;记录一下SSTI的一些基本操作，方便以后使用。主要内容转载自&lt;a href=&quot;http://www.cnblogs.com/tyomcat/p/5440488.html&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;该博客&lt;/a&gt;&lt;/p&gt;
     
     </summary>
     
@@ -398,7 +400,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;这是一道2017年NJCTF的250分的Web题，刚好在XCTF的&lt;a href=&quot;https://adworld.xctf.org.cn/adw/answer/4819/?type=web&amp;amp;level=1&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;题库&lt;/a&gt;里刷到了，便记录下来。&lt;/p&gt;
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;这是一道2017年NJCTF的250分的Web题，刚好在XCTF的&lt;a href=&quot;https://adworld.xctf.org.cn/adw/answer/4819/?type=web&amp;level=1&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;题库&lt;/a&gt;里刷到了，便记录下来。&lt;/p&gt;
     
     </summary>
     
@@ -422,7 +424,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;本文主要是记录如何用&lt;code&gt;OpenSSL&lt;/code&gt;解RSA的题目.&lt;br&gt;&lt;/p&gt;
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;本文主要是记录如何用&lt;code&gt;OpenSSL&lt;/code&gt;解RSA的题目.&lt;/p&gt;
     
     </summary>
     
@@ -446,8 +448,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&quot;&gt;&lt;/script&gt;&lt;/p&gt;
-&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;这道题是&lt;a href=&quot;https://race.ichunqiu.com/xnuca18&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;2018年XNUCA&lt;/a&gt;的一道密码题，当时由于自己比较菜没做出来，期末考试考完之后看书提到了重合指数破解&lt;code&gt;Vigenere密码&lt;/code&gt;的内容，就想起来了这道题并开始复现一下。过程比较艰辛(自己太菜了),自闭了两三天终于弄出来了，也算是很开心，并于现在记录下来以备以后查看。&lt;br&gt;&lt;/p&gt;
+      &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&quot;&gt;&lt;/script&gt;
+&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;这道题是&lt;a href=&quot;https://race.ichunqiu.com/xnuca18&quot; target=&quot;_blank&quot; rel=&quot;noopener&quot;&gt;2018年XNUCA&lt;/a&gt;的一道密码题，当时由于自己比较菜没做出来，期末考试考完之后看书提到了重合指数破解&lt;code&gt;Vigenere密码&lt;/code&gt;的内容，就想起来了这道题并开始复现一下。过程比较艰辛(自己太菜了),自闭了两三天终于弄出来了，也算是很开心，并于现在记录下来以备以后查看。&lt;/p&gt;
     
     </summary>
     
@@ -471,8 +473,8 @@
     
     <summary type="html">
     
-      &lt;p&gt;&lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&quot;&gt;&lt;/script&gt;&lt;/p&gt;
-&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;RSA作为密码学中的代表，就和web中的php一样，被许多人不断研究，才有着今天这样广泛的使用程度。当然与此相对的也有许多的攻击方式被不断挖掘出来。这篇文章主要是对现阶段主流的RSA攻击方式进行总结，并配上exp脚本，以备以后的使用。&lt;br&gt;&lt;/p&gt;
+      &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=default&quot;&gt;&lt;/script&gt;
+&lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;RSA作为密码学中的代表，就和web中的php一样，被许多人不断研究，才有着今天这样广泛的使用程度。当然与此相对的也有许多的攻击方式被不断挖掘出来。这篇文章主要是对现阶段主流的RSA攻击方式进行总结，并配上exp脚本，以备以后的使用。&lt;/p&gt;
     
     </summary>
     

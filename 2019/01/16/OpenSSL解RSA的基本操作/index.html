@@ -123,7 +123,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -185,10 +185,13 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本文主要是记录如何用<code>OpenSSL</code>解RSA的题目.<br><a id="more"></a></p>
+            <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>本文主要是记录如何用<code>OpenSSL</code>解RSA的题目.</p>
+<a id="more"></a>
+
 <hr>
 <h2 id="1-PCTF"><a href="#1-PCTF" class="headerlink" title="1.PCTF"></a>1.PCTF</h2><p>我选取了一道<code>XCTF训练营</code>中的<a href="https://adworld.xctf.org.cn/adw/answer/5115/?primary=crypto" target="_blank" rel="noopener">入门题目</a>,这是一道来自于<code>PCTF</code>的题目。同时也附上题目<a href="https://adworld.xctf.org.cn/adw/attachment/5115/1" target="_blank" rel="noopener">下载地址</a></p>
 <h2 id="解题步骤"><a href="#解题步骤" class="headerlink" title="解题步骤"></a>解题步骤</h2><h3 id="1-从pubkey-pem中提取n和e"><a href="#1-从pubkey-pem中提取n和e" class="headerlink" title="1.从pubkey.pem中提取n和e"></a>1.从pubkey.pem中提取n和e</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl rsa -pubin -text -modulus -in warmup -in pubkey.pem</span><br></pre></td></tr></table></figure>
+
 <p>结果如下:</p>
 <div style="width: 80%; margin: auto"><figure class="image-bubble">
                 <div class="img-lightbox">
@@ -207,6 +210,7 @@
 <p>p: 319576316814478949870590164193048041239<br>q: 275127860351348928173285174381581152299</p>
 </blockquote>
 <h3 id="3-用rsatool生成私钥文件-private-pem"><a href="#3-用rsatool生成私钥文件-private-pem" class="headerlink" title="3.用rsatool生成私钥文件:private.pem"></a>3.用rsatool生成私钥文件:private.pem</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python rsatool.py -o private.pem -e 65537 -p 275127860351348928173285174381581152299 -q 319576316814478949870590164193048041239</span><br></pre></td></tr></table></figure>
+
 <div style="width: 80%; margin: auto"><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -216,6 +220,7 @@
             </figure></div>
 
 <h3 id="4-用private-pem解密flag-enc得到flag"><a href="#4-用private-pem解密flag-enc得到flag" class="headerlink" title="4.用private.pem解密flag.enc得到flag"></a>4.用private.pem解密flag.enc得到flag</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">openssl rsautl -decrypt -in flag.enc -inkey private.pem</span><br></pre></td></tr></table></figure>
+
 <div style="width: 80%; margin: auto"><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
@@ -226,10 +231,15 @@
 
 <hr>
 <h2 id="2-AlexCTF-2017-Poor-RSA"><a href="#2-AlexCTF-2017-Poor-RSA" class="headerlink" title="2.AlexCTF-2017 Poor RSA"></a>2.AlexCTF-2017 Poor RSA</h2><h3 id="1-从key-pub中读取公钥"><a href="#1-从key-pub中读取公钥" class="headerlink" title="1.从key.pub中读取公钥"></a>1.从key.pub中读取公钥</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">$ openssl rsa -pubin -in key.pub -text -noout</span><br><span class="line">Public-Key: (399 bit)</span><br><span class="line">Modulus:</span><br><span class="line">    52:a9:9e:24:9e:e7:cf:3c:0c:bf:96:3a:00:96:61:</span><br><span class="line">    77:2b:c9:cd:f6:e1:e3:fb:fc:6e:44:a0:7a:5e:0f:</span><br><span class="line">    89:44:57:a9:f8:1c:3a:e1:32:ac:56:83:d3:5b:28:</span><br><span class="line">    ba:5c:32:42:43</span><br><span class="line">Exponent: 65537 (0x10001)</span><br></pre></td></tr></table></figure>
+
 <h3 id="2-将n分解得到p和q-1"><a href="#2-将n分解得到p和q-1" class="headerlink" title="2.将n分解得到p和q"></a>2.将n分解得到p和q</h3><p>n比较小，可以用factordb.com网站分解<br>p = 863653476616376575308866344984576466644942572246900013156919<br>q = 965445304326998194798282228842484732438457170595999523426901</p>
 <h3 id="3-编写脚本构造priv-conf"><a href="#3-编写脚本构造priv-conf" class="headerlink" title="3.编写脚本构造priv.conf"></a>3.编写脚本构造priv.conf</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> gmpy2</span><br><span class="line"></span><br><span class="line">p = <span class="number">863653476616376575308866344984576466644942572246900013156919</span></span><br><span class="line">q = <span class="number">965445304326998194798282228842484732438457170595999523426901</span></span><br><span class="line">e = <span class="number">65537</span></span><br><span class="line">d = gmpy2.invert(e, (p - <span class="number">1</span>) * (q - <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line"><span class="keyword">print</span> <span class="string">'''asn1=SEQUENCE:rsa_key</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string">[rsa_key]</span></span><br><span class="line"><span class="string">version=INTEGER:0</span></span><br><span class="line"><span class="string">modulus=INTEGER:&#123;n&#125;</span></span><br><span class="line"><span class="string">pubExp=INTEGER:&#123;e&#125;</span></span><br><span class="line"><span class="string">privExp=INTEGER:&#123;e1&#125;</span></span><br><span class="line"><span class="string">p=INTEGER:&#123;p&#125;</span></span><br><span class="line"><span class="string">q=INTEGER:&#123;q&#125;</span></span><br><span class="line"><span class="string">e1=INTEGER:&#123;e1&#125;</span></span><br><span class="line"><span class="string">e2=INTEGER:&#123;e2&#125;</span></span><br><span class="line"><span class="string">coeff=INTEGER:&#123;coeff&#125;'''</span>.format(</span><br><span class="line">    n=p * q,</span><br><span class="line">    e=e,</span><br><span class="line">    p=p,</span><br><span class="line">    q=q,</span><br><span class="line">    e1=d % (p - <span class="number">1</span>),</span><br><span class="line">    e2=d % (q - <span class="number">1</span>),</span><br><span class="line">    coeff=gmpy2.invert(q, p),</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
-<p>将打印出的结果写入priv.conf文件<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./build.py &gt; priv.conf</span><br></pre></td></tr></table></figure></p>
+
+<p>将打印出的结果写入priv.conf文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ./build.py &gt; priv.conf</span><br></pre></td></tr></table></figure>
+
 <h3 id="4-用priv-conf导出priv-der"><a href="#4-用priv-conf导出priv-der" class="headerlink" title="4.用priv.conf导出priv.der"></a>4.用priv.conf导出priv.der</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ openssl asn1parse -genconf priv.conf -out priv.der -noout</span><br></pre></td></tr></table></figure>
+
 <h3 id="5-解码得到flag"><a href="#5-解码得到flag" class="headerlink" title="5.解码得到flag"></a>5.解码得到flag</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ base64 -d flag.b64 | openssl rsautl -decrypt -inkey priv.der -keyform der</span><br><span class="line">ALEXCTF&#123;SMALL_PRIMES_ARE_BAD&#125;</span><br></pre></td></tr></table></figure>
         </div>
 
@@ -238,7 +248,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2019-01-24T02:29:50.517Z" itemprop="dateUpdated">2019-01-24 10:29:50</time>
+    最后更新时间：<time datetime="2019-01-24T02:29:50.517Z" itemprop="dateUpdated">2019-01-24 10:29:50</time>
 </span><br>
 
 
@@ -334,7 +344,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
