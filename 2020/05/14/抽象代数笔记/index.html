@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/05/14/抽象代数笔记/2.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/05/14/抽象代数笔记/3.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/05/14/抽象代数笔记/4.jpg">
-<meta property="og:updated_time" content="2020-05-15T10:16:50.862Z">
+<meta property="og:updated_time" content="2020-05-15T10:21:52.635Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="抽象代数笔记">
 <meta name="twitter:description" content="简介密码学必修课抽象代数的笔记，看心情学习2333。内容来自南开大学邓少强老师的公开课。">
@@ -292,7 +292,7 @@
 <p>证毕</p>
 <h3 id="等价关系和分类相同"><a href="#等价关系和分类相同" class="headerlink" title="等价关系和分类相同"></a>等价关系和分类相同</h3><p>由定理1.1.1和定理1.1.2可知</p>
 <h3 id="同余关系（定义1-1-15）"><a href="#同余关系（定义1-1-15）" class="headerlink" title="同余关系（定义1.1.15）"></a>同余关系（定义1.1.15）</h3><p>设$A$为非空集合，$A$中定义了一个二元运算$\circ$，又定义了等价关系$R$，如果$R$与$\circ$满足条件<br>$$<br>a_1Rb_1,a_2Rb_2 \Rightarrow  (a_1 \circ a_2) \ R \ (b_1 \circ b_2)<br>$$<br>则称$R$为$\circ$的<strong>同余关系</strong>，新的二元运算为$\overline{\circ}$</p>
-<h4 id="例子-3"><a href="#例子-3" class="headerlink" title="例子"></a>例子</h4><p>设$\Z$中取$m&gt;0$，定义关系<br>$$<br>aRb \rightleftharpoons m \mid b - a<br>$$<br>$\Z$中的关系$R$为等价关系，称为模$m$的同余关系，$aRb$记为$a \equiv b \ (mod \ n)$，$\Z$中有$+,\times$，$\mathbb R$为$+,\times$的同余关系</p>
+<h4 id="例子-3"><a href="#例子-3" class="headerlink" title="例子"></a>例子</h4><p>设$\mathbb Z$中取$m&gt;0$，定义关系<br>$$<br>aRb \rightleftharpoons m \mid b - a<br>$$<br>$\mathbb Z$中的关系$R$为等价关系，称为模$m$的同余关系，$aRb$记为$a \equiv b \ (mod \ n)$，$\mathbb Z$中有$+,\times$，$\mathbb R$为$+,\times$的同余关系</p>
 <h2 id="第二节-半群与群"><a href="#第二节-半群与群" class="headerlink" title="第二节 半群与群"></a>第二节 半群与群</h2><h3 id="群"><a href="#群" class="headerlink" title="群"></a>群</h3><p>粗略地说，<strong>群</strong> = 非空集合 + 二元运算 + 性质</p>
 <h3 id="半群（定义1-2-1）"><a href="#半群（定义1-2-1）" class="headerlink" title="半群（定义1.2.1）"></a>半群（定义1.2.1）</h3><p>设$G$为一个非空集合，$G$上有一个二元运算$\circ$，满足结合律，则称${ G ;\circ }$（或$G$）为一个<strong>半群</strong></p>
 <h4 id="例子-4"><a href="#例子-4" class="headerlink" title="例子"></a>例子</h4><ol>
@@ -331,7 +331,7 @@
 </li>
 <li><p>任何一个数域$\mathbb  P$对数的乘法为幺半群，不为群（因为有0）</p>
 </li>
-<li><p>${ 1,-1}$对数的乘法构成群（Abel群），群表如下：<br>$$<br>\begin{array}{c|lll}<br>{}&amp;{\ \ \ 1}&amp;{-1}\<br>\hline<br>{\ \ \ 1}&amp;{\ \ \ 1}&amp;{-1}\<br>{-1}&amp;{-1}&amp;{\ \ \ 1}\<br>\end{array}<br>$$</p>
+<li><p>${ 1,-1}$对数的乘法构成群（Abel群）</p>
 </li>
 <li><p>设$A \neq \emptyset $，$S(A)$为$M(A)$中所有可逆变换，对$\circ$成一个群，称为$A$的<strong>全变换群</strong></p>
 </li>
@@ -359,9 +359,9 @@
 <h3 id="阶的定义（定义1-2-6）"><a href="#阶的定义（定义1-2-6）" class="headerlink" title="阶的定义（定义1.2.6）"></a>阶的定义（定义1.2.6）</h3><p>设$G$为群，$a \in G$，若对任何$n \in \mathbb N$，$a^n \neq e$，则称$a$的阶为无穷；若至少存在一个$m \in \mathbb N$，$a^m=e$，则定义a的阶为$min{k \in \mathbb N,a^k=e}$</p>
 <h4 id="特殊元素的阶"><a href="#特殊元素的阶" class="headerlink" title="特殊元素的阶"></a>特殊元素的阶</h4><p>$|e|=1$</p>
 <p>$|a|=|a^{-1}|$</p>
-<h3 id="命题1-2-7"><a href="#命题1-2-7" class="headerlink" title="命题1.2.7"></a>命题1.2.7</h3><p>设$G$为群，$a \in G$，则$a$的阶为无穷的充分必要条件为下列序列不出现重复<br>$$<br>…,a^{-n},…,a^{-1},e,a,a^2,…,a^n,…<br>$$<br>即$a^m \neq a^n,\forall m,n \in \Z,m \neq n$</p>
-<h4 id="证明-8"><a href="#证明-8" class="headerlink" title="证明"></a>证明</h4><p>若$a$的阶无穷，反设$\exists m \neq n$，使$a^m=a^n$，设$m&gt;n$，则$a^{m-n}=e$，矛盾，故$a^m \neq a^n,\forall m,n \in \Z,m \neq n$</p>
-<p>反之，若$a^m \neq a^n,\forall m,n \in \Z,m \neq n$，则设$n=0,\forall m \in \mathbb N,a^m \neq a^0 = e$，故$a$的阶为无穷</p>
+<h3 id="命题1-2-7"><a href="#命题1-2-7" class="headerlink" title="命题1.2.7"></a>命题1.2.7</h3><p>设$G$为群，$a \in G$，则$a$的阶为无穷的充分必要条件为下列序列不出现重复<br>$$<br>…,a^{-n},…,a^{-1},e,a,a^2,…,a^n,…<br>$$<br>即$a^m \neq a^n,\forall m,n \in \mathbb Z,m \neq n$</p>
+<h4 id="证明-8"><a href="#证明-8" class="headerlink" title="证明"></a>证明</h4><p>若$a$的阶无穷，反设$\exists m \neq n$，使$a^m=a^n$，设$m&gt;n$，则$a^{m-n}=e$，矛盾，故$a^m \neq a^n,\forall m,n \in \mathbb Z,m \neq n$</p>
+<p>反之，若$a^m \neq a^n,\forall m,n \in \mathbb Z,m \neq n$，则设$n=0,\forall m \in \mathbb N,a^m \neq a^0 = e$，故$a$的阶为无穷</p>
 <h3 id="命题1-2-8"><a href="#命题1-2-8" class="headerlink" title="命题1.2.8"></a>命题1.2.8</h3><p>设$G$为群，$a \in G$，$a$的阶为$d$，则</p>
 <ol>
 <li>$a^k=e \rightleftharpoons d \mid k$</li>
@@ -369,7 +369,7 @@
 </ol>
 <h4 id="证明-9"><a href="#证明-9" class="headerlink" title="证明"></a>证明</h4><p>只证明1，2可以由1直接推出</p>
 <p>设$k = dm$，则$a^k=a^{dm}=(a^d)^m=e^m=e$</p>
-<p>另一方面，设$a^k=e$，$k=dq+r$，$q,r \in \Z$，$0 \leq r &lt;d$，若$r \neq 0$，则$a^r=a^{k-dq}=a^k(a^d)^{-q}=e$与$a$的阶为$d$矛盾，故$r=0$，$d \mid k$</p>
+<p>另一方面，设$a^k=e$，$k=dq+r$，$q,r \in \mathbb Z$，$0 \leq r &lt;d$，若$r \neq 0$，则$a^r=a^{k-dq}=a^k(a^d)^{-q}=e$与$a$的阶为$d$矛盾，故$r=0$，$d \mid k$</p>
 <h3 id="命题1-2-9"><a href="#命题1-2-9" class="headerlink" title="命题1.2.9"></a>命题1.2.9</h3><p>设$G$为群，$a \in G$，$a$的阶为$d$，则</p>
 <ol>
 <li>$a^k$的阶为$d/gcd(d,k)$（$k&gt;0$）</li>
@@ -394,7 +394,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2020-05-15T10:16:50.862Z" itemprop="dateUpdated">2020-05-15 18:16:50</time>
+    Last updated: <time datetime="2020-05-15T10:21:52.635Z" itemprop="dateUpdated">2020-05-15 18:21:52</time>
 </span><br>
 
 
