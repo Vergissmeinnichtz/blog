@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[抽象代数笔记]]></title>
     <url>%2F2020%2F05%2F14%2F%E6%8A%BD%E8%B1%A1%E4%BB%A3%E6%95%B0%E7%AC%94%E8%AE%B0%2F</url>
-    <content type="text"><![CDATA[简介密码学必修课抽象代数的笔记，看心情学习2333。内容来自南开大学邓少强老师的公开课。 抽象代数历史抽象代数来自于代数方程的解，比如： 一次代数方程：$ax+b=0$ 二次代数方程：$ax^2+bx+c=0$，古巴比伦时期便可解，有解且为根式解 三次四次代数方程：$ax^3+bx^2+cx+d=0$ 或 $ax^4+bx^3++cx^2+dx+e=0$，十七世纪才发现存在根式解 五次及以上代数方程，是否存在根式解？这个问题被许多数学家研究过，比如： L. Euler 1707-1783 J. L. Lagrange 1736-1813，他是第一个假设根为集合，观察集合的变化来做的 C. F. Gauss 1777-1855 以上三人认为五次及以上的代数方程不存在根式解 之后的数学家N. H. Abel (1802-1829)，不仅仅证明了某些代数方程不存在根式解，而且找出了一类特殊的方程可以用根式解 最后，数学家E. Galois (1811-1832)，他在19岁的时候解决了该问题，并创立了Galois理论，该理论给出了五次及以上的代数方程有根式解的充分必要条件。可惜的是，该理论1846年才被发表，之后Jordan把该理论介绍给了大家，该理论才得以发展。 第一章 群第一节 运算及其关系代数体系代数体系粗略地讲便是集合+运算（不考虑空集） 集合集合不给出具体的定义，如果给出定义则会出现悖论 嵌入映射（定义1.1.1）设$A_0$为$A$的子集，定义$A_0$到$A$的映射 f: A_0 \rightarrow A, f(x) = x, x \in A_0则称$f$为$A_0$到$A$的嵌入映射 开拓和限制（定义1.1.2）设$A_0$为$A$的子集，$f$为$A$到$B$的映射，$g$为$A_0$到$B$的映射，如果$f(x)=g(x),\forall x \in A_0$，则称$f$为$g$的开拓，$g$为$f$（在$A_0$上）的限制，记为$g=f\mid_{A_0}$ 交换图 f_1:A_1 \rightarrow A_2,f_2:A_2 \rightarrow A_3,f_3:A_3 \rightarrow C f_1f_2f_3:A_1 \rightarrow C且 g_1:A_1 \rightarrow B,g_2:B \rightarrow C G_1G_2:A_1 \rightarrow C则 f_1f_2f_3=g_1g_2有交换图 例子：将开拓和限制转化为交换图设$A_0,A,B$如定义1.1.1和1.1.2，$f$为$g$的开拓，则有交换图 直积（定义1.1.3）设$A_1,A_2$为两个集合，令 A_1 \times A_2 = \{ (a,b)\mid a \in A_1, b \in B_2 \}集合$A_1 \times A_2$ 称为$A_1$与$A_2$的直积 运算运算的本质：两个元素按照一定的运算法则（加减乘除）得到一个元素 代数运算（定义1.1.4）设$A,B,D$为三个非空集合，则映射$f:A \times B \rightarrow D$称为一个$A$与$B$到$D$的代数运算 例子设$V$为线性空间，数域为$P$，则 $V$的加法：$V \times V \rightarrow V$ $P$与$V$的数乘：$P \times V \rightarrow V$ 二元运算若定义1.1.4中的$A,B,D$都相同，则称$f$为$A$上的二元运算，其记号表示为$a \circ b$或$ab$ 交换律（定义1.1.5）设$A$上定义了二元运算，满足 ab=ba,\forall a,b \in A则称（二元）运算满足交换律，并且交换律可以使得$a^n,a \in A,n \in \mathbb N$有意义 结合律（定义1.1.6）设$A$上定义了运算，满足 a(bc)=(ab)c,\forall a,b,c \in A则称运算满足结合律，并且结合律可以使得$(ab)^n=a^nb^n,a,b \in A,n \in \mathbb N$有意义 分配律（定义1.1.7）设A上定义了两种运算$\circ,+$，满足 a \circ (b+c) = a \circ b + a \circ c , \forall a,b,c \in A则称运算满足$\circ$对$+$的左分配律，反过来便是右分配律，统称分配律 运算表设 f:A \times B \rightarrow D,|A|]]></content>
+    <content type="text"><![CDATA[简介密码学必修课抽象代数的笔记，看心情学习2333。内容来自南开大学邓少强老师的公开课。 抽象代数历史抽象代数来自于代数方程的解，比如： 一次代数方程：ax+b=0 二次代数方程：ax^2+bx+c=0，古巴比伦时期便可解，有解且为根式解 三次四次代数方程：ax^3+bx^2+cx+d=0 或 ax^4+bx^3++cx^2+dx+e=0，十七世纪才发现存在根式解 五次及以上代数方程，是否存在根式解？这个问题被许多数学家研究过，比如： L. Euler 1707-1783 J. L. Lagrange 1736-1813，他是第一个假设根为集合，观察集合的变化来做的 C. F. Gauss 1777-1855 以上三人认为五次及以上的代数方程不存在根式解 之后的数学家N. H. Abel (1802-1829)，不仅仅证明了某些代数方程不存在根式解，而且找出了一类特殊的方程可以用根式解 最后，数学家E. Galois (1811-1832)，他在19岁的时候解决了该问题，并创立了Galois理论，该理论给出了五次及以上的代数方程有根式解的充分必要条件。可惜的是，该理论1846年才被发表，之后Jordan把该理论介绍给了大家，该理论才得以发展。 第一章 群第一节 运算及其关系代数体系代数体系粗略地讲便是集合+运算（不考虑空集） 集合集合不给出具体的定义，如果给出定义则会出现悖论 嵌入映射（定义1.1.1）设A_0为A的子集，定义A_0到A的映射 f: A_0 \rightarrow A, f(x) = x, x \in A_0则称f为A_0到A的嵌入映射 开拓和限制（定义1.1.2）设A_0为A的子集，f为A到B的映射，g为A_0到B的映射，如果f(x)=g(x),\forall x \in A_0，则称f为g的开拓，g为f（在A_0上）的限制，记为g=f\mid_{A_0} 交换图 f_1:A_1 \rightarrow A_2,f_2:A_2 \rightarrow A_3,f_3:A_3 \rightarrow C f_1f_2f_3:A_1 \rightarrow C且 g_1:A_1 \rightarrow B,g_2:B \rightarrow C G_1G_2:A_1 \rightarrow C则 f_1f_2f_3=g_1g_2有交换图 例子：将开拓和限制转化为交换图设$A_0,A,B$如定义1.1.1和1.1.2，$f$为$g$的开拓，则有交换图 直积（定义1.1.3）设$A_1,A_2$为两个集合，令 A_1 \times A_2 = \{ (a,b)\mid a \in A_1, b \in B_2 \}集合$A_1 \times A_2$ 称为$A_1$与$A_2$的直积 运算运算的本质：两个元素按照一定的运算法则（加减乘除）得到一个元素 代数运算（定义1.1.4）设$A,B,D$为三个非空集合，则映射$f:A \times B \rightarrow D$称为一个$A$与$B$到$D$的代数运算 例子设$V$为线性空间，数域为$P$，则 $V$的加法：$V \times V \rightarrow V$ $P$与$V$的数乘：$P \times V \rightarrow V$ 二元运算若定义1.1.4中的$A,B,D$都相同，则称$f$为$A$上的二元运算，其记号表示为$a \circ b$或$ab$ 交换律（定义1.1.5）设$A$上定义了二元运算，满足 ab=ba,\forall a,b \in A则称（二元）运算满足交换律，并且交换律可以使得$a^n,a \in A,n \in \mathbb N$有意义 结合律（定义1.1.6）设$A$上定义了运算，满足 a(bc)=(ab)c,\forall a,b,c \in A则称运算满足结合律，并且结合律可以使得$(ab)^n=a^nb^n,a,b \in A,n \in \mathbb N$有意义 分配律（定义1.1.7）设A上定义了两种运算$\circ,+$，满足 a \circ (b+c) = a \circ b + a \circ c , \forall a,b,c \in A则称运算满足$\circ$对$+$的左分配律，反过来便是右分配律，统称分配律 运算表设 f:A \times B \rightarrow D,|A|]]></content>
       <categories>
         <category>Math</category>
       </categories>
@@ -38,8 +38,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
         <tag>BlockChain</tag>
       </tags>
   </entry>
@@ -52,8 +52,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
       </tags>
   </entry>
   <entry>
@@ -118,8 +118,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
         <tag>ECC</tag>
         <tag>Knapsack</tag>
       </tags>
@@ -146,8 +146,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
         <tag>AES</tag>
       </tags>
   </entry>
@@ -160,8 +160,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
       </tags>
   </entry>
   <entry>
@@ -173,8 +173,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
       </tags>
   </entry>
   <entry>
@@ -199,8 +199,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Web</tag>
         <tag>Write up</tag>
+        <tag>Web</tag>
       </tags>
   </entry>
   <entry>
@@ -225,8 +225,8 @@
       </categories>
       <tags>
         <tag>CTF</tag>
-        <tag>Write up</tag>
         <tag>Crypto</tag>
+        <tag>Write up</tag>
       </tags>
   </entry>
   <entry>
