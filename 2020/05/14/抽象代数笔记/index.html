@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/05/14/抽象代数笔记/2.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/05/14/抽象代数笔记/3.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/05/14/抽象代数笔记/4.jpg">
-<meta property="og:updated_time" content="2020-05-27T10:01:53.173Z">
+<meta property="og:updated_time" content="2020-05-27T16:30:13.381Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="抽象代数笔记">
 <meta name="twitter:description" content="简介密码学必修课抽象代数的笔记，看心情学习2333。内容来自南开大学邓少强老师的公开课。">
@@ -124,7 +124,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -536,21 +536,21 @@
 <p>证毕</p>
 </li>
 </ol>
-<h2 id="第五节-循环群"><a href="#第五节-循环群" class="headerlink" title="第五节 循环群"></a>第五节 循环群</h2><h3 id="循环群和生成元（定义1-5-1）"><a href="#循环群和生成元（定义1-5-1）" class="headerlink" title="循环群和生成元（定义1.5.1）"></a>循环群和生成元（定义1.5.1）</h3><p>设$G$为群，若存在$a \in G$，使得<br>$$<br>G = { a^n \mid n \in \mathbb Z }<br>$$<br>则称$G$为<strong>循环群</strong>，记为$G=<a>$，$a$称为<strong>生成元</strong></a></p>
+<h2 id="第五节-循环群"><a href="#第五节-循环群" class="headerlink" title="第五节 循环群"></a>第五节 循环群</h2><h3 id="循环群和生成元（定义1-5-1）"><a href="#循环群和生成元（定义1-5-1）" class="headerlink" title="循环群和生成元（定义1.5.1）"></a>循环群和生成元（定义1.5.1）</h3><p>设$G$为群，若存在$a \in G$，使得<br>$$<br>G = { a^n \mid n \in \mathbb Z }<br>$$<br>则称$G$为<strong>循环群</strong>，记为$G=&lt;a^{}&gt;$，$a$称为<strong>生成元</strong></p>
 <h4 id="例子-12"><a href="#例子-12" class="headerlink" title="例子"></a>例子</h4><p>${\mathbb Z;+ }$为循环群，$1$和$-1$都是生成元</p>
 <h4 id="备注-2"><a href="#备注-2" class="headerlink" title="备注"></a>备注</h4><p>若$G$为加法群，则<br>$$<br>G = { an\mid n \in \mathbb Z }<br>$$</p>
 <h3 id="命题1-5-1"><a href="#命题1-5-1" class="headerlink" title="命题1.5.1"></a>命题1.5.1</h3><p>循环群为Abel群（交换群）</p>
 <h3 id="命题1-5-2"><a href="#命题1-5-2" class="headerlink" title="命题1.5.2"></a>命题1.5.2</h3><p>循环群的子群也是循环群</p>
-<h4 id="证明-24"><a href="#证明-24" class="headerlink" title="证明"></a>证明</h4><p>设$G=<a>,H&lt;G,H \neq G$，设$H \neq {e},m = min { k \in \mathbb N \mid a^k \in H }$，下证$H=&lt;a^m&gt;$</a></p>
+<h4 id="证明-24"><a href="#证明-24" class="headerlink" title="证明"></a>证明</h4><p>设$G=&lt;a^{}&gt;,H&lt;G,H \neq G$，设$H \neq {e},m = min { k \in \mathbb N \mid a^k \in H }$，下证$H=&lt;a^m&gt;$</p>
 <p>可知$&lt;a^m&gt; \subseteq H$，设$a^l \in H,l = qm + r,0 \leq r &lt; m$，则$a^r=a^{l-qm}=a^l(a^m)^{-q} \in H$，故$r=0$，否则与$m$的定义矛盾，所以$H \subseteq &lt;a^m&gt;$</p>
 <p>证毕</p>
 <h3 id="推论1-5-3"><a href="#推论1-5-3" class="headerlink" title="推论1.5.3"></a>推论1.5.3</h3><p>${\mathbb Z;+}$的任何子群必形如$m\mathbb Z$，$m \geq 0$</p>
 <h4 id="证明-25"><a href="#证明-25" class="headerlink" title="证明"></a>证明</h4><p>设$G&lt;{\mathbb Z;+ }$，若$G=\mathbb Z$，取$m=1$；若$G={0}$，取$m=0$；否则令$m=min {k \in \mathbb N \mid k \in \mathbb G}$，由命题1.5.2的方法可证$G=<m>=m\mathbb Z$</m></p>
 <p>证毕</p>
 <h3 id="定理1-5-4"><a href="#定理1-5-4" class="headerlink" title="定理1.5.4"></a>定理1.5.4</h3><p>设$G$为循环群，若$G$是无限阶的，则$G$与${\mathbb Z;+}$同构；若$G$是有限阶$m$阶的，则$G$与${\mathbb Z_m;+}$同构。所以，两个循环群同构$\rightleftharpoons$他们有相同的阶</p>
-<h4 id="证明-26"><a href="#证明-26" class="headerlink" title="证明"></a>证明</h4><p>设$G=<a>$，定义$\phi: \mathbb Z \rightarrow G$，使得$\phi(k)=a^k$，则<br>$$<br>\phi(k+l)=a^{k+l}=a^ka^l=\phi(k)\phi(l),\forall k,l \in \mathbb Z<br>$$<br>故$\phi$为同态，自然$\phi$为满射，由同态基本定理得<br>$$<br>G/ker(\phi) \backsimeq \mathbb Z<br>$$<br>由于$ker(\phi)&lt; \mathbb Z$，故由推论1.5.3可知<br>$$<br>ker(\phi)=m\mathbb Z,m \geq 0<br>$$<br>若$m=0$，则$G \backsimeq \mathbb Z$，此时$G$的阶为无限</a></p>
+<h4 id="证明-26"><a href="#证明-26" class="headerlink" title="证明"></a>证明</h4><p>设$G=&lt;a^{}&gt;$，定义$\phi: \mathbb Z \rightarrow G$，使得$\phi(k)=a^k$，则<br>$$<br>\phi(k+l)=a^{k+l}=a^ka^l=\phi(k)\phi(l),\forall k,l \in \mathbb Z<br>$$<br>故$\phi$为同态，自然$\phi$为满射，由同态基本定理得<br>$$<br>G/ker(\phi) \backsimeq \mathbb Z<br>$$<br>由于$ker(\phi)&lt; \mathbb Z$，故由推论1.5.3可知<br>$$<br>ker(\phi)=m\mathbb Z,m \geq 0<br>$$<br>若$m=0$，则$G \backsimeq \mathbb Z$，此时$G$的阶为无限</p>
 <p>若$m&gt;0$，则$G \backsimeq \mathbb Z/m\mathbb Z=\mathbb Z_m$，此时$G$的阶为$m$</p>
-<h3 id="定理1-5-5"><a href="#定理1-5-5" class="headerlink" title="定理1.5.5"></a>定理1.5.5</h3><p>设$G=<a>$，$G$的阶为$m$，$n \mid m,n \in \mathbb N$，则$G$中存在唯一的$n$阶子群</a></p>
+<h3 id="定理1-5-5"><a href="#定理1-5-5" class="headerlink" title="定理1.5.5"></a>定理1.5.5</h3><p>设$G=&lt;a^{}&gt;$，$G$的阶为$m$，$n \mid m,n \in \mathbb N$，则$G$中存在唯一的$n$阶子群</p>
 <h4 id="证明-27"><a href="#证明-27" class="headerlink" title="证明"></a>证明</h4><p>因为$G \backsimeq \mathbb Z_m$，所以我们只需对$\mathbb Z_m$进行证明<br>$$<br>\mathbb Z_m={\overline{0},\overline{1},…,\overline{m-1} }<br>$$<br>考虑群<br>$$<br>&lt;\overline{(\frac {m}{n})}&gt;=\mathbb Z_m={\overline{0},\overline{(\frac {m}{n})},…,(n-1)\overline{(\frac {m}{n})} }<br>$$<br>容易验证该群时$G$的$n$阶子群，唯一性可以自行证明</p>
 <p>证毕</p>
 <h4 id="备注-3"><a href="#备注-3" class="headerlink" title="备注"></a>备注</h4><p>若$G$为一般群，则不一定存在，存在也不一定唯一</p>
@@ -558,14 +558,14 @@
 <h3 id="命题1-5-7"><a href="#命题1-5-7" class="headerlink" title="命题1.5.7"></a>命题1.5.7</h3><p>设$G$为有限群，$G$的阶为$m$，$a \in G$，则$a$的阶$d \mid m$</p>
 <h4 id="证明-28"><a href="#证明-28" class="headerlink" title="证明"></a>证明</h4><p>记$H={ a^k \mid k \in \mathbb Z }={e,a,…,a^{d-1}}$，则$H&lt;G$，$H$的阶为$d$，由Lagrange定理可得$d \mid m$</p>
 <p>证毕</p>
-<h3 id="生成组和有限生成群（定义1-5-2）"><a href="#生成组和有限生成群（定义1-5-2）" class="headerlink" title="生成组和有限生成群（定义1.5.2）"></a>生成组和有限生成群（定义1.5.2）</h3><p>设$S$是群$G$中一个非空子集，记<br>$$<br>S^{-1}={a^{-1} \mid a \in S}<br>$$<br>则<br>$$<br>{x_1…x_m \mid x_1,…,x_m \in S \bigcup S^{-1},m \in \mathbb N}<br>$$<br>是$G$的一个子群，称为$S$生成的子群，记为$<s>$，并且</s></p>
+<h3 id="生成组和有限生成群（定义1-5-2）"><a href="#生成组和有限生成群（定义1-5-2）" class="headerlink" title="生成组和有限生成群（定义1.5.2）"></a>生成组和有限生成群（定义1.5.2）</h3><p>设$S$是群$G$中一个非空子集，记<br>$$<br>S^{-1}={a^{-1} \mid a \in S}<br>$$<br>则<br>$$<br>{x_1…x_m \mid x_1,…,x_m \in S \bigcup S^{-1},m \in \mathbb N}<br>$$<br>是$G$的一个子群，称为$S$生成的子群，记为$&lt;S^{}&gt;$，并且</p>
 <ol>
 <li>$<s>$</s></li>
 <li>$G$中包含$G$的最小子群</li>
 <li>$G$中包含$S$的子群之交</li>
 </ol>
 <p>以上三种说法等价</p>
-<p>如果$G=<s>$，则称$S$为群$G$的一个<strong>生成组</strong></s></p>
+<p>如果$G=&lt;S^{}&gt;$，则称$S$为群$G$的一个<strong>生成组</strong></p>
 <p>如果群$G$有一个有限子集$G$作为生成组，则称$G$为<strong>有限生成群</strong></p>
 <p>有限群一定是有限生成群，但有限生成群不一定是有限群，例如<br>$$<br>{\mathbb Z;+} = &lt;1&gt;<br>$$<br>就是无限群</p>
 
@@ -576,7 +576,7 @@
     <div class="content">
         
 <span class="post-time">
-    最終更新：<time datetime="2020-05-27T10:01:53.173Z" itemprop="dateUpdated">2020-05-27 18:01:53</time>
+    Last updated: <time datetime="2020-05-27T16:30:13.381Z" itemprop="dateUpdated">2020-05-28 00:30:13</time>
 </span><br>
 
 
@@ -665,7 +665,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
+            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
         </p>
     </div>
     <div class="bottom">
