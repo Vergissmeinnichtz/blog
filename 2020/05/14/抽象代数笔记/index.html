@@ -33,7 +33,7 @@
 <meta property="og:image" content="http://yoursite.com/2020/05/14/抽象代数笔记/2.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/05/14/抽象代数笔记/3.jpg">
 <meta property="og:image" content="http://yoursite.com/2020/05/14/抽象代数笔记/4.jpg">
-<meta property="og:updated_time" content="2020-06-03T11:46:10.963Z">
+<meta property="og:updated_time" content="2020-06-03T11:49:13.998Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="抽象代数笔记">
 <meta name="twitter:description" content="简介密码学必修课抽象代数的笔记，看心情学习2333。内容来自南开大学邓少强老师的公开课。">
@@ -124,7 +124,7 @@
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
                 <i class="icon icon-lg icon-chevron-left"></i>
             </a>
-            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="Search">
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="検索">
             <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
                 <i class="icon icon-lg icon-search"></i>
             </a>
@@ -602,7 +602,8 @@
 <h3 id="命题1-6-11"><a href="#命题1-6-11" class="headerlink" title="命题1.6.11"></a>命题1.6.11</h3><p>设$G$为群，则$AutG&lt;S_G$，称为$AutG$为群$G$的自同构群</p>
 <h3 id="命题1-6-12（内自同构和内自同构群）"><a href="#命题1-6-12（内自同构和内自同构群）" class="headerlink" title="命题1.6.12（内自同构和内自同构群）"></a>命题1.6.12（内自同构和内自同构群）</h3><p>设$G$为群，$a \in G$，定义映射$\sigma_a: G \rightarrow G$为<br>$$<br>\sigma_a(g) = aga^{-1},\forall g \in G<br>$$<br>则$\sigma_a \in AutG$，称为由$a$决定的<strong>内自同构</strong>，记<br>$$<br>InnG = \{\sigma_a \mid a \in G\}<br>$$<br>即<br>$$<br>InnG \triangleleft AutG<br>$$<br>称$InnG$为$G$的<strong>内自同构群</strong></p>
 <h4 id="证明-31"><a href="#证明-31" class="headerlink" title="证明"></a>证明</h4><p>设$InnG \neq \emptyset$，对$a,b \in G$，$\sigma_a,\sigma_b \in AutG$，有<br>$$<br>\sigma_a(g_1g_2)=ag_1g_2a^{-1}=ag_1a^{-1}ag_2a^{-1}=\sigma_a(g_1)\sigma_a(g_2)<br>$$<br>$\sigma_a$为同态，$\sigma_a$为单射，又对$\forall g_1 \in G$，有<br>$$<br>\sigma_a(a^{-1}g_1a)=a(a^{-1}g_1a)a^{-1}=g_1<br>$$<br>故$\sigma_a \in AutG$，又$(\sigma_b)^{-1}(g) = \sigma_{b^{-1}}(g)$，有<br>$$<br>(\sigma_a\sigma_b^{-1})(g) = a(b^{-1}gb)a^{-1}=ab^{-1}g(ab^{-1})^{-1} = \sigma_{ab^{-1}}(g)<br>$$<br>故$\sigma_a\sigma_b^{-1} \in InnG$，即$InnG &lt; AutG$</p>
-<p>又对$\forall a \in G$，$S \in AutG$，有<br>$$<br>S\sigma_aS^{-1}(g)=S(\sigma_a(S^{-1}(g)))=S(aS^{-1}(g)a^{-1})=S(a)S(S^{-1}(g))S(a^{-1})=S(a)gS(a)^{-1}=\sigma_{S(a)}(g)<br>$$<br>故$S\sigma_aS^{-1}=\sigma_{S(a)}$，即$InnG \triangleleft AutG$</p>
+<p>又对$\forall a \in G$，$S \in AutG$，有<br>$$<br>S\sigma_aS^{-1}(g)=S(\sigma_a(S^{-1}(g)))=S(aS^{-1}(g)a^{-1})<br>$$<br>$$<br>=S(a)S(S^{-1}(g))S(a^{-1})=S(a)gS(a)^{-1}=\sigma_{S(a)}(g)<br>$$</p>
+<p>故$S\sigma_aS^{-1}=\sigma_{S(a)}$，即$InnG \triangleleft AutG$</p>
 <p>作映射$f:G \rightarrow InnG$，使得<br>$$<br>f(a)=\sigma_a,\forall a \in G<br>$$<br>则容易验证<br>$$<br>f(ab)=\sigma_{ab}=\sigma_a\sigma_b=f(a)f(b)<br>$$<br>从而$f$是满同态映射，又<br>$$<br>kerf = \{ a \in G \mid \sigma_a = id\} = \{ a \in G \mid  aga^{-1}=g,\forall g \in G\} = \{a \in G \mid ag = ga,\forall g \in G\}<br>$$<br>$kerf$称为$G$的<strong>中心</strong>（与$G$中所有元素可交换的元素的集合），记为$C(G)$，$C(G) \triangleleft G$，且<br>$$<br>InnG \simeq G/C(G)<br>$$</p>
 <h4 id="例子-16"><a href="#例子-16" class="headerlink" title="例子"></a>例子</h4><ol>
 <li>若$G$为交换群，则$InnG=\{id\}$，$C(G)=G$</li>
@@ -701,8 +702,8 @@
 <p>由于$R$对于加法来说是交换群，因而$I$是加法群$R$的正规子群，从而关系”$\sim$”对于加法是同余关系；对于乘法，设$a \sim a_1,b \sim b_1$，则$a-a_1 \in I,b-b_1 \in I$，由于$I$是理想，故<br>$$<br>ab-a_1b_1=ab-ab_1+ab_1-a_1b_1=a(b-b_1)+(a-a_1)b_1 \in I<br>$$<br>即$ab \sim a_1b_1$，故关系”$\sim$”对于乘法也是同余关系，显然$R/I$对于所定义的加法是交换群，又由于$R$满足结合律，由定义$R/I$的乘法也满足结合律</p>
 <p>在商集合$R/I$上定义加法和乘法<br>$$<br>(a+I)+(b+I)=(a+b)+I<br>$$</p>
 <p>$$<br>(a+I)(b+I)=ab+I<br>$$</p>
-<p>最后，$\forall a,b,c \in R$有</p>
-<p>$((a+I)+(b+I))(c+I)=((a+b)+I)(c+I)=(a+b)c+I =(ac+bc)+I=(ac+I)+(bc+I) =(a+I)(c+I)+(b+I)(c+I)$</p>
+<p>最后，$\forall a,b,c \in R$有<br>$$<br>((a+I)+(b+I))(c+I)=((a+b)+I)(c+I)=(a+b)c+I<br>$$</p>
+<p>$$<br>=(ac+bc)+I=(ac+I)+(bc+I) =(a+I)(c+I)+(b+I)(c+I)<br>$$</p>
 <p>类似可证<br>$$<br>(a+I)((b+I)+(c+I))=(a+I)(b+I)+(a+I)(c+I)<br>$$<br>即分配律成立，因而$R/I$是环</p>
 <h4 id="推论-2"><a href="#推论-2" class="headerlink" title="推论"></a>推论</h4><ol>
 <li>若$R$为交换环，则$R/I$也是交换环</li>
@@ -731,7 +732,7 @@
     <div class="content">
         
 <span class="post-time">
-    Last updated: <time datetime="2020-06-03T11:46:10.963Z" itemprop="dateUpdated">2020-06-03 19:46:10</time>
+    最終更新：<time datetime="2020-06-03T11:49:13.998Z" itemprop="dateUpdated">2020-06-03 19:49:13</time>
 </span><br>
 
 
@@ -820,7 +821,7 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>This blog is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by/4.0/">Creative Commons Attribution 4.0 International License</a>.</span>
+            <span>このブログの内容物は<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ja">クリエイティブ・コモンズ 表示 - 非営利 - 継承 4.0 国際ライセンスの下に提供されています</a></span>
         </p>
     </div>
     <div class="bottom">
